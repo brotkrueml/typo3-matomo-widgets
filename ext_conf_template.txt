@@ -1,0 +1,8 @@
+# cat=General; type=string; label=LLL:EXT:matomo_widgets/Resources/Private/Language/ExtensionConfiguration.xlf:url
+url =
+
+# cat=General; type=int+; label=LLL:EXT:matomo_widgets/Resources/Private/Language/ExtensionConfiguration.xlf:idSite
+idSite =
+
+# cat=General; type=string; label=LLL:EXT:matomo_widgets/Resources/Private/Language/ExtensionConfiguration.xlf:tokenAuth
+tokenAuth =

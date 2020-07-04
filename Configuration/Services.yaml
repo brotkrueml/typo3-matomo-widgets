@@ -1,0 +1,58 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Brotkrueml\MatomoWidgets\:
+    resource: '../Classes/*'
+
+  cache.matomo_widgets:
+    class: 'TYPO3\CMS\Core\Cache\Frontend\FrontendInterface'
+    factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
+    arguments:
+      $identifier: 'matomo_widgets'
+
+  dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Visits'
+    arguments:
+      $cache: '@cache.matomo_widgets'
+      $period: 'day'
+      $date: 'last28'
+
+  dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerMonth:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Visits'
+    arguments:
+      $cache: '@cache.matomo_widgets'
+      $period: 'month'
+      $date: 'last12'
+
+  dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay:
+    class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
+    arguments:
+      $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay'
+      $view: '@dashboard.views.widget'
+    tags:
+      - name: dashboard.widget
+        identifier: 'matomo_widgets.visitsSummary.visitsPerDay'
+        groupNames: 'matomo'
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visitsPerDay.title'
+        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visitsPerDay.description'
+        iconIdentifier: 'content-widget-chart-bar'
+        height: 'medium'
+        width: 'medium'
+
+  dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.visitsPerMonth:
+    class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
+    arguments:
+      $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerMonth'
+      $view: '@dashboard.views.widget'
+    tags:
+      - name: dashboard.widget
+        identifier: 'matomo_widgets.visitsSummary.visitsPerMonth'
+        groupNames: 'matomo'
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visitsPerMonth.title'
+        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visitsPerMonth.description'
+        iconIdentifier: 'content-widget-chart-bar'
+        height: 'medium'
+        width: 'small'
