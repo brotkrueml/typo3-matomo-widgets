@@ -14,6 +14,7 @@ use Brotkrueml\MatomoWidgets\Connection\MatomoConnector;
 use Brotkrueml\MatomoWidgets\Exception\InvalidSiteIdException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidUrlException;
 use Brotkrueml\MatomoWidgets\Extension;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
@@ -34,8 +35,8 @@ class MatomoConnectorTest extends TestCase
     /** @var Stub|ClientInterface */
     private $clientStub;
 
-    /** @var Stub|RequestInterface */
-    private $requestStub;
+    /** @var MockObject|RequestInterface */
+    private $requestMock;
 
     /** @var Stub|ResponseInterface */
     private $responseStub;
@@ -45,7 +46,7 @@ class MatomoConnectorTest extends TestCase
         $this->extensionConfigurationStub = $this->createStub(ExtensionConfiguration::class);
         $this->requestFactoryStub = $this->createStub(RequestFactoryInterface::class);
         $this->clientStub = $this->createStub(ClientInterface::class);
-        $this->requestStub = $this->createStub(RequestInterface::class);
+        $this->requestMock = $this->createMock(RequestInterface::class);
         $this->responseStub = $this->createStub(ResponseInterface::class);
     }
 
@@ -56,7 +57,7 @@ class MatomoConnectorTest extends TestCase
      * @param array $parameters
      * @param string $expected
      */
-    public function callApiIsImplementedCorrectly(array $configuration, array $parameters, string $expectedApiUrl): void
+    public function callApiIsImplementedCorrectly(array $configuration, array $parameters, string $expectedQuery): void
     {
         $this->extensionConfigurationStub
             ->method('get')
@@ -65,10 +66,21 @@ class MatomoConnectorTest extends TestCase
 
         $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactoryStub, $this->clientStub);
 
+        $this->requestMock
+            ->expects(self::at(0))
+            ->method('withHeader')
+            ->with('content-type', 'application/x-www-form-urlencoded')
+            ->willReturn($this->requestMock);
+
+        $this->requestMock
+            ->expects(self::at(1))
+            ->method('withBody')
+            ->willReturn($this->requestMock);
+
         $this->requestFactoryStub
             ->method('createRequest')
-            ->with('GET', $expectedApiUrl)
-            ->willReturn($this->requestStub);
+            ->with('POST', 'https://example.org/')
+            ->willReturn($this->requestMock);
 
         $streamStub = $this->createStub(StreamInterface::class);
         $streamStub
@@ -81,7 +93,7 @@ class MatomoConnectorTest extends TestCase
 
         $this->clientStub
             ->method('sendRequest')
-            ->with($this->requestStub)
+            ->with($this->requestMock)
             ->willReturn($this->responseStub);
 
         self::assertSame(['some' => 'result'], $subject->callApi('SomeModule.someMethod', $parameters));
@@ -96,7 +108,7 @@ class MatomoConnectorTest extends TestCase
                 'url' => 'https://example.org/',
             ],
             [],
-            'https://example.org/?module=API&idSite=42&token_auth=thesecrettoken&method=SomeModule.someMethod&format=json'
+            'module=API&idSite=42&token_auth=thesecrettoken&method=SomeModule.someMethod&format=json'
         ];
 
         yield 'with parameters' => [
@@ -109,7 +121,7 @@ class MatomoConnectorTest extends TestCase
                 'foo' => 'bar',
                 'qux' => 'qoo',
             ],
-            'https://example.org/?module=API&idSite=42&token_auth=thesecrettoken&method=SomeModule.someMethod&format=json&foo=bar&qux=qoo'
+            'module=API&idSite=42&token_auth=thesecrettoken&method=SomeModule.someMethod&format=json&foo=bar&qux=qoo'
         ];
 
         yield 'with parameters having special characters being urlencoded' => [
@@ -122,7 +134,7 @@ class MatomoConnectorTest extends TestCase
                 'fo&o' => 'ba+r',
                 'qu x' => 'qo"o',
             ],
-            'https://example.org/?module=API&idSite=42&token_auth=thesecrettoken&method=SomeModule.someMethod&format=json&fo%26o=ba%2Br&qu+x=qo%22o'
+            'module=API&idSite=42&token_auth=thesecrettoken&method=SomeModule.someMethod&format=json&fo%26o=ba%2Br&qu+x=qo%22o'
         ];
 
         yield 'with auth token having special characters being urlencoded' => [
@@ -132,7 +144,7 @@ class MatomoConnectorTest extends TestCase
                 'url' => 'https://example.org/',
             ],
             [],
-            'https://example.org/?module=API&idSite=42&token_auth=the+secret+token&method=SomeModule.someMethod&format=json'
+            'module=API&idSite=42&token_auth=the+secret+token&method=SomeModule.someMethod&format=json'
         ];
 
         yield '/ is appended to url if missing' => [
@@ -142,7 +154,7 @@ class MatomoConnectorTest extends TestCase
                 'url' => 'https://example.org',
             ],
             [],
-            'https://example.org/?module=API&idSite=42&token_auth=the+secret+token&method=SomeModule.someMethod&format=json'
+            'module=API&idSite=42&token_auth=the+secret+token&method=SomeModule.someMethod&format=json'
         ];
     }
 

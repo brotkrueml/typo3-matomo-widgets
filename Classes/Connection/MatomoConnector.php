@@ -16,6 +16,7 @@ use Brotkrueml\MatomoWidgets\Extension;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Http\Stream;
 
 class MatomoConnector
 {
@@ -84,21 +85,21 @@ class MatomoConnector
 
     public function callApi(string $method, array $parameters): array
     {
-        $additionalQueryString = '';
-        foreach ($parameters as $name => $value) {
-            $additionalQueryString .= \sprintf('&%s=%s', \urlencode($name), \urlencode($value));
-        }
+        $defaultParameters = [
+            'module' => 'API',
+            'idSite' => $this->idSite,
+            'token_auth' => $this->tokenAuth,
+            'method' => $method,
+            'format' => 'json',
+        ];
+        $query = \http_build_query(\array_merge($defaultParameters, $parameters));
 
-        $apiUrl = \sprintf(
-            '%s?module=API&idSite=%d&token_auth=%s&method=%s&format=json%s',
-            $this->url,
-            $this->idSite,
-            \urlencode($this->tokenAuth),
-            $method,
-            $additionalQueryString
-        );
+        $body = new Stream('php://temp', 'r+');
+        $body->write($query);
 
-        $request = $this->requestFactory->createRequest('GET', $apiUrl);
+        $request = $this->requestFactory->createRequest('POST', $this->url)
+            ->withHeader('content-type', 'application/x-www-form-urlencoded')
+            ->withBody($body);
         $response = $this->client->sendRequest($request);
 
         return \json_decode($response->getBody()->getContents(), true);
