@@ -19,4 +19,8 @@ reports via the `Reporting API <https://developer.matomo.org/guides/querying-the
 Screenshots
 ===========
 
-todo.
+.. figure:: ../Images/DashboardExample.png
+   :alt: Example for a Matomo Dashboard
+
+   Example for a Matomo Dashboard
+

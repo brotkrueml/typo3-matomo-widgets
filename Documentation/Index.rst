@@ -52,6 +52,7 @@ Just click on "Edit me on GitHub" on the top right to submit your change request
    :maxdepth: 3
 
    Introduction/Index
+   Dashboard/Index
    Widgets/Index
    Installation/Index
    Configuration/Index

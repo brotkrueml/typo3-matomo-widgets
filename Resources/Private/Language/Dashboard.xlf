@@ -4,7 +4,7 @@
 		<header/>
 		<body>
 			<trans-unit id="preset.description" resname="preset.description">
-				<source><![CDATA[This preset will give you a dashboard with widgets containing charts for actions and visits.]]></source>
+				<source><![CDATA[This preset will give you a preset dashboard containing the most common widgets.]]></source>
 			</trans-unit>
 			<trans-unit id="preset.title" resname="preset.title">
 				<source><![CDATA[Matomo]]></source>
