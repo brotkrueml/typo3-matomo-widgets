@@ -42,13 +42,23 @@ class VisitsSummaryRepository
         return $this->matomoConnector->callApi('VisitsSummary.get', $parameters);
     }
 
+    public function getActions(string $period, string $date): array
+    {
+        return $this->retrieve('getActions', $period, $date);
+    }
+
     public function getVisits(string $period, string $date): array
+    {
+        return $this->retrieve('getVisits', $period, $date);
+    }
+
+    private function retrieve(string $method, string $period, string $date): array
     {
         $parameters = [
             'period' => $period,
             'date' => $date,
         ];
 
-        return $this->matomoConnector->callApi('VisitsSummary.getVisits', $parameters);
+        return $this->matomoConnector->callApi('VisitsSummary.' . $method, $parameters);
     }
 }

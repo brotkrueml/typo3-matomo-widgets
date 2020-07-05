@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\WidgetApi;
 use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
 
-class Visits implements ChartDataProviderInterface
+class Actions implements ChartDataProviderInterface
 {
     /** @var FrontendInterface */
     private $cache;
@@ -50,16 +50,16 @@ class Visits implements ChartDataProviderInterface
 
     public function getChartData(): array
     {
-        $cacheIdentifier = 'VisitsSummaryVisits' . \ucfirst($this->period);
+        $cacheIdentifier = 'VisitsSummaryActions' . \ucfirst($this->period);
         $chartData = $this->cache->get($cacheIdentifier);
         if (false === $chartData) {
-            $data = $this->visitsSummaryRepository->getVisits($this->period, $this->date);
+            $data = $this->visitsSummaryRepository->getActions($this->period, $this->date);
             $chartData = [
                 'labels' => \array_keys($data),
                 'datasets' => [
                     [
-                        'label' => $this->languageService->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visits.dataset.label'),
-                        'backgroundColor' => WidgetApi::getDefaultChartColors()[2],
+                        'label' => $this->languageService->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actions.dataset.label'),
+                        'backgroundColor' => WidgetApi::getDefaultChartColors()[3],
                         'data' => \array_values($data),
                     ],
                 ],

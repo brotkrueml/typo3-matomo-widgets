@@ -16,6 +16,4 @@ class Extension
 
     private const LANGUAGE_PATH = 'LLL:EXT:' . self::KEY . '/Resources/Private/Language/';
     public const LANGUAGE_PATH_DASHBOARD = self::LANGUAGE_PATH . 'Dashboard.xlf';
-
-    public const WIDGET_DEFAULT_CHART_COLOUR = '#3152a0';
 }

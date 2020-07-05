@@ -60,7 +60,7 @@ class VisitsTest extends TestCase
             'datasets' => [
                 [
                     'label' => 'Visits',
-                    'backgroundColor' => '#3152a0',
+                    'backgroundColor' => '#1a568f',
                     'data' => ['12', '42', '8'],
                 ],
             ],
@@ -113,7 +113,7 @@ class VisitsTest extends TestCase
             'datasets' => [
                 [
                     'label' => 'Visits',
-                    'backgroundColor' => '#3152a0',
+                    'backgroundColor' => '#1a568f',
                     'data' => ['123', '456'],
                 ],
             ],

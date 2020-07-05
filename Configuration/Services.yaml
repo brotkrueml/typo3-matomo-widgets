@@ -13,30 +13,49 @@ services:
     arguments:
       $identifier: 'matomo_widgets'
 
-  dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.bounceRate:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Number'
+  dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Actions'
+    arguments:
+      $cache: '@cache.matomo_widgets'
+      $period: 'day'
+      $date: 'last28'
+
+  dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay:
+    class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
+    arguments:
+      $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay'
+      $view: '@dashboard.views.widget'
+    tags:
+      - name: dashboard.widget
+        identifier: 'matomo_widgets.visitsSummary.actionsPerDay'
+        groupNames: 'matomo'
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actionsPerDay.title'
+        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actionsPerDay.description'
+        iconIdentifier: 'content-widget-chart-bar'
+        height: 'medium'
+        width: 'medium'
+
+  dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerMonth:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Actions'
     arguments:
       $cache: '@cache.matomo_widgets'
       $period: 'month'
-      $date: 'today'
-      $column: 'bounce_rate'
+      $date: 'last12'
 
-  dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.bounceRate:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\PercentNumberWithIconWidget'
+  dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.actionsPerMonth:
+    class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
     arguments:
-      $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.bounceRate'
+      $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerMonth'
       $view: '@dashboard.views.widget'
-      $options:
-        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.title'
-        subtitle: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.subtitle'
-        icon: 'content-target'
     tags:
       - name: dashboard.widget
-        identifier: 'matomo_widgets.visitsSummary.bounceRate'
+        identifier: 'matomo_widgets.visitsSummary.actionsPerMonth'
         groupNames: 'matomo'
-        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.title'
-        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.description'
-        iconIdentifier: 'content-widget-number'
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actionsPerMonth.title'
+        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actionsPerMonth.description'
+        iconIdentifier: 'content-widget-chart-bar'
+        height: 'medium'
+        width: 'small'
 
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Visits'
@@ -81,3 +100,28 @@ services:
         iconIdentifier: 'content-widget-chart-bar'
         height: 'medium'
         width: 'small'
+
+  dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.bounceRate:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Number'
+    arguments:
+      $cache: '@cache.matomo_widgets'
+      $period: 'month'
+      $date: 'today'
+      $column: 'bounce_rate'
+
+  dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.bounceRate:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\PercentNumberWithIconWidget'
+    arguments:
+      $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.bounceRate'
+      $view: '@dashboard.views.widget'
+      $options:
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.title'
+        subtitle: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.subtitle'
+        icon: 'content-target'
+    tags:
+      - name: dashboard.widget
+        identifier: 'matomo_widgets.visitsSummary.bounceRate'
+        groupNames: 'matomo'
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.title'
+        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.description'
+        iconIdentifier: 'content-widget-number'
