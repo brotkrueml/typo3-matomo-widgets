@@ -82,6 +82,17 @@ The bounce rate for the current month shows this widget:
    Widget *Bounce rate*
 
 
+Browsers
+========
+
+The browser share for the current month shows this widget:
+
+.. figure:: ../Images/WidgetBrowsers.png
+   :alt: Widget Browsers
+
+   Widget *Browsers*
+
+
 Link to Matomo
 ==============
 

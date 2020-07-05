@@ -9,6 +9,15 @@
 			<trans-unit id="preset.title" resname="preset.title">
 				<source><![CDATA[Matomo]]></source>
 			</trans-unit>
+			<trans-unit id="widgets.devicesDetection.browsers.description" resname="widgets.devicesDetection.browsers.description">
+				<source><![CDATA[Overview of the used browsers in the current month.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.devicesDetection.browsers.other" resname="widgets.devicesDetection.browsers.other">
+				<source><![CDATA[Other]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.devicesDetection.browsers.title" resname="widgets.devicesDetection.browsers.title">
+				<source><![CDATA[Browsers]]></source>
+			</trans-unit>
 			<trans-unit id="widgets.linkMatomo.buttonText" resname="widgets.linkMatomo.buttonText">
 				<source><![CDATA[To the Matomo installation]]></source>
 			</trans-unit>

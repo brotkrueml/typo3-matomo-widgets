@@ -126,6 +126,30 @@ services:
         description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.description'
         iconIdentifier: 'content-widget-number'
 
+  dashboard.provider.brotkrueml.matomo_widgets.devicesDetection.browsers:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\DevicesDetection\Browsers'
+    arguments:
+      $cache: '@cache.matomo_widgets'
+      $period: 'month'
+      $date: 'today'
+      $maxItemsBeforeCombineOthers: 7
+
+  dashboard.widget.brotkrueml.matomo_widgets.devicesDetection.browsers:
+    class: 'TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.devicesDetection.browsers'
+    tags:
+      - name: dashboard.widget
+        identifier: 'matomo_widgets.devicesDetection.browsers'
+        groupNames: 'matomo'
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.devicesDetection.browsers.title'
+        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.devicesDetection.browsers.description'
+        iconIdentifier: 'content-widget-chart-pie'
+        height: 'medium'
+        width: 'small'
+
+
   dashboard.buttons.brotkrueml.matomo_widgets.linkMatomo:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoProvider'
 
