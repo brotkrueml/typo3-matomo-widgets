@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Connection;
 
+use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidSiteIdException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidUrlException;
 use Brotkrueml\MatomoWidgets\Extension;
@@ -106,6 +107,21 @@ class MatomoConnector
             ->withBody($body);
         $response = $this->client->sendRequest($request);
 
-        return \json_decode($response->getBody()->getContents(), true);
+        $content = $response->getBody()->getContents();
+        $this->checkResponseForError($content);
+
+        return \json_decode($content, true);
+    }
+
+    private function checkResponseForError(string $content): void
+    {
+        if (\strpos($content, 'Error') === 0) {
+            throw new ConnectionException($content, 1593955897);
+        }
+
+        $decoded = \json_decode($content, true);
+        if (isset($decoded['result']) && $decoded['result'] === 'error') {
+            throw new ConnectionException($decoded['message'], 1593955989);
+        }
     }
 }

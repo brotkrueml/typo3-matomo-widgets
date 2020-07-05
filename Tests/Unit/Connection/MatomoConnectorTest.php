@@ -11,150 +11,147 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Connection;
 
 use Brotkrueml\MatomoWidgets\Connection\MatomoConnector;
+use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidSiteIdException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidUrlException;
 use Brotkrueml\MatomoWidgets\Extension;
-use PHPUnit\Framework\MockObject\MockObject;
+use donatj\MockWebServer\MockWebServer;
+use donatj\MockWebServer\Response;
+use GuzzleHttp\Client as GuzzleClient;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Http\Client;
+use TYPO3\CMS\Core\Http\RequestFactory;
 
 class MatomoConnectorTest extends TestCase
 {
+    /** @var MockWebServer */
+    private static $server;
+
     /** @var Stub|ExtensionConfiguration */
     private $extensionConfigurationStub;
 
-    /** @var Stub|RequestFactoryInterface */
-    private $requestFactoryStub;
+    /** @var RequestFactoryInterface */
+    private $requestFactory;
 
-    /** @var Stub|ClientInterface */
-    private $clientStub;
+    /** @var ClientInterface */
+    private $client;
 
-    /** @var MockObject|RequestInterface */
-    private $requestMock;
-
-    /** @var Stub|ResponseInterface */
-    private $responseStub;
-
-    protected function setUp(): void
+    public static function setUpBeforeClass(): void
     {
-        $this->extensionConfigurationStub = $this->createStub(ExtensionConfiguration::class);
-        $this->requestFactoryStub = $this->createStub(RequestFactoryInterface::class);
-        $this->clientStub = $this->createStub(ClientInterface::class);
-        $this->requestMock = $this->createMock(RequestInterface::class);
-        $this->responseStub = $this->createStub(ResponseInterface::class);
+        self::$server = new MockWebServer();
+        self::$server->start();
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        self::$server->stop();
     }
 
     /**
      * @test
      * @dataProvider dataProviderForCallApi
      * @param array $configuration
+     * @param string $method
      * @param array $parameters
-     * @param string $expected
+     * @param string $expectedQuery
+     * @param string $expectedResult
      */
-    public function callApiIsImplementedCorrectly(array $configuration, array $parameters, string $expectedQuery): void
-    {
+    public function callApi(
+        array $configuration,
+        string $method,
+        array $parameters,
+        string $expectedQuery,
+        string $expectedResult
+    ): void {
+        $configuration['url'] = \sprintf('http://%s:%s/', self::$server->getHost(), self::$server->getPort());
+
         $this->extensionConfigurationStub
             ->method('get')
             ->with(Extension::KEY)
             ->willReturn($configuration);
 
-        $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactoryStub, $this->clientStub);
+        self::$server->setResponseOfPath(
+            '/',
+            new Response(
+                $expectedResult,
+                ['content-type' => 'application/json; charset=utf-8'],
+                200
+            )
+        );
 
-        $this->requestMock
-            ->expects(self::at(0))
-            ->method('withHeader')
-            ->with('content-type', 'application/x-www-form-urlencoded')
-            ->willReturn($this->requestMock);
+        $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $actual = $subject->callApi($method, $parameters);
 
-        $this->requestMock
-            ->expects(self::at(1))
-            ->method('withBody')
-            ->willReturn($this->requestMock);
+        $lastRequest = self::$server->getLastRequest();
+        self::assertSame('application/x-www-form-urlencoded', $lastRequest->getHeaders()['content-type']);
+        self::assertSame('POST', $lastRequest->getRequestMethod());
+        self::assertSame('/', $lastRequest->getRequestUri());
+        $body = \http_build_query($lastRequest->getPost());
+        self::assertSame($expectedQuery, $body);
+        self::assertSame($expectedResult, \json_encode($actual));
+    }
 
-        $this->requestFactoryStub
-            ->method('createRequest')
-            ->with('POST', 'https://example.org/')
-            ->willReturn($this->requestMock);
-
-        $streamStub = $this->createStub(StreamInterface::class);
-        $streamStub
-            ->method('getContents')
-            ->willReturn('{"some": "result"}');
-
-        $this->responseStub
-            ->method('getBody')
-            ->willReturn($streamStub);
-
-        $this->clientStub
-            ->method('sendRequest')
-            ->with($this->requestMock)
-            ->willReturn($this->responseStub);
-
-        self::assertSame(['some' => 'result'], $subject->callApi('SomeModule.someMethod', $parameters));
+    protected function setUp(): void
+    {
+        $this->extensionConfigurationStub = $this->createStub(ExtensionConfiguration::class);
+        $this->requestFactory = new RequestFactory();
+        $this->client = new Client(new GuzzleClient());
     }
 
     public function dataProviderForCallApi(): \Generator
     {
-        yield 'without parameters' => [
+        yield 'with parameters and no token' => [
             [
-                'idSite' => '42',
-                'tokenAuth' => 'thesecrettoken',
-                'url' => 'https://example.org/',
+                'idSite' => '62',
+                'tokenAuth' => '',
             ],
-            [],
-            'module=API&idSite=42&token_auth=thesecrettoken&method=SomeModule.someMethod&format=json'
+            'VisitsSummary.get',
+            [
+                'period' => 'day',
+                'date' => 'today',
+            ],
+            'module=API&idSite=62&method=VisitsSummary.get&format=json&period=day&date=today',
+            '{"nb_uniq_visitors":1518,"nb_users":0,"nb_visits":1579,"nb_actions":3102,"nb_visits_converted":126,"bounce_count":1063,"sum_visit_length":259992,"max_actions":44,"bounce_rate":"67%","nb_actions_per_visit":2,"avg_time_on_site":165}',
         ];
 
-        yield 'with parameters' => [
+        yield 'without parameters and no token' => [
             [
-                'idSite' => '42',
+                'idSite' => '62',
+                'tokenAuth' => '',
+            ],
+            'API.getMatomoVersion',
+            [],
+            'module=API&idSite=62&method=API.getMatomoVersion&format=json',
+            '{"value":"3.13.6"}',
+        ];
+
+        yield 'without parameters and token' => [
+            [
+                'idSite' => '62',
                 'tokenAuth' => 'thesecrettoken',
-                'url' => 'https://example.org/',
             ],
-            [
-                'foo' => 'bar',
-                'qux' => 'qoo',
-            ],
-            'module=API&idSite=42&token_auth=thesecrettoken&method=SomeModule.someMethod&format=json&foo=bar&qux=qoo'
+            'API.getMatomoVersion',
+            [],
+            'module=API&idSite=62&method=API.getMatomoVersion&format=json&token_auth=thesecrettoken',
+            '{"value":"3.13.6"}',
         ];
 
         yield 'with parameters having special characters being urlencoded' => [
             [
-                'idSite' => '42',
+                'idSite' => '62',
                 'tokenAuth' => 'thesecrettoken',
-                'url' => 'https://example.org/',
             ],
+            'VisitsSummary.get',
             [
                 'fo&o' => 'ba+r',
                 'qu x' => 'qo"o',
             ],
-            'module=API&idSite=42&token_auth=thesecrettoken&method=SomeModule.someMethod&format=json&fo%26o=ba%2Br&qu+x=qo%22o'
-        ];
-
-        yield 'with auth token having special characters being urlencoded' => [
-            [
-                'idSite' => '42',
-                'tokenAuth' => 'the secret token',
-                'url' => 'https://example.org/',
-            ],
-            [],
-            'module=API&idSite=42&token_auth=the+secret+token&method=SomeModule.someMethod&format=json'
-        ];
-
-        yield '/ is appended to url if missing' => [
-            [
-                'idSite' => '42',
-                'tokenAuth' => 'the secret token',
-                'url' => 'https://example.org',
-            ],
-            [],
-            'module=API&idSite=42&token_auth=the+secret+token&method=SomeModule.someMethod&format=json'
+            'module=API&idSite=62&method=VisitsSummary.get&format=json&token_auth=thesecrettoken&fo%26o=ba%2Br&qu_x=qo%22o',
+            '{"nb_uniq_visitors":1518,"nb_users":0,"nb_visits":1579,"nb_actions":3102,"nb_visits_converted":126,"bounce_count":1063,"sum_visit_length":259992,"max_actions":44,"bounce_rate":"67%","nb_actions_per_visit":2,"avg_time_on_site":165}',
         ];
     }
 
@@ -176,7 +173,7 @@ class MatomoConnectorTest extends TestCase
                 'url' => 'https://example.org/',
             ]);
 
-        new MatomoConnector($this->extensionConfigurationStub, $this->requestFactoryStub, $this->clientStub);
+        new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
     }
 
     /**
@@ -197,6 +194,72 @@ class MatomoConnectorTest extends TestCase
                 'url' => 'invalid',
             ]);
 
-        new MatomoConnector($this->extensionConfigurationStub, $this->requestFactoryStub, $this->clientStub);
+        new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+    }
+
+    /**
+     * @test
+     */
+    public function whenErrorAsStringOccursAnExceptionIsThrown(): void
+    {
+        $this->expectException(ConnectionException::class);
+        $this->expectExceptionCode(1593955897);
+        $this->expectExceptionMessage('Error: Renderer format \'json1\' not valid. Try any of the following instead: console, csv, html, json, json2, original, php, rss, tsv, xml.');
+
+        $configuration = [
+            'idSite' => '62',
+            'tokenAuth' => 'thesecrettoken',
+            'url' => \sprintf('http://%s:%s/', self::$server->getHost(), self::$server->getPort()),
+        ];
+
+        $this->extensionConfigurationStub
+            ->method('get')
+            ->with(Extension::KEY)
+            ->willReturn($configuration);
+
+        self::$server->setResponseOfPath(
+            '/',
+            new Response(
+                'Error: Renderer format \'json1\' not valid. Try any of the following instead: console, csv, html, json, json2, original, php, rss, tsv, xml.',
+                [],
+                200
+            )
+        );
+
+        $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $subject->callApi('someMethod', []);
+    }
+
+    /**
+     * @test
+     */
+    public function whenErrorAsJsonOccursAnExceptionIsThrown(): void
+    {
+        $this->expectException(ConnectionException::class);
+        $this->expectExceptionCode(1593955989);
+        $this->expectExceptionMessage('The method \'someMethod\' does not exist or is not available in the module');
+
+        $configuration = [
+            'idSite' => '62',
+            'tokenAuth' => 'thesecrettoken',
+            'url' => \sprintf('http://%s:%s/', self::$server->getHost(), self::$server->getPort()),
+        ];
+
+        $this->extensionConfigurationStub
+            ->method('get')
+            ->with(Extension::KEY)
+            ->willReturn($configuration);
+
+        self::$server->setResponseOfPath(
+            '/',
+            new Response(
+                '{"result":"error","message":"The method \'someMethod\' does not exist or is not available in the module"}',
+                [],
+                200
+            )
+        );
+
+        $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $subject->callApi('someMethod', []);
     }
 }
