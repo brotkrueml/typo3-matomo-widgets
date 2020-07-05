@@ -3,6 +3,12 @@
 	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2020-07-04T17:17:52Z" product-name="matomo_widgets">
 		<header/>
 		<body>
+			<trans-unit id="preset.description" resname="preset.description">
+				<source><![CDATA[This preset will give you a dashboard with widgets containing charts for actions and visits.]]></source>
+			</trans-unit>
+			<trans-unit id="preset.title" resname="preset.title">
+				<source><![CDATA[Matomo]]></source>
+			</trans-unit>
 			<trans-unit id="widgets.visitsSummary.actions.dataset.label" resname="widgets.visitsSummary.actions.dataset.label">
 				<source><![CDATA[Actions]]></source>
 			</trans-unit>
