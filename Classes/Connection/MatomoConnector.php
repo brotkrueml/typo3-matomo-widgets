@@ -88,10 +88,14 @@ class MatomoConnector
         $defaultParameters = [
             'module' => 'API',
             'idSite' => $this->idSite,
-            'token_auth' => $this->tokenAuth,
             'method' => $method,
             'format' => 'json',
         ];
+        if ($this->tokenAuth) {
+            // Parameter is optional
+            $defaultParameters['token_auth'] = $this->tokenAuth;
+        }
+
         $query = \http_build_query(\array_merge($defaultParameters, $parameters));
 
         $body = new Stream('php://temp', 'r+');
