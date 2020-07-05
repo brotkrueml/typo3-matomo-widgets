@@ -6,7 +6,7 @@ if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations
         'frontend' => TYPO3\CMS\Core\Cache\Frontend\VariableFrontend::class,
         'backend' => TYPO3\CMS\Core\Cache\Backend\FileBackend::class,
         'options' => [
-            'defaultLifetime' => 900,
+            'defaultLifetime' => 3600,
         ],
     ];
 }
