@@ -18,6 +18,7 @@ return [
             'matomo_widgets.visitsSummary.visitsPerMonth',
             'matomo_widgets.visitsSummary.actionsPerMonth',
             'matomo_widgets.visitsSummary.bounceRate',
+            'matomo_widgets.linkMatomo',
         ],
         'showInWizard' => true
     ],

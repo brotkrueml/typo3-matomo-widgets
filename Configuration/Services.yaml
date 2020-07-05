@@ -125,3 +125,23 @@ services:
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.title'
         description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.description'
         iconIdentifier: 'content-widget-number'
+
+  dashboard.buttons.brotkrueml.matomo_widgets.linkMatomo:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoProvider'
+
+  dashboard.widget.brotkrueml.matomo_widgets.linkMatomo:
+    class: 'TYPO3\CMS\Dashboard\Widgets\CtaWidget'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $buttonProvider: '@dashboard.buttons.brotkrueml.matomo_widgets.linkMatomo'
+      $options:
+        text: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.linkMatomo.text'
+    tags:
+      - name: dashboard.widget
+        identifier: 'matomo_widgets.linkMatomo'
+        groupNames: 'matomo'
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.linkMatomo.title'
+        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.linkMatomo.description'
+        iconIdentifier: 'content-widget-text'
+        height: 'small'
+        width: 'small'
