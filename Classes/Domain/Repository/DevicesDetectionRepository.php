@@ -39,4 +39,16 @@ class DevicesDetectionRepository
 
         return $this->matomoConnector->callApi('DevicesDetection.getBrowsers', $parameters);
     }
+
+    public function getOsFamilies(string $period, string $date): array
+    {
+        $parameters = [
+            'period' => $period,
+            'date' => $date,
+            'filter_sort_column' => 'nb_uniq_visitors',
+            'filter_sort_order' => 'desc',
+        ];
+
+        return $this->matomoConnector->callApi('DevicesDetection.getOsFamilies', $parameters);
+    }
 }

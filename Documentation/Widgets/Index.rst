@@ -93,6 +93,17 @@ The browser share for the current month shows this widget:
    Widget *Browsers*
 
 
+Operating system families
+=========================
+
+The operating system families used by the visitors for the current month:
+
+.. figure:: ../Images/WidgetOsFamilies.png
+   :alt: Widget Operating system families
+
+   Widget *Operating system families*
+
+
 Campaigns
 =========
 

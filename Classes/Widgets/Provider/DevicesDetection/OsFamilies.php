@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\WidgetApi;
 use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
 
-class Browsers implements ChartDataProviderInterface
+class OsFamilies implements ChartDataProviderInterface
 {
     /** @var FrontendInterface */
     private $cache;
@@ -55,16 +55,16 @@ class Browsers implements ChartDataProviderInterface
 
     public function getChartData(): array
     {
-        $cacheIdentifier = 'DevicesDetectionBrowsers';
+        $cacheIdentifier = 'DevicesDetectionOsFamilies';
         $chartData = $this->cache->get($cacheIdentifier);
         if (false === $chartData) {
-            $browsers = $this->getBrowsers();
+            $osFamilies = $this->getOsFamilies();
             $chartData = [
-                'labels' => \array_keys($browsers),
+                'labels' => \array_keys($osFamilies),
                 'datasets' => [
                     [
                         'backgroundColor' => WidgetApi::getDefaultChartColors(),
-                        'data' => \array_values($browsers),
+                        'data' => \array_values($osFamilies),
                     ],
                 ],
             ];
@@ -75,15 +75,15 @@ class Browsers implements ChartDataProviderInterface
         return $chartData;
     }
 
-    private function getBrowsers(): array
+    private function getOsFamilies(): array
     {
-        $data = $this->devicesDetectionRepository->getBrowsers($this->period, $this->date);
+        $data = $this->devicesDetectionRepository->getOsFamilies($this->period, $this->date);
 
-        $browsers = [];
+        $osFamilies = [];
         $otherBrowsers = 0;
         foreach ($data as $browser) {
-            if (\count($browsers) < $this->maxItemsBeforeCombineOthers) {
-                $browsers[$browser['label']] = $browser['nb_visits'];
+            if (\count($osFamilies) < $this->maxItemsBeforeCombineOthers) {
+                $osFamilies[$browser['label']] = $browser['nb_visits'];
                 continue;
             }
 
@@ -91,9 +91,9 @@ class Browsers implements ChartDataProviderInterface
         }
 
         if ($otherBrowsers) {
-            $browsers[$this->languageService->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':other')] = $otherBrowsers;
+            $osFamilies[$this->languageService->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':other')] = $otherBrowsers;
         }
 
-        return $browsers;
+        return $osFamilies;
     }
 }

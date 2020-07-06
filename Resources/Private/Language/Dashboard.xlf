@@ -3,6 +3,9 @@
 	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2020-07-04T17:17:52Z" product-name="matomo_widgets">
 		<header/>
 		<body>
+			<trans-unit id="other" resname="other">
+				<source><![CDATA[Other]]></source>
+			</trans-unit>
 			<trans-unit id="preset.description" resname="preset.description">
 				<source><![CDATA[This preset will give you a preset dashboard containing the most common widgets.]]></source>
 			</trans-unit>
@@ -12,11 +15,14 @@
 			<trans-unit id="widgets.devicesDetection.browsers.description" resname="widgets.devicesDetection.browsers.description">
 				<source><![CDATA[Overview of the used browsers in the current month.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.devicesDetection.browsers.other" resname="widgets.devicesDetection.browsers.other">
-				<source><![CDATA[Other]]></source>
-			</trans-unit>
 			<trans-unit id="widgets.devicesDetection.browsers.title" resname="widgets.devicesDetection.browsers.title">
 				<source><![CDATA[Browsers]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.devicesDetection.osFamilies.description" resname="widgets.devicesDetection.osFamilies.description">
+				<source><![CDATA[Overview of the used operating system families in the current month.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.devicesDetection.osFamilies.title" resname="widgets.devicesDetection.osFamilies.title">
+				<source><![CDATA[Operating system families]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.linkMatomo.buttonText" resname="widgets.linkMatomo.buttonText">
 				<source><![CDATA[To the Matomo installation]]></source>
