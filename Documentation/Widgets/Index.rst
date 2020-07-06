@@ -26,32 +26,6 @@ The following widgets are available:
    <https://github.com/brotkrueml/typo3-matomo-widgets/issues>`_ and perhaps the
    widget is available in the next release.
 
-Visits per day
-==============
-
-This widget displays the number of visits per day for the last 28 days:
-
-.. figure:: ../Images/WidgetVisitsPerDay.png
-   :alt: Widget Visits per day
-
-   Widget *Visits per day*
-
-Matomo module: VisitsSummary
-
-
-Visits per month
-================
-
-This widget displays the number of visits per month for the last 12 months:
-
-.. figure:: ../Images/WidgetVisitsPerMonth.png
-   :alt: Widget Visits per month
-
-   Widget *Visits per month*
-
-Matomo module: VisitsSummary
-
-
 Actions per day
 ===============
 
@@ -114,19 +88,6 @@ The browser share for the current month shows this widget:
 Matomo module: DevicesDetection
 
 
-Operating system families
-=========================
-
-The operating system families used by the visitors for the current month:
-
-.. figure:: ../Images/WidgetOsFamilies.png
-   :alt: Widget Operating system families
-
-   Widget *Operating system families*
-
-Matomo module: DevicesDetection
-
-
 Campaigns
 =========
 
@@ -150,3 +111,42 @@ installation:
    :alt: Widget Link to Matomo
 
    Widget *Link to Matomo*
+
+
+Operating system families
+=========================
+
+The operating system families used by the visitors for the current month:
+
+.. figure:: ../Images/WidgetOsFamilies.png
+   :alt: Widget Operating system families
+
+   Widget *Operating system families*
+
+Matomo module: DevicesDetection
+
+
+Visits per day
+==============
+
+This widget displays the number of visits per day for the last 28 days:
+
+.. figure:: ../Images/WidgetVisitsPerDay.png
+   :alt: Widget Visits per day
+
+   Widget *Visits per day*
+
+Matomo module: VisitsSummary
+
+
+Visits per month
+================
+
+This widget displays the number of visits per month for the last 12 months:
+
+.. figure:: ../Images/WidgetVisitsPerMonth.png
+   :alt: Widget Visits per month
+
+   Widget *Visits per month*
+
+Matomo module: VisitsSummary
