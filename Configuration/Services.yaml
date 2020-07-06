@@ -149,6 +149,27 @@ services:
         height: 'medium'
         width: 'small'
 
+  dashboard.provider.brotkrueml.matomo_widgets.referrers.campaigns:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\Referrers\Campaigns'
+    arguments:
+      $cache: '@cache.matomo_widgets'
+      $period: 'month'
+      $date: 'today'
+
+  dashboard.widget.brotkrueml.matomo_widgets.referrers.campaigns:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\CampaignsWidget'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.referrers.campaigns'
+    tags:
+      - name: dashboard.widget
+        identifier: 'matomo_widgets.referrers.campaigns'
+        groupNames: 'matomo'
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.title'
+        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.description'
+        iconIdentifier: 'content-widget-list'
+        height: 'medium'
+        width: 'small'
 
   dashboard.buttons.brotkrueml.matomo_widgets.linkMatomo:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoProvider'

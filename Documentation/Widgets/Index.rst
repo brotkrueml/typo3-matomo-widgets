@@ -93,6 +93,17 @@ The browser share for the current month shows this widget:
    Widget *Browsers*
 
 
+Campaigns
+=========
+
+Displays a report of the campaigns for the current month:
+
+.. figure:: ../Images/WidgetCampaigns.png
+   :alt: Widget Campaigns
+
+   Widget *Campaigns*
+
+
 Link to Matomo
 ==============
 
