@@ -5,5 +5,5 @@
 
 The extension supports TYPO3 v10 LTS.
 
-[Documentation](https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/master/en-us/)
-
+[Documentation](https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/master/en-us/) |
+[Changelog](https://github.com/brotkrueml/typo3-matomo-widgets/blob/master/CHANGELOG.md)
