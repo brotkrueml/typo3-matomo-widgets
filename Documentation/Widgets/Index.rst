@@ -17,6 +17,11 @@ The following widgets are available:
    :local:
 
 
+.. tip::
+   Do you miss a widget? Open a `feature request
+   <https://github.com/brotkrueml/typo3-matomo-widgets/issues>`_ and perhaps the
+   widget is available in the next release.
+
 Visits per day
 ==============
 
