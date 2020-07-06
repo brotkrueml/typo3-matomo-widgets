@@ -10,6 +10,10 @@ You can add the Matomo widgets like any other widget to a dashboard. Please
 note, that the permissions for editors have to be granted to be able to use
 these widgets.
 
+.. hint::
+   Most widgets need an activated module in Matomo to work. If a module is not
+   available, an error is displayed in the widget.
+
 The following widgets are available:
 
 .. contents::
@@ -32,6 +36,8 @@ This widget displays the number of visits per day for the last 28 days:
 
    Widget *Visits per day*
 
+Matomo module: VisitsSummary
+
 
 Visits per month
 ================
@@ -42,6 +48,8 @@ This widget displays the number of visits per month for the last 12 months:
    :alt: Widget Visits per month
 
    Widget *Visits per month*
+
+Matomo module: VisitsSummary
 
 
 Actions per day
@@ -59,6 +67,8 @@ are:
 
    Widget *Actions per day*
 
+Matomo module: VisitsSummary
+
 
 Actions per month
 =================
@@ -75,6 +85,8 @@ Actions are:
 
    Widget *Actions per month*
 
+Matomo module: VisitsSummary
+
 
 Bounce rate
 ===========
@@ -85,6 +97,8 @@ The bounce rate for the current month shows this widget:
    :alt: Widget Bounce Rate
 
    Widget *Bounce rate*
+
+Matomo module: VisitsSummary
 
 
 Browsers
@@ -97,6 +111,8 @@ The browser share for the current month shows this widget:
 
    Widget *Browsers*
 
+Matomo module: DevicesDetection
+
 
 Operating system families
 =========================
@@ -108,6 +124,8 @@ The operating system families used by the visitors for the current month:
 
    Widget *Operating system families*
 
+Matomo module: DevicesDetection
+
 
 Campaigns
 =========
@@ -118,6 +136,8 @@ Displays a report of the campaigns for the current month:
    :alt: Widget Campaigns
 
    Widget *Campaigns*
+
+Matomo module: Referrers
 
 
 Link to Matomo
