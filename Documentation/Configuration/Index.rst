@@ -32,6 +32,10 @@ configuration:
 Base URL of the Matomo installation
    Enter the URL of your Matomo installation.
 
+   .. important::
+      Please ensure TLS (https) is used for connecting to the Matomo
+      installation as the authentication token is transferred in plain text!
+
 Site ID
    Enter the site id for the website.
 
