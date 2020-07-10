@@ -23,12 +23,12 @@ services:
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
-      $method: VisitsSummary.getActions
+      $method: 'VisitsSummary.getActions'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actions.dataset.label'
       $barColour: '#4c7e3a'
       $parameters:
-        period: day
-        date: last28
+        period: 'day'
+        date: 'last28'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -36,7 +36,7 @@ services:
       $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay'
       $view: '@dashboard.views.widget'
     tags:
-      - name: dashboard.widget
+      - name: 'dashboard.widget'
         identifier: 'matomo_widgets.visitsSummary.actionsPerDay'
         groupNames: 'matomo'
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actionsPerDay.title'
@@ -48,12 +48,12 @@ services:
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerMonth:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
-      $method: VisitsSummary.getActions
+      $method: 'VisitsSummary.getActions'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actions.dataset.label'
       $barColour: '#4c7e3a'
       $parameters:
-        period: month
-        date: last12
+        period: 'month'
+        date: 'last12'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.actionsPerMonth:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -61,7 +61,7 @@ services:
       $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerMonth'
       $view: '@dashboard.views.widget'
     tags:
-      - name: dashboard.widget
+      - name: 'dashboard.widget'
         identifier: 'matomo_widgets.visitsSummary.actionsPerMonth'
         groupNames: 'matomo'
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actionsPerMonth.title'
@@ -73,12 +73,12 @@ services:
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
-      $method: VisitsSummary.getVisits
+      $method: 'VisitsSummary.getVisits'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visits.dataset.label'
       $barColour: '#1a568f'
       $parameters:
-        period: day
-        date: last28
+        period: 'day'
+        date: 'last28'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -86,7 +86,7 @@ services:
       $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay'
       $view: '@dashboard.views.widget'
     tags:
-      - name: dashboard.widget
+      - name: 'dashboard.widget'
         identifier: 'matomo_widgets.visitsSummary.visitsPerDay'
         groupNames: 'matomo'
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visitsPerDay.title'
@@ -98,12 +98,12 @@ services:
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerMonth:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
-      $method: VisitsSummary.getVisits
+      $method: 'VisitsSummary.getVisits'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visits.dataset.label'
       $barColour: '#1a568f'
       $parameters:
-        period: month
-        date: last12
+        period: 'month'
+        date: 'last12'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.visitsPerMonth:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -111,7 +111,7 @@ services:
       $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerMonth'
       $view: '@dashboard.views.widget'
     tags:
-      - name: dashboard.widget
+      - name: 'dashboard.widget'
         identifier: 'matomo_widgets.visitsSummary.visitsPerMonth'
         groupNames: 'matomo'
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visitsPerMonth.title'
@@ -123,11 +123,11 @@ services:
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.bounceRate:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericValueDataProvider'
     arguments:
-      $method: VisitsSummary.get
-      $columnName: bounce_rate
+      $method: 'VisitsSummary.get'
+      $columnName: 'bounce_rate'
       $parameters:
-        period: month
-        date: today
+        period: 'month'
+        date: 'today'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.bounceRate:
     class: 'Brotkrueml\MatomoWidgets\Widgets\ValueWithIconWidget'
@@ -139,7 +139,7 @@ services:
         subtitle: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.subtitle'
         icon: 'content-target'
     tags:
-      - name: dashboard.widget
+      - name: 'dashboard.widget'
         identifier: 'matomo_widgets.visitsSummary.bounceRate'
         groupNames: 'matomo'
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.title'
@@ -149,15 +149,15 @@ services:
   dashboard.provider.brotkrueml.matomo_widgets.devicesDetection.browsers:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericDoughnutChartDataProvider'
     arguments:
-      $method: DevicesDetection.getBrowsers
-      $labelColumn: label
-      $valueColumn: nb_visits
-      $limit: 7
+      $method: 'DevicesDetection.getBrowsers'
+      $labelColumn: 'label'
+      $valueColumn: 'nb_visits'
+      $limit: '7'
       $parameters:
-        period: month
-        date: today
-        filter_sort_column: nb_visits
-        filter_sort_order: desc
+        period: 'month'
+        date: 'today'
+        filter_sort_column: 'nb_visits'
+        filter_sort_order: 'desc'
 
   dashboard.widget.brotkrueml.matomo_widgets.devicesDetection.browsers:
     class: 'TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget'
@@ -165,7 +165,7 @@ services:
       $view: '@dashboard.views.widget'
       $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.devicesDetection.browsers'
     tags:
-      - name: dashboard.widget
+      - name: 'dashboard.widget'
         identifier: 'matomo_widgets.devicesDetection.browsers'
         groupNames: 'matomo'
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.devicesDetection.browsers.title'
@@ -177,15 +177,15 @@ services:
   dashboard.provider.brotkrueml.matomo_widgets.devicesDetection.osFamilies:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericDoughnutChartDataProvider'
     arguments:
-      $method: DevicesDetection.getOsFamilies
-      $labelColumn: label
-      $valueColumn: nb_visits
-      $limit: 5
+      $method: 'DevicesDetection.getOsFamilies'
+      $labelColumn: 'label'
+      $valueColumn: 'nb_visits'
+      $limit: '5'
       $parameters:
-        period: month
-        date: today
-        filter_sort_column: nb_visits
-        filter_sort_order: desc
+        period: 'month'
+        date: 'today'
+        filter_sort_column: 'nb_visits'
+        filter_sort_order: 'desc'
 
   dashboard.widget.brotkrueml.matomo_widgets.devicesDetection.osFamilies:
     class: 'TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget'
@@ -193,7 +193,7 @@ services:
       $view: '@dashboard.views.widget'
       $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.devicesDetection.osFamilies'
     tags:
-      - name: dashboard.widget
+      - name: 'dashboard.widget'
         identifier: 'matomo_widgets.devicesDetection.osFamilies'
         groupNames: 'matomo'
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.devicesDetection.osFamilies.title'
@@ -205,19 +205,19 @@ services:
   dashboard.provider.brotkrueml.matomo_widgets.referrers.campaigns:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericTableDataProvider'
     arguments:
-      $method: Referrers.getCampaigns
+      $method: 'Referrers.getCampaigns'
       $columns:
-        - column: label
+        - column: 'label'
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.name'
-        - column: nb_visits
+        - column: 'nb_visits'
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.visits'
-          align: text-right
+          align: 'text-right'
       $parameters:
-        period: month
-        date: today
-        filter_limit: 30
-        filter_sort_column: nb_visits
-        filter_sort_order: desc
+        period: 'month'
+        date: 'today'
+        filter_limit: '30'
+        filter_sort_column: 'nb_visits'
+        filter_sort_order: 'desc'
 
   dashboard.widget.brotkrueml.matomo_widgets.referrers.campaigns:
     class: 'Brotkrueml\MatomoWidgets\Widgets\TableWidget'
@@ -225,7 +225,7 @@ services:
       $view: '@dashboard.views.widget'
       $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.referrers.campaigns'
     tags:
-      - name: dashboard.widget
+      - name: 'dashboard.widget'
         identifier: 'matomo_widgets.referrers.campaigns'
         groupNames: 'matomo'
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.title'
@@ -245,7 +245,7 @@ services:
       $options:
         text: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.linkMatomo.text'
     tags:
-      - name: dashboard.widget
+      - name: 'dashboard.widget'
         identifier: 'matomo_widgets.linkMatomo'
         groupNames: 'matomo'
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.linkMatomo.title'

@@ -45,12 +45,7 @@ final class GenericValueDataProvider implements ValueDataProviderInterface
 
     public function getValue(): string
     {
-        $parameterBag = new ParameterBag();
-        foreach ($this->parameters as $name => $value) {
-            $parameterBag->set($name, $value);
-        }
-
-        $result = $this->repository->find($this->method, $parameterBag);
+        $result = $this->repository->find($this->method, new ParameterBag($this->parameters));
 
         return $result[$this->columnName] ?? '';
     }

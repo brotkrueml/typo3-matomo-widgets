@@ -87,16 +87,6 @@ class GenericTableDataProvider implements TableDataProviderInterface
 
     public function getTableRows(): array
     {
-        return $this->getMatomoData();
-    }
-
-    private function getMatomoData(): array
-    {
-        $parameterBag = new ParameterBag();
-        foreach ($this->parameters as $name => $value) {
-            $parameterBag->set($name, (string)$value);
-        }
-
-        return $this->repository->find($this->method, $parameterBag);
+        return $this->repository->find($this->method, new ParameterBag($this->parameters));
     }
 }

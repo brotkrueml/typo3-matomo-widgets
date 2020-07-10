@@ -14,8 +14,24 @@ use Brotkrueml\MatomoWidgets\Exception\ParameterNotFoundException;
 
 final class ParameterBag
 {
-    /** @var array<string,string> */
+    /**
+     * @var array<string,string>
+     */
     private $parameters = [];
+
+    public function __construct(array $parameters = [])
+    {
+        $this->add($parameters);
+    }
+
+    public function add(array $parameters): self
+    {
+        \array_walk($parameters, function ($value, $name) {
+            $this->set($name, $value);
+        });
+
+        return $this;
+    }
 
     public function set(string $name, string $value): self
     {

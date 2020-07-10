@@ -65,7 +65,7 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
 
     public function getChartData(): array
     {
-        $data = $this->getMatomoData();
+        $data = $this->repository->find($this->method, new ParameterBag($this->parameters));
 
         return [
             'labels' => \array_keys($data),
@@ -77,15 +77,5 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
                 ],
             ],
         ];
-    }
-
-    private function getMatomoData(): array
-    {
-        $parameterBag = new ParameterBag();
-        foreach ($this->parameters as $name => $value) {
-            $parameterBag->set($name, $value);
-        }
-
-        return $this->repository->find($this->method, $parameterBag);
     }
 }

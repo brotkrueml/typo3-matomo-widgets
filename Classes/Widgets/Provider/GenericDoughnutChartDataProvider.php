@@ -74,7 +74,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
 
     public function getChartData(): array
     {
-        $data = $this->getMatomoData();
+        $data = $this->aggregateData();
 
         return [
             'labels' => \array_keys($data),
@@ -87,14 +87,9 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         ];
     }
 
-    private function getMatomoData(): array
+    private function aggregateData(): array
     {
-        $parameterBag = new ParameterBag();
-        foreach ($this->parameters as $name => $value) {
-            $parameterBag->set($name, $value);
-        }
-
-        $rows = $this->repository->find($this->method, $parameterBag);
+        $rows = $this->repository->find($this->method, new ParameterBag($this->parameters));
 
         $data = [];
         $valueOther = 0;
