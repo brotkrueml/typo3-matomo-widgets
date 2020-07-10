@@ -10,56 +10,56 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets;
 
-use TYPO3\CMS\Dashboard\Widgets\ListDataProviderInterface;
+use Brotkrueml\MatomoWidgets\Widgets\Provider\ValueDataProviderInterface;
+use TYPO3\CMS\Dashboard\Widgets\NumberWithIconDataProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class CampaignsWidget implements WidgetInterface
+class ValueWithIconWidget implements WidgetInterface
 {
     /**
      * @var WidgetConfigurationInterface
      */
     private $configuration;
     /**
-     * @var ListDataProviderInterface
-     */
-    private $dataProvider;
-    /**
      * @var StandaloneView
      */
     private $view;
     /**
-     * @var null
-     */
-    private $buttonProvider;
-    /**
      * @var array
      */
     private $options;
+    /**
+     * @var NumberWithIconDataProviderInterface
+     */
+    private $dataProvider;
 
     public function __construct(
         WidgetConfigurationInterface $configuration,
-        ListDataProviderInterface $dataProvider,
+        ValueDataProviderInterface $dataProvider,
         StandaloneView $view,
-        $buttonProvider = null,
         array $options = []
     ) {
         $this->configuration = $configuration;
-        $this->dataProvider = $dataProvider;
         $this->view = $view;
-        $this->buttonProvider = $buttonProvider;
+        $this->options = $options;
+        $this->dataProvider = $dataProvider;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function renderWidgetContent(): string
     {
-        $this->view->setTemplate('Widget/CampaignsWidget.html');
-
+        $this->view->setTemplate('Widget/ValueWithIconWidget');
         $this->view->assignMultiple([
-            'items' => $this->dataProvider->getItems(),
+            'icon' => $this->options['icon'],
+            'title' => $this->options['title'],
+            'subtitle' => $this->options['subtitle'],
+            'value' => $this->dataProvider->getValue(),
             'options' => $this->options,
-            'button' => $this->buttonProvider,
-            'configuration' => $this->configuration,
+            'configuration' => $this->configuration
         ]);
 
         return $this->view->render();

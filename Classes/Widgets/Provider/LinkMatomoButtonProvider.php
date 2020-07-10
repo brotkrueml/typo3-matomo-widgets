@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 
-class LinkMatomoProvider implements ButtonProviderInterface
+class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
     /** @var ExtensionConfiguration */
     private $extensionConfiguration;

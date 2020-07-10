@@ -15,6 +15,7 @@ use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidSiteIdException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidUrlException;
 use Brotkrueml\MatomoWidgets\Extension;
+use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use donatj\MockWebServer\MockWebServer;
 use donatj\MockWebServer\Response;
 use GuzzleHttp\Client as GuzzleClient;
@@ -83,8 +84,13 @@ class MatomoConnectorTest extends TestCase
             )
         );
 
+        $parameterBag = new ParameterBag();
+        foreach ($parameters as $name => $value) {
+            $parameterBag->set($name, $value);
+        }
+
         $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
-        $actual = $subject->callApi($method, $parameters);
+        $actual = $subject->callApi($method, $parameterBag);
 
         $lastRequest = self::$server->getLastRequest();
         self::assertSame('application/x-www-form-urlencoded', $lastRequest->getHeaders()['content-type']);
@@ -114,7 +120,7 @@ class MatomoConnectorTest extends TestCase
                 'period' => 'day',
                 'date' => 'today',
             ],
-            'module=API&idSite=62&method=VisitsSummary.get&format=json&period=day&date=today',
+            'period=day&date=today&module=API&idSite=62&method=VisitsSummary.get&token_auth=anonymous&format=json',
             '{"nb_uniq_visitors":1518,"nb_users":0,"nb_visits":1579,"nb_actions":3102,"nb_visits_converted":126,"bounce_count":1063,"sum_visit_length":259992,"max_actions":44,"bounce_rate":"67%","nb_actions_per_visit":2,"avg_time_on_site":165}',
         ];
 
@@ -125,7 +131,7 @@ class MatomoConnectorTest extends TestCase
             ],
             'API.getMatomoVersion',
             [],
-            'module=API&idSite=62&method=API.getMatomoVersion&format=json',
+            'module=API&idSite=62&method=API.getMatomoVersion&token_auth=anonymous&format=json',
             '{"value":"3.13.6"}',
         ];
 
@@ -136,7 +142,7 @@ class MatomoConnectorTest extends TestCase
             ],
             'API.getMatomoVersion',
             [],
-            'module=API&idSite=62&method=API.getMatomoVersion&format=json&token_auth=thesecrettoken',
+            'module=API&idSite=62&method=API.getMatomoVersion&token_auth=thesecrettoken&format=json',
             '{"value":"3.13.6"}',
         ];
 
@@ -150,9 +156,30 @@ class MatomoConnectorTest extends TestCase
                 'fo&o' => 'ba+r',
                 'qu x' => 'qo"o',
             ],
-            'module=API&idSite=62&method=VisitsSummary.get&format=json&token_auth=thesecrettoken&fo%26o=ba%2Br&qu_x=qo%22o',
+            'fo%26o=ba%2Br&qu_x=qo%22o&module=API&idSite=62&method=VisitsSummary.get&token_auth=thesecrettoken&format=json',
             '{"nb_uniq_visitors":1518,"nb_users":0,"nb_visits":1579,"nb_actions":3102,"nb_visits_converted":126,"bounce_count":1063,"sum_visit_length":259992,"max_actions":44,"bounce_rate":"67%","nb_actions_per_visit":2,"avg_time_on_site":165}',
         ];
+    }
+
+    /**
+     * @test
+     */
+    public function usingNotNumericIdSiteThrowsException(): void
+    {
+        $this->expectException(InvalidSiteIdException::class);
+        $this->expectExceptionCode(1593879284);
+        $this->expectExceptionMessage('idSite must be a positive integer, "0" given');
+
+        $this->extensionConfigurationStub
+            ->method('get')
+            ->with(Extension::KEY)
+            ->willReturn([
+                'idSite' => 'foo',
+                'tokenAuth' => 'thesecrettoken',
+                'url' => 'https://example.org/',
+            ]);
+
+        new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
     }
 
     /**
@@ -227,7 +254,7 @@ class MatomoConnectorTest extends TestCase
         );
 
         $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
-        $subject->callApi('someMethod', []);
+        $subject->callApi('someMethod', new ParameterBag());
     }
 
     /**
@@ -260,6 +287,6 @@ class MatomoConnectorTest extends TestCase
         );
 
         $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
-        $subject->callApi('someMethod', []);
+        $subject->callApi('someMethod', new ParameterBag());
     }
 }

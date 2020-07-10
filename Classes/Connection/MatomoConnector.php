@@ -14,6 +14,7 @@ use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidSiteIdException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidUrlException;
 use Brotkrueml\MatomoWidgets\Extension;
+use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
@@ -49,8 +50,8 @@ class MatomoConnector
         $this->client = $client;
 
         $configuration = $this->extensionConfiguration->get(Extension::KEY);
-        $this->idSite = (int)$configuration['idSite'];
-        $this->tokenAuth = $configuration['tokenAuth'];
+        $this->idSite = $configuration['idSite'];
+        $this->tokenAuth = $configuration['tokenAuth'] ?: 'anonymous';
         $this->url = $configuration['url'];
 
         $this->checkConfiguration();
@@ -59,7 +60,7 @@ class MatomoConnector
 
     private function checkConfiguration(): void
     {
-        if ($this->idSite <= 0) {
+        if (!\is_numeric($this->idSite) || (int)$this->idSite <= 0) {
             throw new InvalidSiteIdException(
                 \sprintf('idSite must be a positive integer, "%d" given', $this->idSite),
                 1593879284
@@ -84,23 +85,17 @@ class MatomoConnector
         $this->url = \rtrim($this->url, '/') . '/';
     }
 
-    public function callApi(string $method, array $parameters): array
+    public function callApi(string $method, ParameterBag $parameterBag): array
     {
-        $defaultParameters = [
-            'module' => 'API',
-            'idSite' => $this->idSite,
-            'method' => $method,
-            'format' => 'json',
-        ];
-        if ($this->tokenAuth) {
-            // Parameter is optional
-            $defaultParameters['token_auth'] = $this->tokenAuth;
-        }
-
-        $query = \http_build_query(\array_merge($defaultParameters, $parameters));
+        $parameterBag
+            ->set('module', 'API')
+            ->set('idSite', $this->idSite)
+            ->set('method', $method)
+            ->set('token_auth', $this->tokenAuth)
+            ->set('format', 'json');
 
         $body = new Stream('php://temp', 'r+');
-        $body->write($query);
+        $body->write($parameterBag->buildQuery());
 
         $request = $this->requestFactory->createRequest('POST', $this->url)
             ->withHeader('content-type', 'application/x-www-form-urlencoded')
@@ -108,12 +103,12 @@ class MatomoConnector
         $response = $this->client->sendRequest($request);
 
         $content = $response->getBody()->getContents();
-        $this->checkResponseForError($content);
+        $this->checkResponseForErrors($content);
 
         return \json_decode($content, true);
     }
 
-    private function checkResponseForError(string $content): void
+    private function checkResponseForErrors(string $content): void
     {
         if (\strpos($content, 'Error') === 0) {
             throw new ConnectionException($content, 1593955897);

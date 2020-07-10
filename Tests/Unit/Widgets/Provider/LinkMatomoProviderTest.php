@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Extension;
-use Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoProvider;
+use Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoButtonProvider;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
@@ -25,7 +25,7 @@ class LinkMatomoProviderTest extends TestCase
     /** @var Stub|LanguageService */
     private $languageServiceStub;
 
-    /** @var LinkMatomoProvider */
+    /** @var LinkMatomoButtonProvider */
     private $subject;
 
     protected function setUp(): void
@@ -33,7 +33,7 @@ class LinkMatomoProviderTest extends TestCase
         $this->extensionConfigurationStub = $this->createStub(ExtensionConfiguration::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
 
-        $this->subject = new LinkMatomoProvider($this->extensionConfigurationStub, $this->languageServiceStub);
+        $this->subject = new LinkMatomoButtonProvider($this->extensionConfigurationStub, $this->languageServiceStub);
     }
 
     /**

@@ -4,13 +4,15 @@
     <div class="widget-table-wrapper">
         <table class="widget-table">
             <tr>
-                <th><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.name" /></th>
-                <th class="text-right"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.count" /></th>
+                <f:for each="{tableHeaders}" as="header" key="index">
+                    <th class="{tableClasses.{index}}">{header}</th>
+                </f:for>
             </tr>
-            <f:for each="{items}" as="item">
+            <f:for each="{tableRows}" as="row">
                 <tr>
-                    <td>{item.name}</td>
-                    <td class="text-right">{item.count}</td>
+                    <f:for each="{tableColumns}" as="column" key="index">
+                        <td class="{tableClasses.{index}}">{row.{column}}</td>
+                    </f:for>
                 </tr>
             </f:for>
         </table>

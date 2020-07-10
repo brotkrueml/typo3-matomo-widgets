@@ -13,12 +13,21 @@ services:
     arguments:
       $identifier: 'matomo_widgets'
 
-  dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Actions'
+  Brotkrueml\MatomoWidgets\Domain\Repository\CachingRepositoryDecorator:
     arguments:
+      $repository: '@Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository'
       $cache: '@cache.matomo_widgets'
-      $period: 'day'
-      $date: 'last28'
+
+  Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface: '@Brotkrueml\MatomoWidgets\Domain\Repository\CachingRepositoryDecorator'
+
+  dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
+    arguments:
+      $method: VisitsSummary.getActions
+      $barColour: '#4c7e3a'
+      $parameters:
+        period: day
+        date: last28
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -36,11 +45,13 @@ services:
         width: 'medium'
 
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.actionsPerMonth:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Actions'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
-      $cache: '@cache.matomo_widgets'
-      $period: 'month'
-      $date: 'last12'
+      $method: VisitsSummary.getActions
+      $barColour: '#4c7e3a'
+      $parameters:
+        period: month
+        date: last12
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.actionsPerMonth:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -58,11 +69,13 @@ services:
         width: 'small'
 
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Visits'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
-      $cache: '@cache.matomo_widgets'
-      $period: 'day'
-      $date: 'last28'
+      $method: VisitsSummary.getVisits
+      $barColour: '#1a568f'
+      $parameters:
+        period: day
+        date: last28
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -80,11 +93,13 @@ services:
         width: 'medium'
 
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.visitsPerMonth:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Visits'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
-      $cache: '@cache.matomo_widgets'
-      $period: 'month'
-      $date: 'last12'
+      $method: VisitsSummary.getVisits
+      $barColour: '#1a568f'
+      $parameters:
+        period: month
+        date: last12
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.visitsPerMonth:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -102,15 +117,16 @@ services:
         width: 'small'
 
   dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.bounceRate:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\VisitsSummary\Number'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericValueDataProvider'
     arguments:
-      $cache: '@cache.matomo_widgets'
-      $period: 'month'
-      $date: 'today'
-      $column: 'bounce_rate'
+      $method: VisitsSummary.get
+      $columnName: bounce_rate
+      $parameters:
+        period: month
+        date: today
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.bounceRate:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\PercentNumberWithIconWidget'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\ValueWithIconWidget'
     arguments:
       $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.visitsSummary.bounceRate'
       $view: '@dashboard.views.widget'
@@ -127,12 +143,17 @@ services:
         iconIdentifier: 'content-widget-number'
 
   dashboard.provider.brotkrueml.matomo_widgets.devicesDetection.browsers:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\DevicesDetection\Browsers'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericDoughnutChartDataProvider'
     arguments:
-      $cache: '@cache.matomo_widgets'
-      $period: 'month'
-      $date: 'today'
-      $maxItemsBeforeCombineOthers: 7
+      $method: DevicesDetection.getBrowsers
+      $labelColumn: label
+      $valueColumn: nb_visits
+      $limit: 7
+      $parameters:
+        period: month
+        date: today
+        filter_sort_column: nb_visits
+        filter_sort_order: desc
 
   dashboard.widget.brotkrueml.matomo_widgets.devicesDetection.browsers:
     class: 'TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget'
@@ -150,12 +171,17 @@ services:
         width: 'small'
 
   dashboard.provider.brotkrueml.matomo_widgets.devicesDetection.osFamilies:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\DevicesDetection\OsFamilies'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericDoughnutChartDataProvider'
     arguments:
-      $cache: '@cache.matomo_widgets'
-      $period: 'month'
-      $date: 'today'
-      $maxItemsBeforeCombineOthers: 7
+      $method: DevicesDetection.getOsFamilies
+      $labelColumn: label
+      $valueColumn: nb_visits
+      $limit: 5
+      $parameters:
+        period: month
+        date: today
+        filter_sort_column: nb_visits
+        filter_sort_order: desc
 
   dashboard.widget.brotkrueml.matomo_widgets.devicesDetection.osFamilies:
     class: 'TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget'
@@ -173,14 +199,24 @@ services:
         width: 'small'
 
   dashboard.provider.brotkrueml.matomo_widgets.referrers.campaigns:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\Referrers\Campaigns'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericTableDataProvider'
     arguments:
-      $cache: '@cache.matomo_widgets'
-      $period: 'month'
-      $date: 'today'
+      $method: Referrers.getCampaigns
+      $columns:
+        - column: label
+          header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.name'
+        - column: nb_visits
+          header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.visits'
+          align: text-right
+      $parameters:
+        period: month
+        date: today
+        filter_limit: 30
+        filter_sort_column: nb_visits
+        filter_sort_order: desc
 
   dashboard.widget.brotkrueml.matomo_widgets.referrers.campaigns:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\CampaignsWidget'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\TableWidget'
     arguments:
       $view: '@dashboard.views.widget'
       $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.referrers.campaigns'
@@ -195,7 +231,7 @@ services:
         width: 'small'
 
   dashboard.buttons.brotkrueml.matomo_widgets.linkMatomo:
-    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoProvider'
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoButtonProvider'
 
   dashboard.widget.brotkrueml.matomo_widgets.linkMatomo:
     class: 'TYPO3\CMS\Dashboard\Widgets\CtaWidget'

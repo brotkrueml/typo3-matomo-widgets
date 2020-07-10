@@ -45,7 +45,7 @@
 			<trans-unit id="widgets.referrers.campaigns.column.name" resname="widgets.referrers.campaigns.column.name">
 				<source><![CDATA[Campaign name]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.referrers.campaigns.column.count" resname="widgets.referrers.campaigns.column.count">
+			<trans-unit id="widgets.referrers.campaigns.column.visits" resname="widgets.referrers.campaigns.column.visits">
 				<source><![CDATA[Visits]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.referrers.campaigns.title" resname="widgets.referrers.campaigns.title">

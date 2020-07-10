@@ -10,55 +10,59 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets;
 
-use TYPO3\CMS\Dashboard\Widgets\NumberWithIconDataProviderInterface;
+use Brotkrueml\MatomoWidgets\Widgets\Provider\TableDataProviderInterface;
+use TYPO3\CMS\Dashboard\Widgets\ListDataProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class PercentNumberWithIconWidget implements WidgetInterface
+class TableWidget implements WidgetInterface
 {
     /**
      * @var WidgetConfigurationInterface
      */
     private $configuration;
     /**
+     * @var ListDataProviderInterface
+     */
+    private $dataProvider;
+    /**
      * @var StandaloneView
      */
     private $view;
     /**
+     * @var null
+     */
+    private $buttonProvider;
+    /**
      * @var array
      */
     private $options;
-    /**
-     * @var NumberWithIconDataProviderInterface
-     */
-    private $dataProvider;
 
     public function __construct(
         WidgetConfigurationInterface $configuration,
-        NumberWithIconDataProviderInterface $dataProvider,
+        TableDataProviderInterface $dataProvider,
         StandaloneView $view,
-        array $options = []
+        $buttonProvider = null
     ) {
         $this->configuration = $configuration;
-        $this->view = $view;
-        $this->options = $options;
         $this->dataProvider = $dataProvider;
+        $this->view = $view;
+        $this->buttonProvider = $buttonProvider;
     }
 
-    /**
-     * @inheritDoc
-     */
     public function renderWidgetContent(): string
     {
-        $this->view->setTemplate('Widget/NumberWithIconWidget');
+        $this->view->setTemplate('Widget/TableWidget.html');
+
         $this->view->assignMultiple([
-            'icon' => $this->options['icon'],
-            'title' => $this->options['title'],
-            'subtitle' => $this->options['subtitle'],
-            'number' => $this->dataProvider->getNumber() . '%',
+            'tableClasses' => $this->dataProvider->getTableClasses(),
+            'tableColumns' => $this->dataProvider->getTableColumns(),
+            'tableHeaders' => $this->dataProvider->getTableHeaders(),
+            'tableRows' => $this->dataProvider->getTableRows(),
             'options' => $this->options,
-            'configuration' => $this->configuration
+            'button' => $this->buttonProvider,
+            'configuration' => $this->configuration,
         ]);
 
         return $this->view->render();
