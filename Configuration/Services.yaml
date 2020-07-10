@@ -24,6 +24,7 @@ services:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
       $method: VisitsSummary.getActions
+      $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actions.dataset.label'
       $barColour: '#4c7e3a'
       $parameters:
         period: day
@@ -48,6 +49,7 @@ services:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
       $method: VisitsSummary.getActions
+      $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actions.dataset.label'
       $barColour: '#4c7e3a'
       $parameters:
         period: month
@@ -72,6 +74,7 @@ services:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
       $method: VisitsSummary.getVisits
+      $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visits.dataset.label'
       $barColour: '#1a568f'
       $parameters:
         period: day
@@ -96,6 +99,7 @@ services:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider'
     arguments:
       $method: VisitsSummary.getVisits
+      $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visits.dataset.label'
       $barColour: '#1a568f'
       $parameters:
         period: month

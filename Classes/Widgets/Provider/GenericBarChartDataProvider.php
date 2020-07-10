@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
-use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
@@ -36,6 +35,11 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
     /**
      * @var string
      */
+    private $barLabel;
+
+    /**
+     * @var string
+     */
     private $barColour;
 
     /**
@@ -47,6 +51,7 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
         RepositoryInterface $repository,
         LanguageService $languageService,
         string $method,
+        string $barLabel,
         string $barColour,
         array $parameters
     ) {
@@ -54,6 +59,7 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
         $this->languageService = $languageService;
         $this->method = $method;
         $this->barColour = $barColour;
+        $this->barLabel = $barLabel;
         $this->parameters = $parameters;
     }
 
@@ -65,7 +71,7 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
             'labels' => \array_keys($data),
             'datasets' => [
                 [
-                    'label' => $this->languageService->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visits.dataset.label'),
+                    'label' => $this->languageService->sL($this->barLabel),
                     'backgroundColor' => $this->barColour,
                     'data' => \array_values($data),
                 ],
