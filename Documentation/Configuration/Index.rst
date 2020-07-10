@@ -40,9 +40,16 @@ Site ID
    Enter the site id for the website.
 
 Authentication token
-   Enter the authentication token (token_auth). It is recommended to create an
-   own user in Matomo which has only read access to this site.
+   Enter the authentication token (token_auth).
 
+   To retrieve a authentication token navigate in your Matomo installation to
+   the administration area and click on :guilabel:`Personal` >
+   :guilabel:`Settings`. There you'll find a section :guilabel:`API
+   Authentication Token`.
+
+   .. important::
+      It is recommended to create an own user in Matomo which has only read
+      access to this site.
 
 Cache configuration
 ===================
