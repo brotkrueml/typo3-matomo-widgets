@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2020-07-04T17:17:52Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2020-07-10T07:55:43Z" product-name="matomo_widgets">
 		<header/>
 		<body>
 			<trans-unit id="other" resname="other">
 				<source><![CDATA[Other]]></source>
 			</trans-unit>
 			<trans-unit id="preset.description" resname="preset.description">
-				<source><![CDATA[This preset will give you a preset dashboard containing the most common widgets.]]></source>
+				<source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
 			</trans-unit>
-			<trans-unit id="preset.title" resname="preset.title">
+			<trans-unit id="preset.title" resname="preset.title" translate="no">
 				<source><![CDATA[Matomo]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.devicesDetection.browsers.description" resname="widgets.devicesDetection.browsers.description">
