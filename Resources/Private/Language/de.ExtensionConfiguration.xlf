@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/ExtensionConfiguration.xlf" date="2020-07-04T15:57:11Z" product-name="matomo_widgets" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="idSite" resname="idSite" approved="yes">
+        <source><![CDATA[Site ID]]></source>
+        <target state="final"><![CDATA[Site-ID]]></target>
+      </trans-unit>
+      <trans-unit id="tokenAuth" resname="tokenAuth" approved="yes">
+        <source><![CDATA[Authentication token]]></source>
+        <target state="final"><![CDATA[Authentifizierungstoken]]></target>
+      </trans-unit>
+      <trans-unit id="url" resname="url" approved="yes">
+        <source><![CDATA[Base URL of the Matomo installation]]></source>
+        <target state="final"><![CDATA[Basis-URL der Matomo-Installation]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
