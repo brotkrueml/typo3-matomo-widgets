@@ -48,6 +48,9 @@
 		"bin-dir": ".Build/bin"
 	},
 	"extra": {
+		"branch-alias": {
+			"dev-master": "0.2.x-dev"
+		},
 		"typo3/cms": {
 			"extension-key": "matomo_widgets",
 			"cms-package-dir": "{$vendor-dir}/typo3/cms",
