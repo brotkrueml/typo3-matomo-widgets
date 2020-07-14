@@ -168,7 +168,7 @@ class MatomoConnectorTest extends TestCase
     {
         $this->expectException(InvalidSiteIdException::class);
         $this->expectExceptionCode(1593879284);
-        $this->expectExceptionMessage('idSite must be a positive integer, "0" given');
+        $this->expectExceptionMessage('idSite must be a positive integer, "foo" given. Please check your Matomo settings in the extension configuration.');
 
         $this->extensionConfigurationStub
             ->method('get')
@@ -179,7 +179,8 @@ class MatomoConnectorTest extends TestCase
                 'url' => 'https://example.org/',
             ]);
 
-        new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $subject->callApi('foo.bar', new ParameterBag());
     }
 
     /**
@@ -189,7 +190,7 @@ class MatomoConnectorTest extends TestCase
     {
         $this->expectException(InvalidSiteIdException::class);
         $this->expectExceptionCode(1593879284);
-        $this->expectExceptionMessage('idSite must be a positive integer, "0" given');
+        $this->expectExceptionMessage('idSite must be a positive integer, "0" given. Please check your Matomo settings in the extension configuration.');
 
         $this->extensionConfigurationStub
             ->method('get')
@@ -200,7 +201,8 @@ class MatomoConnectorTest extends TestCase
                 'url' => 'https://example.org/',
             ]);
 
-        new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $subject->callApi('foo.bar', new ParameterBag());
     }
 
     /**
@@ -210,7 +212,7 @@ class MatomoConnectorTest extends TestCase
     {
         $this->expectException(InvalidUrlException::class);
         $this->expectExceptionCode(1593880003);
-        $this->expectExceptionMessage('The given URL "invalid" is not valid');
+        $this->expectExceptionMessage('The given URL "invalid" is not valid. Please check your Matomo settings in the extension configuration.');
 
         $this->extensionConfigurationStub
             ->method('get')
@@ -221,7 +223,8 @@ class MatomoConnectorTest extends TestCase
                 'url' => 'invalid',
             ]);
 
-        new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $subject->callApi('foo.bar', new ParameterBag());
     }
 
     /**

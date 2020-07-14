@@ -53,40 +53,12 @@ class MatomoConnector
         $this->idSite = $configuration['idSite'];
         $this->tokenAuth = $configuration['tokenAuth'] ?: 'anonymous';
         $this->url = $configuration['url'];
-
-        $this->checkConfiguration();
-        $this->normaliseUrl();
-    }
-
-    private function checkConfiguration(): void
-    {
-        if (!\is_numeric($this->idSite) || (int)$this->idSite <= 0) {
-            throw new InvalidSiteIdException(
-                \sprintf('idSite must be a positive integer, "%d" given', $this->idSite),
-                1593879284
-            );
-        }
-
-        if (!$this->isValidUrl()) {
-            throw new InvalidUrlException(
-                \sprintf('The given URL "%s" is not valid', $this->url),
-                1593880003
-            );
-        }
-    }
-
-    private function isValidUrl(): bool
-    {
-        return \filter_var($this->url, \FILTER_VALIDATE_URL) !== false;
-    }
-
-    private function normaliseUrl(): void
-    {
-        $this->url = \rtrim($this->url, '/') . '/';
     }
 
     public function callApi(string $method, ParameterBag $parameterBag): array
     {
+        $this->checkConfiguration();
+
         $parameterBag
             ->set('module', 'API')
             ->set('idSite', $this->idSite)
@@ -118,5 +90,30 @@ class MatomoConnector
         if (isset($decoded['result']) && $decoded['result'] === 'error') {
             throw new ConnectionException($decoded['message'], 1593955989);
         }
+    }
+
+    private function checkConfiguration(): void
+    {
+        if (!\is_numeric($this->idSite) || (int)$this->idSite <= 0) {
+            throw new InvalidSiteIdException(
+                \sprintf(
+                    'idSite must be a positive integer, "%s" given. Please check your Matomo settings in the extension configuration.',
+                    $this->idSite
+                ),
+                1593879284
+            );
+        }
+
+        if (!$this->isValidUrl()) {
+            throw new InvalidUrlException(
+                \sprintf('The given URL "%s" is not valid. Please check your Matomo settings in the extension configuration.', $this->url),
+                1593880003
+            );
+        }
+    }
+
+    private function isValidUrl(): bool
+    {
+        return \filter_var($this->url, \FILTER_VALIDATE_URL) !== false;
     }
 }
