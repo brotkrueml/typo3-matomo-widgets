@@ -33,8 +33,28 @@ final class ParameterBag
         return $this;
     }
 
-    public function set(string $name, string $value): self
+    /**
+     * @param string $name
+     * @param string|ParameterResolverInterface $value
+     * @return $this
+     */
+    public function set(string $name, $value): self
     {
+        if ($value instanceof ParameterResolverInterface) {
+            $value = $value->resolve();
+        }
+
+        if (!\is_string($value)) {
+            throw new \InvalidArgumentException(
+                \sprintf(
+                    'Value must be of type string or an instance of "%s", "%s" given',
+                    ParameterResolverInterface::class,
+                    \get_debug_type($value)
+                ),
+                1594742873
+            );
+        }
+
         $this->parameters[$name] = $value;
 
         return $this;

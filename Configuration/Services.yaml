@@ -234,6 +234,39 @@ services:
         height: 'medium'
         width: 'small'
 
+  dashboard.provider.brotkrueml.matomo_widgets.userCountry.country:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\GenericTableDataProvider'
+    arguments:
+      $method: 'UserCountry.getCountry'
+      $columns:
+        - column: 'label'
+          header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.userCountry.country.column.name'
+        - column: 'nb_visits'
+          header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.userCountry.country.column.visits'
+          align: 'text-right'
+      $parameters:
+        period: 'month'
+        date: 'today'
+        filter_limit: '50'
+        filter_sort_column: 'nb_visits'
+        filter_sort_order: 'desc'
+        language: '@Brotkrueml\MatomoWidgets\Parameter\LanguageParameterResolver'
+
+  dashboard.widget.brotkrueml.matomo_widgets.userCountry.country:
+    class: 'Brotkrueml\MatomoWidgets\Widgets\TableWidget'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $dataProvider: '@dashboard.provider.brotkrueml.matomo_widgets.userCountry.country'
+    tags:
+      - name: 'dashboard.widget'
+        identifier: 'matomo_widgets.userCountry.country'
+        groupNames: 'matomo'
+        title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.userCountry.country.title'
+        description: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.userCountry.country.description'
+        iconIdentifier: 'content-widget-list'
+        height: 'medium'
+        width: 'small'
+
   dashboard.buttons.brotkrueml.matomo_widgets.linkMatomo:
     class: 'Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoButtonProvider'
 

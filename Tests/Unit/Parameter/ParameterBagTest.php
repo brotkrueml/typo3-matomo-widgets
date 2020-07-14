@@ -12,6 +12,7 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Parameter;
 
 use Brotkrueml\MatomoWidgets\Exception\ParameterNotFoundException;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
+use Brotkrueml\MatomoWidgets\Parameter\ParameterResolverInterface;
 use PHPUnit\Framework\TestCase;
 
 class ParameterBagTest extends TestCase
@@ -72,7 +73,7 @@ class ParameterBagTest extends TestCase
     /**
      * @test
      */
-    public function setOnceAndGetReturnsSetValue(): void
+    public function setOnceWithValueStringAndGetReturnsSetValue(): void
     {
         $this->subject->set('foo', 'bar');
 
@@ -82,7 +83,7 @@ class ParameterBagTest extends TestCase
     /**
      * @test
      */
-    public function setTwiceAndGetReturnsLastSetValue(): void
+    public function setTwiceWithValueStringAndGetReturnsLastSetValue(): void
     {
         $this->subject->set('foo', 'bar');
         $this->subject->set('foo', 'qux');
@@ -93,11 +94,52 @@ class ParameterBagTest extends TestCase
     /**
      * @test
      */
+    public function setWithParameterResolverClassResolvesValue(): void
+    {
+        $resolver = new class() implements ParameterResolverInterface {
+            public function resolve(): string
+            {
+                return 'resolved value';
+            }
+        };
+
+        $this->subject->set('foo', $resolver);
+
+        self::assertSame('resolved value', $this->subject->get('foo'));
+    }
+
+    /**
+     * @test
+     */
     public function setReturnSameInstanceOfParameterBag(): void
     {
         $actual = $this->subject->set('foo', 'bar');
 
         self::assertSame($this->subject, $actual);
+    }
+
+    /**
+     * @test
+     */
+    public function setWithIntegerAsValueThrowsException(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionCode(1594742873);
+        $this->expectExceptionMessage('Value must be of type string or an instance of "Brotkrueml\MatomoWidgets\Parameter\ParameterResolverInterface", "int" given');
+
+        $this->subject->set('foo', 42);
+    }
+
+    /**
+     * @test
+     */
+    public function setWithClassAsValueThrowsException(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionCode(1594742873);
+        $this->expectExceptionMessage('Value must be of type string or an instance of "Brotkrueml\MatomoWidgets\Parameter\ParameterResolverInterface", "stdClass" given');
+
+        $this->subject->set('foo', new \stdClass());
     }
 
     /**

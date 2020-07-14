@@ -23,6 +23,7 @@
 	"require": {
 		"php": ">=7.2",
 		"ext-json": "*",
+		"symfony/polyfill-php80": "^1.17",
 		"typo3/cms-core": "^10.4",
 		"typo3/cms-dashboard": "^10.4"
 	},

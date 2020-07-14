@@ -101,6 +101,20 @@ Displays a report of the campaigns for the current month:
 Matomo module: Referrers
 
 
+Countries
+=========
+
+Shows a list of countries from which the website was visited in the current
+month:
+
+.. figure:: ../Images/WidgetCountries.png
+   :alt: Widget Countries
+
+   Widget *Countries*
+
+Matomo module: UserCountry
+
+
 Link to Matomo
 ==============
 

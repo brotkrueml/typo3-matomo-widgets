@@ -51,6 +51,18 @@
 			<trans-unit id="widgets.referrers.campaigns.title" resname="widgets.referrers.campaigns.title">
 				<source><![CDATA[Campaigns]]></source>
 			</trans-unit>
+			<trans-unit id="widgets.userCountry.country.description" resname="widgets.userCountry.country.description">
+				<source><![CDATA[Shows a list of countries from which the website was visited in the current month.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.userCountry.country.column.name" resname="widgets.userCountry.country.column.name">
+				<source><![CDATA[Country]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.userCountry.country.column.visits" resname="widgets.userCountry.country.column.visits">
+				<source><![CDATA[Visits]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.userCountry.country.title" resname="widgets.userCountry.country.title">
+				<source><![CDATA[Countries]]></source>
+			</trans-unit>
 			<trans-unit id="widgets.visitsSummary.actionsPerDay.description" resname="widgets.visitsSummary.actionsPerDay.description">
 				<source><![CDATA[Gives you an overview of the number of actions (page views, downloads, clicks on outlinks) of the last couple of days.]]></source>
 			</trans-unit>
