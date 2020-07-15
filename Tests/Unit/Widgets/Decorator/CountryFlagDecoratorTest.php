@@ -12,6 +12,7 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Decorator;
 
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\CountryFlagDecorator;
+use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
@@ -34,6 +35,16 @@ class CountryFlagDecoratorTest extends TestCase
             ->method('get')
             ->with(Extension::KEY)
             ->willReturn(['url' => $url]);
+    }
+
+    /**
+     * @test
+     */
+    public function classImplementsDecoratorInterface(): void
+    {
+        $this->setUrlInExtensionConfigurationStub('https://example.org/');
+
+        self::assertInstanceOf(DecoratorInterface::class, new CountryFlagDecorator($this->extensionConfigurationStub));
     }
 
     /**

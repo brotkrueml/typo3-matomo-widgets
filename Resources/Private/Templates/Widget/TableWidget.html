@@ -14,7 +14,7 @@
                         <td class="{table.classes.{index}}">
                             <f:if condition="{table.decorators.{index}}">
                                 <f:then>
-                                    <f:variable name="content" value="{matomoWidgets:decorate(decorator: '{table.decorators.{index}}', value='{row.{column}}')}"/>
+                                    <f:variable name="content" value="{matomoWidgets:decorate(decorator: '{table.decorators.{index}}', value: '{row.{column}}')}"/>
                                     <f:if condition="{table.decorators.{index}.htmlOutput}">
                                         <f:then>{content -> f:format.htmlentitiesDecode()}</f:then>
                                         <f:else>{content}</f:else>

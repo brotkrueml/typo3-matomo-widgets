@@ -30,7 +30,7 @@ class DecorateViewHelper extends ViewHelper\AbstractViewHelper
         RenderingContextInterface $renderingContext
     ): string {
         $decorator = $arguments['decorator'];
-        $value = $arguments['value'];
+        $value = (string)$arguments['value'];
 
         if (!$decorator instanceof DecoratorInterface) {
             throw new ViewHelper\Exception(

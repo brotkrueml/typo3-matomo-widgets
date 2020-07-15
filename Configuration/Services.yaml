@@ -211,6 +211,7 @@ services:
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.name'
         - column: 'nb_visits'
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.visits'
+          decorator: '@Brotkrueml\MatomoWidgets\Widgets\Decorator\NumberDecorator'
           classes: 'text-right'
       $parameters:
         period: 'month'
@@ -246,6 +247,7 @@ services:
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.userCountry.country.column.name'
         - column: 'nb_visits'
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.userCountry.country.column.visits'
+          decorator: '@Brotkrueml\MatomoWidgets\Widgets\Decorator\NumberDecorator'
           classes: 'text-right'
       $parameters:
         period: 'month'
