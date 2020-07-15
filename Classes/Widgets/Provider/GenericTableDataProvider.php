@@ -55,17 +55,17 @@ class GenericTableDataProvider implements TableDataProviderInterface
         $this->parameters = $parameters;
     }
 
-    public function getTableClasses(): array
+    public function getClasses(): array
     {
-        $aligns = $this->columns;
-        \array_walk($aligns, static function (&$align): void {
-            $align = $align['align'] ?? '';
+        $classes = $this->columns;
+        \array_walk($classes, static function (&$class): void {
+            $class = $class['classes'] ?? '';
         });
 
-        return $aligns;
+        return $classes;
     }
 
-    public function getTableColumns(): array
+    public function getColumns(): array
     {
         $columns = $this->columns;
         \array_walk($columns, static function (&$column): void {
@@ -75,17 +75,27 @@ class GenericTableDataProvider implements TableDataProviderInterface
         return $columns;
     }
 
-    public function getTableHeaders(): array
+    public function getDecorators(): array
+    {
+        $decorators = $this->columns;
+        \array_walk($decorators, static function (&$decorator): void {
+            $decorator = $decorator['decorator'] ?? null;
+        });
+
+        return $decorators;
+    }
+
+    public function getHeaders(): array
     {
         $headers = $this->columns;
         \array_walk($headers, function (&$header): void {
-            $header = $this->languageService->sL($header['header'] ?? 'unknown');
+            $header = $this->languageService->sL($header['header'] ?? '');
         });
 
         return $headers;
     }
 
-    public function getTableRows(): array
+    public function getRows(): array
     {
         return $this->repository->find($this->method, new ParameterBag($this->parameters));
     }

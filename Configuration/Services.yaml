@@ -211,7 +211,7 @@ services:
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.name'
         - column: 'nb_visits'
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.visits'
-          align: 'text-right'
+          classes: 'text-right'
       $parameters:
         period: 'month'
         date: 'today'
@@ -239,11 +239,14 @@ services:
     arguments:
       $method: 'UserCountry.getCountry'
       $columns:
+        - column: 'logo'
+          decorator: '@Brotkrueml\MatomoWidgets\Widgets\Decorator\CountryFlagDecorator'
+          classes: 'matomo-widgets__country-flag__column'
         - column: 'label'
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.userCountry.country.column.name'
         - column: 'nb_visits'
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.userCountry.country.column.visits'
-          align: 'text-right'
+          classes: 'text-right'
       $parameters:
         period: 'month'
         date: 'today'

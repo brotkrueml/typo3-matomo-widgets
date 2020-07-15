@@ -4,14 +4,26 @@
     <div class="widget-table-wrapper">
         <table class="widget-table">
             <tr>
-                <f:for each="{tableHeaders}" as="header" key="index">
-                    <th class="{tableClasses.{index}}">{header}</th>
+                <f:for each="{table.headers}" as="header" key="index">
+                    <th class="{table.classes.{index}}">{header}</th>
                 </f:for>
             </tr>
-            <f:for each="{tableRows}" as="row">
+            <f:for each="{table.rows}" as="row">
                 <tr>
-                    <f:for each="{tableColumns}" as="column" key="index">
-                        <td class="{tableClasses.{index}}">{row.{column}}</td>
+                    <f:for each="{table.columns}" as="column" key="index">
+                        <td class="{table.classes.{index}}">
+                            <f:if condition="{table.decorators.{index}}">
+                                <f:then>
+                                    <f:variable name="content" value="{matomoWidgets:decorate(decorator: '{table.decorators.{index}}', value='{row.{column}}')}"/>
+                                    <f:if condition="{table.decorators.{index}.htmlOutput}">
+                                        <f:then>{content -> f:format.htmlentitiesDecode()}</f:then>
+                                        <f:else>{content}</f:else>
+                                    </f:if>
+
+                                </f:then>
+                                <f:else>{row.{column}}</f:else>
+                            </f:if>
+                        </td>
                     </f:for>
                 </tr>
             </f:for>

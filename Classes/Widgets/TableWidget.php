@@ -10,13 +10,15 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets;
 
+use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\TableDataProviderInterface;
+use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
 use TYPO3\CMS\Dashboard\Widgets\ListDataProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class TableWidget implements WidgetInterface
+class TableWidget implements WidgetInterface, AdditionalCssInterface
 {
     /**
      * @var WidgetConfigurationInterface
@@ -56,15 +58,25 @@ class TableWidget implements WidgetInterface
         $this->view->setTemplate('Widget/TableWidget.html');
 
         $this->view->assignMultiple([
-            'tableClasses' => $this->dataProvider->getTableClasses(),
-            'tableColumns' => $this->dataProvider->getTableColumns(),
-            'tableHeaders' => $this->dataProvider->getTableHeaders(),
-            'tableRows' => $this->dataProvider->getTableRows(),
+            'table' => [
+                'classes' => $this->dataProvider->getClasses(),
+                'columns' => $this->dataProvider->getColumns(),
+                'decorators' => $this->dataProvider->getDecorators(),
+                'headers' => $this->dataProvider->getHeaders(),
+                'rows' => $this->dataProvider->getRows(),
+            ],
             'options' => $this->options,
             'button' => $this->buttonProvider,
             'configuration' => $this->configuration,
         ]);
 
         return $this->view->render();
+    }
+
+    public function getCssFiles(): array
+    {
+        return [
+            \sprintf('EXT:%s/Resources/Public/Css/matomo-widgets.css', Extension::KEY),
+        ];
     }
 }

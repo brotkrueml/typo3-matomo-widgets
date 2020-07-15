@@ -12,11 +12,13 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 interface TableDataProviderInterface
 {
-    public function getTableClasses(): array;
+    public function getClasses(): array;
 
-    public function getTableColumns(): array;
+    public function getColumns(): array;
 
-    public function getTableHeaders(): array;
+    public function getDecorators(): array;
 
-    public function getTableRows(): array;
+    public function getHeaders(): array;
+
+    public function getRows(): array;
 }
