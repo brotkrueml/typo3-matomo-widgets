@@ -14,7 +14,6 @@ use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use TYPO3\CMS\Core\Localization\LanguageService;
-use TYPO3\CMS\Dashboard\WidgetApi;
 use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
 
 final class GenericDoughnutChartDataProvider implements ChartDataProviderInterface
@@ -50,6 +49,11 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
     private $limit;
 
     /**
+     * @var array<string>
+     */
+    private $backgroundColours;
+
+    /**
      * @var array<string,string>
      */
     private $parameters;
@@ -61,6 +65,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         string $labelColumn,
         string $valueColumn,
         int $limit,
+        array $backgroundColours,
         array $parameters
     ) {
         $this->repository = $repository;
@@ -69,6 +74,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         $this->labelColumn = $labelColumn;
         $this->valueColumn = $valueColumn;
         $this->limit = $limit;
+        $this->backgroundColours = $backgroundColours;
         $this->parameters = $parameters;
     }
 
@@ -80,7 +86,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
             'labels' => \array_keys($data),
             'datasets' => [
                 [
-                    'backgroundColor' => WidgetApi::getDefaultChartColors(),
+                    'backgroundColor' => \array_slice($this->backgroundColours, 0, \count($data)),
                     'data' => \array_values($data),
                 ],
             ],

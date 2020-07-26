@@ -152,7 +152,8 @@ services:
       $method: 'DevicesDetection.getBrowsers'
       $labelColumn: 'label'
       $valueColumn: 'nb_visits'
-      $limit: '7'
+      $limit: '5'
+      $backgroundColours: ['#ff8700', '#a4276a', '#1a568f', '#4c7e3a', '#69bbb5', '#76949f']
       $parameters:
         period: 'month'
         date: 'today'
@@ -181,6 +182,7 @@ services:
       $labelColumn: 'label'
       $valueColumn: 'nb_visits'
       $limit: '5'
+      $backgroundColours: ['#ff8700', '#a4276a', '#1a568f', '#4c7e3a', '#69bbb5', '#76949f']
       $parameters:
         period: 'month'
         date: 'today'

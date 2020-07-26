@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Make background colours for GenericDoughnutChartDataProvider configurable
+
 ## [0.2.0] - 2020-07-17
 
 ### Added
