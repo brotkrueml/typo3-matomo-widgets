@@ -55,6 +55,11 @@ class GenericTableDataProvider implements TableDataProviderInterface
         $this->parameters = $parameters;
     }
 
+    public function addParameter(string $name, $value)
+    {
+        $this->parameters[$name] = $this->parameters[$name] ?? $value;
+    }
+
     public function getClasses(): array
     {
         $classes = $this->columns;
@@ -89,7 +94,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
     {
         $headers = $this->columns;
         \array_walk($headers, function (&$header): void {
-            $header = $this->languageService->sL($header['header'] ?? '');
+            $header = isset($header['header']) ? $this->languageService->sL($header['header']) : '';
         });
 
         return $headers;

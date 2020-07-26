@@ -1,3 +1,53 @@
+parameters:
+  matomo_widgets.actionsPerDay.parameters:
+    period: 'day'
+    date: 'last28'
+
+  matomo_widgets.actionsPerMonth.parameters:
+    period: 'month'
+    date: 'last12'
+
+  matomo_widgets.bounceRate.parameters:
+    period: 'month'
+    date: 'today'
+  matomo_widgets.bounceRate.subtitle: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.subtitle'
+
+  matomo_widgets.browsers.limit: '5'
+  matomo_widgets.browsers.parameters:
+    period: 'month'
+    date: 'today'
+    filter_sort_column: 'nb_visits'
+    filter_sort_order: 'desc'
+
+  matomo_widgets.campaigns.parameters:
+    period: 'month'
+    date: 'today'
+    filter_limit: '30'
+    filter_sort_column: 'nb_visits'
+    filter_sort_order: 'desc'
+
+  matomo_widgets.country.parameters:
+    period: 'month'
+    date: 'today'
+    filter_limit: '50'
+    filter_sort_column: 'nb_visits'
+    filter_sort_order: 'desc'
+
+  matomo_widgets.osFamilies.limit: '5'
+  matomo_widgets.osFamilies.parameters:
+    period: 'month'
+    date: 'today'
+    filter_sort_column: 'nb_visits'
+    filter_sort_order: 'desc'
+
+  matomo_widgets.visitsPerDay.parameters:
+    period: 'day'
+    date: 'last28'
+
+  matomo_widgets.visitsPerMonth.parameters:
+    period: 'month'
+    date: 'last12'
+
 services:
   _defaults:
     autowire: true
@@ -26,9 +76,7 @@ services:
       $method: 'VisitsSummary.getActions'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actions.dataset.label'
       $backgroundColour: '#4c7e3a'
-      $parameters:
-        period: 'day'
-        date: 'last28'
+      $parameters: '%matomo_widgets.actionsPerDay.parameters%'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.actionsPerDay:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -51,9 +99,7 @@ services:
       $method: 'VisitsSummary.getActions'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actions.dataset.label'
       $backgroundColour: '#4c7e3a'
-      $parameters:
-        period: 'month'
-        date: 'last12'
+      $parameters: '%matomo_widgets.actionsPerMonth.parameters%'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.actionsPerMonth:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -76,9 +122,7 @@ services:
       $method: 'VisitsSummary.getVisits'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visits.dataset.label'
       $backgroundColour: '#1a568f'
-      $parameters:
-        period: 'day'
-        date: 'last28'
+      $parameters: '%matomo_widgets.visitsPerDay.parameters%'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.visitsPerDay:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -101,9 +145,7 @@ services:
       $method: 'VisitsSummary.getVisits'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visits.dataset.label'
       $backgroundColour: '#1a568f'
-      $parameters:
-        period: 'month'
-        date: 'last12'
+      $parameters: '%matomo_widgets.visitsPerMonth.parameters%'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.visitsPerMonth:
     class: 'TYPO3\CMS\Dashboard\Widgets\BarChartWidget'
@@ -125,9 +167,7 @@ services:
     arguments:
       $method: 'VisitsSummary.get'
       $columnName: 'bounce_rate'
-      $parameters:
-        period: 'month'
-        date: 'today'
+      $parameters: '%matomo_widgets.bounceRate.parameters%'
 
   dashboard.widget.brotkrueml.matomo_widgets.visitsSummary.bounceRate:
     class: 'Brotkrueml\MatomoWidgets\Widgets\ValueWithIconWidget'
@@ -136,7 +176,7 @@ services:
       $view: '@dashboard.views.widget'
       $options:
         title: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.title'
-        subtitle: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.bounceRate.subtitle'
+        subtitle: '%matomo_widgets.bounceRate.subtitle%'
         icon: 'content-target'
     tags:
       - name: 'dashboard.widget'
@@ -152,13 +192,9 @@ services:
       $method: 'DevicesDetection.getBrowsers'
       $labelColumn: 'label'
       $valueColumn: 'nb_visits'
-      $limit: '5'
+      $limit: '%matomo_widgets.browsers.limit%'
       $backgroundColours: ['#ff8700', '#a4276a', '#1a568f', '#4c7e3a', '#69bbb5', '#76949f']
-      $parameters:
-        period: 'month'
-        date: 'today'
-        filter_sort_column: 'nb_visits'
-        filter_sort_order: 'desc'
+      $parameters: '%matomo_widgets.browsers.parameters%'
 
   dashboard.widget.brotkrueml.matomo_widgets.devicesDetection.browsers:
     class: 'TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget'
@@ -181,13 +217,9 @@ services:
       $method: 'DevicesDetection.getOsFamilies'
       $labelColumn: 'label'
       $valueColumn: 'nb_visits'
-      $limit: '5'
+      $limit: '%matomo_widgets.osFamilies.limit%'
       $backgroundColours: ['#ff8700', '#a4276a', '#1a568f', '#4c7e3a', '#69bbb5', '#76949f']
-      $parameters:
-        period: 'month'
-        date: 'today'
-        filter_sort_column: 'nb_visits'
-        filter_sort_order: 'desc'
+      $parameters: '%matomo_widgets.osFamilies.parameters%'
 
   dashboard.widget.brotkrueml.matomo_widgets.devicesDetection.osFamilies:
     class: 'TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget'
@@ -215,12 +247,7 @@ services:
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.referrers.campaigns.column.visits'
           decorator: '@Brotkrueml\MatomoWidgets\Widgets\Decorator\NumberDecorator'
           classes: 'text-right'
-      $parameters:
-        period: 'month'
-        date: 'today'
-        filter_limit: '30'
-        filter_sort_column: 'nb_visits'
-        filter_sort_order: 'desc'
+      $parameters: '%matomo_widgets.campaigns.parameters%'
 
   dashboard.widget.brotkrueml.matomo_widgets.referrers.campaigns:
     class: 'Brotkrueml\MatomoWidgets\Widgets\TableWidget'
@@ -251,13 +278,9 @@ services:
           header: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.userCountry.country.column.visits'
           decorator: '@Brotkrueml\MatomoWidgets\Widgets\Decorator\NumberDecorator'
           classes: 'text-right'
-      $parameters:
-        period: 'month'
-        date: 'today'
-        filter_limit: '50'
-        filter_sort_column: 'nb_visits'
-        filter_sort_order: 'desc'
-        language: '@Brotkrueml\MatomoWidgets\Parameter\LanguageParameterResolver'
+      $parameters: '%matomo_widgets.country.parameters%'
+    calls:
+      - ['addParameter', ['language', '@Brotkrueml\MatomoWidgets\Parameter\LanguageParameterResolver']]
 
   dashboard.widget.brotkrueml.matomo_widgets.userCountry.country:
     class: 'Brotkrueml\MatomoWidgets\Widgets\TableWidget'
