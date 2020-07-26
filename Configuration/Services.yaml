@@ -25,7 +25,7 @@ services:
     arguments:
       $method: 'VisitsSummary.getActions'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actions.dataset.label'
-      $barColour: '#4c7e3a'
+      $backgroundColour: '#4c7e3a'
       $parameters:
         period: 'day'
         date: 'last28'
@@ -50,7 +50,7 @@ services:
     arguments:
       $method: 'VisitsSummary.getActions'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actions.dataset.label'
-      $barColour: '#4c7e3a'
+      $backgroundColour: '#4c7e3a'
       $parameters:
         period: 'month'
         date: 'last12'
@@ -75,7 +75,7 @@ services:
     arguments:
       $method: 'VisitsSummary.getVisits'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visits.dataset.label'
-      $barColour: '#1a568f'
+      $backgroundColour: '#1a568f'
       $parameters:
         period: 'day'
         date: 'last28'
@@ -100,7 +100,7 @@ services:
     arguments:
       $method: 'VisitsSummary.getVisits'
       $barLabel: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.visits.dataset.label'
-      $barColour: '#1a568f'
+      $backgroundColour: '#1a568f'
       $parameters:
         period: 'month'
         date: 'last12'

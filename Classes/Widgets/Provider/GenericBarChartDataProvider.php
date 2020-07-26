@@ -40,7 +40,7 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
     /**
      * @var string
      */
-    private $barColour;
+    private $backgroundColour;
 
     /**
      * @var array
@@ -52,13 +52,13 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
         LanguageService $languageService,
         string $method,
         string $barLabel,
-        string $barColour,
+        string $backgroundColour,
         array $parameters
     ) {
         $this->repository = $repository;
         $this->languageService = $languageService;
         $this->method = $method;
-        $this->barColour = $barColour;
+        $this->backgroundColour = $backgroundColour;
         $this->barLabel = $barLabel;
         $this->parameters = $parameters;
     }
@@ -72,7 +72,7 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
             'datasets' => [
                 [
                     'label' => $this->languageService->sL($this->barLabel),
-                    'backgroundColor' => $this->barColour,
+                    'backgroundColor' => $this->backgroundColour,
                     'data' => \array_values($data),
                 ],
             ],

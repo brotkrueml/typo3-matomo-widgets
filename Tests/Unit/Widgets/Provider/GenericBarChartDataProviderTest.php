@@ -41,7 +41,7 @@ class GenericBarChartDataProviderTest extends TestCase
     public function getChartData()
     {
         $method = 'some.method';
-        $barColour = '#abc';
+        $backgroundColour = '#abc';
         $barLabel = 'some bar label';
         $parameters = [
             'foo' => 'bar',
@@ -67,7 +67,7 @@ class GenericBarChartDataProviderTest extends TestCase
             $this->languageServiceStub,
             $method,
             $barLabel,
-            $barColour,
+            $backgroundColour,
             $parameters
         )
         )
@@ -78,7 +78,7 @@ class GenericBarChartDataProviderTest extends TestCase
             'datasets' => [
                 [
                     'label' => 'another bar label',
-                    'backgroundColor' => $barColour,
+                    'backgroundColor' => $backgroundColour,
                     'data' => [1234, 543, 6191],
                 ],
             ],
