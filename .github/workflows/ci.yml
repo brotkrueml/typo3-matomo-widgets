@@ -52,8 +52,8 @@ jobs:
       - name: Run unit tests
         run: |
           .Build/bin/phpunit -c Tests/phpunit.xml.dist
-  code-coverage:
-    name: Code Coverage
+  code-quality:
+    name: Code Quality
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -87,3 +87,6 @@ jobs:
         env:
           COVERALLS_RUN_LOCALLY: 1
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      - name: Run psalm
+        run: |
+          .Build/bin/psalm --no-progress

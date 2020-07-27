@@ -12,6 +12,7 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Connection;
 
 use Brotkrueml\MatomoWidgets\Connection\MatomoConnector;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
+use Brotkrueml\MatomoWidgets\Exception\InvalidResponseException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidSiteIdException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidUrlException;
 use Brotkrueml\MatomoWidgets\Extension;
@@ -50,6 +51,13 @@ class MatomoConnectorTest extends TestCase
     public static function tearDownAfterClass(): void
     {
         self::$server->stop();
+    }
+
+    protected function setUp(): void
+    {
+        $this->extensionConfigurationStub = $this->createStub(ExtensionConfiguration::class);
+        $this->requestFactory = new RequestFactory();
+        $this->client = new Client(new GuzzleClient());
     }
 
     /**
@@ -99,13 +107,6 @@ class MatomoConnectorTest extends TestCase
         $body = \http_build_query($lastRequest->getPost());
         self::assertSame($expectedQuery, $body);
         self::assertSame($expectedResult, \json_encode($actual));
-    }
-
-    protected function setUp(): void
-    {
-        $this->extensionConfigurationStub = $this->createStub(ExtensionConfiguration::class);
-        $this->requestFactory = new RequestFactory();
-        $this->client = new Client(new GuzzleClient());
     }
 
     public function dataProviderForCallApi(): \Generator
@@ -159,6 +160,39 @@ class MatomoConnectorTest extends TestCase
             'fo%26o=ba%2Br&qu_x=qo%22o&module=API&idSite=62&method=VisitsSummary.get&token_auth=thesecrettoken&format=json',
             '{"nb_uniq_visitors":1518,"nb_users":0,"nb_visits":1579,"nb_actions":3102,"nb_visits_converted":126,"bounce_count":1063,"sum_visit_length":259992,"max_actions":44,"bounce_rate":"67%","nb_actions_per_visit":2,"avg_time_on_site":165}',
         ];
+    }
+
+    /**
+     * @test
+     */
+    public function callApiThrowsExceptionWhenResponseIsNotValidJson(): void
+    {
+        $this->expectException(InvalidResponseException::class);
+        $this->expectExceptionCode(1595862844);
+        $this->expectExceptionMessage('Content returned from Matomo Reporting API is not JSON encoded: No JSON');
+
+        $configuration = [
+            'idSite' => '62',
+            'tokenAuth' => 'thesecrettoken',
+            'url' => \sprintf('http://%s:%s/', self::$server->getHost(), self::$server->getPort()),
+        ];
+
+        $this->extensionConfigurationStub
+            ->method('get')
+            ->with(Extension::KEY)
+            ->willReturn($configuration);
+
+        self::$server->setResponseOfPath(
+            '/',
+            new Response(
+                'No JSON',
+                ['content-type' => 'application/json; charset=utf-8'],
+                200
+            )
+        );
+
+        $subject = new MatomoConnector($this->extensionConfigurationStub, $this->requestFactory, $this->client);
+        $subject->callApi('some.method', new ParameterBag());
     }
 
     /**

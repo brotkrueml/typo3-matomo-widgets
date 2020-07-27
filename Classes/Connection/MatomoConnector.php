@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Connection;
 
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
+use Brotkrueml\MatomoWidgets\Exception\InvalidResponseException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidSiteIdException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidUrlException;
 use Brotkrueml\MatomoWidgets\Extension;
@@ -61,12 +62,14 @@ class MatomoConnector
 
         $parameterBag
             ->set('module', 'API')
-            ->set('idSite', $this->idSite)
+            ->set('idSite', (string)$this->idSite)
             ->set('method', $method)
             ->set('token_auth', $this->tokenAuth)
             ->set('format', 'json');
 
+        /** @psalm-suppress InternalClass */
         $body = new Stream('php://temp', 'r+');
+        /** @psalm-suppress InternalMethod */
         $body->write($parameterBag->buildQuery());
 
         $request = $this->requestFactory->createRequest('POST', $this->url)
@@ -77,7 +80,16 @@ class MatomoConnector
         $content = $response->getBody()->getContents();
         $this->checkResponseForErrors($content);
 
-        return \json_decode($content, true);
+        $result = \json_decode($content, true);
+
+        if (null === $result) {
+            throw new InvalidResponseException(
+                \sprintf('Content returned from Matomo Reporting API is not JSON encoded: %s', $content),
+                1595862844
+            );
+        }
+
+        return $result;
     }
 
     private function checkResponseForErrors(string $content): void
@@ -94,7 +106,8 @@ class MatomoConnector
 
     private function checkConfiguration(): void
     {
-        if (!\is_numeric($this->idSite) || (int)$this->idSite <= 0) {
+        $idSite = (int)$this->idSite;
+        if ($idSite <= 0) {
             throw new InvalidSiteIdException(
                 \sprintf(
                     'idSite must be a positive integer, "%s" given. Please check your Matomo settings in the extension configuration.',

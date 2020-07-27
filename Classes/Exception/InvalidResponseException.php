@@ -8,11 +8,8 @@ declare(strict_types=1);
  * LICENSE.txt file that was distributed with this source code.
  */
 
-namespace Brotkrueml\MatomoWidgets\Domain\Repository;
+namespace Brotkrueml\MatomoWidgets\Exception;
 
-use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
-
-interface RepositoryInterface
+final class InvalidResponseException extends \RuntimeException
 {
-    public function find(string $method, ParameterBag $parameterBag): array;
 }

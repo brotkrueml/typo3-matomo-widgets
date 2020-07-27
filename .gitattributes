@@ -8,4 +8,5 @@
 /.gitignore export-ignore
 /.php_cs export-ignore
 /CHANGELOG.md export-ignore
+/psalm.xml export-ignore
 /README.md export-ignore

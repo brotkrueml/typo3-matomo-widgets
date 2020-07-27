@@ -12,6 +12,7 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
+use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
 class GenericTableDataProvider implements TableDataProviderInterface
@@ -32,7 +33,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
     private $method;
 
     /**
-     * @var array<string,string>
+     * @var array
      */
     private $columns;
 
@@ -55,47 +56,55 @@ class GenericTableDataProvider implements TableDataProviderInterface
         $this->parameters = $parameters;
     }
 
-    public function addParameter(string $name, $value)
+    /**
+     * @param string $name
+     * @param string|DecoratorInterface $value
+     */
+    public function addParameter(string $name, $value): void
     {
         $this->parameters[$name] = $this->parameters[$name] ?? $value;
     }
 
     public function getClasses(): array
     {
-        $classes = $this->columns;
-        \array_walk($classes, static function (&$class): void {
-            $class = $class['classes'] ?? '';
-        });
+        /** @var string[] $classes */
+        $classes = [];
+        foreach ($this->columns as $column) {
+            $classes[] = (string)($column['classes'] ?? '');
+        }
 
         return $classes;
     }
 
     public function getColumns(): array
     {
-        $columns = $this->columns;
-        \array_walk($columns, static function (&$column): void {
-            $column = $column['column'] ?? 'unknown';
-        });
+        /** @var string[] $classes */
+        $columns = [];
+        foreach ($this->columns as $column) {
+            $columns[] = (string)($column['column'] ?? 'unknown');
+        }
 
         return $columns;
     }
 
     public function getDecorators(): array
     {
-        $decorators = $this->columns;
-        \array_walk($decorators, static function (&$decorator): void {
-            $decorator = $decorator['decorator'] ?? null;
-        });
+        /** @var ?DecoratorInterface[] $classes */
+        $decorators = [];
+        foreach ($this->columns as $column) {
+            $decorators[] = $column['decorator'] ?? null;
+        }
 
         return $decorators;
     }
 
     public function getHeaders(): array
     {
-        $headers = $this->columns;
-        \array_walk($headers, function (&$header): void {
-            $header = isset($header['header']) ? $this->languageService->sL($header['header']) : '';
-        });
+        /** @var string[] $headers */
+        $headers = [];
+        foreach ($this->columns as $column) {
+            $headers[] = isset($column['header']) ? $this->languageService->sL((string)$column['header']) : '';
+        }
 
         return $headers;
     }

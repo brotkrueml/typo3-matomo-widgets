@@ -28,10 +28,12 @@
 		"typo3/cms-dashboard": "^10.4"
 	},
 	"require-dev": {
+		"composer/package-versions-deprecated": "^1.8",
 		"donatj/mock-webserver": "^2.1",
 		"friendsofphp/php-cs-fixer": "^2.16",
 		"php-coveralls/php-coveralls": "^2.2",
-		"phpunit/phpunit": "^8.5 || ^9.2"
+		"phpunit/phpunit": "^8.5 || ^9.2",
+		"vimeo/psalm": "^3.12"
 	},
 	"autoload": {
 		"psr-4": {

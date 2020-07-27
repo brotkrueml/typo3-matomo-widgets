@@ -31,7 +31,7 @@ class CachingRepositoryDecorator implements RepositoryInterface
         $this->cache = $cache;
     }
 
-    public function find(string $method, ParameterBag $parameterBag)
+    public function find(string $method, ParameterBag $parameterBag): array
     {
         $cacheIdentifier = \str_replace('.', '_', $method) . '_' . \md5(\serialize($parameterBag));
         $data = $this->cache->get($cacheIdentifier);

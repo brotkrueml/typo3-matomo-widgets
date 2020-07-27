@@ -13,7 +13,7 @@ namespace Brotkrueml\MatomoWidgets\Widgets;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\TableDataProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
-use TYPO3\CMS\Dashboard\Widgets\ListDataProviderInterface;
+use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -24,28 +24,27 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
      * @var WidgetConfigurationInterface
      */
     private $configuration;
+
     /**
-     * @var ListDataProviderInterface
+     * @var TableDataProviderInterface
      */
     private $dataProvider;
+
     /**
      * @var StandaloneView
      */
     private $view;
+
     /**
-     * @var null
+     * @var ButtonProviderInterface|null
      */
     private $buttonProvider;
-    /**
-     * @var array
-     */
-    private $options;
 
     public function __construct(
         WidgetConfigurationInterface $configuration,
         TableDataProviderInterface $dataProvider,
         StandaloneView $view,
-        $buttonProvider = null
+        ?ButtonProviderInterface $buttonProvider = null
     ) {
         $this->configuration = $configuration;
         $this->dataProvider = $dataProvider;
@@ -55,8 +54,8 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
 
     public function renderWidgetContent(): string
     {
+        /** @psalm-suppress InternalMethod */
         $this->view->setTemplate('Widget/TableWidget.html');
-
         $this->view->assignMultiple([
             'table' => [
                 'classes' => $this->dataProvider->getClasses(),
@@ -65,7 +64,6 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
                 'headers' => $this->dataProvider->getHeaders(),
                 'rows' => $this->dataProvider->getRows(),
             ],
-            'options' => $this->options,
             'button' => $this->buttonProvider,
             'configuration' => $this->configuration,
         ]);

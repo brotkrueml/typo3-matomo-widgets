@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets;
 
 use Brotkrueml\MatomoWidgets\Widgets\Provider\ValueDataProviderInterface;
-use TYPO3\CMS\Dashboard\Widgets\NumberWithIconDataProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -22,16 +21,19 @@ class ValueWithIconWidget implements WidgetInterface
      * @var WidgetConfigurationInterface
      */
     private $configuration;
+
     /**
      * @var StandaloneView
      */
     private $view;
+
     /**
      * @var array
      */
     private $options;
+
     /**
-     * @var NumberWithIconDataProviderInterface
+     * @var ValueDataProviderInterface
      */
     private $dataProvider;
 
@@ -52,6 +54,7 @@ class ValueWithIconWidget implements WidgetInterface
      */
     public function renderWidgetContent(): string
     {
+        /** @psalm-suppress InternalMethod */
         $this->view->setTemplate('Widget/ValueWithIconWidget');
         $this->view->assignMultiple([
             'icon' => $this->options['icon'],

@@ -29,7 +29,7 @@ class MatomoRepository implements RepositoryInterface
         $this->connector = $connector;
     }
 
-    public function find(string $method, ParameterBag $parameterBag)
+    public function find(string $method, ParameterBag $parameterBag): array
     {
         return $this->connector->callApi($method, $parameterBag);
     }
