@@ -12,5 +12,6 @@ can select it when creating a new dashboard:
 
 .. figure:: ../Images/DashboardPresetSelection.png
    :alt: Select the Matomo dashboard preset
+   :class: with-border
 
    Select the Matomo dashboard preset
