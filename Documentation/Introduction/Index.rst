@@ -28,3 +28,19 @@ Screenshots
 
    Example for a Matomo Dashboard
 
+
+No Matomo installation at hand?
+===============================
+
+You can use the Matomo demo installation for evaluation. Just enter the
+following settings into the :ref:`extension configuration
+<extension-configuration>`:
+
+Base URL of the Matomo installation
+   https://demo.matomo.org/
+
+Site ID
+   62
+
+Authentication token
+   (leave empty)

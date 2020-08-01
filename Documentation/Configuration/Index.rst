@@ -15,6 +15,8 @@ Target group: **Developers, Integrators**
    :local:
 
 
+.. _extension-configuration:
+
 Extension configuration
 =======================
 
