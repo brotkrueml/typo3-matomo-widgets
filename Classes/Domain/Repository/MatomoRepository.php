@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Domain\Repository;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Connection\MatomoConnector;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 
@@ -29,8 +30,8 @@ class MatomoRepository implements RepositoryInterface
         $this->connector = $connector;
     }
 
-    public function find(string $method, ParameterBag $parameterBag): array
+    public function find(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array
     {
-        return $this->connector->callApi($method, $parameterBag);
+        return $this->connector->callApi($configuration, $method, $parameterBag);
     }
 }

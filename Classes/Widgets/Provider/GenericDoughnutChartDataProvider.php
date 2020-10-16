@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
@@ -22,6 +23,11 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
      * @var RepositoryInterface
      */
     private $repository;
+
+    /**
+     * @var ConnectionConfiguration
+     */
+    private $connectionConfiguration;
 
     /**
      * @var LanguageService
@@ -49,7 +55,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
     private $limit;
 
     /**
-     * @var array<string>
+     * @var list<string>
      */
     private $backgroundColours;
 
@@ -60,6 +66,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
 
     public function __construct(
         RepositoryInterface $repository,
+        ConnectionConfiguration $connectionConfiguration,
         LanguageService $languageService,
         string $method,
         string $labelColumn,
@@ -69,6 +76,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         array $parameters
     ) {
         $this->repository = $repository;
+        $this->connectionConfiguration = $connectionConfiguration;
         $this->languageService = $languageService;
         $this->method = $method;
         $this->labelColumn = $labelColumn;
@@ -95,7 +103,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
 
     private function aggregateData(): array
     {
-        $rows = $this->repository->find($this->method, new ParameterBag($this->parameters));
+        $rows = $this->repository->find($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));
 
         $data = [];
         $valueOther = 0;

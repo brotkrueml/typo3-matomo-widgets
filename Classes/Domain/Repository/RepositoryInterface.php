@@ -10,9 +10,10 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Domain\Repository;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 
 interface RepositoryInterface
 {
-    public function find(string $method, ParameterBag $parameterBag): array;
+    public function find(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array;
 }

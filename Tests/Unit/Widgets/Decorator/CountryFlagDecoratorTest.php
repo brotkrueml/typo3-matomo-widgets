@@ -10,41 +10,18 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Decorator;
 
-use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\CountryFlagDecorator;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
-use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 
 class CountryFlagDecoratorTest extends TestCase
 {
-    /**
-     * @var Stub|ExtensionConfiguration
-     */
-    private $extensionConfigurationStub;
-
-    protected function setUp(): void
-    {
-        $this->extensionConfigurationStub = $this->createStub(ExtensionConfiguration::class);
-    }
-
-    private function setUrlInExtensionConfigurationStub(string $url): void
-    {
-        $this->extensionConfigurationStub
-            ->method('get')
-            ->with(Extension::KEY)
-            ->willReturn(['url' => $url]);
-    }
-
     /**
      * @test
      */
     public function classImplementsDecoratorInterface(): void
     {
-        $this->setUrlInExtensionConfigurationStub('https://example.org/');
-
-        self::assertInstanceOf(DecoratorInterface::class, new CountryFlagDecorator($this->extensionConfigurationStub));
+        self::assertInstanceOf(DecoratorInterface::class, new CountryFlagDecorator('https://example.org/'));
     }
 
     /**
@@ -53,8 +30,7 @@ class CountryFlagDecoratorTest extends TestCase
      */
     public function decorate(string $url, string $value, string $expected): void
     {
-        $this->setUrlInExtensionConfigurationStub($url);
-        $subject = new CountryFlagDecorator($this->extensionConfigurationStub);
+        $subject = new CountryFlagDecorator($url);
 
         self::assertSame($expected, $subject->decorate($value));
     }
@@ -97,8 +73,7 @@ class CountryFlagDecoratorTest extends TestCase
      */
     public function isHtmlOutputReturnsTrue(): void
     {
-        $this->setUrlInExtensionConfigurationStub('https://example.org/');
-        $subject = new CountryFlagDecorator($this->extensionConfigurationStub);
+        $subject = new CountryFlagDecorator('https://example.org/');
 
         self::assertTrue($subject->isHtmlOutput());
     }

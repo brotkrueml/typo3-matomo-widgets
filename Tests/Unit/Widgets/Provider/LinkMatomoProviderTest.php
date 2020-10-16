@@ -30,10 +30,9 @@ class LinkMatomoProviderTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->extensionConfigurationStub = $this->createStub(ExtensionConfiguration::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
 
-        $this->subject = new LinkMatomoButtonProvider($this->extensionConfigurationStub, $this->languageServiceStub);
+        $this->subject = new LinkMatomoButtonProvider($this->languageServiceStub, 'https://example.net/');
     }
 
     /**
@@ -54,11 +53,6 @@ class LinkMatomoProviderTest extends TestCase
      */
     public function getLinkReturnsConfiguredLinkCorrectly(): void
     {
-        $this->extensionConfigurationStub
-            ->method('get')
-            ->with(Extension::KEY, 'url')
-            ->willReturn('https://example.net/');
-
         self::assertSame('https://example.net/', $this->subject->getLink());
     }
 

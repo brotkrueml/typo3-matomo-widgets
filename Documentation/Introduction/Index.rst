@@ -15,7 +15,7 @@ The extension provides charts for various `Matomo <https://www.matomo.org/>`_
 reports via the `Reporting API
 <https://developer.matomo.org/guides/querying-the-reporting-api>`_.
 
-The parameters of the widgets can be adjusted to your needs, e.g. in the
+The default parameters of the widgets can be adjusted to your needs, e.g. in the
 *Visits per month* widget display 24 month instead of 12 months.
 
 .. _screenshots:
@@ -29,14 +29,14 @@ Screenshots
    Example for a Matomo Dashboard
 
 
-No Matomo installation at hand?
-===============================
+No Matomo instance at hand?
+===========================
 
 You can use the Matomo demo installation for evaluation. Just enter the
-following settings into the :ref:`extension configuration
-<extension-configuration>`:
+following settings into the :ref:`site configuration
+<site-configuration>`:
 
-Base URL of the Matomo installation
+Base URL of the Matomo instance
    https://demo.matomo.org/
 
 Site ID

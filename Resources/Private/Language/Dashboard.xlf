@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2020-07-15T17:38:15Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2020-11-09T19:56:41Z" product-name="matomo_widgets">
 		<header/>
 		<body>
 			<trans-unit id="other" resname="other">
@@ -8,9 +8,6 @@
 			</trans-unit>
 			<trans-unit id="preset.description" resname="preset.description">
 				<source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
-			</trans-unit>
-			<trans-unit id="preset.title" resname="preset.title" translate="no">
-				<source><![CDATA[Matomo]]></source>
 			</trans-unit>
 			<trans-unit id="thousandsSeparator" resname="thousandsSeparator">
 				<source><![CDATA[,]]></source>

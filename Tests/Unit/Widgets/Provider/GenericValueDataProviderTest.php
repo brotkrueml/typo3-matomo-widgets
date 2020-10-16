@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericValueDataProvider;
@@ -18,6 +19,11 @@ use PHPUnit\Framework\TestCase;
 
 class GenericValueDataProviderTest extends TestCase
 {
+    /**
+     * @var ConnectionConfiguration
+     */
+    private $connectionConfiguration;
+
     /**
      * @var Stub|RepositoryInterface
      */
@@ -30,9 +36,11 @@ class GenericValueDataProviderTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryStub = $this->createStub(RepositoryInterface::class);
         $this->subject = new GenericValueDataProvider(
             $this->repositoryStub,
+            $this->connectionConfiguration,
             'some.method',
             'the_column',
             ['foo' => 'bar']
@@ -46,7 +54,7 @@ class GenericValueDataProviderTest extends TestCase
     {
         $this->repositoryStub
             ->method('find')
-            ->with('some.method', new ParameterBag(['foo' => 'bar']))
+            ->with($this->connectionConfiguration, 'some.method', new ParameterBag(['foo' => 'bar']))
             ->willReturn(['the_column' => '123', 'another_column' => 987]);
 
         $actual = $this->subject->getValue();
@@ -61,7 +69,7 @@ class GenericValueDataProviderTest extends TestCase
     {
         $this->repositoryStub
             ->method('find')
-            ->with('some.method', new ParameterBag(['foo' => 'bar']))
+            ->with($this->connectionConfiguration, 'some.method', new ParameterBag(['foo' => 'bar']))
             ->willReturn(['a_column' => 987]);
 
         $actual = $this->subject->getValue();

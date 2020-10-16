@@ -12,59 +12,32 @@ namespace Brotkrueml\MatomoWidgets\Connection;
 
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidResponseException;
-use Brotkrueml\MatomoWidgets\Exception\InvalidSiteIdException;
-use Brotkrueml\MatomoWidgets\Exception\InvalidUrlException;
-use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Http\Stream;
 
 class MatomoConnector
 {
-    /** @var ExtensionConfiguration */
-    private $extensionConfiguration;
-
     /** @var RequestFactoryInterface */
     private $requestFactory;
 
     /** @var ClientInterface */
     private $client;
 
-    /** @var int */
-    private $idSite;
-
-    /** @var string */
-    private $tokenAuth;
-
-    /** @var string */
-    private $url;
-
-    public function __construct(
-        ExtensionConfiguration $extensionConfiguration,
-        RequestFactoryInterface $requestFactory,
-        ClientInterface $client
-    ) {
-        $this->extensionConfiguration = $extensionConfiguration;
+    public function __construct(RequestFactoryInterface $requestFactory, ClientInterface $client)
+    {
         $this->requestFactory = $requestFactory;
         $this->client = $client;
-
-        $configuration = $this->extensionConfiguration->get(Extension::KEY);
-        $this->idSite = $configuration['idSite'];
-        $this->tokenAuth = $configuration['tokenAuth'] ?: 'anonymous';
-        $this->url = $configuration['url'];
     }
 
-    public function callApi(string $method, ParameterBag $parameterBag): array
+    public function callApi(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array
     {
-        $this->checkConfiguration();
-
         $parameterBag
             ->set('module', 'API')
-            ->set('idSite', (string)$this->idSite)
+            ->set('idSite', (string)$configuration->getIdSite())
             ->set('method', $method)
-            ->set('token_auth', $this->tokenAuth)
+            ->set('token_auth', $configuration->getTokenAuth())
             ->set('format', 'json');
 
         /** @psalm-suppress InternalClass */
@@ -72,7 +45,7 @@ class MatomoConnector
         /** @psalm-suppress InternalMethod */
         $body->write($parameterBag->buildQuery());
 
-        $request = $this->requestFactory->createRequest('POST', $this->url)
+        $request = $this->requestFactory->createRequest('POST', $configuration->getUrl())
             ->withHeader('content-type', 'application/x-www-form-urlencoded')
             ->withBody($body);
         $response = $this->client->sendRequest($request);
@@ -81,7 +54,6 @@ class MatomoConnector
         $this->checkResponseForErrors($content);
 
         $result = \json_decode($content, true);
-
         if (null === $result) {
             throw new InvalidResponseException(
                 \sprintf('Content returned from Matomo Reporting API is not JSON encoded: %s', $content),
@@ -102,31 +74,5 @@ class MatomoConnector
         if (isset($decoded['result']) && $decoded['result'] === 'error') {
             throw new ConnectionException($decoded['message'], 1593955989);
         }
-    }
-
-    private function checkConfiguration(): void
-    {
-        $idSite = (int)$this->idSite;
-        if ($idSite <= 0) {
-            throw new InvalidSiteIdException(
-                \sprintf(
-                    'idSite must be a positive integer, "%s" given. Please check your Matomo settings in the extension configuration.',
-                    $this->idSite
-                ),
-                1593879284
-            );
-        }
-
-        if (!$this->isValidUrl()) {
-            throw new InvalidUrlException(
-                \sprintf('The given URL "%s" is not valid. Please check your Matomo settings in the extension configuration.', $this->url),
-                1593880003
-            );
-        }
-    }
-
-    private function isValidUrl(): bool
-    {
-        return \filter_var($this->url, \FILTER_VALIDATE_URL) !== false;
     }
 }

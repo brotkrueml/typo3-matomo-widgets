@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Domain\Repository\MatomoRepository;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Connection\MatomoConnector;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
@@ -24,6 +25,11 @@ class MatomoRepositoryTest extends TestCase
     private $connectorMock;
 
     /**
+     * @var ConnectionConfiguration
+     */
+    private $connectionConfiguration;
+
+    /**
      * @var MatomoRepository
      */
     private $subject;
@@ -31,6 +37,7 @@ class MatomoRepositoryTest extends TestCase
     protected function setUp(): void
     {
         $this->connectorMock = $this->createMock(MatomoConnector::class);
+        $this->connectionConfiguration = new ConnectionConfiguration('https://example.net', 3, '');
         $this->subject = new MatomoRepository($this->connectorMock);
     }
 
@@ -45,9 +52,9 @@ class MatomoRepositoryTest extends TestCase
         $this->connectorMock
             ->expects(self::once())
             ->method('callApi')
-            ->with('foo.bar', $parameterBag)
+            ->with($this->connectionConfiguration, 'foo.bar', $parameterBag)
             ->willReturn($expected);
 
-        self::assertSame($expected, $this->subject->find('foo.bar', $parameterBag));
+        self::assertSame($expected, $this->subject->find($this->connectionConfiguration, 'foo.bar', $parameterBag));
     }
 }

@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Multidomain capability (#1)
 - Parameters for data providers are overridable
 
 ### Changed

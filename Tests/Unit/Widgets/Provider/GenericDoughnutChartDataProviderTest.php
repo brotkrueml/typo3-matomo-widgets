@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
@@ -20,6 +21,11 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 
 class GenericDoughnutChartDataProviderTest extends TestCase
 {
+    /**
+     * @var ConnectionConfiguration
+     */
+    private $connectionConfiguration;
+
     /**
      * @var Stub|RepositoryInterface
      */
@@ -32,6 +38,7 @@ class GenericDoughnutChartDataProviderTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryStub = $this->createStub(RepositoryInterface::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
     }
@@ -56,7 +63,7 @@ class GenericDoughnutChartDataProviderTest extends TestCase
 
         $this->repositoryStub
             ->method('find')
-            ->with($method, new ParameterBag($parameters))
+            ->with($this->connectionConfiguration, $method, new ParameterBag($parameters))
             ->willReturn($rows);
 
         $this->languageServiceStub
@@ -66,6 +73,7 @@ class GenericDoughnutChartDataProviderTest extends TestCase
 
         $actual = (new GenericDoughnutChartDataProvider(
             $this->repositoryStub,
+            $this->connectionConfiguration,
             $this->languageServiceStub,
             $method,
             $labelColumn,

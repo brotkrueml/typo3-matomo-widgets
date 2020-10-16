@@ -7,8 +7,9 @@ Widgets
 =======
 
 You can add the Matomo widgets like any other widget to a dashboard. Please
-note, that the permissions for editors have to be granted to be able to use
-these widgets.
+note, that the widgets have to be enabled in the :ref:`site configuration
+<site-configuration>` and the permissions for editors have to be granted to be able
+to use these widgets.
 
 .. hint::
    Most widgets need an activated module in Matomo to work. If a module is not

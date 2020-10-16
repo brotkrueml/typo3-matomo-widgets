@@ -17,6 +17,8 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 
 class ValueWithIconWidget implements WidgetInterface
 {
+    use WidgetTitleAdaptionTrait;
+
     /**
      * @var WidgetConfigurationInterface
      */
@@ -43,7 +45,7 @@ class ValueWithIconWidget implements WidgetInterface
         StandaloneView $view,
         array $options = []
     ) {
-        $this->configuration = $configuration;
+        $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
         $this->view = $view;
         $this->options = $options;
         $this->dataProvider = $dataProvider;

@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Daomin\Repository;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\CachingRepositoryDecorator;
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
@@ -30,6 +31,11 @@ class CachingRepositoryDecoratorTest extends TestCase
     private $cacheMock;
 
     /**
+     * @var ConnectionConfiguration
+     */
+    private $connectionConfiguration;
+
+    /**
      * @var CachingRepositoryDecorator
      */
     private $subject;
@@ -38,6 +44,7 @@ class CachingRepositoryDecoratorTest extends TestCase
     {
         $this->repositoryMock = $this->createMock(RepositoryInterface::class);
         $this->cacheMock = $this->createMock(FrontendInterface::class);
+        $this->connectionConfiguration = new ConnectionConfiguration('https://example.com', 2, '');
         $this->subject = new CachingRepositoryDecorator($this->repositoryMock, $this->cacheMock);
     }
 
@@ -50,7 +57,7 @@ class CachingRepositoryDecoratorTest extends TestCase
         $parameterBag = (new ParameterBag())->set('bar', 'quu');
         $data = ['abc' => 'def', 'ghi' => 'jkl'];
 
-        $cacheIdentifier = 'some_method_' . \md5(\serialize($parameterBag));
+        $cacheIdentifier = 'some_method_' . \md5(\serialize($this->connectionConfiguration) . \serialize($parameterBag));
 
         $this->cacheMock
             ->expects(self::at(0))
@@ -65,10 +72,10 @@ class CachingRepositoryDecoratorTest extends TestCase
         $this->repositoryMock
             ->expects(self::once())
             ->method('find')
-            ->with($method, $parameterBag)
+            ->with($this->connectionConfiguration, $method, $parameterBag)
             ->willReturn($data);
 
-        self::assertSame($data, $this->subject->find($method, $parameterBag));
+        self::assertSame($data, $this->subject->find($this->connectionConfiguration, $method, $parameterBag));
     }
 
     /**
@@ -92,6 +99,6 @@ class CachingRepositoryDecoratorTest extends TestCase
             ->expects(self::never())
             ->method('find');
 
-        self::assertSame($data, $this->subject->find($method, $parameterBag));
+        self::assertSame($data, $this->subject->find($this->connectionConfiguration, $method, $parameterBag));
     }
 }

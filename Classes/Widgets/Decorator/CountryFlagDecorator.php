@@ -10,9 +10,6 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
 
-use Brotkrueml\MatomoWidgets\Extension;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
-
 class CountryFlagDecorator implements DecoratorInterface
 {
     /**
@@ -20,9 +17,9 @@ class CountryFlagDecorator implements DecoratorInterface
      */
     private $baseUrl;
 
-    public function __construct(ExtensionConfiguration $extensionConfiguration)
+    public function __construct(string $url)
     {
-        $this->baseUrl = $this->normaliseUrl($extensionConfiguration->get(Extension::KEY)['url']);
+        $this->baseUrl = $this->normaliseUrl($url);
     }
 
     private function normaliseUrl(string $url): string

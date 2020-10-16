@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider;
@@ -19,6 +20,11 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 
 class GenericBarChartDataProviderTest extends TestCase
 {
+    /**
+     * @var ConnectionConfiguration
+     */
+    private $connectionConfiguration;
+
     /**
      * @var Stub|RepositoryInterface
      */
@@ -31,6 +37,7 @@ class GenericBarChartDataProviderTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryStub = $this->createStub(RepositoryInterface::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
     }
@@ -50,7 +57,7 @@ class GenericBarChartDataProviderTest extends TestCase
 
         $this->repositoryStub
             ->method('find')
-            ->with($method, new ParameterBag($parameters))
+            ->with($this->connectionConfiguration, $method, new ParameterBag($parameters))
             ->willReturn([
                 '2020-07-16' => 1234,
                 '2020-07-15' => 543,
@@ -64,6 +71,7 @@ class GenericBarChartDataProviderTest extends TestCase
 
         $actual = (new GenericBarChartDataProvider(
             $this->repositoryStub,
+            $this->connectionConfiguration,
             $this->languageServiceStub,
             $method,
             $barLabel,

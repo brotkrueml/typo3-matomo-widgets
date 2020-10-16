@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
@@ -22,6 +23,11 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 class GenericTableDataProviderTest extends TestCase
 {
     /**
+     * @var ConnectionConfiguration
+     */
+    private $connectionConfiguration;
+
+    /**
      * @var MockObject|RepositoryInterface
      */
     private $repositoryMock;
@@ -33,6 +39,7 @@ class GenericTableDataProviderTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryMock = $this->createMock(RepositoryInterface::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
     }
@@ -44,6 +51,7 @@ class GenericTableDataProviderTest extends TestCase
     {
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
+            $this->connectionConfiguration,
             $this->languageServiceStub,
             'some.method',
             [
@@ -75,6 +83,7 @@ class GenericTableDataProviderTest extends TestCase
     {
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
+            $this->connectionConfiguration,
             $this->languageServiceStub,
             'some.method',
             [
@@ -105,6 +114,7 @@ class GenericTableDataProviderTest extends TestCase
 
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
+            $this->connectionConfiguration,
             $this->languageServiceStub,
             'some.method',
             [
@@ -137,6 +147,7 @@ class GenericTableDataProviderTest extends TestCase
 
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
+            $this->connectionConfiguration,
             $this->languageServiceStub,
             'some.method',
             [
@@ -181,11 +192,12 @@ class GenericTableDataProviderTest extends TestCase
         $this->repositoryMock
             ->expects(self::once())
             ->method('find')
-            ->with('some.method', new ParameterBag($parameters))
+            ->with($this->connectionConfiguration, 'some.method', new ParameterBag($parameters))
             ->willReturn($result);
 
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
+            $this->connectionConfiguration,
             $this->languageServiceStub,
             'some.method',
             [
@@ -221,11 +233,12 @@ class GenericTableDataProviderTest extends TestCase
         $this->repositoryMock
             ->expects(self::once())
             ->method('find')
-            ->with('some.method', new ParameterBag(\array_merge($parameters, ['qux' => 'quu'])))
+            ->with($this->connectionConfiguration, 'some.method', new ParameterBag(\array_merge($parameters, ['qux' => 'quu'])))
             ->willReturn($result);
 
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
+            $this->connectionConfiguration,
             $this->languageServiceStub,
             'some.method',
             [

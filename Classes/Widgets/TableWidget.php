@@ -20,6 +20,8 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 
 class TableWidget implements WidgetInterface, AdditionalCssInterface
 {
+    use WidgetTitleAdaptionTrait;
+
     /**
      * @var WidgetConfigurationInterface
      */
@@ -44,9 +46,10 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
         WidgetConfigurationInterface $configuration,
         TableDataProviderInterface $dataProvider,
         StandaloneView $view,
-        ?ButtonProviderInterface $buttonProvider = null
+        ?ButtonProviderInterface $buttonProvider = null,
+        array $options = []
     ) {
-        $this->configuration = $configuration;
+        $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
         $this->dataProvider = $dataProvider;
         $this->view = $view;
         $this->buttonProvider = $buttonProvider;

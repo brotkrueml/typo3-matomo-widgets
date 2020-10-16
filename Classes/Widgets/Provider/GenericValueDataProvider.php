@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 
@@ -19,6 +20,11 @@ final class GenericValueDataProvider implements ValueDataProviderInterface
      * @var RepositoryInterface
      */
     private $repository;
+
+    /**
+     * @var ConnectionConfiguration
+     */
+    private $connectionConfiguration;
 
     /**
      * @var string
@@ -35,9 +41,15 @@ final class GenericValueDataProvider implements ValueDataProviderInterface
      */
     private $parameters;
 
-    public function __construct(RepositoryInterface $repository, string $method, string $columnName, array $parameters)
-    {
+    public function __construct(
+        RepositoryInterface $repository,
+        ConnectionConfiguration $connectionConfiguration,
+        string $method,
+        string $columnName,
+        array $parameters
+    ) {
         $this->repository = $repository;
+        $this->connectionConfiguration = $connectionConfiguration;
         $this->method = $method;
         $this->columnName = $columnName;
         $this->parameters = $parameters;
@@ -45,7 +57,7 @@ final class GenericValueDataProvider implements ValueDataProviderInterface
 
     public function getValue(): string
     {
-        $result = $this->repository->find($this->method, new ParameterBag($this->parameters));
+        $result = $this->repository->find($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));
 
         return $result[$this->columnName] ?? '';
     }

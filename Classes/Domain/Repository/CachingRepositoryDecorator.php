@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Domain\Repository;
 
+use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 
@@ -31,12 +32,16 @@ class CachingRepositoryDecorator implements RepositoryInterface
         $this->cache = $cache;
     }
 
-    public function find(string $method, ParameterBag $parameterBag): array
+    public function find(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array
     {
-        $cacheIdentifier = \str_replace('.', '_', $method) . '_' . \md5(\serialize($parameterBag));
+        $cacheIdentifier = \sprintf(
+            '%s_%s',
+            \str_replace('.', '_', $method),
+            \md5(\serialize($configuration) . \serialize($parameterBag))
+        );
         $data = $this->cache->get($cacheIdentifier);
         if (false === $data) {
-            $data = $this->repository->find($method, $parameterBag);
+            $data = $this->repository->find($configuration, $method, $parameterBag);
             $this->cache->set($cacheIdentifier, $data);
         }
 

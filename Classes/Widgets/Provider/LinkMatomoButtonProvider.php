@@ -11,22 +11,21 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Extension;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 
 class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
-    /** @var ExtensionConfiguration */
-    private $extensionConfiguration;
-
     /** @var LanguageService */
     private $languageService;
 
-    public function __construct(ExtensionConfiguration $extensionConfiguration, LanguageService $languageService)
+    /** @var string */
+    private $link;
+
+    public function __construct(LanguageService $languageService, string $link)
     {
-        $this->extensionConfiguration = $extensionConfiguration;
         $this->languageService = $languageService;
+        $this->link = $link;
     }
 
     public function getTitle(): string
@@ -36,7 +35,7 @@ class LinkMatomoButtonProvider implements ButtonProviderInterface
 
     public function getLink(): string
     {
-        return $this->extensionConfiguration->get(Extension::KEY, 'url');
+        return $this->link;
     }
 
     public function getTarget(): string
