@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. index:: Configuration
 
@@ -24,7 +24,7 @@ To configure the extension, go to :guilabel:`Site Management` > :guilabel:`Sites
 and select the appropriate site configuration. Click on the :guilabel:`Matomo
 Widgets` tab:
 
-.. figure:: ../Images/SiteManagement.png
+.. figure:: /Images/SiteManagement.png
    :alt: Options in the site management
 
    Options in the site management

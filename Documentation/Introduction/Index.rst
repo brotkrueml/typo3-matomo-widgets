@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _introduction:
 
@@ -23,7 +23,7 @@ The default parameters of the widgets can be adjusted to your needs, e.g. in the
 Screenshots
 ===========
 
-.. figure:: ../Images/DashboardExample.png
+.. figure:: /Images/DashboardExample.png
    :alt: Example for a Matomo Dashboard
 
    Example for a Matomo Dashboard

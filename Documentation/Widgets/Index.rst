@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _widgets:
 
@@ -39,7 +39,7 @@ This widget displays the number of actions per day for the last 28 days
 - Downloads
 - Clicks on outlinks
 
-.. figure:: ../Images/WidgetActionsPerDay.png
+.. figure:: /Images/WidgetActionsPerDay.png
    :alt: Widget Actions per day
    :class: with-border
 
@@ -64,7 +64,7 @@ This widget displays the number of actions per month for the last 12 months
 - Downloads
 - Clicks on outlinks
 
-.. figure:: ../Images/WidgetActionsPerMonth.png
+.. figure:: /Images/WidgetActionsPerMonth.png
    :alt: Widget Actions per month
    :class: with-border
 
@@ -84,7 +84,7 @@ Bounce rate
 
 The bounce rate for the current month shows this widget:
 
-.. figure:: ../Images/WidgetBounceRate.png
+.. figure:: /Images/WidgetBounceRate.png
    :alt: Widget Bounce Rate
    :class: with-border
 
@@ -106,7 +106,7 @@ Browsers
 
 The browser share for the current month shows this widget:
 
-.. figure:: ../Images/WidgetBrowsers.png
+.. figure:: /Images/WidgetBrowsers.png
    :alt: Widget Browsers
    :class: with-border
 
@@ -130,7 +130,7 @@ Campaigns
 
 Displays a report of the campaigns for the current month:
 
-.. figure:: ../Images/WidgetCampaigns.png
+.. figure:: /Images/WidgetCampaigns.png
    :alt: Widget Campaigns
    :class: with-border
 
@@ -154,7 +154,7 @@ Countries
 Shows a list of countries from which the website was visited in the current
 month:
 
-.. figure:: ../Images/WidgetCountries.png
+.. figure:: /Images/WidgetCountries.png
    :alt: Widget Countries
    :class: with-border
 
@@ -178,7 +178,7 @@ Link to Matomo
 A call-to-action widget is used to show a link to the configured Matomo
 installation:
 
-.. figure:: ../Images/WidgetLinkToMatomo.png
+.. figure:: /Images/WidgetLinkToMatomo.png
    :alt: Widget Link to Matomo
    :class: with-border
 
@@ -190,7 +190,7 @@ Operating system families
 
 The operating system families used by the visitors for the current month:
 
-.. figure:: ../Images/WidgetOsFamilies.png
+.. figure:: /Images/WidgetOsFamilies.png
    :alt: Widget Operating system families
    :class: with-border
 
@@ -214,7 +214,7 @@ Visits per day
 
 This widget displays the number of visits per day for the last 28 days:
 
-.. figure:: ../Images/WidgetVisitsPerDay.png
+.. figure:: /Images/WidgetVisitsPerDay.png
    :alt: Widget Visits per day
    :class: with-border
 
@@ -234,7 +234,7 @@ Visits per month
 
 This widget displays the number of visits per month for the last 12 months:
 
-.. figure:: ../Images/WidgetVisitsPerMonth.png
+.. figure:: /Images/WidgetVisitsPerMonth.png
    :alt: Widget Visits per month
    :class: with-border
 
