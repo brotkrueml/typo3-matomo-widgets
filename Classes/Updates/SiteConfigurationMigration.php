@@ -33,7 +33,10 @@ final class SiteConfigurationMigration implements ChattyInterface, UpgradeWizard
     /** @var ConfigurationFinder */
     private $configurationFinder;
 
-    /** @var OutputInterface */
+    /**
+     * @var OutputInterface
+     * @psalm-suppress PropertyNotSetInConstructor
+     */
     private $output;
 
     public function __construct(
@@ -42,7 +45,9 @@ final class SiteConfigurationMigration implements ChattyInterface, UpgradeWizard
         SiteFinder $siteFinder = null
     ) {
         $this->configurationFinder = $configurationFinder ?? new ConfigurationFinder(Environment::getProjectPath());
+        /** @psalm-suppress PropertyTypeCoercion */
         $this->extensionConfiguration = $extensionConfiguration ?? GeneralUtility::makeInstance(ExtensionConfiguration::class);
+        /** @psalm-suppress PropertyTypeCoercion */
         $this->siteFinder = $siteFinder ?? GeneralUtility::makeInstance(SiteFinder::class);
     }
 
@@ -102,8 +107,11 @@ final class SiteConfigurationMigration implements ChattyInterface, UpgradeWizard
 
     private function clearOldExtensionConfiguration(): void
     {
+        /** @psalm-suppress InternalMethod */
         $this->extensionConfiguration->set(Extension::KEY, 'idSite', '');
+        /** @psalm-suppress InternalMethod */
         $this->extensionConfiguration->set(Extension::KEY, 'tokenAuth', '');
+        /** @psalm-suppress InternalMethod */
         $this->extensionConfiguration->set(Extension::KEY, 'url', '');
     }
 
