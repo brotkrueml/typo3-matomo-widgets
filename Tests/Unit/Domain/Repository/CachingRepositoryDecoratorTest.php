@@ -59,13 +59,15 @@ class CachingRepositoryDecoratorTest extends TestCase
 
         $cacheIdentifier = 'some_method_' . \md5(\serialize($this->connectionConfiguration) . \serialize($parameterBag));
 
+
+
         $this->cacheMock
-            ->expects(self::at(0))
+            ->expects(self::once())
             ->method('get')
             ->with($cacheIdentifier)
             ->willReturn(false);
         $this->cacheMock
-            ->expects(self::at(1))
+            ->expects(self::once())
             ->method('set')
             ->with($cacheIdentifier, $data);
 
