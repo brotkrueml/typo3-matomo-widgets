@@ -14,7 +14,7 @@ use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 
-final class ConfigurationFinder implements \IteratorAggregate, \Countable
+class ConfigurationFinder implements \IteratorAggregate, \Countable
 {
     /** @var array */
     private $configurations = [];

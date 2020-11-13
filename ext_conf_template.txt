@@ -1,0 +1,8 @@
+# cat=General; type=string; label=URL: This legacy value will only be used for the migration of existing configuration to site configuration. Don't define it, it has no effect!
+url =
+
+# cat=General; type=int+; label=Site ID: This legacy value will only be used for the migration of existing configuration to site configuration. Don't define it, it has no effect!
+idSite =
+
+# cat=General; type=string; label=Authorisation token: This legacy value will only be used for the migration of existing configuration to site configuration. Don't define it, it has no effect!
+tokenAuth =
