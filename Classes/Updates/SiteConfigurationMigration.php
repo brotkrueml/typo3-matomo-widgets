@@ -17,6 +17,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Configuration\SiteConfiguration;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Registry;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\ChattyInterface;
@@ -24,14 +25,17 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 final class SiteConfigurationMigration implements ChattyInterface, UpgradeWizardInterface
 {
+    /** @var ConfigurationFinder */
+    private $configurationFinder;
+
     /** @var ExtensionConfiguration */
     private $extensionConfiguration;
 
+    /** @var Registry */
+    private $registry;
+
     /** @var SiteFinder */
     private $siteFinder;
-
-    /** @var ConfigurationFinder */
-    private $configurationFinder;
 
     /**
      * @var OutputInterface
@@ -42,11 +46,14 @@ final class SiteConfigurationMigration implements ChattyInterface, UpgradeWizard
     public function __construct(
         ConfigurationFinder $configurationFinder = null,
         ExtensionConfiguration $extensionConfiguration = null,
+        Registry $registry = null,
         SiteFinder $siteFinder = null
     ) {
         $this->configurationFinder = $configurationFinder ?? new ConfigurationFinder(Environment::getProjectPath());
         /** @psalm-suppress PropertyTypeCoercion */
         $this->extensionConfiguration = $extensionConfiguration ?? GeneralUtility::makeInstance(ExtensionConfiguration::class);
+        /** @psalm-suppress PropertyTypeCoercion */
+        $this->registry = $registry ?? GeneralUtility::makeInstance(Registry::class);
         /** @psalm-suppress PropertyTypeCoercion */
         $this->siteFinder = $siteFinder ?? GeneralUtility::makeInstance(SiteFinder::class);
     }
@@ -83,6 +90,8 @@ final class SiteConfigurationMigration implements ChattyInterface, UpgradeWizard
         $siteConfigurationManager->write($site->getIdentifier(), $newSiteConfiguration);
 
         $this->clearOldExtensionConfiguration();
+
+        $this->registry->set('tx_matomo_widgets', $this->getIdentifier(), 1);
 
         return true;
     }
