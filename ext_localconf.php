@@ -15,3 +15,5 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['matomoWidgets'] = ['B
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['matomoWidgetsSiteConfigurationMigration']
     = \Brotkrueml\MatomoWidgets\Updates\SiteConfigurationMigration::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['matomoWidgetsWidgetMigration']
+    = \Brotkrueml\MatomoWidgets\Updates\WidgetMigration::class;

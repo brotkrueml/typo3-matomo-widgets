@@ -6,6 +6,10 @@
 Migration
 =========
 
+.. contents::
+   :depth: 2
+   :local:
+
 From version 0.2 to 0.3
 =======================
 
@@ -17,25 +21,61 @@ moved from the extension configuration to the :ref:`site management
    As with all upgrades: Please backup your data before executing the upgrade
    wizard!
 
-The migration can be started in the TYPO3 backend via :guilabel:`Admin Tools` >
-:guilabel:`Upgrade` > :guilabel:`Upgrade Wizard`.
-
-.. figure:: /Images/SiteConfigurationMigrationBackend.png
-   :alt: Upgrade wizard in backend
-   :class: with-border
-
-   Upgrade wizard in backend
-
-Alternatively, you can also execute the migration wizard on a TYPO3 console:
-
-.. figure:: /Images/SiteConfigurationMigrationConsole.png
-   :alt: Upgrade wizard on console
-   :class: with-border
-
-   Upgrade wizard on console
-
 .. note::
    If only one site is available the migration of the configuration can be done
    with a upgrade wizard. If there is more than one site configured you have to
    migrate the configuration by yourself. For this purpose the extension
    configuration is still available but has no effect at all.
+
+
+Migrating from extension configuration to site configuration
+------------------------------------------------------------
+
+The migration can be started in the TYPO3 backend via :guilabel:`Admin Tools` >
+:guilabel:`Upgrade` > :guilabel:`Upgrade Wizard`.
+
+.. figure:: /Images/SiteConfigurationMigrationBackend.png
+   :alt: Migrate configuration in backend
+   :class: with-border
+
+   Migrate configuration in backend
+
+Alternatively, you can also execute the migration wizard on a TYPO3 console:
+
+.. figure:: /Images/SiteConfigurationMigrationConsole.png
+   :alt: Migrate configuration on console
+   :class: with-border
+
+   Migrate configuration on console
+
+.. note::
+   After executing the upgrade wizard you have to flush the cache via the
+   module :guilabel:`Admin Tools` > :guilabel:`Maintenance`.
+
+
+Migrating the dashboard widgets
+-------------------------------
+
+As the identifiers of the dashboard widgets have changed they can also be
+migrated to the new identifiers.
+
+The migration can be started in the TYPO3 backend via :guilabel:`Admin Tools` >
+:guilabel:`Upgrade` > :guilabel:`Upgrade Wizard`.
+
+.. figure:: /Images/WidgetMigrationBackend.png
+   :alt: Migrate widgets in backend
+   :class: with-border
+
+   Migrate widgets in backend
+
+Alternatively, you can also execute the migration wizard on a TYPO3 console:
+
+.. figure:: /Images/WidgetMigrationConsole.png
+   :alt: Migrate widgets on console
+   :class: with-border
+
+   Migrate widgets on console
+
+.. note::
+   After executing the upgrade wizard you have to flush the cache via the
+   module :guilabel:`Admin Tools` > :guilabel:`Maintenance`.
