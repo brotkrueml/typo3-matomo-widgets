@@ -57,7 +57,8 @@ Migrating the dashboard widgets
 -------------------------------
 
 As the identifiers of the dashboard widgets have changed they can also be
-migrated to the new identifiers.
+migrated to the new identifiers. If multiple site configuration exist
+the widgets have to be assigned manually to the dashboards again.
 
 The migration can be started in the TYPO3 backend via :guilabel:`Admin Tools` >
 :guilabel:`Upgrade` > :guilabel:`Upgrade Wizard`.
