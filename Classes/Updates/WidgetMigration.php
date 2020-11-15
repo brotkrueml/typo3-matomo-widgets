@@ -15,7 +15,6 @@ use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use Brotkrueml\MatomoWidgets\Domain\Repository\DashboardRepository;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Core\Environment;
-use TYPO3\CMS\Core\Registry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\ChattyInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
@@ -27,9 +26,6 @@ final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
 
     /** @var DashboardRepository */
     private $dashboardRepository;
-
-    /** @var Registry */
-    private $registry;
 
     /**
      * @var OutputInterface
@@ -43,13 +39,12 @@ final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
     /** @var int */
     private $migratedWidgets = 0;
 
-    public function __construct(ConfigurationFinder $configurationFinder = null, DashboardRepository $dashboardRepository = null, Registry $registry = null)
+    public function __construct(ConfigurationFinder $configurationFinder = null, DashboardRepository $dashboardRepository = null)
     {
         $this->configurationFinder = $configurationFinder ?? new ConfigurationFinder(Environment::getProjectPath());
         /** @psalm-suppress PropertyTypeCoercion */
         $this->dashboardRepository = $dashboardRepository ?? GeneralUtility::makeInstance(DashboardRepository::class);
         /** @psalm-suppress PropertyTypeCoercion */
-        $this->registry = $registry ?? GeneralUtility::makeInstance(Registry::class);
     }
 
     public function setOutput(OutputInterface $output): void
@@ -139,14 +134,11 @@ final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
 
     public function updateNecessary(): bool
     {
-        return \count($this->configurationFinder) === 1 &&
-            (bool)$this->registry->get('tx_matomo_widgets', 'matomoWidgetsSiteConfigurationMigration');
+        return \count($this->configurationFinder) === 1;
     }
 
     public function getPrerequisites(): array
     {
-        return [
-            'matomoWidgetsSiteConfigurationMigration',
-        ];
+        return [];
     }
 }

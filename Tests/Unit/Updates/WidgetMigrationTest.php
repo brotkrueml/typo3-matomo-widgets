@@ -17,7 +17,6 @@ use Brotkrueml\MatomoWidgets\Updates\WidgetMigration;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\OutputInterface;
-use TYPO3\CMS\Core\Registry;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 class WidgetMigrationTest extends TestCase
@@ -28,9 +27,6 @@ class WidgetMigrationTest extends TestCase
     /** @var DashboardRepository|MockObject */
     private $dashboardRepositoryMock;
 
-    /** @var MockObject|Registry */
-    private $registryMock;
-
     /** @var WidgetMigration */
     private $subject;
 
@@ -38,15 +34,10 @@ class WidgetMigrationTest extends TestCase
     {
         $this->configurationFinderMock = $this->createMock(ConfigurationFinder::class);
         $this->dashboardRepositoryMock = $this->createMock(DashboardRepository::class);
-        $this->registryMock = $this->createMock(Registry::class);
         $outputDummy = $this->createStub(OutputInterface::class);
         $outputDummy->method('writeln');
 
-        $this->subject = new WidgetMigration(
-            $this->configurationFinderMock,
-            $this->dashboardRepositoryMock,
-            $this->registryMock
-        );
+        $this->subject = new WidgetMigration($this->configurationFinderMock, $this->dashboardRepositoryMock);
         $this->subject->setOutput($outputDummy);
     }
 
@@ -99,6 +90,19 @@ class WidgetMigrationTest extends TestCase
     /**
      * @test
      */
+    public function updateNecessaryReturnsFalseWhenNoSiteConfigurationIsAvailable(): void
+    {
+        $this->configurationFinderMock
+            ->expects(self::once())
+            ->method('count')
+            ->willReturn(0);
+
+        self::assertFalse($this->subject->updateNecessary());
+    }
+
+    /**
+     * @test
+     */
     public function updateNecessaryReturnsFalseWhenMoreThanOneSiteConfigurationIsAvailable(): void
     {
         $this->configurationFinderMock
@@ -112,36 +116,11 @@ class WidgetMigrationTest extends TestCase
     /**
      * @test
      */
-    public function updateNecessaryReturnsFalseIfSiteConfigurationMigrationHasNotMigratedFromExtensionConfiguration(): void
+    public function updateNecessaryReturnsTrueIfOnlyOneSiteConfigurationIsDefined(): void
     {
         $this->configurationFinderMock
             ->expects(self::once())
             ->method('count')
-            ->willReturn(1);
-
-        $this->registryMock
-            ->expects(self::once())
-            ->method('get')
-            ->with('tx_matomo_widgets', 'matomoWidgetsSiteConfigurationMigration')
-            ->willReturn(null);
-
-        self::assertFalse($this->subject->updateNecessary());
-    }
-
-    /**
-     * @test
-     */
-    public function updateNecessaryReturnsTrueIfRequirementsAreFulfilled(): void
-    {
-        $this->configurationFinderMock
-            ->expects(self::once())
-            ->method('count')
-            ->willReturn(1);
-
-        $this->registryMock
-            ->expects(self::once())
-            ->method('get')
-            ->with('tx_matomo_widgets', 'matomoWidgetsSiteConfigurationMigration')
             ->willReturn(1);
 
         self::assertTrue($this->subject->updateNecessary());
@@ -150,8 +129,8 @@ class WidgetMigrationTest extends TestCase
     /**
      * @test
      */
-    public function getPrerequisitesReturnsKeyOfSiteConfigurationMigration(): void
+    public function noPrerequisitesAreNeeded(): void
     {
-        self::assertSame(['matomoWidgetsSiteConfigurationMigration'], $this->subject->getPrerequisites());
+        self::assertSame([], $this->subject->getPrerequisites());
     }
 }
