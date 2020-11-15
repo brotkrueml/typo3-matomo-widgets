@@ -17,7 +17,6 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Configuration\SiteConfiguration;
-use TYPO3\CMS\Core\Registry;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -31,9 +30,6 @@ class SiteConfigurationMigrationTest extends TestCase
     /** @var MockObject|ExtensionConfiguration */
     private $extensionConfigurationMock;
 
-    /** @var MockObject|Registry */
-    private $registryMock;
-
     /** @var MockObject|SiteFinder */
     private $siteFinderMock;
 
@@ -44,7 +40,6 @@ class SiteConfigurationMigrationTest extends TestCase
     {
         $this->configurationFinderMock = $this->createMock(ConfigurationFinder::class);
         $this->extensionConfigurationMock = $this->createMock(ExtensionConfiguration::class);
-        $this->registryMock = $this->createMock(Registry::class);
         $this->siteFinderMock = $this->createMock(SiteFinder::class);
 
         $outputDummy = $this->createStub(OutputInterface::class);
@@ -53,7 +48,6 @@ class SiteConfigurationMigrationTest extends TestCase
         $this->subject = new SiteConfigurationMigration(
             $this->configurationFinderMock,
             $this->extensionConfigurationMock,
-            $this->registryMock,
             $this->siteFinderMock
         );
         $this->subject->setOutput($outputDummy);
@@ -112,11 +106,6 @@ class SiteConfigurationMigrationTest extends TestCase
                     'matomoWidgetsEnableLinkMatomo' => true,
                 ]
             );
-
-        $this->registryMock
-            ->expects(self::once())
-            ->method('set')
-            ->with('tx_matomo_widgets', 'matomoWidgetsSiteConfigurationMigration', 1);
 
         self::assertTrue($this->subject->executeUpdate());
 
