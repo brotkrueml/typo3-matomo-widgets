@@ -82,13 +82,17 @@ final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
             );
         }
 
-        $this->output->writeln(
-            \sprintf(
-                '<info>Migrated %d widgets in %d dashboards. Please flush the cache via Admin Tools > Maintenance.</info>',
-                $this->migratedWidgets,
-                $this->migratedDashboards
-            )
-        );
+        if ($this->migratedWidgets) {
+            $this->output->writeln(
+                \sprintf(
+                    '<info>Migrated %d widgets in %d dashboards. Please flush the cache via Admin Tools > Maintenance.</info>',
+                    $this->migratedWidgets,
+                    $this->migratedDashboards
+                )
+            );
+        } else {
+            $this->output->writeln('<info>No widgets for migration found.</info>');
+        }
 
         return true;
     }
