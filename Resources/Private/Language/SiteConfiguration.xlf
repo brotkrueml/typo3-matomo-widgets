@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2020-11-01T08:02:28Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2020-11-19T16:09:38Z" product-name="matomo_widgets">
 		<header/>
 		<body>
 			<trans-unit id="enabledWidgets" resname="enabledWidgets">
@@ -10,7 +10,7 @@
 				<source><![CDATA[Site ID]]></source>
 			</trans-unit>
 			<trans-unit id="matomoInstallation" resname="matomoInstallation">
-				<source><![CDATA[Matomo Installation]]></source>
+				<source><![CDATA[Matomo Instance]]></source>
 			</trans-unit>
 			<trans-unit id="matomoWidgets" resname="matomoWidgets">
 				<source><![CDATA[Matomo Widgets]]></source>
@@ -23,7 +23,7 @@
 			</trans-unit>
 			<trans-unit id="title.description" resname="title.description">
 				<source><![CDATA[The title will prefix the widget title. Leave empty if you have only one site.
-ATTENTION: If you change one of the values in this tab you have to flush the cache via Admin Tools > Maintenance > Flush cache!]]></source>
+ATTENTION: If you change one of the values in this tab you have to flush the cache via "Admin Tools > Maintenance"!]]></source>
 			</trans-unit>
 			<trans-unit id="url" resname="url">
 				<source><![CDATA[Base URL]]></source>
