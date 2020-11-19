@@ -63,10 +63,13 @@ Authentication token
 
    .. important::
       It is recommended to create an own user in Matomo which has only read
-      access to this site.
+      access to this site. If you use Git for versioning your site configuration
+      you should consider to store the authentication token in an
+      :ref:`environment variable <t3coreapi:sitehandling-using-env-vars>` for
+      better security.
 
 Enabled Widgets
-   You can enable or disable each available widget for one site. Disabled
+   You can enable or disable each available widget for a site. Disabled
    widgets cannot be selected in the dashboard.
 
 
