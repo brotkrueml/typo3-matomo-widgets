@@ -52,6 +52,17 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
    After executing the upgrade wizard you have to flush the cache via the
    module :guilabel:`Admin Tools` > :guilabel:`Maintenance`.
 
+The migration wizard updates:
+
+* File :file:`typo3conf/LocalConfiguration.php`
+* File :file:`config/<site_identifier>/config.yaml`
+
+.. hint::
+   If you use Git for versioning your site configuration you should consider
+   to store the authentication token in an
+   :ref:`environment variable <t3coreapi:sitehandling-using-env-vars>` for
+   better security.
+
 
 Migrating the dashboard widgets
 -------------------------------
@@ -81,6 +92,10 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
    After executing the upgrade wizard you have to flush the cache via the
    module :guilabel:`Admin Tools` > :guilabel:`Maintenance`.
 
+The migration wizard updates:
+
+* Table "be_dashboards"
+
 
 Migrating the backend user group configuration
 ----------------------------------------------
@@ -102,3 +117,7 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
    :class: with-border
 
    Migrate widgets identifiers of backend user groups on console
+
+The migration wizard updates:
+
+* Table "be_groups"
