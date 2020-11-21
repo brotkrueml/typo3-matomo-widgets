@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\DependencyInjection\Widgets;
 
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ParametersConfigurator;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
 
