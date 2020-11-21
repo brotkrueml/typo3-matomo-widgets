@@ -86,7 +86,7 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
                     'groupNames' => 'matomo',
                     'title' => $title,
                     'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.description',
-                    'iconIdentifier' => 'content-widget-chart-bar',
+                    'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
                 ]

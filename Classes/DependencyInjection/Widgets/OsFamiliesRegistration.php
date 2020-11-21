@@ -89,7 +89,7 @@ final class OsFamiliesRegistration extends AbstractRegistration
                     'groupNames' => 'matomo',
                     'title' => $title,
                     'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.description',
-                    'iconIdentifier' => 'content-widget-chart-pie',
+                    'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
                 ]

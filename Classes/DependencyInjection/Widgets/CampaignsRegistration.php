@@ -100,7 +100,7 @@ final class CampaignsRegistration extends AbstractRegistration
                     'groupNames' => 'matomo',
                     'title' => $title,
                     'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.campaigns.description',
-                    'iconIdentifier' => 'content-widget-list',
+                    'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
                 ]

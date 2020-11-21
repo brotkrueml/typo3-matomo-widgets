@@ -89,7 +89,7 @@ final class BrowsersRegistration extends AbstractRegistration
                     'groupNames' => 'matomo',
                     'title' => $title,
                     'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.browsers.description',
-                    'iconIdentifier' => 'content-widget-chart-pie',
+                    'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
                 ]

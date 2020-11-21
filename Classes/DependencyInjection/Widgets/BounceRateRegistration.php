@@ -89,7 +89,7 @@ final class BounceRateRegistration extends AbstractRegistration
                     'groupNames' => 'matomo',
                     'title' => $title,
                     'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.description',
-                    'iconIdentifier' => 'content-widget-number',
+                    'iconIdentifier' => self::ICON_IDENTIFIER,
                 ]
             );
     }

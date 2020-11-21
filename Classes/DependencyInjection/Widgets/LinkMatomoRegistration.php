@@ -64,7 +64,7 @@ final class LinkMatomoRegistration extends AbstractRegistration
                     'groupNames' => 'matomo',
                     'title' => $title,
                     'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.description',
-                    'iconIdentifier' => 'content-widget-text',
+                    'iconIdentifier' => self::ICON_IDENTIFIER,
                 ]
             );
     }
