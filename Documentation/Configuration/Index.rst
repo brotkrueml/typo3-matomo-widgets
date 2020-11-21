@@ -104,21 +104,10 @@ Widget configuration
    break! Upgrading to subsequent versions will be possible, but might involve
    getting your hands dirty.
 
-The widgets provided by this extension are a starting point. You can adjust the
-parameters sent to the Matomo instance for each delivered widget.
-
-The parameters are defined at the beginning of the
-:file:`Configuration/Services.php` file. You can overwrite them in your own
-services file, for example in your site package extension.
-
-The data providers for the widgets and the widgets themselves are configured in
-the :file:`Configuration/Services.php` file. Each data provider has a
-:yaml:`parameters` argument which - well - defines the arguments with which the
-Matomo API is called. You can adjust these parameters to your needs, e.g. to
-change the number of months displayed in the *Visits per month* widget from 12
-to 24. Also have a look into the :ref:`Dashboard manual
-<t3dashboard:introduction>` which describes the configuration of widgets and
-data providers in general.
+The widgets provided by this extension are a starting point. You can adjust some
+parameters sent to the Matomo instance for each widget. An example would be
+to raise the displayed number of days for the *Visits per month* widget from
+12 months to 24 months.
 
 **Example:**
 
@@ -137,8 +126,7 @@ There are some more that might be interesting for you.
    <https://developer.matomo.org/api-reference/reporting-api>`_ for a reference
    of the available Matomo parameters and values.
 
-You can find all configuration parameters in the chapter :ref:`widgets` or in
-the :file:`Configuration/Services.php` file shipped with this extension.
+You can find all configuration parameters in the chapter :ref:`widgets`.
 
 .. hint::
    Please provide all necessary parameters for the Matomo API, otherwise you
