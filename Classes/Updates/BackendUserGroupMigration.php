@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -12,20 +13,20 @@ namespace Brotkrueml\MatomoWidgets\Updates;
 
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
-use Brotkrueml\MatomoWidgets\Domain\Repository\DashboardRepository;
+use Brotkrueml\MatomoWidgets\Domain\Repository\BackendUserGroupRepository;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\ChattyInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
+class BackendUserGroupMigration implements ChattyInterface, UpgradeWizardInterface
 {
     /** @var ConfigurationFinder */
     private $configurationFinder;
 
-    /** @var DashboardRepository */
-    private $dashboardRepository;
+    /** @var BackendUserGroupRepository */
+    private $backendUserGroupRepository;
 
     /**
      * @var OutputInterface
@@ -34,17 +35,19 @@ final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
     private $output;
 
     /** @var int */
-    private $migratedDashboards = 0;
+    private $migratedBackendUserGroups = 0;
 
     /** @var int */
     private $migratedWidgets = 0;
 
-    public function __construct(ConfigurationFinder $configurationFinder = null, DashboardRepository $dashboardRepository = null)
-    {
+    public function __construct(
+        ConfigurationFinder $configurationFinder = null,
+        BackendUserGroupRepository $backendUserGroupRepository = null
+    ) {
+        /** @psalm-suppress PropertyTypeCoercion */
         $this->configurationFinder = $configurationFinder ?? new ConfigurationFinder(Environment::getProjectPath());
         /** @psalm-suppress PropertyTypeCoercion */
-        $this->dashboardRepository = $dashboardRepository ?? GeneralUtility::makeInstance(DashboardRepository::class);
-        /** @psalm-suppress PropertyTypeCoercion */
+        $this->backendUserGroupRepository = $backendUserGroupRepository ?? GeneralUtility::makeInstance(BackendUserGroupRepository::class);
     }
 
     public function setOutput(OutputInterface $output): void
@@ -54,17 +57,17 @@ final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
 
     public function getIdentifier(): string
     {
-        return 'matomoWidgetsWidgetMigration';
+        return 'matomoWidgetsBackendUserGroupMigration';
     }
 
     public function getTitle(): string
     {
-        return 'Matomo Widgets: Migrate widgets identifiers in dashboards';
+        return 'Matomo Widgets: Migrate widgets identifiers in backend user groups';
     }
 
     public function getDescription(): string
     {
-        return 'The widget identifiers in the dashboards are migrated to the new identifiers derived from the site '
+        return 'The widget identifiers in the backend user groups are migrated to the new identifiers derived from the site '
             . 'configuration. This upgrade wizard is executed if only one site is available.';
     }
 
@@ -73,21 +76,25 @@ final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
         /** @var Configuration $configuration */
         /** @psalm-suppress UndefinedInterfaceMethod */
         $configuration = $this->configurationFinder->getIterator()[0];
-        $dashboards = $this->dashboardRepository->findAll();
-        foreach ($dashboards as $dashboard) {
-            $this->migrateWidgetsForDashboard(
+        $backendUserGroups = $this->backendUserGroupRepository->findAll();
+        foreach ($backendUserGroups as $backendUserGroup) {
+            if (empty($backendUserGroup['availableWidgets'])) {
+                continue;
+            }
+
+            $this->migrateWidgetsForBackendUserGroup(
                 $configuration->getSiteIdentifier(),
-                $dashboard['identifier'],
-                $dashboard['widgets']
+                $backendUserGroup['uid'],
+                $backendUserGroup['availableWidgets']
             );
         }
 
         if ($this->migratedWidgets) {
             $this->output->writeln(
                 \sprintf(
-                    '<info>Migrated %d widgets in %d dashboards. Please flush the cache via Admin Tools > Maintenance.</info>',
+                    '<info>Migrated %d widgets in %d backend user groups.</info>',
                     $this->migratedWidgets,
-                    $this->migratedDashboards
+                    $this->migratedBackendUserGroups
                 )
             );
         } else {
@@ -97,24 +104,24 @@ final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
         return true;
     }
 
-    private function migrateWidgetsForDashboard(
+    private function migrateWidgetsForBackendUserGroup(
         string $siteIdentifier,
-        string $dashboardIdentifier,
+        int $backendUserGroupUid,
         string $widgets
     ): void {
-        $decodedWidgets = \json_decode($widgets, true);
+        $widgetsArray = \explode(',', $widgets);
         $widgetsMigrated = false;
-        foreach ($decodedWidgets as $key => $configuration) {
-            if (!\str_starts_with($configuration['identifier'], 'matomo_widgets.')) {
+        foreach ($widgetsArray as $index => $widgetIdentifier) {
+            if (!\str_starts_with($widgetIdentifier, 'matomo_widgets.')) {
                 continue;
             }
 
-            if (\str_starts_with($configuration['identifier'], \sprintf('matomo_widgets.%s.', $siteIdentifier))) {
+            if (\str_starts_with($widgetIdentifier, \sprintf('matomo_widgets.%s.', $siteIdentifier))) {
                 // Already migrated
                 continue;
             }
 
-            $widgetIdentifierParts = \explode('.', $configuration['identifier']);
+            $widgetIdentifierParts = \explode('.', $widgetIdentifier);
             $newWidgetIdentifier = \implode(
                 '.',
                 \array_merge(
@@ -124,15 +131,14 @@ final class WidgetMigration implements ChattyInterface, UpgradeWizardInterface
                 )
             );
 
-            $configuration['identifier'] = $newWidgetIdentifier;
-            $decodedWidgets[$key] = $configuration;
+            $widgetsArray[$index] = $newWidgetIdentifier;
             $widgetsMigrated = true;
             $this->migratedWidgets++;
         }
 
         if ($widgetsMigrated) {
-            $this->dashboardRepository->updateWidgetConfig($dashboardIdentifier, $decodedWidgets);
-            $this->migratedDashboards++;
+            $this->backendUserGroupRepository->updateAvailableWidgets($backendUserGroupUid, $widgetsArray);
+            $this->migratedBackendUserGroups++;
         }
     }
 

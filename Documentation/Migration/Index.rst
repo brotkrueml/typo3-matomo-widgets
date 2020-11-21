@@ -64,19 +64,41 @@ The migration can be started in the TYPO3 backend via :guilabel:`Admin Tools` >
 :guilabel:`Upgrade` > :guilabel:`Upgrade Wizard`.
 
 .. figure:: /Images/WidgetMigrationBackend.png
-   :alt: Migrate widgets in backend
+   :alt: Migrate dashboard widgets in backend
    :class: with-border
 
-   Migrate widgets in backend
+   Migrate dashboard widgets in backend
 
 Alternatively, you can also execute the migration wizard on a TYPO3 console:
 
 .. figure:: /Images/WidgetMigrationConsole.png
-   :alt: Migrate widgets on console
+   :alt: Migrate dashboard widgets on console
    :class: with-border
 
-   Migrate widgets on console
+   Migrate dashboard widgets on console
 
 .. note::
    After executing the upgrade wizard you have to flush the cache via the
    module :guilabel:`Admin Tools` > :guilabel:`Maintenance`.
+
+
+Migrating the backend user group configuration
+----------------------------------------------
+
+Use this upgrade wizard to migrate the widget identifiers to the new
+format. If multiple site configuration exist the widgets have to be assigned
+manually to the backend user groups again.
+
+.. figure:: /Images/WidgetBackendUserGroupMigrationBackend.png
+   :alt: Migrate widgets identifiers of backend user groups in backend
+   :class: with-border
+
+   Migrate widgets identifiers of backend user groups in backend
+
+Alternatively, you can also execute the migration wizard on a TYPO3 console:
+
+.. figure:: /Images/WidgetBackendUserGroupMigrationConsole.png
+   :alt: Migrate widgets identifiers of backend user groups on console
+   :class: with-border
+
+   Migrate widgets identifiers of backend user groups on console
