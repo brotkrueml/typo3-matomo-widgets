@@ -33,12 +33,9 @@ Dashboard widgets showing Matomo reports
 The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `typo3.org <https://typo3.org/>`_.
 
-**Community Documentation**
+**Extension Manual**
 
-This documentation is community documentation for the TYPO3 extension
-"matomo_widgets".
-
-It is maintained as part of this third party extension.
+This documentation is for the TYPO3 extension matomo_widgets.
 
 If you find an error or something is missing, please:
 `Report a Problem <https://github.com/brotkrueml/typo3-matomo-widgets/issues/new>`_
