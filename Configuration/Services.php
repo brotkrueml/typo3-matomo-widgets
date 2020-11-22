@@ -36,7 +36,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->autowire()
         ->autoconfigure()
         ->private();
-    $services->load('Brotkrueml\MatomoWidgets\\', __DIR__ . '/../Classes/*');
+    $services->load('Brotkrueml\\MatomoWidgets\\', __DIR__ . '/../Classes/*');
 
     $services->set('cache.matomo_widgets', FrontendInterface::class)
         ->factory([new Reference(CacheManager::class), 'getCache'])
