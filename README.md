@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/brotkrueml/typo3-matomo-widgets/badge.svg?branch=master)](https://coveralls.io/github/brotkrueml/typo3-matomo-widgets?branch=master)
 [![Crowdin](https://badges.crowdin.net/typo3-extension-matomowidgets/localized.svg)](https://crowdin.com/project/typo3-extension-matomowidgets)
 
-The extension supports TYPO3 v10 LTS.
+The extension supports TYPO3 v10 LTS and TYPO3 v11.
 
 [Documentation](https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/master/en-us/) |
 [Translation](https://crowdin.com/project/typo3-extension-matomowidgets) |

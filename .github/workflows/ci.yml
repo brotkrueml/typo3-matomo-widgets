@@ -19,8 +19,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['7.2', '7.3', '7.4']
-        typo3-versions: ['^10']
+        php-versions: ['7.4']
+        typo3-versions: ['^10', '^11']
+        include:
+          - php-versions: 7.2
+            typo3-versions: ^10
+          - php-versions: 7.3
+            typo3-versions: ^10
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -63,7 +68,7 @@ jobs:
       - name: Setup PHP version
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.2
+          php-version: 7.4
           extensions: fileinfo gd intl json mbstring mysqli openssl pcre pdo session sodium xml zip zlib
       - name: Get Composer Cache Directory
         id: composer-cache
