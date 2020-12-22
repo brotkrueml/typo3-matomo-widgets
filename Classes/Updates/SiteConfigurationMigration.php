@@ -17,6 +17,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Configuration\SiteConfiguration;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\ChattyInterface;
@@ -107,12 +108,20 @@ final class SiteConfigurationMigration implements ChattyInterface, UpgradeWizard
 
     private function clearOldExtensionConfiguration(): void
     {
-        /** @psalm-suppress InternalMethod */
-        $this->extensionConfiguration->set(Extension::KEY, 'idSite', '');
-        /** @psalm-suppress InternalMethod */
-        $this->extensionConfiguration->set(Extension::KEY, 'tokenAuth', '');
-        /** @psalm-suppress InternalMethod */
-        $this->extensionConfiguration->set(Extension::KEY, 'url', '');
+        $configuration = [
+            'idSite' => '',
+            'tokenAuth' => '',
+            'url' => '',
+        ];
+
+        if ((new Typo3Version())->getMajorVersion() === 10) {
+            /** @psalm-suppress InternalMethod, TooManyArguments */
+            $this->extensionConfiguration->set(Extension::KEY, '', $configuration);
+        } else {
+            /** @noinspection PhpStrictTypeCheckingInspection, PhpParamsInspection */
+            /** @psalm-suppress InternalMethod, InvalidArgument */
+            $this->extensionConfiguration->set(Extension::KEY, $configuration);
+        }
     }
 
     public function updateNecessary(): bool
