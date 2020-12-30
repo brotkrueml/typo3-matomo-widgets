@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Raise minimum required version to TYPO3 10.4.11
+
 ## [0.3.1] - 2020-12-22
 
 ### Added
