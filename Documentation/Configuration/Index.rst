@@ -56,15 +56,13 @@ Site ID
 Authentication token
    Enter the authentication token (token_auth).
 
-   To retrieve a authentication token navigate in your Matomo instance to
-   the administration area and click on :guilabel:`Personal` >
-   :guilabel:`Settings`. There you'll find a section :guilabel:`API
-   Authentication Token`.
+   See the Matomo documentation for how to `generate a token_auth
+   <https://matomo.org/faq/general/faq_114/>`_.
 
    .. important::
       It is recommended to create an own user in Matomo which has only read
-      access to this site. If you use Git for versioning your site configuration
-      you should consider to store the authentication token in an
+      access to the given site. If you use Git for versioning your site
+      configuration you should consider to store the authentication token in an
       :ref:`environment variable <t3coreapi:sitehandling-using-env-vars>` for
       better security.
 
