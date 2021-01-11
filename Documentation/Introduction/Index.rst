@@ -37,10 +37,10 @@ following settings into the :ref:`site configuration
 <site-configuration>`:
 
 Base URL of the Matomo instance
-   https://demo.matomo.org/
+   https://demo.matomo.cloud/
 
 Site ID
-   62
+   1
 
 Authentication token
    (leave empty)
