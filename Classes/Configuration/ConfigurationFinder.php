@@ -19,12 +19,12 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
     /** @var array */
     private $configurations = [];
 
-    public function __construct(string $projectPath)
+    public function __construct(string $configPath)
     {
         $finder = new Finder();
         try {
             $finder
-                ->in($projectPath . '/config/sites/*')
+                ->in($configPath . '/sites/*')
                 ->name('config.yaml');
 
             foreach ($finder as $file) {

@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Raise minimum required version to TYPO3 10.4.11
 
+### Fixed
+- Show dashboard widgets in non-composer installation
+
 ## [0.3.1] - 2020-12-22
 
 ### Added

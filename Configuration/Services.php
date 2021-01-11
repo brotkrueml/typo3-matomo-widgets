@@ -48,7 +48,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->alias(RepositoryInterface::class, CachingRepositoryDecorator::class);
 
-    $configurationFinder = new ConfigurationFinder(Environment::getProjectPath());
+    $configurationFinder = new ConfigurationFinder(Environment::getConfigPath());
     foreach ($configurationFinder as $matomoConfiguration) {
         /** @var Configuration $matomoConfiguration */
         $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $matomoConfiguration->getSiteIdentifier();

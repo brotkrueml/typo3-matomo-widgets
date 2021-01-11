@@ -17,23 +17,23 @@ use PHPUnit\Framework\TestCase;
 class ConfigurationFinderTest extends TestCase
 {
     /** @var string */
-    private static $tmpDir;
+    private static $configPath;
 
     public static function setUpBeforeClass(): void
     {
-        self::$tmpDir = \realpath(\sys_get_temp_dir()) . \DIRECTORY_SEPARATOR . 'matomo_widgets_configuration_finder';
+        self::$configPath = \realpath(\sys_get_temp_dir()) . \DIRECTORY_SEPARATOR . 'matomo_widgets_configuration_finder';
 
-        if (\is_dir(self::$tmpDir)) {
+        if (\is_dir(self::$configPath)) {
             self::tearDownAfterClass();
         } else {
-            \mkdir(self::$tmpDir);
+            \mkdir(self::$configPath);
         }
     }
 
     public static function tearDownAfterClass(): void
     {
         $paths = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator(self::$tmpDir, \RecursiveDirectoryIterator::SKIP_DOTS),
+            new \RecursiveDirectoryIterator(self::$configPath, \RecursiveDirectoryIterator::SKIP_DOTS),
             \RecursiveIteratorIterator::CHILD_FIRST
         );
 
@@ -60,7 +60,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function classIsTraversable(): void
     {
-        $subject = new ConfigurationFinder(self::$tmpDir);
+        $subject = new ConfigurationFinder(self::$configPath);
 
         self::assertInstanceOf(\Traversable::class, $subject);
     }
@@ -70,7 +70,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function classImplementsCountable(): void
     {
-        $subject = new ConfigurationFinder(self::$tmpDir);
+        $subject = new ConfigurationFinder(self::$configPath);
 
         self::assertInstanceOf(\Countable::class, $subject);
     }
@@ -80,7 +80,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function noSiteConfigurationFoundThenNoMatomoConfigurationExists(): void
     {
-        $subject = new ConfigurationFinder(self::$tmpDir);
+        $subject = new ConfigurationFinder(self::$configPath);
 
         self::assertCount(0, $subject);
     }
@@ -91,7 +91,7 @@ class ConfigurationFinderTest extends TestCase
     public function siteConfigurationWithNoMatomoConfigurationIsNotTakenIntoAccount(): void
     {
         $this->createSiteConfiguration('some_site', []);
-        $subject = new ConfigurationFinder(self::$tmpDir);
+        $subject = new ConfigurationFinder(self::$configPath);
 
         self::assertCount(0, $subject);
     }
@@ -108,7 +108,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => '',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$tmpDir);
+        $subject = new ConfigurationFinder(self::$configPath);
 
         self::assertCount(0, $subject);
     }
@@ -127,7 +127,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsEnableActionsPerMonth' => false,
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$tmpDir);
+        $subject = new ConfigurationFinder(self::$configPath);
 
         self::assertCount(1, $subject);
 
@@ -156,7 +156,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => 'https://example.org/',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$tmpDir);
+        $subject = new ConfigurationFinder(self::$configPath);
 
         self::assertCount(0, $subject);
     }
@@ -173,14 +173,14 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => '',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$tmpDir);
+        $subject = new ConfigurationFinder(self::$configPath);
 
         self::assertCount(0, $subject);
     }
 
     private function createSiteConfiguration(string $identifier, array $configuration): void
     {
-        $path = self::$tmpDir . '/config/sites/' . $identifier;
+        $path = self::$configPath . '/sites/' . $identifier;
         \mkdir($path, 0777, true);
 
         $yamlConfiguration = '';

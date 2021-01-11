@@ -41,7 +41,7 @@ final class DashboardPresetsProvider
      */
     public function __construct($configurationFinder = null)
     {
-        $this->configurationFinder = $configurationFinder ?? new ConfigurationFinder(Environment::getProjectPath());
+        $this->configurationFinder = $configurationFinder ?? new ConfigurationFinder(Environment::getConfigPath());
     }
 
     public function getPresets(): array
