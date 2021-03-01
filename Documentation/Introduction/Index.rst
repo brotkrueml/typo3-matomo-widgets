@@ -18,6 +18,10 @@ reports via the `Reporting API
 The default parameters of the widgets can be adjusted to your needs, e.g. in the
 *Visits per month* widget display 24 month instead of 12 months.
 
+.. tip::
+   If you use Matomo, the :ref:`Matomo Opt-Out <matomo_optout:introduction>`
+   extension might be of interest to you.
+
 .. _screenshots:
 
 Screenshots
