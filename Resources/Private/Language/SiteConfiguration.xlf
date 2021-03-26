@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
+<?xml version="1.0" encoding="utf-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2020-11-19T16:09:38Z" product-name="matomo_widgets">
-		<header/>
 		<body>
 			<trans-unit id="enabledWidgets" resname="enabledWidgets">
 				<source><![CDATA[Enabled Widgets]]></source>

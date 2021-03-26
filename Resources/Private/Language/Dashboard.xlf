@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
+<?xml version="1.0" encoding="utf-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2020-11-09T19:56:41Z" product-name="matomo_widgets">
-		<header/>
 		<body>
 			<trans-unit id="other" resname="other">
 				<source><![CDATA[Other]]></source>
