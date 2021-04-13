@@ -6,6 +6,11 @@
 Migration
 =========
 
+.. important::
+   Before updating from a version before 0.3 to 1.0 or up you should update
+   to version 0.3.2 first and execute the upgrade wizards. Then update to the
+   newest version.
+
 .. contents::
    :depth: 2
    :local:

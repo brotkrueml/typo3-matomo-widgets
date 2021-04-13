@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+- Upgrade wizards for version 0.3
+
 ## [0.3.2] - 2021-01-11
 
 ### Changed
