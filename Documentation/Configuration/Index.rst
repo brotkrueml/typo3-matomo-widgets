@@ -96,12 +96,6 @@ into :file:`ext_localconf.php` of this extension for the current configuration.
 Widget configuration
 ====================
 
-.. caution::
-   The extension is in beta status. That means it still has some bugs or
-   incomplete features, and at some point – sooner or later – it will probably
-   break! Upgrading to subsequent versions will be possible, but might involve
-   getting your hands dirty.
-
 The widgets provided by this extension are a starting point. You can adjust some
 parameters sent to the Matomo instance for each widget. An example would be
 to raise the displayed number of days for the *Visits per month* widget from
