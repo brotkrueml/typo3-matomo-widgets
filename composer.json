@@ -56,7 +56,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "0.3.x-dev"
+			"dev-master": "1.0.x-dev"
 		},
 		"typo3/cms": {
 			"extension-key": "matomo_widgets",
