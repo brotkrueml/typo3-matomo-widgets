@@ -48,9 +48,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/schema/compare/v0.3.2...HEAD
-[0.3.2]: https://github.com/brotkrueml/schema/compare/v0.3.1...v0.3.2
-[0.3.1]: https://github.com/brotkrueml/schema/compare/v0.3.0...v0.3.1
-[0.3.0]: https://github.com/brotkrueml/schema/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/brotkrueml/schema/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/brotkrueml/schema/releases/tag/v0.1.0
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.2...HEAD
+[0.3.2]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.1...v0.3.2
+[0.3.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/brotkrueml/typo3-matomo-widgets/releases/tag/v0.1.0
