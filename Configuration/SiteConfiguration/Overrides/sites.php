@@ -10,62 +10,46 @@
 (function () {
     $GLOBALS['SiteConfiguration']['site']['columns'] += [
         'matomoWidgetsTitle' => [
-            'label' => \Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':title',
-            'description' => \Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':title.description',
+            'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':title',
+            'description' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':title.description',
             'config' => [
                 'type' => 'input',
                 'eval' => 'trim',
             ],
         ],
         'matomoWidgetsUrl' => [
-            'label' => \Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':url',
+            'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':url',
             'config' => [
                 'type' => 'input',
                 'eval' => 'trim',
             ],
         ],
         'matomoWidgetsIdSite' => [
-            'label' => \Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':idSite',
+            'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':idSite',
             'config' => [
                 'type' => 'input',
                 'eval' => 'int',
             ],
         ],
         'matomoWidgetsTokenAuth' => [
-            'label' => \Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':tokenAuth',
+            'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':tokenAuth',
             'config' => [
                 'type' => 'input',
                 'eval' => 'trim',
             ],
         ],
+        'matomoWidgetsActiveWidgets' => [
+            'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':activeWidgets',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectCheckBox',
+                'items' => (new Brotkrueml\MatomoWidgets\Configuration\WidgetsProvider())->getItemsForTca(),
+            ],
+        ]
     ];
 
-    $availableWidgetsProvider = new \Brotkrueml\MatomoWidgets\Configuration\WidgetsProvider();
-    $availableWidgets = $availableWidgetsProvider->getWidgetConfigurationKeys();
-    foreach ($availableWidgets as $widget) {
-        $GLOBALS['SiteConfiguration']['site']['columns'] += [
-            $widget => [
-                'label' => $availableWidgetsProvider->getTitleForWidget($widget),
-                'config' => [
-                    'type' => 'check',
-                    'renderType' => 'checkboxLabeledToggle',
-                    'items' => [
-                        [
-                            0 => '',
-                            1 => '',
-                            'labelChecked' => 'Enabled',
-                            'labelUnchecked' => 'Disabled',
-                        ],
-                    ],
-                    'default' => 1,
-                ],
-            ],
-        ];
-    }
-
-    $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= '
-        ,
-        --div--;' . \Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':matomoWidgets,
+    $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',
+        --div--;' . Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':matomoWidgets,
         matomoWidgetsTitle,
         --palette--;;matomoWidgetsInstallation,
         --palette--;;matomoWidgetsActiveWidgets,
@@ -73,12 +57,12 @@
 
     $GLOBALS['SiteConfiguration']['site']['palettes'] += [
         'matomoWidgetsInstallation' => [
-            'label' => \Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':matomoInstallation',
+            'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':matomoInstallation',
             'showitem' => 'matomoWidgetsUrl, matomoWidgetsIdSite, matomoWidgetsTokenAuth',
         ],
         'matomoWidgetsActiveWidgets' => [
-            'label' => \Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':enabledWidgets',
-            'showitem' => implode(',', $availableWidgets),
+            'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':dashboardWidgets',
+            'showitem' => 'matomoWidgetsActiveWidgets',
         ],
     ];
 })();

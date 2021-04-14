@@ -22,16 +22,16 @@ use TYPO3\CMS\Core\Core\Environment;
 final class DashboardPresetsProvider
 {
     private const DEFAULT_WIDGETS_TEMPLATES = [
-        'matomoWidgetsEnableVisitsPerDay' => 'matomo_widgets.%s.visitsSummary.visitsPerDay',
-        'matomoWidgetsEnableActionsPerDay' => 'matomo_widgets.%s.visitsSummary.actionsPerDay',
-        'matomoWidgetsEnableVisitsPerMonth' => 'matomo_widgets.%s.visitsSummary.visitsPerMonth',
-        'matomoWidgetsEnableActionsPerMonth' => 'matomo_widgets.%s.visitsSummary.actionsPerMonth',
-        'matomoWidgetsEnableBounceRate' => 'matomo_widgets.%s.visitsSummary.bounceRate',
-        'matomoWidgetsEnableLinkMatomo' => 'matomo_widgets.%s.linkMatomo',
-        'matomoWidgetsEnableBrowsers' => 'matomo_widgets.%s.devicesDetection.browsers',
-        'matomoWidgetsEnableOsFamilies' => 'matomo_widgets.%s.devicesDetection.osFamilies',
-        'matomoWidgetsEnableCampaigns' => 'matomo_widgets.%s.referrers.campaigns',
-        'matomoWidgetsEnableCountries' => 'matomo_widgets.%s.userCountry.country',
+        'visitsPerDay' => 'matomo_widgets.%s.visitsSummary.visitsPerDay',
+        'actionsPerDay' => 'matomo_widgets.%s.visitsSummary.actionsPerDay',
+        'visitsPerMonth' => 'matomo_widgets.%s.visitsSummary.visitsPerMonth',
+        'actionsPerMonth' => 'matomo_widgets.%s.visitsSummary.actionsPerMonth',
+        'bounceRate' => 'matomo_widgets.%s.visitsSummary.bounceRate',
+        'linkMatomo' => 'matomo_widgets.%s.linkMatomo',
+        'browsers' => 'matomo_widgets.%s.devicesDetection.browsers',
+        'osFamilies' => 'matomo_widgets.%s.devicesDetection.osFamilies',
+        'campaigns' => 'matomo_widgets.%s.referrers.campaigns',
+        'countries' => 'matomo_widgets.%s.userCountry.country',
     ];
 
     /** @var ConfigurationFinder */
@@ -53,7 +53,7 @@ final class DashboardPresetsProvider
             $enabledWidgets = \array_values(\array_filter(
                 self::DEFAULT_WIDGETS_TEMPLATES,
                 static function (string $widgetConfigurationKey) use ($configuration): bool {
-                    return $configuration->isWidgetEnabled($widgetConfigurationKey);
+                    return $configuration->isWidgetActive($widgetConfigurationKey);
                 },
                 \ARRAY_FILTER_USE_KEY
             ));

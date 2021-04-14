@@ -31,7 +31,7 @@ final class CountriesRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetEnabled('matomoWidgetsEnableCountries')) {
+        if (!$this->matomoConfiguration->isWidgetActive('countries')) {
             return;
         }
 

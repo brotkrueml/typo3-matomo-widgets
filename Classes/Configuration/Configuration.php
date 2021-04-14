@@ -28,17 +28,23 @@ final class Configuration
     /** @var string */
     private $tokenAuth;
 
-    /** @var array<string,bool> */
-    private $widgets;
+    /** @var list<string> */
+    private $activeWidgets;
 
-    public function __construct(string $siteIdentifier, string $siteTitle, string $url, int $idSite, string $tokenAuth, array $widgets)
-    {
+    public function __construct(
+        string $siteIdentifier,
+        string $siteTitle,
+        string $url,
+        int $idSite,
+        string $tokenAuth,
+        array $activeWidgets
+    ) {
         $this->siteIdentifier = $siteIdentifier;
         $this->siteTitle = $siteTitle;
         $this->url = $url;
         $this->idSite = $idSite;
         $this->tokenAuth = $tokenAuth;
-        $this->widgets = $widgets;
+        $this->activeWidgets = $activeWidgets;
     }
 
     public function getSiteIdentifier(): string
@@ -66,8 +72,8 @@ final class Configuration
         return $this->tokenAuth;
     }
 
-    public function isWidgetEnabled(string $widgetConfigurationKey): bool
+    public function isWidgetActive(string $widgetIdentifier): bool
     {
-        return $this->widgets[$widgetConfigurationKey] ?? false;
+        return \in_array($widgetIdentifier, $this->activeWidgets, true);
     }
 }

@@ -28,8 +28,7 @@ class ConfigurationTest extends TestCase
             42,
             'some token auth',
             [
-                'matomoWidgetsEnableActionsPerDay' => true,
-                'matomoWidgetsEnableActionsPerMonth' => false,
+                'actionsPerDay',
             ]
         );
     }
@@ -49,17 +48,17 @@ class ConfigurationTest extends TestCase
     /**
      * @test
      */
-    public function isWidgetEnabledReturnsDefinedValuesCorrectly(): void
+    public function isWidgetActiveReturnsDefinedValuesCorrectly(): void
     {
-        self::assertTrue($this->subject->isWidgetEnabled('matomoWidgetsEnableActionsPerDay'));
-        self::assertFalse($this->subject->isWidgetEnabled('matomoWidgetsEnableActionsPerMonth'));
+        self::assertTrue($this->subject->isWidgetActive('actionsPerDay'));
+        self::assertFalse($this->subject->isWidgetActive('actionsPerMonth'));
     }
 
     /**
      * @test
      */
-    public function isWidgetEnabledReturnsFalseIfWidgetIsUnknown(): void
+    public function isWidgetActiveReturnsFalseIfWidgetIsUnknown(): void
     {
-        self::assertFalse($this->subject->isWidgetEnabled('unknown'));
+        self::assertFalse($this->subject->isWidgetActive('unknown'));
     }
 }

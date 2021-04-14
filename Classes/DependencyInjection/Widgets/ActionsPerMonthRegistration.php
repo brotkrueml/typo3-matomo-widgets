@@ -28,7 +28,7 @@ final class ActionsPerMonthRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetEnabled('matomoWidgetsEnableActionsPerMonth')) {
+        if (!$this->matomoConfiguration->isWidgetActive('actionsPerMonth')) {
             return;
         }
 

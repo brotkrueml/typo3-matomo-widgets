@@ -28,7 +28,7 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetEnabled('matomoWidgetsEnableVisitsPerMonth')) {
+        if (!$this->matomoConfiguration->isWidgetActive('visitsPerMonth')) {
             return;
         }
 

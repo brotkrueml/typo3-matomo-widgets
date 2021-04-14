@@ -25,7 +25,7 @@ final class LinkMatomoRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetEnabled('matomoWidgetsEnableLinkMatomo')) {
+        if (!$this->matomoConfiguration->isWidgetActive('linkMatomo')) {
             return;
         }
 

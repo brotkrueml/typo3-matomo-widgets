@@ -28,7 +28,7 @@ final class ActionsPerDayRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetEnabled('matomoWidgetsEnableActionsPerDay')) {
+        if (!$this->matomoConfiguration->isWidgetActive('actionsPerDay')) {
             return;
         }
 

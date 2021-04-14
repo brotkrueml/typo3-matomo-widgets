@@ -29,7 +29,7 @@ final class BrowsersRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetEnabled('matomoWidgetsEnableBrowsers')) {
+        if (!$this->matomoConfiguration->isWidgetActive('browsers')) {
             return;
         }
 

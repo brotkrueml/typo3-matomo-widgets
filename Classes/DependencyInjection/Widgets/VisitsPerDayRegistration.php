@@ -28,7 +28,7 @@ final class VisitsPerDayRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetEnabled('matomoWidgetsEnableVisitsPerDay')) {
+        if (!$this->matomoConfiguration->isWidgetActive('visitsPerDay')) {
             return;
         }
 

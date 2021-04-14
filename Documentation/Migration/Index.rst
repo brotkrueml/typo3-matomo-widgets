@@ -9,11 +9,48 @@ Migration
 .. important::
    Before updating from a version before 0.3 to 1.0 or up you should update
    to version 0.3.2 first and execute the upgrade wizards. Then update to the
-   newest version.
+   newest version and run the next upgrade wizards.
 
 .. contents::
    :depth: 2
    :local:
+
+From version 0.3 to 1.0
+=======================
+
+In version 1.0 the format changed how the active widgets for a site is stored
+in the site configuration. For the migration of this configuration an upgrade
+wizard is available.
+
+.. attention::
+   As with all upgrades: Please backup your data before executing the upgrade
+   wizard!
+
+The migration can be started in the TYPO3 backend via :guilabel:`Admin Tools` >
+:guilabel:`Upgrade` > :guilabel:`Upgrade Wizard`.
+
+.. figure:: /Images/EnableWidgetsMigrationBackend.png
+   :alt: Migrate configuration in backend
+   :class: with-border
+
+   Migrate configuration in backend
+
+Alternatively, you can also execute the migration wizard on a TYPO3 console:
+
+.. figure:: /Images/EnableWidgetsMigrationConsole.png
+   :alt: Migrate configuration on console
+   :class: with-border
+
+   Migrate configuration on console
+
+.. note::
+   After executing the upgrade wizard you have to flush the cache via the
+   module :guilabel:`Admin Tools` > :guilabel:`Maintenance`.
+
+The migration wizard updates:
+
+* File :file:`config/<site_identifier>/config.yaml`
+
 
 From version 0.2 to 0.3
 =======================

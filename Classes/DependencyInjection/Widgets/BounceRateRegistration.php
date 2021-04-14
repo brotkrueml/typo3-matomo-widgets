@@ -29,7 +29,7 @@ final class BounceRateRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetEnabled('matomoWidgetsEnableBounceRate')) {
+        if (!$this->matomoConfiguration->isWidgetActive('bounceRate')) {
             return;
         }
 

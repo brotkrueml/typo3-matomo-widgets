@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
 use Brotkrueml\MatomoWidgets\Configuration\WidgetsProvider;
+use Brotkrueml\MatomoWidgets\Extension;
 use PHPUnit\Framework\TestCase;
 
 class WidgetsProviderTest extends TestCase
@@ -27,35 +28,37 @@ class WidgetsProviderTest extends TestCase
     /**
      * @test
      */
-    public function getWidgetConfigurationKeysReturnsCorrectKeys(): void
+    public function getWidgetIdentifiers(): void
     {
-        $actual = $this->subject->getWidgetConfigurationKeys();
-        $expected = [
-            'matomoWidgetsEnableActionsPerDay',
-            'matomoWidgetsEnableActionsPerMonth',
-            'matomoWidgetsEnableVisitsPerDay',
-            'matomoWidgetsEnableVisitsPerMonth',
-            'matomoWidgetsEnableBounceRate',
-            'matomoWidgetsEnableBrowsers',
-            'matomoWidgetsEnableOsFamilies',
-            'matomoWidgetsEnableCampaigns',
-            'matomoWidgetsEnableCountries',
-            'matomoWidgetsEnableLinkMatomo',
-        ];
+        $actual = $this->subject->getWidgetIdentifiers();
 
-        self::assertSame($expected, $actual);
+        self::assertContains('actionsPerDay', $actual);
+        self::assertContains('actionsPerMonth', $actual);
+        self::assertContains('bounceRate', $actual);
+        self::assertContains('browsers', $actual);
+        self::assertContains('campaigns', $actual);
+        self::assertContains('countries', $actual);
+        self::assertContains('linkMatomo', $actual);
+        self::assertContains('osFamilies', $actual);
+        self::assertContains('visitsPerDay', $actual);
+        self::assertContains('visitsPerMonth', $actual);
     }
 
     /**
      * @test
      */
-    public function getTitleForWidgetReturnsTheTitle(): void
+    public function getItemsForTca(): void
     {
-        $actual = $this->subject->getTitleForWidget('matomoWidgetsEnableActionsPerDay');
+        $actual = $this->subject->getItemsForTca();
 
-        self::assertSame(
-            'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.visitsSummary.actionsPerDay.title',
-            $actual
-        );
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title', 'actionsPerDay'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title', 'actionsPerMonth'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.title', 'bounceRate'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.campaigns.title', 'campaigns'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title', 'countries'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title', 'linkMatomo'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title', 'osFamilies'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title', 'visitsPerDay'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.title', 'visitsPerMonth'], $actual);
     }
 }

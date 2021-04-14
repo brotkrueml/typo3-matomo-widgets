@@ -124,8 +124,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsTitle' => 'Some Title',
             'matomoWidgetsTokenAuth' => 'some token',
             'matomoWidgetsUrl' => 'https://example.org/',
-            'matomoWidgetsEnableActionsPerDay' => true,
-            'matomoWidgetsEnableActionsPerMonth' => false,
+            'matomoWidgetsActiveWidgets' => 'actionsPerDay',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
         $subject = new ConfigurationFinder(self::$configPath);
@@ -140,9 +139,9 @@ class ConfigurationFinderTest extends TestCase
         self::assertSame('Some Title', $actualConfiguration->getSiteTitle());
         self::assertSame('some token', $actualConfiguration->getTokenAuth());
         self::assertSame('https://example.org/', $actualConfiguration->getUrl());
-        self::assertTrue($actualConfiguration->isWidgetEnabled('matomoWidgetsEnableActionsPerDay'));
-        self::assertFalse($actualConfiguration->isWidgetEnabled('matomoWidgetsEnableActionsPerMonth'));
-        self::assertFalse($actualConfiguration->isWidgetEnabled('notDefined'));
+        self::assertTrue($actualConfiguration->isWidgetActive('actionsPerDay'));
+        self::assertFalse($actualConfiguration->isWidgetActive('actionsPerMonth'));
+        self::assertFalse($actualConfiguration->isWidgetActive('notDefined'));
     }
 
     /**

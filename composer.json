@@ -1,7 +1,7 @@
 {
 	"name": "brotkrueml/typo3-matomo-widgets",
 	"type": "typo3-cms-extension",
-	"description": "TYPO3 Dashboard widgets showing Matomo reports",
+	"description": "TYPO3 Dashboard widgets with Matomo reports",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"TYPO3 CMS",
@@ -17,6 +17,7 @@
 		}
 	],
 	"support": {
+		"docs": "https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/master/en-us/",
 		"issues": "https://github.com/brotkrueml/typo3-matomo-widgets/issues",
 		"source":  "https://github.com/brotkrueml/typo3-matomo-widgets"
 	},
@@ -26,9 +27,9 @@
 		"symfony/finder": "^4.4 || ^5.0",
 		"symfony/polyfill-php80": "^1.17",
 		"symfony/yaml": "^4.4 || ^5.0",
-		"typo3/cms-core": "^10.4.11 || ^11.0",
-		"typo3/cms-dashboard": "^10.4.11 || ^11.0",
-		"typo3/cms-install": "^10.4.11 || ^11.0"
+		"typo3/cms-core": "^10.4.15 || ^11.2",
+		"typo3/cms-dashboard": "*",
+		"typo3/cms-install": "*"
 	},
 	"require-dev": {
 		"donatj/mock-webserver": "^2.2",

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2020-11-19T16:09:38Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2021-04-13T16:03:43Z" product-name="matomo_widgets">
 		<body>
-			<trans-unit id="enabledWidgets" resname="enabledWidgets">
-				<source><![CDATA[Enabled Widgets]]></source>
+			<trans-unit id="activeWidgets" resname="activeWidgets">
+				<source><![CDATA[Active Widgets]]></source>
+			</trans-unit>
+			<trans-unit id="dashboardWidgets" resname="dashboardWidgets">
+				<source><![CDATA[Dashboard Widgets]]></source>
 			</trans-unit>
 			<trans-unit id="idSite" resname="idSite">
 				<source><![CDATA[Site ID]]></source>

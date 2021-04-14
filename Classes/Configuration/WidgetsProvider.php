@@ -20,25 +20,39 @@ final class WidgetsProvider
 {
     /** @var array<string,string> */
     private $availableWidgets = [
-        'matomoWidgetsEnableActionsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title',
-        'matomoWidgetsEnableActionsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title',
-        'matomoWidgetsEnableVisitsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title',
-        'matomoWidgetsEnableVisitsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.title',
-        'matomoWidgetsEnableBounceRate' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.title',
-        'matomoWidgetsEnableBrowsers' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.browsers.title',
-        'matomoWidgetsEnableOsFamilies' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title',
-        'matomoWidgetsEnableCampaigns' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.campaigns.title',
-        'matomoWidgetsEnableCountries' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title',
-        'matomoWidgetsEnableLinkMatomo' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title',
+        'actionsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title',
+        'actionsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title',
+        'bounceRate' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.title',
+        'browsers' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.browsers.title',
+        'campaigns' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.campaigns.title',
+        'countries' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title',
+        'linkMatomo' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title',
+        'osFamilies' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title',
+        'visitsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title',
+        'visitsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.title',
     ];
 
-    public function getWidgetConfigurationKeys(): array
+    /**
+     * @return list<string>
+     */
+    public function getWidgetIdentifiers(): array
     {
         return \array_keys($this->availableWidgets);
     }
 
-    public function getTitleForWidget(string $widgetConfigurationKey): string
+    /**
+     * @return array<array{string, string}>
+     */
+    public function getItemsForTca(): array
     {
-        return $this->availableWidgets[$widgetConfigurationKey] ?? '';
+        $items = [];
+        foreach ($this->availableWidgets as $identifier => $languageKey) {
+            $items[] = [
+                $languageKey,
+                $identifier,
+            ];
+        }
+
+        return $items;
     }
 }

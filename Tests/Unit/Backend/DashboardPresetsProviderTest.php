@@ -40,8 +40,7 @@ class DashboardPresetsProviderTest extends TestCase
                 42,
                 '',
                 [
-                    'matomoWidgetsEnableVisitsPerDay' => true,
-                    'matomoWidgetsEnableActionsPerDay' => false,
+                    'visitsPerDay',
                 ]
             ),
         ];
@@ -76,8 +75,7 @@ class DashboardPresetsProviderTest extends TestCase
                 42,
                 '',
                 [
-                    'matomoWidgetsEnableVisitsPerDay' => true,
-                    'matomoWidgetsEnableActionsPerDay' => false,
+                    'visitsPerDay',
                 ]
             ),
             new Configuration(
@@ -87,8 +85,8 @@ class DashboardPresetsProviderTest extends TestCase
                 123,
                 '',
                 [
-                    'matomoWidgetsEnableVisitsPerDay' => true,
-                    'matomoWidgetsEnableActionsPerDay' => true,
+                    'visitsPerDay',
+                    'actionsPerDay',
                 ]
             ),
         ];
@@ -133,16 +131,16 @@ class DashboardPresetsProviderTest extends TestCase
                 42,
                 '',
                 [
-                    'matomoWidgetsEnableActionsPerDay' => true,
-                    'matomoWidgetsEnableActionsPerMonth' => true,
-                    'matomoWidgetsEnableBounceRate' => true,
-                    'matomoWidgetsEnableBrowsers' => true,
-                    'matomoWidgetsEnableCampaigns' => true,
-                    'matomoWidgetsEnableCountries' => true,
-                    'matomoWidgetsEnableLinkMatomo' => true,
-                    'matomoWidgetsEnableOsFamilies' => true,
-                    'matomoWidgetsEnableVisitsPerMonth' => true,
-                    'matomoWidgetsEnableVisitsPerDay' => true,
+                    'actionsPerDay',
+                    'actionsPerMonth',
+                    'bounceRate',
+                    'browsers',
+                    'campaigns',
+                    'countries',
+                    'linkMatomo',
+                    'osFamilies',
+                    'visitsPerMonth',
+                    'visitsPerDay',
                 ]
             ),
         ];
@@ -186,16 +184,16 @@ class DashboardPresetsProviderTest extends TestCase
                 42,
                 '',
                 [
-                    'matomoWidgetsEnableActionsPerDay' => false,
-                    'matomoWidgetsEnableActionsPerMonth' => false,
-                    'matomoWidgetsEnableBounceRate' => false,
-                    'matomoWidgetsEnableBrowsers' => false,
-                    'matomoWidgetsEnableCampaigns' => false,
-                    'matomoWidgetsEnableCountries' => false,
-                    'matomoWidgetsEnableLinkMatomo' => false,
-                    'matomoWidgetsEnableOsFamilies' => false,
-                    'matomoWidgetsEnableVisitsPerMonth' => false,
-                    'matomoWidgetsEnableVisitsPerDay' => false,
+                    'actionsPerDay' => false,
+                    'actionsPerMonth' => false,
+                    'bounceRate' => false,
+                    'browsers' => false,
+                    'campaigns' => false,
+                    'countries' => false,
+                    'linkMatomo' => false,
+                    'osFamilies' => false,
+                    'visitsPerMonth' => false,
+                    'visitsPerDay' => false,
                 ]
             ),
         ];

@@ -66,8 +66,8 @@ Authentication token
       :ref:`environment variable <t3coreapi:sitehandling-using-env-vars>` for
       better security.
 
-Enabled Widgets
-   You can enable or disable each available widget for a site. Disabled
+Active Widgets
+   You can activate or deactivate each available widget for a site. Deactivated
    widgets cannot be selected in the dashboard.
 
 

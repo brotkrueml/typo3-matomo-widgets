@@ -14,6 +14,7 @@ namespace Brotkrueml\MatomoWidgets\Configuration;
 use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ConfigurationFinder implements \IteratorAggregate, \Countable
 {
@@ -31,10 +32,10 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
             foreach ($finder as $file) {
                 $siteConfiguration = Yaml::parseFile($file->getRealPath());
 
-                $url = $siteConfiguration['matomoWidgetsUrl'] ?? '';
+                $url = (string)($siteConfiguration['matomoWidgetsUrl'] ?? '');
                 $idSite = (int)($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
 
-                if (empty($url) || $idSite < 1) {
+                if ($url === '' || $idSite < 1) {
                     continue;
                 }
 
@@ -44,18 +45,14 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
                 $pathSegments = \explode('/', $file->getPath());
                 $siteIdentifier = \end($pathSegments);
 
-                $widgets = [];
-                foreach ((new WidgetsProvider())->getWidgetConfigurationKeys() as $widgetConfigurationKey) {
-                    $widgets[$widgetConfigurationKey] = (bool)($siteConfiguration[$widgetConfigurationKey] ?? true);
-                }
-
+                $activeWidgets = GeneralUtility::trimExplode(',', $siteConfiguration['matomoWidgetsActiveWidgets'], true);
                 $this->configurations[] = new Configuration(
                     $siteIdentifier,
                     $siteTitle,
                     $url,
                     $idSite,
                     $tokenAuth,
-                    $widgets
+                    $activeWidgets
                 );
             }
         } catch (DirectoryNotFoundException $e) {

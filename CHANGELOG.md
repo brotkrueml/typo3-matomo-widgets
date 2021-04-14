@@ -6,8 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Use selectCheckBox in site configuration for active widget selection instead of checkboxLabeledToggle, an upgrade wizard is available (#10)
+
 ### Removed
-- Upgrade wizards for version 0.3
+- Upgrade wizards for version 0.3 (#11)
 
 ## [0.3.2] - 2021-01-11
 
