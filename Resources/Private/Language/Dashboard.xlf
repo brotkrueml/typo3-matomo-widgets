@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2020-11-09T19:56:41Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-15T16:13:03Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="other" resname="other">
 				<source><![CDATA[Other]]></source>
 			</trans-unit>
 			<trans-unit id="preset.description" resname="preset.description">
 				<source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
+			</trans-unit>
+			<trans-unit id="openReport" resname="openReport">
+				<source><![CDATA[Open report in Matomo]]></source>
 			</trans-unit>
 			<trans-unit id="thousandsSeparator" resname="thousandsSeparator">
 				<source><![CDATA[,]]></source>

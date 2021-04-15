@@ -17,7 +17,9 @@ to use these widgets.
    underlying data providers can be adjusted. Have a look into the
    :ref:`widget-configuration` section.
 
-The following widgets are available:
+The following widgets are available. A link to the corresponding page in Matomo
+is displayed via in icon in the header bar of the widget if the report is
+available.
 
 .. contents::
    :depth: 1

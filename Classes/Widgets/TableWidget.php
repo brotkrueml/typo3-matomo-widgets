@@ -43,6 +43,11 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
      */
     private $buttonProvider;
 
+    /**
+     * @var array
+     */
+    private $options;
+
     public function __construct(
         WidgetConfigurationInterface $configuration,
         TableDataProviderInterface $dataProvider,
@@ -54,6 +59,7 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
         $this->dataProvider = $dataProvider;
         $this->view = $view;
         $this->buttonProvider = $buttonProvider;
+        $this->options = $options;
     }
 
     public function renderWidgetContent(): string
@@ -70,6 +76,7 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
             ],
             'button' => $this->buttonProvider,
             'configuration' => $this->configuration,
+            'reportLink' => $this->options['reportLink'] ?? '',
         ]);
 
         return $this->view->render();

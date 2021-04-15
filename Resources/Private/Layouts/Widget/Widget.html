@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="widget-content-title">
+    <span>
+        <f:if condition="{reportLink}">
+            <a href="{reportLink}" target="_blank" rel="noopener" title="{f:translate(key:'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:openReport')}"><f:image src="EXT:matomo_widgets/Resources/Public/Icons/actions-external-link.svg" width="16" alt="{f:translate(key:'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:openReport')}"/></a>
+        </f:if>
+        {f:translate(id: configuration.title, default: configuration.title)}
+    </span>
+</div>
+<div class="widget-content-main">
+    <f:render section="main" optional="true"/>
+</div>
+<f:variable name="footer" value="{f:render(section:'footer', optional: 'true')}"/>
+<f:if condition="{footer -> f:spaceless()}">
+    <div class="widget-content-footer">
+        {footer -> f:format.raw()}
+    </div>
+</f:if>
+</html>

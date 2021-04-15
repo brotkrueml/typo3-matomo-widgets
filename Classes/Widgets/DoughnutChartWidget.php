@@ -28,6 +28,7 @@ class DoughnutChartWidget extends \TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidg
         array $options = []
     ) {
         $configuration = $this->prefixWithSiteTitle($configuration, $options);
+        $view->assign('reportLink', $options['reportLink'] ?? '');
         parent::__construct($configuration, $dataProvider, $view, $buttonProvider, $options);
     }
 }

@@ -79,6 +79,7 @@ final class BrowsersRegistration extends AbstractRegistration
             ->arg(
                 '$options',
                 [
+                    'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
                     'title' => $localisedTitle,
                 ]
@@ -95,5 +96,14 @@ final class BrowsersRegistration extends AbstractRegistration
                     'width' => 'small',
                 ]
             );
+    }
+
+    private function buildReportLink(): string
+    {
+        return \sprintf(
+            '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?segment=&category=General_Visitors&subcategory=DevicesDetection_Software',
+            $this->matomoConfiguration->getUrl(),
+            $this->matomoConfiguration->getIdSite()
+        );
     }
 }

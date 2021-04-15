@@ -90,6 +90,7 @@ final class CampaignsRegistration extends AbstractRegistration
             ->arg(
                 '$options',
                 [
+                    'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
                     'title' => $localisedTitle,
                 ]
@@ -106,5 +107,14 @@ final class CampaignsRegistration extends AbstractRegistration
                     'width' => 'small',
                 ]
             );
+    }
+
+    private function buildReportLink(): string
+    {
+        return \sprintf(
+            '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?segment=&category=Referrers_Referrers&subcategory=Referrers_Campaigns',
+            $this->matomoConfiguration->getUrl(),
+            $this->matomoConfiguration->getIdSite()
+        );
     }
 }

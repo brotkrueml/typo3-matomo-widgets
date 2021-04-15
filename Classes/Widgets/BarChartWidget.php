@@ -28,6 +28,7 @@ class BarChartWidget extends \TYPO3\CMS\Dashboard\Widgets\BarChartWidget
         array $options = []
     ) {
         $configuration = $this->prefixWithSiteTitle($configuration, $options);
+        $view->assign('reportLink', $options['reportLink'] ?? '');
         parent::__construct($configuration, $dataProvider, $view, $buttonProvider, $options);
     }
 }
