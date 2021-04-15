@@ -18,7 +18,7 @@ Migration
 From version 0.3 to 1.0
 =======================
 
-In version 1.0 the format changed how the active widgets for a site is stored
+In version 1.0 the format changed how the active widgets for a site are stored
 in the site configuration. For the migration of this configuration an upgrade
 wizard is available.
 
