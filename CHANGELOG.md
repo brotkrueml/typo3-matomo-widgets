@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Link from widget to corresponding Matomo report if available (#7)
+- Widget "Browser Plugins" (#12)
 
 ### Changed
 - Use selectCheckBox in site configuration for active widget selection instead of checkboxLabeledToggle, an upgrade wizard is available (#10)
@@ -40,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0] - 2020-07-17
 
 ### Added
-- New countries widget
+- Widget "Countries"
 
 ### Changed
 - Generalise widget configuration

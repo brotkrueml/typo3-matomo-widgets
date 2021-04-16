@@ -103,6 +103,31 @@ Default configuration parameters in the :file:`Services.yaml` file
       in the current month
 
 
+
+Browser plugins
+===============
+
+This report shows which browser plugins your visitors had enabled:
+
+.. figure:: /Images/WidgetBrowserPlugins.png
+   :alt: Widget Browser Plugins
+   :class: with-border
+
+   Widget *Browser Plugins*
+
+Matomo module
+   DevicesDetection
+
+Default configuration parameters in the :file:`Services.yaml` file
+   matomo_widgets.browserPlugins.parameters
+      - period: month
+      - date: today
+      - filter_limit: 50
+      - filter_sort_column: nb_visits
+      - filter_sort_order: desc
+
+
+
 Browsers
 ========
 

@@ -29,6 +29,7 @@ final class DashboardPresetsProvider
         'bounceRate' => 'matomo_widgets.%s.visitsSummary.bounceRate',
         'linkMatomo' => 'matomo_widgets.%s.linkMatomo',
         'browsers' => 'matomo_widgets.%s.devicesDetection.browsers',
+        'browserPlugins' => 'matomo_widgets.%s.devicePlugins.plugin',
         'osFamilies' => 'matomo_widgets.%s.devicesDetection.osFamilies',
         'campaigns' => 'matomo_widgets.%s.referrers.campaigns',
         'countries' => 'matomo_widgets.%s.userCountry.country',

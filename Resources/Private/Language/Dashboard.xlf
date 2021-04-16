@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-15T16:13:03Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-16T14:30:56Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="other" resname="other">
 				<source><![CDATA[Other]]></source>
@@ -25,6 +25,21 @@
 			</trans-unit>
 			<trans-unit id="widgets.devicesDetection.osFamilies.title" resname="widgets.devicesDetection.osFamilies.title">
 				<source><![CDATA[Operating system families]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.devicePlugins.plugin.column.name" resname="widgets.devicePlugins.plugin.column.name">
+				<source><![CDATA[Plugin]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.devicePlugins.plugin.column.visits" resname="widgets.devicePlugins.plugin.column.visits">
+				<source><![CDATA[Visits]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.devicePlugins.plugin.column.visits_percentage" resname="widgets.devicePlugins.plugin.column.visits_percentage">
+				<source><![CDATA[% Visits]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.devicePlugins.plugin.description" resname="widgets.devicePlugins.plugin.description">
+				<source><![CDATA[The report shows which browser plugins your visitors had enabled.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.devicePlugins.plugin.title" resname="widgets.devicePlugins.plugin.title">
+				<source><![CDATA[Browser Plugins]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.linkMatomo.buttonText" resname="widgets.linkMatomo.buttonText">
 				<source><![CDATA[To the Matomo installation]]></source>
