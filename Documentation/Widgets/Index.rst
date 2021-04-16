@@ -116,7 +116,7 @@ This report shows which browser plugins your visitors had enabled:
    Widget *Browser Plugins*
 
 Matomo module
-   DevicesDetection
+   DevicePlugins
 
 Default configuration parameters in the :file:`Services.yaml` file
    matomo_widgets.browserPlugins.parameters
