@@ -44,7 +44,7 @@ final class LinkMatomoRegistration extends AbstractRegistration
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title';
         $title = $this->matomoConfiguration->getSiteTitle()
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Actions per day')
+            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Link to Matomo')
             : $localisedTitle;
 
         $this->services

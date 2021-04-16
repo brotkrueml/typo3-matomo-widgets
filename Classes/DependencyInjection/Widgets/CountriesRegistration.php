@@ -92,7 +92,7 @@ final class CountriesRegistration extends AbstractRegistration
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title';
         $title = $this->matomoConfiguration->getSiteTitle()
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Campaigns')
+            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Countries')
             : $localisedTitle;
 
         $this->services

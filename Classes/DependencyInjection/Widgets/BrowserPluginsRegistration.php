@@ -95,7 +95,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicePlugins.plugin.title';
         $title = $this->matomoConfiguration->getSiteTitle()
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Browsers')
+            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Browser Plugins')
             : $localisedTitle;
 
         $this->services
