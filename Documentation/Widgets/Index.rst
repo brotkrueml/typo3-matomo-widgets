@@ -253,7 +253,7 @@ Matomo module
 Default configuration parameters in the :file:`Services.yaml` file
    matomo_widgets.visitsPerDay.parameters:
       - period: day
-      - Date: last28
+      - date: last28
 
 
 Visits per month
@@ -273,4 +273,49 @@ Matomo module
 Default configuration parameters in the :file:`Services.yaml` file
    matomo_widgets.visitsPerMonth.parameters:
       - period: month
-      - Date: last12
+      - date: last12
+
+
+Custom dimensions
+=================
+
+With `custom dimensions <https://matomo.org/docs/custom-dimensions/>`_ any
+custom data can be assigned to visitors or actions. Before a custom dimension
+can be used as a dashboard widget it has to be :ref:`configured for a site
+<configuring-custom-dimensions>`.
+
+The columns for a custom dimension widget depend on the scope of the custom
+dimension.
+
+Matomo module
+   CustomDimensions
+
+Default configuration parameters in the :file:`Services.yaml` file
+   matomo_widgets.customDimension<idDimension>.parameters:
+      - period: month
+      - date: today
+      - filter_limit: 50
+      - filter_sort_column: nb_visits
+      - filter_sort_order: desc
+
+The ``<idDimension>`` is the id of the custom dimension as available in the
+`Matomo configuration <https://matomo.org/docs/custom-dimensions/#creating-custom-dimensions>`_.
+
+
+Scope "action"
+--------------
+
+.. figure:: /Images/WidgetCustomDimensionAction.png
+   :alt: Example widget for a custom dimension with scope "action"
+   :class: with-border
+
+   Example widget for a custom dimension with scope "action"
+
+Scope "visit"
+-------------
+
+.. figure:: /Images/WidgetCustomDimensionVisit.png
+   :alt: Example widget for a custom dimension with scope "visit"
+   :class: with-border
+
+   Example widget for a custom dimension with scope "visit"

@@ -41,7 +41,8 @@ class DashboardPresetsProviderTest extends TestCase
                 '',
                 [
                     'visitsPerDay',
-                ]
+                ],
+                []
             ),
         ];
 
@@ -76,7 +77,8 @@ class DashboardPresetsProviderTest extends TestCase
                 '',
                 [
                     'visitsPerDay',
-                ]
+                ],
+                []
             ),
             new Configuration(
                 'another_site',
@@ -87,7 +89,8 @@ class DashboardPresetsProviderTest extends TestCase
                 [
                     'visitsPerDay',
                     'actionsPerDay',
-                ]
+                ],
+                []
             ),
         ];
 
@@ -142,7 +145,8 @@ class DashboardPresetsProviderTest extends TestCase
                     'osFamilies',
                     'visitsPerMonth',
                     'visitsPerDay',
-                ]
+                ],
+                []
             ),
         ];
 
@@ -196,7 +200,8 @@ class DashboardPresetsProviderTest extends TestCase
                     'osFamilies' => false,
                     'visitsPerMonth' => false,
                     'visitsPerDay' => false,
-                ]
+                ],
+                []
             ),
         ];
 

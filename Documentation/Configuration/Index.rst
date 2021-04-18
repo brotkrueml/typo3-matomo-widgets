@@ -71,6 +71,63 @@ Active Widgets
    widgets cannot be selected in the dashboard.
 
 
+.. _configuring-custom-dimensions:
+
+Custom dimensions
+=================
+
+Custom dimensions cannot be configured via the :guilabel:`Site Management`
+module as there is currently no possibility to add IRRE elements to a site
+configuration by an extension. So, custom dimensions have to be configured
+manually in the :file:`config/sites/*/config.yml` file:
+
+.. code-block:: yaml
+   :linenos:
+   :emphasize-lines: 2-12
+
+   matomoWidgetsActiveWidgets: 'actionsPerDay,actionsPerMonth'
+   matomoWidgetsCustomDimensions:
+     -
+       scope: 'visit'
+       idDimension: 1
+       title: 'User Type'
+       description: 'Displays the custom dimension for the user type'
+     -
+       scope: 'action'
+       idDimension: 4
+       title: 'Page Location'
+       description: 'Display the custom dimension for the page location'
+   matomoWidgetsIdSite: 1
+   matomoWidgetsTitle: ''
+   matomoWidgetsTokenAuth: ''
+   matomoWidgetsUrl: 'https://demo.matomo.cloud/'
+
+You begin the configuration for a custom dimension with the key
+:yaml:`matomoWidgetsCustomDimensions` as shown in line 2 of the example. It is
+followed by an array which describes the custom dimensions:
+
+scope (required)
+   The scope can be :yaml:`action` or :yaml:`visit`.
+
+idDimension (required)
+   The id of the custom dimension as given in the Matomo configuration.
+
+title (optional)
+   Give a meaningful title for the custom dimension. If it is left out or empty,
+   the title will be ``Custom Dimension <idDimension>``. You can also use a
+   localisation string starting with ``LLL:``. The title is shown as the widget
+   title and in the :guilabel:`Add widget` dialogue.
+
+description (optional)
+   The description is used in the :guilabel:`Add widget` dialogue. If it is left
+   out or empty, it is not used.
+
+.. note::
+   You can add as many custom dimensions as you want. Configured custom
+   dimensions are always active and cannot be deactivated unless they are
+   removed from the configuration.
+
+
 Permission of widgets
 =====================
 

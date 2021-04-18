@@ -14,6 +14,12 @@
 			<trans-unit id="thousandsSeparator" resname="thousandsSeparator">
 				<source><![CDATA[,]]></source>
 			</trans-unit>
+			<trans-unit id="widgets.customDimensions.customDimension.column.actions" resname="widgets.customDimensions.customDimension.column.actions">
+				<source><![CDATA[Actions]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.customDimensions.customDimension.column.visits" resname="widgets.customDimensions.customDimension.column.visits">
+				<source><![CDATA[Visits]]></source>
+			</trans-unit>
 			<trans-unit id="widgets.devicesDetection.browsers.description" resname="widgets.devicesDetection.browsers.description">
 				<source><![CDATA[Overview of the used browsers in the current month.]]></source>
 			</trans-unit>

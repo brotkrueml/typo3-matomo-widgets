@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
+use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
 use PHPUnit\Framework\TestCase;
 
 class ConfigurationTest extends TestCase
@@ -29,7 +30,8 @@ class ConfigurationTest extends TestCase
             'some token auth',
             [
                 'actionsPerDay',
-            ]
+            ],
+            []
         );
     }
 
@@ -60,5 +62,52 @@ class ConfigurationTest extends TestCase
     public function isWidgetActiveReturnsFalseIfWidgetIsUnknown(): void
     {
         self::assertFalse($this->subject->isWidgetActive('unknown'));
+    }
+
+    /**
+     * @test
+     */
+    public function getCustomDimensionsIsAnEmptyArrayWhenNoCustomDimensionsAvailable(): void
+    {
+        self::assertSame([], $this->subject->getCustomDimensions());
+    }
+
+    /**
+     * @test
+     */
+    public function getCustomDimensionsReturnsAnArrayOfCustomDimensionsCorrectly(): void
+    {
+        $customDimension1 = new CustomDimension(
+            'action',
+            42,
+            'some title',
+            'some description'
+        );
+
+        $customDimension2 = new CustomDimension(
+            'visit',
+            43,
+            'another title',
+            'another description'
+        );
+
+        $subject = new Configuration(
+            'some_site_identifier',
+            'some site title',
+            'http://example.org/',
+            42,
+            'some token auth',
+            [
+                'actionsPerDay',
+            ],
+            [
+                $customDimension1,
+                $customDimension2,
+            ]
+        );
+
+        self::assertCount(2, $subject->getCustomDimensions());
+        self::assertSame($customDimension1, $subject->getCustomDimensions()[0]);
+        self::assertSame($customDimension2, $subject->getCustomDimensions()[1]);
     }
 }

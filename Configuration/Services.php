@@ -19,6 +19,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BrowserPluginsRegistrat
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BrowsersRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CampaignsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CountriesRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CustomDimensionsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\LinkMatomoRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\OsFamiliesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerDayRegistration;
@@ -60,7 +61,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             ->arg('$tokenAuth', $matomoConfiguration->getTokenAuth());
 
         /*
-         * Register the dashboard widgets
+         * Register the standard dashboard widgets
          */
         $parameters = $containerConfigurator->parameters();
         foreach (
@@ -79,6 +80,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             ] as $registrationClass
         ) {
             (new $registrationClass($parameters, $services, $matomoConfiguration, $connectionConfigurationId))->register();
+        }
+
+        /*
+         * Register the custom dimensions dashboard widgets
+         */
+        foreach ($matomoConfiguration->getCustomDimensions() as $customDimension) {
+            (new CustomDimensionsRegistration($parameters, $services, $matomoConfiguration, $connectionConfigurationId, $customDimension))->register();
         }
     }
 };

@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Configuration;
 
+use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
+use Brotkrueml\MatomoWidgets\Domain\Validation\CustomDimensionConfigurationValidator;
 use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
@@ -46,18 +48,41 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
                 $siteIdentifier = \end($pathSegments);
 
                 $activeWidgets = GeneralUtility::trimExplode(',', $siteConfiguration['matomoWidgetsActiveWidgets'], true);
+                $customDimensions = $this->buildCustomDimensions($siteConfiguration['matomoWidgetsCustomDimensions'] ?? []);
+
                 $this->configurations[] = new Configuration(
                     $siteIdentifier,
                     $siteTitle,
                     $url,
                     $idSite,
                     $tokenAuth,
-                    $activeWidgets
+                    $activeWidgets,
+                    $customDimensions
                 );
             }
         } catch (DirectoryNotFoundException $e) {
             // do nothing
         }
+    }
+
+    /**
+     * @return CustomDimension[]
+     */
+    public function buildCustomDimensions(array $configurations): array
+    {
+        $validator = new CustomDimensionConfigurationValidator();
+        $customDimensions = [];
+        foreach ($configurations as $configuration) {
+            $validator->validate($configuration);
+            $customDimensions[] = new CustomDimension(
+                $configuration['scope'],
+                (int)$configuration['idDimension'],
+                (string)($configuration['title'] ?? 'Custom Dimension ' . $configuration['idDimension']),
+                (string)($configuration['description'] ?? '')
+            );
+        }
+
+        return $customDimensions;
     }
 
     public function getIterator(): \Traversable

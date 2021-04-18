@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Configuration;
 
+use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
+
 final class Configuration
 {
     /** @var string */
@@ -31,13 +33,17 @@ final class Configuration
     /** @var list<string> */
     private $activeWidgets;
 
+    /** @var CustomDimension[] */
+    private $customDimensions;
+
     public function __construct(
         string $siteIdentifier,
         string $siteTitle,
         string $url,
         int $idSite,
         string $tokenAuth,
-        array $activeWidgets
+        array $activeWidgets,
+        array $customDimensions
     ) {
         $this->siteIdentifier = $siteIdentifier;
         $this->siteTitle = $siteTitle;
@@ -45,6 +51,7 @@ final class Configuration
         $this->idSite = $idSite;
         $this->tokenAuth = $tokenAuth;
         $this->activeWidgets = $activeWidgets;
+        $this->customDimensions = $customDimensions;
     }
 
     public function getSiteIdentifier(): string
@@ -75,5 +82,13 @@ final class Configuration
     public function isWidgetActive(string $widgetIdentifier): bool
     {
         return \in_array($widgetIdentifier, $this->activeWidgets, true);
+    }
+
+    /**
+     * @return CustomDimension[]
+     */
+    public function getCustomDimensions(): array
+    {
+        return $this->customDimensions;
     }
 }
