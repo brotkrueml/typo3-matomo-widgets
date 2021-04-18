@@ -33,10 +33,11 @@ class ParameterBagTest extends TestCase
      */
     public function __constructWithParametersAddsThemCorrectly(): void
     {
-        $subject = new ParameterBag(['foo' => 'bar', 'qux' => 'quu']);
+        $subject = new ParameterBag(['foo' => 'bar', 'qux' => 'quu', 'int' => 42]);
 
         self::assertSame('bar', $subject->get('foo'));
         self::assertSame('quu', $subject->get('qux'));
+        self::assertSame('42', $subject->get('int'));
     }
 
     /**
@@ -122,24 +123,13 @@ class ParameterBagTest extends TestCase
     /**
      * @test
      */
-    public function setWithIntegerAsValueThrowsException(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionCode(1594742873);
-        $this->expectExceptionMessage('Value must be of type string or an instance of "Brotkrueml\MatomoWidgets\Parameter\ParameterResolverInterface", "int" given');
-
-        $this->subject->set('foo', 42);
-    }
-
-    /**
-     * @test
-     */
     public function setWithClassAsValueThrowsException(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionCode(1594742873);
-        $this->expectExceptionMessage('Value must be of type string or an instance of "Brotkrueml\MatomoWidgets\Parameter\ParameterResolverInterface", "stdClass" given');
+        $this->expectExceptionMessage('Value must be of type string, int or an instance of "Brotkrueml\MatomoWidgets\Parameter\ParameterResolverInterface", "stdClass" given');
 
+        /** @noinspection PhpParamsInspection */
         $this->subject->set('foo', new \stdClass());
     }
 
@@ -163,10 +153,10 @@ class ParameterBagTest extends TestCase
         $this->subject
             ->set('foo', 'bar')
             ->set('bar', 'qux')
-            ->set('quu', 'foobar');
+            ->set('quu', 42);
 
         $actual = $this->subject->buildQuery();
 
-        self::assertSame('foo=bar&bar=qux&quu=foobar', $actual);
+        self::assertSame('foo=bar&bar=qux&quu=42', $actual);
     }
 }

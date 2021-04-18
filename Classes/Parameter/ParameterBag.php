@@ -37,7 +37,7 @@ final class ParameterBag
 
     /**
      * @param string $name
-     * @param string|ParameterResolverInterface $value
+     * @param string|int|ParameterResolverInterface $value
      * @return $this
      */
     public function set(string $name, $value): self
@@ -47,10 +47,10 @@ final class ParameterBag
         }
 
         /** @psalm-suppress DocblockTypeContradiction */
-        if (!\is_string($value)) {
+        if (!\is_string($value) && !\is_int($value)) {
             throw new \InvalidArgumentException(
                 \sprintf(
-                    'Value must be of type string or an instance of "%s", "%s" given',
+                    'Value must be of type string, int or an instance of "%s", "%s" given',
                     ParameterResolverInterface::class,
                     \get_debug_type($value)
                 ),
@@ -58,7 +58,7 @@ final class ParameterBag
             );
         }
 
-        $this->parameters[$name] = $value;
+        $this->parameters[$name] = (string)$value;
 
         return $this;
     }
