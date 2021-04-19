@@ -37,6 +37,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains('bounceRate', $actual);
         self::assertContains('browsers', $actual);
         self::assertContains('campaigns', $actual);
+        self::assertContains('contentNames', $actual);
         self::assertContains('countries', $actual);
         self::assertContains('linkMatomo', $actual);
         self::assertContains('osFamilies', $actual);
@@ -55,6 +56,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title', 'actionsPerMonth'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.title', 'bounceRate'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.campaigns.title', 'campaigns'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentNames.title', 'contentNames'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title', 'countries'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title', 'linkMatomo'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title', 'osFamilies'], $actual);

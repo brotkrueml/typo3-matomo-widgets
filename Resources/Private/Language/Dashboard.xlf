@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-16T14:30:56Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-18T16:04:17Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="other" resname="other">
 				<source><![CDATA[Other]]></source>
@@ -13,6 +13,21 @@
 			</trans-unit>
 			<trans-unit id="thousandsSeparator" resname="thousandsSeparator">
 				<source><![CDATA[,]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.contents.contentNames.column.impressions" resname="widgets.contents.contentNames.column.impressions">
+				<source><![CDATA[Impressions]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.contents.contentNames.column.interactionRate" resname="widgets.contents.contentNames.column.interactionRate">
+				<source><![CDATA[Interaction Rate]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name">
+				<source><![CDATA[Content Name]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.contents.contentNames.description" resname="widgets.contents.contentNames.description">
+				<source><![CDATA[Overview of the names of the content the visitors viewed and interacted with.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.contents.contentNames.title" resname="widgets.contents.contentNames.title">
+				<source><![CDATA[Content Names]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.customDimensions.customDimension.column.actions" resname="widgets.customDimensions.customDimension.column.actions">
 				<source><![CDATA[Actions]]></source>

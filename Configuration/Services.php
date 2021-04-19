@@ -18,6 +18,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BounceRateRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BrowserPluginsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BrowsersRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CampaignsRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ContentNamesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CountriesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CustomDimensionsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\LinkMatomoRegistration;
@@ -72,6 +73,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 BrowserPluginsRegistration::class,
                 BrowsersRegistration::class,
                 CampaignsRegistration::class,
+                ContentNamesRegistration::class,
                 CountriesRegistration::class,
                 LinkMatomoRegistration::class,
                 OsFamiliesRegistration::class,

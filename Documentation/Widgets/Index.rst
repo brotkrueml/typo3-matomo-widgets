@@ -175,6 +175,32 @@ Default configuration parameters in the :file:`Services.yaml` file
       - filter_sort_order: desc
 
 
+Content names
+=============
+
+The content name report is part of the `content tracking
+<https://matomo.org/docs/content-tracking/>`_. The widget displays the names,
+impressions and interaction rate of the content the visitors viewed and
+interacted with.
+
+.. figure:: /Images/WidgetContentNames.png
+   :alt: Widget Content Names
+   :class: with-border
+
+   Widget *Content Names*
+
+Matomo module
+   Contents
+
+Default configuration parameters in the :file:`Services.yaml` file
+   matomo_widgets.campaigns.parameters:
+      - period: month
+      - date: today
+      - filter_limit: 50
+      - filter_sort_column: nb_impressions
+      - filter_sort_order: desc
+
+
 Countries
 =========
 

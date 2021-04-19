@@ -26,6 +26,7 @@ final class WidgetsProvider
         'browserPlugins' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicePlugins.plugin.title',
         'browsers' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.browsers.title',
         'campaigns' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.campaigns.title',
+        'contentNames' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentNames.title',
         'countries' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title',
         'linkMatomo' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title',
         'osFamilies' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title',
