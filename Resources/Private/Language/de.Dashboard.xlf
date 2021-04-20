@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-20T17:22:56Z" product-name="matomo_widgets" target-language="de">
+    <body>
+      <trans-unit id="openReport" resname="openReport" approved="yes">
+        <source><![CDATA[Open report in Matomo]]></source>
+        <target state="final"><![CDATA[Bericht in Matomo öffnen]]></target>
+      </trans-unit>
+      <trans-unit id="other" resname="other" approved="yes">
+        <source><![CDATA[Other]]></source>
+        <target state="final"><![CDATA[Andere]]></target>
+      </trans-unit>
+      <trans-unit id="preset.description" resname="preset.description" approved="yes">
+        <source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
+        <target state="final"><![CDATA[Diese Vorauswahl erstellt ein Dashboard mit den gebräuchlichsten Matomo-Widgets.]]></target>
+      </trans-unit>
+      <trans-unit id="thousandsSeparator" resname="thousandsSeparator" approved="yes">
+        <source><![CDATA[,]]></source>
+        <target state="final"><![CDATA[.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name" approved="yes">
+        <source><![CDATA[Content Name]]></source>
+        <target state="final"><![CDATA[Inhaltsname]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentNames.description" resname="widgets.contents.contentNames.description" approved="yes">
+        <source><![CDATA[Overview of the names of the content the visitors viewed and interacted with.]]></source>
+        <target state="final"><![CDATA[Übersicht der Namen der Inhalte, welche den Besuchern gezeigt wurden und mit denen sie interagiert haben.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentNames.title" resname="widgets.contents.contentNames.title" approved="yes">
+        <source><![CDATA[Content Names]]></source>
+        <target state="final"><![CDATA[Inhaltsnamen]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.browsers.description" resname="widgets.devicesDetection.browsers.description" approved="yes">
+        <source><![CDATA[Overview of the used browsers in the current month.]]></source>
+        <target state="final"><![CDATA[Übersicht der verwendeten Browser im aktuellen Monat.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.browsers.title" resname="widgets.devicesDetection.browsers.title" approved="yes">
+        <source><![CDATA[Browsers]]></source>
+        <target state="final"><![CDATA[Browser]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.osFamilies.description" resname="widgets.devicesDetection.osFamilies.description" approved="yes">
+        <source><![CDATA[Overview of the used operating system families in the current month.]]></source>
+        <target state="final"><![CDATA[Übersicht der verwendeten Betriebssystemfamilien im laufenden Monat.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.osFamilies.title" resname="widgets.devicesDetection.osFamilies.title" approved="yes">
+        <source><![CDATA[Operating system families]]></source>
+        <target state="final"><![CDATA[Betriebssystemfamilien]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicePlugins.plugin.column.name" resname="widgets.devicePlugins.plugin.column.name" approved="yes">
+        <source><![CDATA[Plugin]]></source>
+        <target state="final"><![CDATA[Plugin]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicePlugins.plugin.description" resname="widgets.devicePlugins.plugin.description" approved="yes">
+        <source><![CDATA[The report shows which browser plugins your visitors had enabled.]]></source>
+        <target state="final"><![CDATA[Der Bericht zeigt an, welche Browser-Plugins Ihre Besucher aktiviert haben.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicePlugins.plugin.title" resname="widgets.devicePlugins.plugin.title" approved="yes">
+        <source><![CDATA[Browser Plugins]]></source>
+        <target state="final"><![CDATA[Browser-Plugins]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.buttonText" resname="widgets.linkMatomo.buttonText" approved="yes">
+        <source><![CDATA[To the Matomo installation]]></source>
+        <target state="final"><![CDATA[Zur Matomo-Installation]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.description" resname="widgets.linkMatomo.description" approved="yes">
+        <source><![CDATA[Add a shortcut to the Matomo installation.]]></source>
+        <target state="final"><![CDATA[Fügen Sie eine Verknüpfung zur Matomo-Installation hinzu.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.text" resname="widgets.linkMatomo.text" approved="yes">
+        <source><![CDATA[The link leads you to the Matomo installation for further analytics.]]></source>
+        <target state="final"><![CDATA[Der Link führt Sie zur Matomo-Installation für weitere Analysen.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.title" resname="widgets.linkMatomo.title" approved="yes">
+        <source><![CDATA[Link to Matomo]]></source>
+        <target state="final"><![CDATA[Link zu Matomo]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.referrers.campaigns.description" resname="widgets.referrers.campaigns.description" approved="yes">
+        <source><![CDATA[Displays a report of the campaigns for the current month.]]></source>
+        <target state="final"><![CDATA[Zeigt einen Bericht der Kampagnen für den aktuellen Monat.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.referrers.campaigns.column.name" resname="widgets.referrers.campaigns.column.name" approved="yes">
+        <source><![CDATA[Campaign name]]></source>
+        <target state="final"><![CDATA[Kampagnen-Name]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.referrers.campaigns.title" resname="widgets.referrers.campaigns.title" approved="yes">
+        <source><![CDATA[Campaigns]]></source>
+        <target state="final"><![CDATA[Kampagnen]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.description" resname="widgets.userCountry.country.description" approved="yes">
+        <source><![CDATA[Shows a list of countries from which the website was visited in the current month.]]></source>
+        <target state="final"><![CDATA[Zeigt eine Liste der Länder, aus denen die Website im aktuellen Monat besucht wurde.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.column.name" resname="widgets.userCountry.country.column.name" approved="yes">
+        <source><![CDATA[Country]]></source>
+        <target state="final"><![CDATA[Land]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.title" resname="widgets.userCountry.country.title" approved="yes">
+        <source><![CDATA[Countries]]></source>
+        <target state="final"><![CDATA[Länder]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerDay.description" resname="widgets.visitsSummary.actionsPerDay.description" approved="yes">
+        <source><![CDATA[Gives you an overview of the number of actions (page views, downloads, clicks on outlinks) of the last couple of days.]]></source>
+        <target state="final"><![CDATA[Gibt Ihnen einen Überblick über die Anzahl der Aktionen (Seitenansichten, Downloads, Klicks auf ausgehende Links) der letzten Tage.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerDay.title" resname="widgets.visitsSummary.actionsPerDay.title" approved="yes">
+        <source><![CDATA[Actions per day]]></source>
+        <target state="final"><![CDATA[Aktionen pro Tag]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerMonth.description" resname="widgets.visitsSummary.actionsPerMonth.description" approved="yes">
+        <source><![CDATA[Gives you an overview of the number of actions (page views, downloads, clicks on outlinks) in the last months.]]></source>
+        <target state="final"><![CDATA[Gibt Ihnen einen Überblick über die Anzahl der Aktionen (Seitenansichten, Downloads, Klicks auf ausgehende Links) der letzten Monate.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerMonth.title" resname="widgets.visitsSummary.actionsPerMonth.title" approved="yes">
+        <source><![CDATA[Actions per month]]></source>
+        <target state="final"><![CDATA[Aktionen pro Monat]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.description" resname="widgets.visitsSummary.bounceRate.description" approved="yes">
+        <source><![CDATA[Display the bounce rate in the current month.]]></source>
+        <target state="final"><![CDATA[Zeigt die Absprungrate im aktuellen Monat an.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.subtitle" resname="widgets.visitsSummary.bounceRate.subtitle" approved="yes">
+        <source><![CDATA[in the current month]]></source>
+        <target state="final"><![CDATA[im aktuellen Monat]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.title" resname="widgets.visitsSummary.bounceRate.title" approved="yes">
+        <source><![CDATA[Bounce rate]]></source>
+        <target state="final"><![CDATA[Absprungrate]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerDay.description" resname="widgets.visitsSummary.visitsPerDay.description" approved="yes">
+        <source><![CDATA[Gives you an overview of the number of visits in the last couple of days.]]></source>
+        <target state="final"><![CDATA[Gibt Ihnen einen Überblick über die Anzahl der Besuche in den letzten Tagen.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerDay.title" resname="widgets.visitsSummary.visitsPerDay.title" approved="yes">
+        <source><![CDATA[Visits per day]]></source>
+        <target state="final"><![CDATA[Besuche pro Tag]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerMonth.description" resname="widgets.visitsSummary.visitsPerMonth.description" approved="yes">
+        <source><![CDATA[Gives you an overview of the number of visits in the last months.]]></source>
+        <target state="final"><![CDATA[Gibt Ihnen einen Überblick über die Anzahl der Besuche in den letzten Monaten.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerMonth.title" resname="widgets.visitsSummary.visitsPerMonth.title" approved="yes">
+        <source><![CDATA[Visits per month]]></source>
+        <target state="final"><![CDATA[Besuche pro Monat]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
