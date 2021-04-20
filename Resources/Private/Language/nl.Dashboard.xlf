@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-20T17:22:56Z" product-name="matomo_widgets" target-language="nl">
+    <body>
+      <trans-unit id="other" resname="other" approved="yes">
+        <source><![CDATA[Other]]></source>
+        <target state="final"><![CDATA[Overige]]></target>
+      </trans-unit>
+      <trans-unit id="thousandsSeparator" resname="thousandsSeparator" approved="yes">
+        <source><![CDATA[,]]></source>
+        <target state="final"><![CDATA[,]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.browsers.title" resname="widgets.devicesDetection.browsers.title" approved="yes">
+        <source><![CDATA[Browsers]]></source>
+        <target state="final"><![CDATA[Browsers]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.title" resname="widgets.linkMatomo.title" approved="yes">
+        <source><![CDATA[Link to Matomo]]></source>
+        <target state="final"><![CDATA[Link naar Matomo]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.referrers.campaigns.title" resname="widgets.referrers.campaigns.title" approved="yes">
+        <source><![CDATA[Campaigns]]></source>
+        <target state="final"><![CDATA[Campagnes]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.column.name" resname="widgets.userCountry.country.column.name" approved="yes">
+        <source><![CDATA[Country]]></source>
+        <target state="final"><![CDATA[Land]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.title" resname="widgets.userCountry.country.title" approved="yes">
+        <source><![CDATA[Countries]]></source>
+        <target state="final"><![CDATA[Landen]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.subtitle" resname="widgets.visitsSummary.bounceRate.subtitle" approved="yes">
+        <source><![CDATA[in the current month]]></source>
+        <target state="final"><![CDATA[in de huidige maand]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.title" resname="widgets.visitsSummary.bounceRate.title" approved="yes">
+        <source><![CDATA[Bounce rate]]></source>
+        <target state="final"><![CDATA[Bounce-ratio]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerDay.title" resname="widgets.visitsSummary.visitsPerDay.title" approved="yes">
+        <source><![CDATA[Visits per day]]></source>
+        <target state="final"><![CDATA[Bezoekers per dag]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerMonth.title" resname="widgets.visitsSummary.visitsPerMonth.title" approved="yes">
+        <source><![CDATA[Visits per month]]></source>
+        <target state="final"><![CDATA[Bezoekers per maand]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
