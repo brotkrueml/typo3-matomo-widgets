@@ -56,7 +56,7 @@ final class ActionsPerMonthRegistration extends AbstractRegistration
             ->arg('$method', self::METHOD)
             ->arg(
                 '$barLabel',
-                Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actions.dataset.label'
+                Extension::LANGUAGE_PATH_DASHBOARD . ':actions'
             )
             ->arg('$backgroundColour', '#4c7e3a')
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%');

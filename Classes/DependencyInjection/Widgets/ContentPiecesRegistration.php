@@ -67,13 +67,13 @@ final class ContentPiecesRegistration extends AbstractRegistration
                     ],
                     [
                         'column' => 'nb_impressions',
-                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentPieces.column.impressions',
+                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':impressions',
                         'decorator' => new Reference(NumberDecorator::class),
                         'classes' => 'text-right',
                     ],
                     [
                         'column' => 'interaction_rate',
-                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentPieces.column.interactionRate',
+                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':interactionRate',
                         'classes' => 'text-right',
                     ],
                 ]

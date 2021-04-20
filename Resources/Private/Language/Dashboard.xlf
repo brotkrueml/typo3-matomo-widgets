@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-19T07:36:23Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-20T17:22:56Z" product-name="matomo_widgets">
 		<body>
+			<trans-unit id="actions" resname="actions">
+				<source><![CDATA[Actions]]></source>
+			</trans-unit>
+			<trans-unit id="impressions" resname="impressions">
+				<source><![CDATA[Impressions]]></source>
+			</trans-unit>
+			<trans-unit id="interactionRate" resname="interactionRate">
+				<source><![CDATA[Interaction Rate]]></source>
+			</trans-unit>
+			<trans-unit id="openReport" resname="openReport">
+				<source><![CDATA[Open report in Matomo]]></source>
+			</trans-unit>
 			<trans-unit id="other" resname="other">
 				<source><![CDATA[Other]]></source>
 			</trans-unit>
 			<trans-unit id="preset.description" resname="preset.description">
 				<source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
 			</trans-unit>
-			<trans-unit id="openReport" resname="openReport">
-				<source><![CDATA[Open report in Matomo]]></source>
-			</trans-unit>
 			<trans-unit id="thousandsSeparator" resname="thousandsSeparator">
 				<source><![CDATA[,]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.contents.contentNames.column.impressions" resname="widgets.contents.contentNames.column.impressions">
-				<source><![CDATA[Impressions]]></source>
+			<trans-unit id="visits" resname="visits">
+				<source><![CDATA[Visits]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.contents.contentNames.column.interactionRate" resname="widgets.contents.contentNames.column.interactionRate">
-				<source><![CDATA[Interaction Rate]]></source>
+			<trans-unit id="visits_percentage" resname="visits_percentage">
+				<source><![CDATA[% Visits]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name">
 				<source><![CDATA[Content Name]]></source>
@@ -29,12 +38,6 @@
 			<trans-unit id="widgets.contents.contentNames.title" resname="widgets.contents.contentNames.title">
 				<source><![CDATA[Content Names]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.contents.contentPieces.column.impressions" resname="widgets.contents.contentPieces.column.impressions">
-				<source><![CDATA[Impressions]]></source>
-			</trans-unit>
-			<trans-unit id="widgets.contents.contentPieces.column.interactionRate" resname="widgets.contents.contentPieces.column.interactionRate">
-				<source><![CDATA[Interaction Rate]]></source>
-			</trans-unit>
 			<trans-unit id="widgets.contents.contentPieces.column.name" resname="widgets.contents.contentPieces.column.name">
 				<source><![CDATA[Content Piece]]></source>
 			</trans-unit>
@@ -43,12 +46,6 @@
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentPieces.title" resname="widgets.contents.contentPieces.title">
 				<source><![CDATA[Content Pieces]]></source>
-			</trans-unit>
-			<trans-unit id="widgets.customDimensions.customDimension.column.actions" resname="widgets.customDimensions.customDimension.column.actions">
-				<source><![CDATA[Actions]]></source>
-			</trans-unit>
-			<trans-unit id="widgets.customDimensions.customDimension.column.visits" resname="widgets.customDimensions.customDimension.column.visits">
-				<source><![CDATA[Visits]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.devicesDetection.browsers.description" resname="widgets.devicesDetection.browsers.description">
 				<source><![CDATA[Overview of the used browsers in the current month.]]></source>
@@ -64,12 +61,6 @@
 			</trans-unit>
 			<trans-unit id="widgets.devicePlugins.plugin.column.name" resname="widgets.devicePlugins.plugin.column.name">
 				<source><![CDATA[Plugin]]></source>
-			</trans-unit>
-			<trans-unit id="widgets.devicePlugins.plugin.column.visits" resname="widgets.devicePlugins.plugin.column.visits">
-				<source><![CDATA[Visits]]></source>
-			</trans-unit>
-			<trans-unit id="widgets.devicePlugins.plugin.column.visits_percentage" resname="widgets.devicePlugins.plugin.column.visits_percentage">
-				<source><![CDATA[% Visits]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.devicePlugins.plugin.description" resname="widgets.devicePlugins.plugin.description">
 				<source><![CDATA[The report shows which browser plugins your visitors had enabled.]]></source>
@@ -89,17 +80,11 @@
 			<trans-unit id="widgets.linkMatomo.title" resname="widgets.linkMatomo.title">
 				<source><![CDATA[Link to Matomo]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.actions.dataset.label" resname="widgets.visitsSummary.actions.dataset.label">
-				<source><![CDATA[Actions]]></source>
-			</trans-unit>
 			<trans-unit id="widgets.referrers.campaigns.description" resname="widgets.referrers.campaigns.description">
 				<source><![CDATA[Displays a report of the campaigns for the current month.]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.referrers.campaigns.column.name" resname="widgets.referrers.campaigns.column.name">
 				<source><![CDATA[Campaign name]]></source>
-			</trans-unit>
-			<trans-unit id="widgets.referrers.campaigns.column.visits" resname="widgets.referrers.campaigns.column.visits">
-				<source><![CDATA[Visits]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.referrers.campaigns.title" resname="widgets.referrers.campaigns.title">
 				<source><![CDATA[Campaigns]]></source>
@@ -109,9 +94,6 @@
 			</trans-unit>
 			<trans-unit id="widgets.userCountry.country.column.name" resname="widgets.userCountry.country.column.name">
 				<source><![CDATA[Country]]></source>
-			</trans-unit>
-			<trans-unit id="widgets.userCountry.country.column.visits" resname="widgets.userCountry.country.column.visits">
-				<source><![CDATA[Visits]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.userCountry.country.title" resname="widgets.userCountry.country.title">
 				<source><![CDATA[Countries]]></source>
@@ -136,9 +118,6 @@
 			</trans-unit>
 			<trans-unit id="widgets.visitsSummary.bounceRate.title" resname="widgets.visitsSummary.bounceRate.title">
 				<source><![CDATA[Bounce rate]]></source>
-			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.visits.dataset.label" resname="widgets.visitsSummary.visits.dataset.label">
-				<source><![CDATA[Visits]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.visitsSummary.visitsPerDay.description" resname="widgets.visitsSummary.visitsPerDay.description">
 				<source><![CDATA[Gives you an overview of the number of visits in the last couple of days.]]></source>

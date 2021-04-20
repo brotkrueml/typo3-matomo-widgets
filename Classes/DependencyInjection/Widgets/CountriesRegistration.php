@@ -78,7 +78,7 @@ final class CountriesRegistration extends AbstractRegistration
                     ],
                     [
                         'column' => 'nb_visits',
-                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.column.visits',
+                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':visits',
                         'decorator' => new Reference(NumberDecorator::class),
                         'classes' => 'text-right',
                     ],

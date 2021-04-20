@@ -103,7 +103,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
         if ($this->customDimension->scope === 'visit') {
             $columns[] = [
                 'column' => 'nb_visits',
-                'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.customDimensions.customDimension.column.visits',
+                'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':visits',
                 'decorator' => new Reference(NumberDecorator::class),
                 'classes' => 'text-right',
             ];
@@ -111,7 +111,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
 
         $columns[] = [
             'column' => $this->customDimension->scope === 'visit' ? 'nb_actions' : 'nb_hits',
-            'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.customDimensions.customDimension.column.actions',
+            'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':actions',
             'decorator' => new Reference(NumberDecorator::class),
             'classes' => 'text-right',
         ];

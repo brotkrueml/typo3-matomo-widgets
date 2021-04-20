@@ -56,7 +56,7 @@ final class VisitsPerDayRegistration extends AbstractRegistration
             ->arg('$method', self::METHOD)
             ->arg(
                 '$barLabel',
-                Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visits.dataset.label'
+                Extension::LANGUAGE_PATH_DASHBOARD . ':visits'
             )
             ->arg('$backgroundColour', '#1a568f')
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%');

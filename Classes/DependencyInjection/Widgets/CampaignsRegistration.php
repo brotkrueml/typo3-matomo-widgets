@@ -67,7 +67,7 @@ final class CampaignsRegistration extends AbstractRegistration
                     ],
                     [
                         'column' => 'nb_visits',
-                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.campaigns.column.visits',
+                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':visits',
                         'decorator' => new Reference(NumberDecorator::class),
                         'classes' => 'text-right',
                     ],
