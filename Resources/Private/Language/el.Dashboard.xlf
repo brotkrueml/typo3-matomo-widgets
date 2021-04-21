@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-21T17:43:14Z" product-name="matomo_widgets" target-language="el">
+    <body>
+      <trans-unit id="interactionRate" resname="interactionRate" approved="yes">
+        <source><![CDATA[Interaction Rate]]></source>
+        <target state="final"><![CDATA[Ρυθμός αλληλεπίδρασης]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name" approved="yes">
+        <source><![CDATA[Content Name]]></source>
+        <target state="final"><![CDATA[Όνομα Περιεχομένου]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentPieces.column.name" resname="widgets.contents.contentPieces.column.name" approved="yes">
+        <source><![CDATA[Content Piece]]></source>
+        <target state="final"><![CDATA[Κομμάτι Περιεχομένου]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.browsers.title" resname="widgets.devicesDetection.browsers.title" approved="yes">
+        <source><![CDATA[Browsers]]></source>
+        <target state="final"><![CDATA[Φυλλομετρητές]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.column.name" resname="widgets.userCountry.country.column.name" approved="yes">
+        <source><![CDATA[Country]]></source>
+        <target state="final"><![CDATA[Χώρα]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.title" resname="widgets.userCountry.country.title" approved="yes">
+        <source><![CDATA[Countries]]></source>
+        <target state="final"><![CDATA[Χώρες]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.title" resname="widgets.visitsSummary.bounceRate.title" approved="yes">
+        <source><![CDATA[Bounce rate]]></source>
+        <target state="final"><![CDATA[Ρυθμός αναπήδησης]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
