@@ -31,6 +31,7 @@ final class WidgetsProvider
         'countries' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title',
         'linkMatomo' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title',
         'osFamilies' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title',
+        'siteSearchKeywords' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchKeywords.title',
         'visitsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title',
         'visitsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.title',
     ];

@@ -24,6 +24,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CountriesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CustomDimensionsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\LinkMatomoRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\OsFamiliesRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\SiteSearchKeywordsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerDayRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerMonthRegistration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\CachingRepositoryDecorator;
@@ -79,6 +80,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 CountriesRegistration::class,
                 LinkMatomoRegistration::class,
                 OsFamiliesRegistration::class,
+                SiteSearchKeywordsRegistration::class,
                 VisitsPerDayRegistration::class,
                 VisitsPerMonthRegistration::class,
             ] as $registrationClass

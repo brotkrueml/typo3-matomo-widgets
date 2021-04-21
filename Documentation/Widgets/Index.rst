@@ -288,6 +288,30 @@ Default configuration parameters in the :file:`Services.yaml` file
       - filter_sort_order: desc
 
 
+Site search keywords
+====================
+
+Overview of the search keywords that visitors searched for on the internal
+search engine:
+
+.. figure:: /Images/WidgetSiteSearchKeywords.png
+   :alt: Widget Site search keywords
+   :class: with-border
+
+   Widget *Site search keywords*
+
+Matomo module
+   Actions
+
+Default configuration parameters in the :file:`Services.yaml` file
+   matomo_widgets.siteSearchKeywords.parameters:
+      - period: month
+      - date: today
+      - filter_limit: 50
+      - filter_sort_column: nb_visits
+      - filter_sort_order: desc
+
+
 Visits per day
 ==============
 

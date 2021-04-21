@@ -42,6 +42,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains('countries', $actual);
         self::assertContains('linkMatomo', $actual);
         self::assertContains('osFamilies', $actual);
+        self::assertContains('siteSearchKeywords', $actual);
         self::assertContains('visitsPerDay', $actual);
         self::assertContains('visitsPerMonth', $actual);
     }
@@ -62,6 +63,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title', 'countries'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title', 'linkMatomo'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title', 'osFamilies'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchKeywords.title', 'siteSearchKeywords'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title', 'visitsPerDay'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.title', 'visitsPerMonth'], $actual);
     }
