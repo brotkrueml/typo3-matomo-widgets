@@ -22,6 +22,10 @@
         <source><![CDATA[Other]]></source>
         <target state="final"><![CDATA[Autre]]></target>
       </trans-unit>
+      <trans-unit id="searches" resname="searches" approved="yes">
+        <source><![CDATA[Searches]]></source>
+        <target state="final"><![CDATA[Recherches]]></target>
+      </trans-unit>
       <trans-unit id="thousandsSeparator" resname="thousandsSeparator" approved="yes">
         <source><![CDATA[,]]></source>
         <target state="final"><![CDATA[.]]></target>
@@ -33,6 +37,14 @@
       <trans-unit id="visits_percentage" resname="visits_percentage" approved="yes">
         <source><![CDATA[% Visits]]></source>
         <target state="final"><![CDATA[% Visites]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchKeywords.column.name" resname="widgets.actions.siteSearchKeywords.column.name" approved="yes">
+        <source><![CDATA[Keyword]]></source>
+        <target state="final"><![CDATA[Mot clef]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchKeywords.title" resname="widgets.actions.siteSearchKeywords.title" approved="yes">
+        <source><![CDATA[Site search keywords]]></source>
+        <target state="final"><![CDATA[Mot-clés recherchés sur le site]]></target>
       </trans-unit>
       <trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name" approved="yes">
         <source><![CDATA[Content Name]]></source>
