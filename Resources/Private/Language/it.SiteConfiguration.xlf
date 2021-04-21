@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2021-04-13T16:03:43Z" product-name="matomo_widgets" target-language="it">
+    <body>
+      <trans-unit id="matomoWidgets" resname="matomoWidgets" approved="yes">
+        <source><![CDATA[Matomo Widgets]]></source>
+        <target state="final"><![CDATA[Matomo Widgets]]></target>
+      </trans-unit>
+      <trans-unit id="tokenAuth" resname="tokenAuth" approved="yes">
+        <source><![CDATA[Authentication token]]></source>
+        <target state="final"><![CDATA[Token di autenticazione]]></target>
+      </trans-unit>
+      <trans-unit id="title" resname="title" approved="yes">
+        <source><![CDATA[Title]]></source>
+        <target state="final"><![CDATA[Titolo]]></target>
+      </trans-unit>
+      <trans-unit id="url" resname="url" approved="yes">
+        <source><![CDATA[Base URL]]></source>
+        <target state="final"><![CDATA[URL di base]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
