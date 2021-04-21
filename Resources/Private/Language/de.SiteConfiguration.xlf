@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2021-04-13T16:03:43Z" product-name="matomo_widgets" target-language="de">
+    <body>
+      <trans-unit id="activeWidgets" resname="activeWidgets" approved="yes">
+        <source><![CDATA[Active Widgets]]></source>
+        <target state="final"><![CDATA[Aktive Widgets]]></target>
+      </trans-unit>
+      <trans-unit id="dashboardWidgets" resname="dashboardWidgets" approved="yes">
+        <source><![CDATA[Dashboard Widgets]]></source>
+        <target state="final"><![CDATA[Dashboard-Widgets]]></target>
+      </trans-unit>
+      <trans-unit id="idSite" resname="idSite" approved="yes">
+        <source><![CDATA[Site ID]]></source>
+        <target state="final"><![CDATA[Site-ID]]></target>
+      </trans-unit>
+      <trans-unit id="matomoInstallation" resname="matomoInstallation" approved="yes">
+        <source><![CDATA[Matomo Instance]]></source>
+        <target state="final"><![CDATA[Matomo-Instanz]]></target>
+      </trans-unit>
+      <trans-unit id="matomoWidgets" resname="matomoWidgets" approved="yes">
+        <source><![CDATA[Matomo Widgets]]></source>
+        <target state="final"><![CDATA[Matomo-Widgets]]></target>
+      </trans-unit>
+      <trans-unit id="tokenAuth" resname="tokenAuth" approved="yes">
+        <source><![CDATA[Authentication token]]></source>
+        <target state="final"><![CDATA[Authentifizierungstoken]]></target>
+      </trans-unit>
+      <trans-unit id="title" resname="title" approved="yes">
+        <source><![CDATA[Title]]></source>
+        <target state="final"><![CDATA[Titel]]></target>
+      </trans-unit>
+      <trans-unit id="title.description" resname="title.description" approved="yes">
+        <source><![CDATA[The title will prefix the widget title. Leave empty if you have only one site.
+ATTENTION: If you change one of the values in this tab you have to flush the cache via "Admin Tools > Maintenance"!]]></source>
+        <target state="final"><![CDATA[Der Titel wird dem Widget-Titel vorangestellt. Leer lassen, wenn nur eine Seite vorhanden ist.
+ACHTUNG. Wenn einer der Werte in diesem Tab geändert wird, muss der Cache über "Verwaltungswerkzeuge > Wartung" geleert werden"!]]></target>
+      </trans-unit>
+      <trans-unit id="url" resname="url" approved="yes">
+        <source><![CDATA[Base URL]]></source>
+        <target state="final"><![CDATA[Basis-URL]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
