@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-21T17:43:14Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-22T14:51:37Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
@@ -10,6 +10,9 @@
 			</trans-unit>
 			<trans-unit id="interactionRate" resname="interactionRate">
 				<source><![CDATA[Interaction Rate]]></source>
+			</trans-unit>
+			<trans-unit id="keyword" resname="keyword">
+				<source><![CDATA[Keyword]]></source>
 			</trans-unit>
 			<trans-unit id="openReport" resname="openReport">
 				<source><![CDATA[Open report in Matomo]]></source>
@@ -32,14 +35,17 @@
 			<trans-unit id="visits_percentage" resname="visits_percentage">
 				<source><![CDATA[% Visits]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.actions.siteSearchKeywords.column.name" resname="widgets.actions.siteSearchKeywords.column.name">
-				<source><![CDATA[Keyword]]></source>
-			</trans-unit>
 			<trans-unit id="widgets.actions.siteSearchKeywords.description" resname="widgets.actions.siteSearchKeywords.description">
 				<source><![CDATA[Overview of the search keywords that visitors searched for on the internal search engine.]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.actions.siteSearchKeywords.title" resname="widgets.actions.siteSearchKeywords.title">
 				<source><![CDATA[Site search keywords]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.actions.siteSearchNoResultKeywords.description" resname="widgets.actions.siteSearchNoResultKeywords.description">
+				<source><![CDATA[List of the site search keywords that did not return any search result.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.actions.siteSearchNoResultKeywords.title" resname="widgets.actions.siteSearchNoResultKeywords.title">
+				<source><![CDATA[Search keywords with no results]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name">
 				<source><![CDATA[Content Name]]></source>

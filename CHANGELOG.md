@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Widget "Content names" (#8)
 - Widget "Content pieces" (#9)
 - Widget "Site search keywords" (#14)
+- Widget "Site search keywords with no results" (#15)
 
 ### Changed
 - Use selectCheckBox in site configuration for active widget selection instead of checkboxLabeledToggle, an upgrade wizard is available (#10)

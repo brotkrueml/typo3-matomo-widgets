@@ -20,16 +20,16 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * @internal
  */
-final class SiteSearchKeywordsRegistration extends AbstractRegistration
+final class SiteSearchNoResultKeywordsRegstration extends AbstractRegistration
 {
-    private const METHOD = 'Actions.getSiteSearchKeywords';
-    private const PARAMETERS_PARAMETERS = 'matomo_widgets.siteSearchKeywords.parameters';
+    private const METHOD = 'Actions.getSiteSearchNoResultKeywords';
+    private const PARAMETERS_PARAMETERS = 'matomo_widgets.siteSearchNoResultKeywords.parameters';
 
-    protected $serviceIdSuffix = 'actions.siteSearchKeywords';
+    protected $serviceIdSuffix = 'actions.siteSearchNoResultKeywords';
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('siteSearchKeywords')) {
+        if (!$this->matomoConfiguration->isWidgetActive('siteSearchNoResultKeywords')) {
             return;
         }
 
@@ -78,9 +78,9 @@ final class SiteSearchKeywordsRegistration extends AbstractRegistration
 
     private function registerWidget(): void
     {
-        $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchKeywords.title';
+        $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchNoResultKeywords.title';
         $title = $this->matomoConfiguration->getSiteTitle()
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Site Search Keywords')
+            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Search keywords with no results')
             : $localisedTitle;
 
         $this->services
@@ -101,7 +101,7 @@ final class SiteSearchKeywordsRegistration extends AbstractRegistration
                     'identifier' => $this->buildWidgetIdentifier(),
                     'groupNames' => 'matomo',
                     'title' => $title,
-                    'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchKeywords.description',
+                    'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchNoResultKeywords.description',
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
