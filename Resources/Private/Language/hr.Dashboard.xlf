@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-21T17:43:14Z" product-name="matomo_widgets" target-language="hr">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-22T15:10:51Z" product-name="matomo_widgets" target-language="hr">
     <body>
       <trans-unit id="actions" resname="actions" approved="yes">
         <source><![CDATA[Actions]]></source>
@@ -10,6 +10,10 @@
         <source><![CDATA[Other]]></source>
         <target state="final"><![CDATA[Drugo]]></target>
       </trans-unit>
+      <trans-unit id="searches" resname="searches" approved="yes">
+        <source><![CDATA[Searches]]></source>
+        <target state="final"><![CDATA[Pretrage]]></target>
+      </trans-unit>
       <trans-unit id="thousandsSeparator" resname="thousandsSeparator" approved="yes">
         <source><![CDATA[,]]></source>
         <target state="final"><![CDATA[,]]></target>
@@ -18,9 +22,9 @@
         <source><![CDATA[Visits]]></source>
         <target state="final"><![CDATA[Posjeta]]></target>
       </trans-unit>
-      <trans-unit id="visits_percentage" resname="visits_percentage" approved="yes">
-        <source><![CDATA[% Visits]]></source>
-        <target state="final"><![CDATA[% Posjeta]]></target>
+      <trans-unit id="widgets.actions.siteSearchKeywords.title" resname="widgets.actions.siteSearchKeywords.title" approved="yes">
+        <source><![CDATA[Site search keywords]]></source>
+        <target state="final"><![CDATA[Ključne riječi pretraživanja]]></target>
       </trans-unit>
       <trans-unit id="widgets.userCountry.country.column.name" resname="widgets.userCountry.country.column.name" approved="yes">
         <source><![CDATA[Country]]></source>
