@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-21T17:43:14Z" product-name="matomo_widgets" target-language="nl">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-22T15:10:51Z" product-name="matomo_widgets" target-language="nl">
     <body>
       <trans-unit id="actions" resname="actions" approved="yes">
         <source><![CDATA[Actions]]></source>
@@ -10,13 +10,13 @@
         <source><![CDATA[Impressions]]></source>
         <target state="final"><![CDATA[Impressies]]></target>
       </trans-unit>
-      <trans-unit id="interactionRate" resname="interactionRate" approved="yes">
-        <source><![CDATA[Interaction Rate]]></source>
-        <target state="final"><![CDATA[Aantal interacties]]></target>
-      </trans-unit>
       <trans-unit id="other" resname="other" approved="yes">
         <source><![CDATA[Other]]></source>
         <target state="final"><![CDATA[Overige]]></target>
+      </trans-unit>
+      <trans-unit id="searches" resname="searches" approved="yes">
+        <source><![CDATA[Searches]]></source>
+        <target state="final"><![CDATA[Zoekopdrachten]]></target>
       </trans-unit>
       <trans-unit id="thousandsSeparator" resname="thousandsSeparator" approved="yes">
         <source><![CDATA[,]]></source>
@@ -26,17 +26,9 @@
         <source><![CDATA[Visits]]></source>
         <target state="final"><![CDATA[Bezoeken]]></target>
       </trans-unit>
-      <trans-unit id="visits_percentage" resname="visits_percentage" approved="yes">
-        <source><![CDATA[% Visits]]></source>
-        <target state="final"><![CDATA[% Bezoeken]]></target>
-      </trans-unit>
-      <trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name" approved="yes">
-        <source><![CDATA[Content Name]]></source>
-        <target state="final"><![CDATA[Content naam]]></target>
-      </trans-unit>
-      <trans-unit id="widgets.contents.contentPieces.column.name" resname="widgets.contents.contentPieces.column.name" approved="yes">
-        <source><![CDATA[Content Piece]]></source>
-        <target state="final"><![CDATA[Contentonderdeel]]></target>
+      <trans-unit id="widgets.actions.siteSearchKeywords.title" resname="widgets.actions.siteSearchKeywords.title" approved="yes">
+        <source><![CDATA[Site search keywords]]></source>
+        <target state="final"><![CDATA[Zoektermen]]></target>
       </trans-unit>
       <trans-unit id="widgets.devicesDetection.browsers.title" resname="widgets.devicesDetection.browsers.title" approved="yes">
         <source><![CDATA[Browsers]]></source>
