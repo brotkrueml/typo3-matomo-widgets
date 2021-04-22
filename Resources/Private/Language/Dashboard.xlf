@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-22T14:51:37Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-22T15:10:51Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
@@ -9,7 +9,7 @@
 				<source><![CDATA[Impressions]]></source>
 			</trans-unit>
 			<trans-unit id="interactionRate" resname="interactionRate">
-				<source><![CDATA[Interaction Rate]]></source>
+				<source><![CDATA[Interaction rate]]></source>
 			</trans-unit>
 			<trans-unit id="keyword" resname="keyword">
 				<source><![CDATA[Keyword]]></source>
@@ -32,7 +32,7 @@
 			<trans-unit id="visits" resname="visits">
 				<source><![CDATA[Visits]]></source>
 			</trans-unit>
-			<trans-unit id="visits_percentage" resname="visits_percentage">
+			<trans-unit id="visitsPercentage" resname="visitsPercentage">
 				<source><![CDATA[% Visits]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.actions.siteSearchKeywords.description" resname="widgets.actions.siteSearchKeywords.description">
@@ -48,22 +48,22 @@
 				<source><![CDATA[Search keywords with no results]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name">
-				<source><![CDATA[Content Name]]></source>
+				<source><![CDATA[Content name]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentNames.description" resname="widgets.contents.contentNames.description">
 				<source><![CDATA[Overview of the names of the content the visitors viewed and interacted with.]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentNames.title" resname="widgets.contents.contentNames.title">
-				<source><![CDATA[Content Names]]></source>
+				<source><![CDATA[Content names]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentPieces.column.name" resname="widgets.contents.contentPieces.column.name">
-				<source><![CDATA[Content Piece]]></source>
+				<source><![CDATA[Content piece]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentPieces.description" resname="widgets.contents.contentPieces.description">
 				<source><![CDATA[Overview of the pieces of the content the visitors viewed and interacted with.]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentPieces.title" resname="widgets.contents.contentPieces.title">
-				<source><![CDATA[Content Pieces]]></source>
+				<source><![CDATA[Content pieces]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.devicesDetection.browsers.description" resname="widgets.devicesDetection.browsers.description">
 				<source><![CDATA[Overview of the used browsers in the current month.]]></source>
@@ -84,7 +84,7 @@
 				<source><![CDATA[The report shows which browser plugins your visitors had enabled.]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.devicePlugins.plugin.title" resname="widgets.devicePlugins.plugin.title">
-				<source><![CDATA[Browser Plugins]]></source>
+				<source><![CDATA[Browser plugins]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.linkMatomo.buttonText" resname="widgets.linkMatomo.buttonText">
 				<source><![CDATA[To the Matomo installation]]></source>

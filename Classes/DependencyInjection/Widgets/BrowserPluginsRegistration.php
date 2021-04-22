@@ -77,7 +77,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
                     ],
                     [
                         'column' => 'nb_visits_percentage',
-                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':visits_percentage',
+                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':visitsPercentage',
                         'classes' => 'text-right',
                     ],
                     [
@@ -95,7 +95,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicePlugins.plugin.title';
         $title = $this->matomoConfiguration->getSiteTitle()
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Browser Plugins')
+            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Browser plugins')
             : $localisedTitle;
 
         $this->services

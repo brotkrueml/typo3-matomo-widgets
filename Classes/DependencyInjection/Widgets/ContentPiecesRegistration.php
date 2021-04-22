@@ -85,7 +85,7 @@ final class ContentPiecesRegistration extends AbstractRegistration
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentPieces.title';
         $title = $this->matomoConfiguration->getSiteTitle()
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Content Pieces')
+            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Content pieces')
             : $localisedTitle;
 
         $this->services

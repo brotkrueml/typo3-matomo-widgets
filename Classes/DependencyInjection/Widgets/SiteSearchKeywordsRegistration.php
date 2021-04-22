@@ -80,7 +80,7 @@ final class SiteSearchKeywordsRegistration extends AbstractRegistration
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchKeywords.title';
         $title = $this->matomoConfiguration->getSiteTitle()
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Site Search Keywords')
+            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Site search keywords')
             : $localisedTitle;
 
         $this->services
