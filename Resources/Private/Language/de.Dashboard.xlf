@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-21T17:43:14Z" product-name="matomo_widgets" target-language="de">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-22T15:10:51Z" product-name="matomo_widgets" target-language="de">
     <body>
       <trans-unit id="actions" resname="actions" approved="yes">
         <source><![CDATA[Actions]]></source>
@@ -9,10 +9,6 @@
       <trans-unit id="impressions" resname="impressions" approved="yes">
         <source><![CDATA[Impressions]]></source>
         <target state="final"><![CDATA[Impressionen]]></target>
-      </trans-unit>
-      <trans-unit id="interactionRate" resname="interactionRate" approved="yes">
-        <source><![CDATA[Interaction Rate]]></source>
-        <target state="final"><![CDATA[Interaktionsrate]]></target>
       </trans-unit>
       <trans-unit id="openReport" resname="openReport" approved="yes">
         <source><![CDATA[Open report in Matomo]]></source>
@@ -26,6 +22,10 @@
         <source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
         <target state="final"><![CDATA[Diese Vorauswahl erstellt ein Dashboard mit den gebräuchlichsten Matomo-Widgets.]]></target>
       </trans-unit>
+      <trans-unit id="searches" resname="searches" approved="yes">
+        <source><![CDATA[Searches]]></source>
+        <target state="final"><![CDATA[Suchanfragen]]></target>
+      </trans-unit>
       <trans-unit id="thousandsSeparator" resname="thousandsSeparator" approved="yes">
         <source><![CDATA[,]]></source>
         <target state="final"><![CDATA[.]]></target>
@@ -34,33 +34,21 @@
         <source><![CDATA[Visits]]></source>
         <target state="final"><![CDATA[Besuche]]></target>
       </trans-unit>
-      <trans-unit id="visits_percentage" resname="visits_percentage" approved="yes">
-        <source><![CDATA[% Visits]]></source>
-        <target state="final"><![CDATA[% Besuche]]></target>
+      <trans-unit id="widgets.actions.siteSearchKeywords.description" resname="widgets.actions.siteSearchKeywords.description" approved="yes">
+        <source><![CDATA[Overview of the search keywords that visitors searched for on the internal search engine.]]></source>
+        <target state="final"><![CDATA[Übersicht der Suchbegriffe, nach denen Besucher in der internen Suche gesucht haben.]]></target>
       </trans-unit>
-      <trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name" approved="yes">
-        <source><![CDATA[Content Name]]></source>
-        <target state="final"><![CDATA[Inhaltsname]]></target>
+      <trans-unit id="widgets.actions.siteSearchKeywords.title" resname="widgets.actions.siteSearchKeywords.title" approved="yes">
+        <source><![CDATA[Site search keywords]]></source>
+        <target state="final"><![CDATA[Suchbegriffe (interne Suche)]]></target>
       </trans-unit>
       <trans-unit id="widgets.contents.contentNames.description" resname="widgets.contents.contentNames.description" approved="yes">
         <source><![CDATA[Overview of the names of the content the visitors viewed and interacted with.]]></source>
         <target state="final"><![CDATA[Übersicht der Namen der Inhalte, welche den Besuchern gezeigt wurden und mit denen sie interagiert haben.]]></target>
       </trans-unit>
-      <trans-unit id="widgets.contents.contentNames.title" resname="widgets.contents.contentNames.title" approved="yes">
-        <source><![CDATA[Content Names]]></source>
-        <target state="final"><![CDATA[Inhaltsnamen]]></target>
-      </trans-unit>
-      <trans-unit id="widgets.contents.contentPieces.column.name" resname="widgets.contents.contentPieces.column.name" approved="yes">
-        <source><![CDATA[Content Piece]]></source>
-        <target state="final"><![CDATA[Inhaltsteil]]></target>
-      </trans-unit>
       <trans-unit id="widgets.contents.contentPieces.description" resname="widgets.contents.contentPieces.description" approved="yes">
         <source><![CDATA[Overview of the pieces of the content the visitors viewed and interacted with.]]></source>
         <target state="final"><![CDATA[Übersicht über die Inhaltsteile, welche den Besuchern gezeigt wurden und mit denen sie interagiert haben.]]></target>
-      </trans-unit>
-      <trans-unit id="widgets.contents.contentPieces.title" resname="widgets.contents.contentPieces.title" approved="yes">
-        <source><![CDATA[Content Pieces]]></source>
-        <target state="final"><![CDATA[Inhaltsteile]]></target>
       </trans-unit>
       <trans-unit id="widgets.devicesDetection.browsers.description" resname="widgets.devicesDetection.browsers.description" approved="yes">
         <source><![CDATA[Overview of the used browsers in the current month.]]></source>
@@ -85,10 +73,6 @@
       <trans-unit id="widgets.devicePlugins.plugin.description" resname="widgets.devicePlugins.plugin.description" approved="yes">
         <source><![CDATA[The report shows which browser plugins your visitors had enabled.]]></source>
         <target state="final"><![CDATA[Der Bericht zeigt an, welche Browser-Plugins Ihre Besucher aktiviert haben.]]></target>
-      </trans-unit>
-      <trans-unit id="widgets.devicePlugins.plugin.title" resname="widgets.devicePlugins.plugin.title" approved="yes">
-        <source><![CDATA[Browser Plugins]]></source>
-        <target state="final"><![CDATA[Browser-Plugins]]></target>
       </trans-unit>
       <trans-unit id="widgets.linkMatomo.buttonText" resname="widgets.linkMatomo.buttonText" approved="yes">
         <source><![CDATA[To the Matomo installation]]></source>
