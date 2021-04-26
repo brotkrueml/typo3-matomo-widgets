@@ -137,7 +137,7 @@ You can find more information in the :ref:`Dashboard manual
 <t3dashboard:permission-handling-of-widgets>`.
 
 .. note::
-   Only enabled widgets for a site is available. The widget titles are always
+   Only activated widgets for a site are available. The widget titles are always
    English if more than one Matomo instance is configured.
 
 
