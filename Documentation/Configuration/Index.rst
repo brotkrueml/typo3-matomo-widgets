@@ -116,11 +116,12 @@ title (optional)
    Give a meaningful title for the custom dimension. If it is left out or empty,
    the title will be ``Custom Dimension <idDimension>``. You can also use a
    localisation string starting with ``LLL:``. The title is shown as the widget
-   title and in the :guilabel:`Add widget` dialogue.
+   title and in the :guilabel:`Add widget` modal.
 
 description (optional)
-   The description is used in the :guilabel:`Add widget` dialogue. If it is left
-   out or empty, it is not used.
+   The description is used in the :guilabel:`Add widget` modal. If it is left
+   out or empty, it is not used. You can also use a localisation string starting
+   with ``LLL:``.
 
 .. note::
    You can add as many custom dimensions as you want. Configured custom
