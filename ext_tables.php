@@ -24,4 +24,14 @@ defined('TYPO3') or die();
             ),
         ]
     );
+    $iconRegistry->registerIcon(
+        'content-bounce-rate',
+        TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        [
+            'source' => sprintf(
+                'EXT:%s/Resources/Public/Icons/content-bounce-rate.svg',
+                Brotkrueml\MatomoWidgets\Extension::KEY
+            ),
+        ]
+    );
 })();

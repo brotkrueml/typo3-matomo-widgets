@@ -80,7 +80,7 @@ final class BounceRateRegistration extends AbstractRegistration
                     'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
                     'title' => $localisedTitle,
                     'subtitle' => '%' . self::PARAMETERS_SUBTITLE . '%',
-                    'icon' => 'content-target',
+                    'icon' => 'content-bounce-rate',
                 ]
             )
             ->tag(
