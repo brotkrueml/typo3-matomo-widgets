@@ -52,9 +52,27 @@ class MatomoConnectorTest extends TestCase
 
     protected function setUp(): void
     {
+        $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify'] = false;
+
         $this->requestFactory = new RequestFactory();
-        $this->client = new Client(new GuzzleClient());
+        $this->client = $this->getClient();
         $this->url = \sprintf('http://%s:%s/', self::$server->getHost(), self::$server->getPort());
+    }
+
+    protected function tearDown(): void
+    {
+        unset($GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']);
+    }
+
+    private function getClient(): ClientInterface
+    {
+        if (\class_exists(Client::class)) {
+            // Before TYPO3 v11.2
+            return new Client(new GuzzleClient());
+        }
+
+        // Since TYPO3 v11.2
+        return Client\GuzzleClientFactory::getClient();
     }
 
     /**
