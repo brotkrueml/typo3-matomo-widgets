@@ -6,16 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2021-05-04
+
 ### Added
 - Link from widget to corresponding Matomo report if available (#7)
 - Widget "Browser plugins" (#12)
-- Widget for custom dimensions (#6)
 - Widget "Content names" (#8)
 - Widget "Content pieces" (#9)
 - Widget "Site search keywords" (#14)
 - Widget "Site search keywords with no results" (#15)
+- Widget for custom dimensions (#6)
 
 ### Changed
+- Raise minimum required version to TYPO3 10.4.15 and TYPO3 11.2.0
 - Use selectCheckBox in site configuration for active widget selection instead of checkboxLabeledToggle, an upgrade wizard is available (#10)
 
 ### Fixed
@@ -63,7 +66,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.2...HEAD
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.2...v1.0.0
 [0.3.2]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.2.0...v0.3.0
