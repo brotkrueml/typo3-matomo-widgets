@@ -27,7 +27,7 @@ The default parameters of the widgets can be adjusted to your needs, e.g. in the
 Screenshots
 ===========
 
-.. figure:: /Images/DashboardExample.png
+.. figure:: /Images/DashboardExample.jpg
    :alt: Example for a Matomo Dashboard
 
    Example for a Matomo Dashboard
