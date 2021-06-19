@@ -46,7 +46,6 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
       - name: Install composer dependencies
         run: |
-          composer --version
           composer require typo3/cms-core=${{ matrix.typo3-versions }} --no-progress
           git checkout composer.json
       - name: Run PHP linter
@@ -54,7 +53,7 @@ jobs:
           find . -name \*.php  ! -path "./.Build/*" -exec php -l {} \;
       - name: Run unit tests
         run: |
-          .Build/bin/phpunit -c Tests/phpunit.xml.dist
+          make tests
   code-quality:
     name: Code Quality
     runs-on: ubuntu-latest
@@ -67,7 +66,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 7.4
-          extensions: fileinfo gd intl json mbstring mysqli openssl pcre pdo session sodium xml zip zlib
+          extensions: fileinfo gd intl json mbstring mysqli openssl pcre pdo session xml zip zlib
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
@@ -80,11 +79,10 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
       - name: Install composer dependencies
         run: |
-          composer --version
           composer install --no-progress
       - name: Run unit tests
         run: |
-          .Build/bin/phpunit -c Tests/phpunit.xml.dist --log-junit .Build/logs/phpunit.xml --coverage-text --coverage-clover .Build/logs/clover.xml
+          make code-coverage
       - name: Send code coverage report to coveralls.io
         run: .Build/bin/php-coveralls -v
         env:
@@ -92,7 +90,7 @@ jobs:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       - name: Run psalm
         run: |
-          .Build/bin/psalm --no-progress
+          make psalm
   xliff-validation:
     name: XLIFF validation
     runs-on: ubuntu-latest
