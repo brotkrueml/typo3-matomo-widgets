@@ -2,7 +2,6 @@
 	"name": "brotkrueml/typo3-matomo-widgets",
 	"type": "typo3-cms-extension",
 	"description": "TYPO3 Dashboard widgets with Matomo reports",
-	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"TYPO3 CMS",
 		"TYPO3 extension",
@@ -10,17 +9,13 @@
 		"Dashboard",
 		"Widgets"
 	],
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Chris Müller",
 			"role": "Developer"
 		}
 	],
-	"support": {
-		"docs": "https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/master/en-us/",
-		"issues": "https://github.com/brotkrueml/typo3-matomo-widgets/issues",
-		"source":  "https://github.com/brotkrueml/typo3-matomo-widgets"
-	},
 	"require": {
 		"php": ">=7.2",
 		"ext-json": "*",
@@ -33,11 +28,27 @@
 	},
 	"require-dev": {
 		"donatj/mock-webserver": "^2.2",
+		"ergebnis/composer-normalize": "^2.15",
 		"friendsofphp/php-cs-fixer": "^2.18",
 		"php-coveralls/php-coveralls": "^2.4",
 		"phpunit/phpunit": "^8.5 || ^9.5",
 		"typo3/coding-standards": "^0.3",
 		"vimeo/psalm": "^4.7"
+	},
+	"config": {
+		"bin-dir": ".Build/bin",
+		"sort-packages": true,
+		"vendor-dir": ".Build/vendor"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		},
+		"typo3/cms": {
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"extension-key": "matomo_widgets",
+			"web-dir": ".Build/web"
+		}
 	},
 	"autoload": {
 		"psr-4": {
@@ -49,19 +60,9 @@
 			"Brotkrueml\\MatomoWidgets\\Tests\\": "Tests"
 		}
 	},
-	"config": {
-		"sort-packages": true,
-		"vendor-dir": ".Build/vendor",
-		"bin-dir": ".Build/bin"
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "1.0.x-dev"
-		},
-		"typo3/cms": {
-			"extension-key": "matomo_widgets",
-			"cms-package-dir": "{$vendor-dir}/typo3/cms",
-			"web-dir": ".Build/web"
-		}
+	"support": {
+		"issues": "https://github.com/brotkrueml/typo3-matomo-widgets/issues",
+		"source": "https://github.com/brotkrueml/typo3-matomo-widgets",
+		"docs": "https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/master/en-us/"
 	}
 }

@@ -18,8 +18,9 @@ tests: vendor
 	.Build/bin/phpunit --configuration=Tests/phpunit.xml.dist
 
 vendor: composer.json composer.lock
-	composer validate --no-check-lock
+	composer validate
 	composer install
+	composer normalize
 
 .PHONY: zip
 zip:
