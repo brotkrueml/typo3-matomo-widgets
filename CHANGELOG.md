@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2021-07-26
+
 ### Fixed
 - Set fallback for undefined array key in PHP8
 
@@ -69,7 +71,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.2...v1.0.0
 [0.3.2]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v0.3.0...v0.3.1
