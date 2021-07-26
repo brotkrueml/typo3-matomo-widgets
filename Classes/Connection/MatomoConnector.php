@@ -41,7 +41,7 @@ class MatomoConnector
             ->set('token_auth', $configuration->getTokenAuth())
             ->set('format', 'json');
 
-        /** @psalm-suppress InternalClass */
+        /** @psalm-suppress InternalClass,InternalMethod */
         $body = new Stream('php://temp', 'r+');
         /** @psalm-suppress InternalMethod */
         $body->write($parameterBag->buildQuery());
