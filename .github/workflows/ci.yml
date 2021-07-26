@@ -24,6 +24,8 @@ jobs:
             typo3-versions: ^10
           - php-versions: 7.3
             typo3-versions: ^10
+          - php-versions: 8.0
+            typo3-versions: ^11
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
