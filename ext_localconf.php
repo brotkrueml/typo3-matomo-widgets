@@ -1,7 +1,7 @@
 <?php
 defined('TYPO3') or die();
 
-if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['matomo_widgets'])) {
+if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['matomo_widgets'] ?? null)) {
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['matomo_widgets'] = [
         'frontend' => TYPO3\CMS\Core\Cache\Frontend\VariableFrontend::class,
         'backend' => TYPO3\CMS\Core\Cache\Backend\FileBackend::class,
