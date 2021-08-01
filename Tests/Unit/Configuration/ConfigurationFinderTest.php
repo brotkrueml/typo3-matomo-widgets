@@ -14,7 +14,12 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use PHPUnit\Framework\TestCase;
+use TYPO3\CMS\Core\Core\ApplicationContext;
+use TYPO3\CMS\Core\Core\Environment;
 
+/**
+ * @runInSeparateProcess
+ */
 class ConfigurationFinderTest extends TestCase
 {
     /** @var string */
@@ -22,6 +27,18 @@ class ConfigurationFinderTest extends TestCase
 
     public static function setUpBeforeClass(): void
     {
+        Environment::initialize(
+            new ApplicationContext('Testing'),
+            false,
+            true,
+            '/tmp',
+            '',
+            '',
+            '',
+            '',
+            ''
+        );
+
         self::$configPath = \realpath(\sys_get_temp_dir()) . \DIRECTORY_SEPARATOR . 'matomo_widgets_configuration_finder';
 
         if (\is_dir(self::$configPath)) {
@@ -91,7 +108,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function siteConfigurationWithNoMatomoConfigurationIsNotTakenIntoAccount(): void
     {
-        $this->createSiteConfiguration('some_site', []);
+        $this->createSiteConfiguration('some_site', ['rootPageId' => 1]);
         $subject = new ConfigurationFinder(self::$configPath);
 
         self::assertCount(0, $subject);

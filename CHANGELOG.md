@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Consider imports of widget settings into site configuration (#19)
+
 ## [1.0.1] - 2021-07-26
 
 ### Fixed
