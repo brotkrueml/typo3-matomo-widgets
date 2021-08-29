@@ -43,6 +43,13 @@ Title
    instances with your TYPO3 installation to differentiate them in the
    dashboard.
 
+Use Base URL and Site ID from "Matomo Integration" configuration
+   This field is only displayed with installed and activated
+   :ref:`Matomo Integration <matomo_integration:introduction>` extension.
+   Enable this option to use the configuration of the base URL and the site ID
+   from the "Matomo Integration" extension. In this case the base URL and site
+   ID are hidden from this tab.
+
 Base URL
    Enter the URL of your Matomo instance.
 

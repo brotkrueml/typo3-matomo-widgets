@@ -11,8 +11,10 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
+use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Core\ApplicationContext;
 use TYPO3\CMS\Core\Core\Environment;
@@ -22,6 +24,9 @@ use TYPO3\CMS\Core\Core\Environment;
  */
 class ConfigurationFinderTest extends TestCase
 {
+    /** @var ExtensionAvailability|Stub */
+    private $extensionAvailabilityStub;
+
     /** @var string */
     private static $configPath;
 
@@ -68,6 +73,14 @@ class ConfigurationFinderTest extends TestCase
         }
     }
 
+    protected function setUp(): void
+    {
+        $this->extensionAvailabilityStub = $this->createStub(ExtensionAvailability::class);
+        $this->extensionAvailabilityStub
+            ->method('isMatomoIntegrationAvailable')
+            ->willReturn(false);
+    }
+
     protected function tearDown(): void
     {
         self::tearDownAfterClass();
@@ -78,7 +91,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function classIsTraversable(): void
     {
-        $subject = new ConfigurationFinder(self::$configPath);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
 
         self::assertInstanceOf(\Traversable::class, $subject);
     }
@@ -88,7 +101,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function classImplementsCountable(): void
     {
-        $subject = new ConfigurationFinder(self::$configPath);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
 
         self::assertInstanceOf(\Countable::class, $subject);
     }
@@ -98,7 +111,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function noSiteConfigurationFoundThenNoMatomoConfigurationExists(): void
     {
-        $subject = new ConfigurationFinder(self::$configPath);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
 
         self::assertCount(0, $subject);
     }
@@ -109,7 +122,7 @@ class ConfigurationFinderTest extends TestCase
     public function siteConfigurationWithNoMatomoConfigurationIsNotTakenIntoAccount(): void
     {
         $this->createSiteConfiguration('some_site', ['rootPageId' => 1]);
-        $subject = new ConfigurationFinder(self::$configPath);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
 
         self::assertCount(0, $subject);
     }
@@ -126,7 +139,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => '',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
 
         self::assertCount(0, $subject);
     }
@@ -144,7 +157,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsActiveWidgets' => 'actionsPerDay',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
 
         self::assertCount(1, $subject);
 
@@ -173,7 +186,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => 'https://example.org/',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
 
         self::assertCount(0, $subject);
     }
@@ -190,7 +203,85 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => '',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+
+        self::assertCount(0, $subject);
+    }
+
+    /**
+     * @test
+     */
+    public function siteConfigurationWithAvailableMatomoConfigurationAndUninstalledMatomoIntegrationAndConsiderMatomoIntegrationEnabled(): void
+    {
+        $configuration = [
+            'matomoWidgetsIdSite' => 42,
+            'matomoWidgetsTitle' => 'Some Title',
+            'matomoWidgetsTokenAuth' => '',
+            'matomoWidgetsUrl' => 'https://example.org/',
+            'matomoWidgetsConsiderMatomoIntegration' => true,
+            'matomoIntegrationUrl' => 'https://example.com/',
+            'matomoIntegrationSiteId' => 1,
+        ];
+        $this->createSiteConfiguration('some_site', $configuration);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+
+        self::assertCount(1, $subject);
+
+        /** @var Configuration $actualConfiguration */
+        $actualConfiguration = $subject->getIterator()->current();
+        self::assertSame(42, $actualConfiguration->getIdSite());
+        self::assertSame('https://example.org/', $actualConfiguration->getUrl());
+    }
+
+    /**
+     * @test
+     */
+    public function siteConfigurationWithAvailableMatomoConfigurationAndInstalledMatomoIntegrationAndConsiderMatomoIntegrationEnabled(): void
+    {
+        $extensionAvailabilityStub = $this->createStub(ExtensionAvailability::class);
+        $extensionAvailabilityStub
+            ->method('isMatomoIntegrationAvailable')
+            ->willReturn(true);
+
+        $configuration = [
+            'matomoWidgetsIdSite' => 42,
+            'matomoWidgetsTitle' => 'Some Title',
+            'matomoWidgetsTokenAuth' => '',
+            'matomoWidgetsUrl' => 'https://example.org/',
+            'matomoWidgetsConsiderMatomoIntegration' => true,
+            'matomoIntegrationUrl' => 'https://example.com/',
+            'matomoIntegrationSiteId' => 1,
+        ];
+        $this->createSiteConfiguration('some_site', $configuration);
+        $subject = new ConfigurationFinder(self::$configPath, $extensionAvailabilityStub);
+
+        self::assertCount(1, $subject);
+
+        /** @var Configuration $actualConfiguration */
+        $actualConfiguration = $subject->getIterator()->current();
+        self::assertSame(1, $actualConfiguration->getIdSite());
+        self::assertSame('https://example.com/', $actualConfiguration->getUrl());
+    }
+
+    /**
+     * @test
+     */
+    public function siteConfigurationWithAvailableMatomoConfigurationAndInstalledMatomoIntegrationAndConsiderMatomoIntegrationEnabledButWithoutMatomoIntegrationConfiguration(): void
+    {
+        $extensionAvailabilityStub = $this->createStub(ExtensionAvailability::class);
+        $extensionAvailabilityStub
+            ->method('isMatomoIntegrationAvailable')
+            ->willReturn(true);
+
+        $configuration = [
+            'matomoWidgetsIdSite' => 42,
+            'matomoWidgetsTitle' => 'Some Title',
+            'matomoWidgetsTokenAuth' => '',
+            'matomoWidgetsUrl' => 'https://example.org/',
+            'matomoWidgetsConsiderMatomoIntegration' => true,
+        ];
+        $this->createSiteConfiguration('some_site', $configuration);
+        $subject = new ConfigurationFinder(self::$configPath, $extensionAvailabilityStub);
 
         self::assertCount(0, $subject);
     }

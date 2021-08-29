@@ -9,6 +9,7 @@ declare(strict_types=1);
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
@@ -55,7 +56,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->alias(RepositoryInterface::class, CachingRepositoryDecorator::class);
 
-    $configurationFinder = new ConfigurationFinder(Environment::getConfigPath());
+    $configurationFinder = new ConfigurationFinder(Environment::getConfigPath(), new ExtensionAvailability());
     foreach ($configurationFinder as $matomoConfiguration) {
         /** @var Configuration $matomoConfiguration */
         $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $matomoConfiguration->getSiteIdentifier();

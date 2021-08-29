@@ -47,6 +47,23 @@ $GLOBALS['SiteConfiguration']['site']['columns'] += [
     ]
 ];
 
+if (TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integration')) {
+    $GLOBALS['SiteConfiguration']['site']['columns'] += [
+        'matomoWidgetsConsiderMatomoIntegration' => [
+            'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':considerMatomoIntegration',
+            'description' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':considerMatomoIntegration.description',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [[0 => '', 1 => '']],
+            ],
+            'onChange' => 'reload',
+        ],
+    ];
+    $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsUrl']['displayCond'] = 'FIELD:matomoWidgetsConsiderMatomoIntegration:REQ:false';
+    $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsIdSite']['displayCond'] = 'FIELD:matomoWidgetsConsiderMatomoIntegration:REQ:false';
+}
+
 $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',
     --div--;' . Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':matomoWidgets,
     matomoWidgetsTitle,
@@ -57,7 +74,12 @@ $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',
 $GLOBALS['SiteConfiguration']['site']['palettes'] += [
     'matomoWidgetsInstallation' => [
         'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':matomoInstallation',
-        'showitem' => 'matomoWidgetsUrl, matomoWidgetsIdSite, matomoWidgetsTokenAuth',
+        'showitem' =>
+            (
+                TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integration')
+                ? 'matomoWidgetsConsiderMatomoIntegration, --linebreak--, '
+                : ''
+            ) . 'matomoWidgetsUrl, matomoWidgetsIdSite, matomoWidgetsTokenAuth',
     ],
     'matomoWidgetsActiveWidgets' => [
         'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':dashboardWidgets',

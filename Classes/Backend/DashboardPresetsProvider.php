@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Backend;
 
+use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use Brotkrueml\MatomoWidgets\Extension;
@@ -43,7 +44,7 @@ final class DashboardPresetsProvider
      */
     public function __construct($configurationFinder = null)
     {
-        $this->configurationFinder = $configurationFinder ?? new ConfigurationFinder(Environment::getConfigPath());
+        $this->configurationFinder = $configurationFinder ?? new ConfigurationFinder(Environment::getConfigPath(), new ExtensionAvailability());
     }
 
     public function getPresets(): array

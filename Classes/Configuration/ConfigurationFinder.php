@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Configuration;
 
+use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
 use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
 use Brotkrueml\MatomoWidgets\Domain\Validation\CustomDimensionConfigurationValidator;
 use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
@@ -23,7 +24,7 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
     /** @var array */
     private $configurations = [];
 
-    public function __construct(string $configPath)
+    public function __construct(string $configPath, ExtensionAvailability $extensionAvailability)
     {
         $finder = new Finder();
         try {
@@ -34,8 +35,16 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
             foreach ($finder as $file) {
                 $siteConfiguration = (new YamlFileLoader())->load($file->getRealPath());
 
-                $url = (string)($siteConfiguration['matomoWidgetsUrl'] ?? '');
-                $idSite = (int)($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
+                $considerMatomoIntegration = $extensionAvailability->isMatomoIntegrationAvailable()
+                    && ($siteConfiguration['matomoWidgetsConsiderMatomoIntegration'] ?? false);
+
+                if ($considerMatomoIntegration) {
+                    $url = (string)($siteConfiguration['matomoIntegrationUrl'] ?? '');
+                    $idSite = (int)($siteConfiguration['matomoIntegrationSiteId'] ?? 0);
+                } else {
+                    $url = (string)($siteConfiguration['matomoWidgetsUrl'] ?? '');
+                    $idSite = (int)($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
+                }
 
                 if ($url === '' || $idSite < 1) {
                     continue;
@@ -47,7 +56,7 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
                 $pathSegments = \explode('/', $file->getPath());
                 $siteIdentifier = \end($pathSegments);
 
-                $activeWidgets = GeneralUtility::trimExplode(',', $siteConfiguration['matomoWidgetsActiveWidgets'], true);
+                $activeWidgets = GeneralUtility::trimExplode(',', $siteConfiguration['matomoWidgetsActiveWidgets'] ?? '', true);
                 $customDimensions = $this->buildCustomDimensions($siteConfiguration['matomoWidgetsCustomDimensions'] ?? []);
 
                 $this->configurations[] = new Configuration(

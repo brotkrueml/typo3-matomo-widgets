@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2021-04-13T16:03:43Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2021-08-29T14:01:17Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="activeWidgets" resname="activeWidgets">
 				<source><![CDATA[Active Widgets]]></source>
@@ -29,6 +29,9 @@ ATTENTION: If you change one of the values in this tab you have to flush the cac
 			</trans-unit>
 			<trans-unit id="url" resname="url">
 				<source><![CDATA[Base URL]]></source>
+			</trans-unit>
+			<trans-unit id="considerMatomoIntegration" resname="considerMatomoIntegration">
+				<source><![CDATA[Use Base URL and Site ID from "Matomo Integration" configuration]]></source>
 			</trans-unit>
 		</body>
 	</file>
