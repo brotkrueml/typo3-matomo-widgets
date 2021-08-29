@@ -4,6 +4,8 @@
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
     stopOnFailure="false"
+    testdox="true"
+    executionOrder="random"
 >
     <testsuites>
         <testsuite name="Unit tests">
