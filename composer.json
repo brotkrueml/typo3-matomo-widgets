@@ -31,6 +31,7 @@
 		"friendsofphp/php-cs-fixer": "^2.18",
 		"php-coveralls/php-coveralls": "^2.4",
 		"phpunit/phpunit": "^8.5 || ^9.5",
+		"symfony/yaml": "^5.3",
 		"typo3/coding-standards": "^0.3",
 		"vimeo/psalm": "^4.7"
 	},

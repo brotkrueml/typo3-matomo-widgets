@@ -92,6 +92,9 @@ jobs:
       - name: Run psalm
         run: |
           make psalm
+      - name: Lint yaml files
+        run: |
+          make yaml-lint
   xliff-validation:
     name: XLIFF validation
     runs-on: ubuntu-latest

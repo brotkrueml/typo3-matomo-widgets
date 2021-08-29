@@ -1,5 +1,5 @@
 .PHONY: qa
-qa: coding-standards tests psalm
+qa: coding-standards tests psalm yaml-lint
 
 .PHONY: code-coverage
 code-coverage: vendor
@@ -21,6 +21,10 @@ vendor: composer.json composer.lock
 	composer validate
 	composer install
 	composer normalize
+
+.PHONY: yaml-lint
+yaml-lint: vendor
+	find -regex '.*\.ya?ml' ! -path "./.Build/*" -exec .Build/bin/yaml-lint -v {} \;
 
 .PHONY: zip
 zip:
