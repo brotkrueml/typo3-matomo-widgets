@@ -19,8 +19,10 @@ The default parameters of the widgets can be adjusted to your needs, e.g. in the
 *Visits per month* widget display 24 month instead of 12 months.
 
 .. tip::
-   If you use Matomo, the :ref:`Matomo Opt-Out <matomo_optout:introduction>`
-   extension might be of interest to you.
+   If you use Matomo, the
+   :ref:`Matomo Integration <matomo_integration:introduction>` and
+   :ref:`Matomo Opt-Out <matomo_optout:introduction>`
+   extensions might be of interest to you.
 
 .. _screenshots:
 

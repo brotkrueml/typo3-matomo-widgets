@@ -34,6 +34,10 @@
 		"typo3/coding-standards": "^0.3",
 		"vimeo/psalm": "^4.7"
 	},
+	"suggest": {
+		"brotkrueml/typo3-matomo-integration": "Matomo integration for TYPO3",
+		"brotkrueml/typo3-matomo-optout": "Content element for opting-out of Matomo analytics"
+	},
 	"config": {
 		"bin-dir": ".Build/bin",
 		"sort-packages": true,

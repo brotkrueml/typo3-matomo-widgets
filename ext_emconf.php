@@ -13,7 +13,10 @@ $EM_CONF[$_EXTKEY] = [
             'dashboard' => '',
         ],
         'conflicts' => [],
-        'suggests' => [],
+        'suggests' => [
+            'matomo_integration' => '',
+            'matomo_optout' => '',
+        ],
     ],
     'autoload' => [
         'psr-4' => ['Brotkrueml\\MatomoWidgets\\' => 'Classes']
