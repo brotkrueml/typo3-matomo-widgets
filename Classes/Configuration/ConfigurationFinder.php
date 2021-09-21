@@ -24,8 +24,11 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
     /** @var array */
     private $configurations = [];
 
-    public function __construct(string $configPath, ExtensionAvailability $extensionAvailability)
-    {
+    public function __construct(
+        string $configPath,
+        ExtensionAvailability $extensionAvailability,
+        YamlFileLoader $yamlFileLoader
+    ) {
         $finder = new Finder();
         try {
             $finder
@@ -33,7 +36,7 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
                 ->name('config.yaml');
 
             foreach ($finder as $file) {
-                $siteConfiguration = (new YamlFileLoader())->load($file->getRealPath());
+                $siteConfiguration = $yamlFileLoader->load($file->getRealPath());
 
                 $considerMatomoIntegration = $extensionAvailability->isMatomoIntegrationAvailable()
                     && ($siteConfiguration['matomoWidgetsConsiderMatomoIntegration'] ?? false);

@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Undefined logger in YamlFileLoader (#20)
+
 ## [1.1.0] - 2021-08-30
 
 ### Added

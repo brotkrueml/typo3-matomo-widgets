@@ -16,6 +16,8 @@ use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
+use Psr\Log\NullLogger;
+use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Core\ApplicationContext;
 use TYPO3\CMS\Core\Core\Environment;
 
@@ -26,6 +28,9 @@ class ConfigurationFinderTest extends TestCase
 {
     /** @var ExtensionAvailability|Stub */
     private $extensionAvailabilityStub;
+
+    /** @var YamlFileLoader */
+    private $yamlFileLoader;
 
     /** @var string */
     private static $configPath;
@@ -79,6 +84,9 @@ class ConfigurationFinderTest extends TestCase
         $this->extensionAvailabilityStub
             ->method('isMatomoIntegrationAvailable')
             ->willReturn(false);
+
+        $this->yamlFileLoader = new YamlFileLoader();
+        $this->yamlFileLoader->setLogger(new NullLogger());
     }
 
     protected function tearDown(): void
@@ -91,7 +99,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function classIsTraversable(): void
     {
-        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertInstanceOf(\Traversable::class, $subject);
     }
@@ -101,7 +109,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function classImplementsCountable(): void
     {
-        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertInstanceOf(\Countable::class, $subject);
     }
@@ -111,7 +119,7 @@ class ConfigurationFinderTest extends TestCase
      */
     public function noSiteConfigurationFoundThenNoMatomoConfigurationExists(): void
     {
-        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertCount(0, $subject);
     }
@@ -122,7 +130,7 @@ class ConfigurationFinderTest extends TestCase
     public function siteConfigurationWithNoMatomoConfigurationIsNotTakenIntoAccount(): void
     {
         $this->createSiteConfiguration('some_site', ['rootPageId' => 1]);
-        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertCount(0, $subject);
     }
@@ -139,7 +147,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => '',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertCount(0, $subject);
     }
@@ -157,7 +165,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsActiveWidgets' => 'actionsPerDay',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertCount(1, $subject);
 
@@ -186,7 +194,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => 'https://example.org/',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertCount(0, $subject);
     }
@@ -203,7 +211,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => '',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertCount(0, $subject);
     }
@@ -223,7 +231,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoIntegrationSiteId' => 1,
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $this->extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertCount(1, $subject);
 
@@ -253,7 +261,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoIntegrationSiteId' => 1,
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath, $extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertCount(1, $subject);
 
@@ -281,7 +289,7 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsConsiderMatomoIntegration' => true,
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = new ConfigurationFinder(self::$configPath, $extensionAvailabilityStub);
+        $subject = new ConfigurationFinder(self::$configPath, $extensionAvailabilityStub, $this->yamlFileLoader);
 
         self::assertCount(0, $subject);
     }

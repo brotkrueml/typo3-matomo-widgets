@@ -36,7 +36,9 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\DependencyInjection\Reference;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
+use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
@@ -56,7 +58,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->alias(RepositoryInterface::class, CachingRepositoryDecorator::class);
 
-    $configurationFinder = new ConfigurationFinder(Environment::getConfigPath(), new ExtensionAvailability());
+    /** @var YamlFileLoader $yamlFileLoader */
+    $yamlFileLoader = GeneralUtility::makeInstance(YamlFileLoader::class);
+    $configurationFinder = new ConfigurationFinder(Environment::getConfigPath(), new ExtensionAvailability(), $yamlFileLoader);
     foreach ($configurationFinder as $matomoConfiguration) {
         /** @var Configuration $matomoConfiguration */
         $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $matomoConfiguration->getSiteIdentifier();
