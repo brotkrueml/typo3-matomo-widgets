@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-09-26T09:54:37Z" product-name="matomo_widgets" target-language="pl">
+    <body>
+      <trans-unit id="impressions" resname="impressions" approved="yes">
+        <source><![CDATA[Impressions]]></source>
+        <target state="final"><![CDATA[Dopasowania]]></target>
+      </trans-unit>
+      <trans-unit id="other" resname="other" approved="yes">
+        <source><![CDATA[Other]]></source>
+        <target state="final"><![CDATA[Inne]]></target>
+      </trans-unit>
+      <trans-unit id="searches" resname="searches" approved="yes">
+        <source><![CDATA[Searches]]></source>
+        <target state="final"><![CDATA[Wyszukiwania]]></target>
+      </trans-unit>
+      <trans-unit id="thousandsSeparator" resname="thousandsSeparator" approved="yes">
+        <source><![CDATA[,]]></source>
+        <target state="final"><![CDATA[,]]></target>
+      </trans-unit>
+      <trans-unit id="visits" resname="visits" approved="yes">
+        <source><![CDATA[Visits]]></source>
+        <target state="final"><![CDATA[Odwiedziny]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchKeywords.title" resname="widgets.actions.siteSearchKeywords.title" approved="yes">
+        <source><![CDATA[Site search keywords]]></source>
+        <target state="final"><![CDATA[Słowa kluczowe wyszukiwarki]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.browsers.title" resname="widgets.devicesDetection.browsers.title" approved="yes">
+        <source><![CDATA[Browsers]]></source>
+        <target state="final"><![CDATA[Przeglądarki]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.referrers.campaigns.title" resname="widgets.referrers.campaigns.title" approved="yes">
+        <source><![CDATA[Campaigns]]></source>
+        <target state="final"><![CDATA[Kampanie]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.column.name" resname="widgets.userCountry.country.column.name" approved="yes">
+        <source><![CDATA[Country]]></source>
+        <target state="final"><![CDATA[Kraj]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.title" resname="widgets.userCountry.country.title" approved="yes">
+        <source><![CDATA[Countries]]></source>
+        <target state="final"><![CDATA[Kraje]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.title" resname="widgets.visitsSummary.bounceRate.title" approved="yes">
+        <source><![CDATA[Bounce rate]]></source>
+        <target state="final"><![CDATA[Współczynnik rezygnacji]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
