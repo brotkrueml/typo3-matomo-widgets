@@ -15,6 +15,7 @@ use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ActionsPerDayRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ActionsPerMonthRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\AnnotationsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BounceRateRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BrowserPluginsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BrowsersRegistration;
@@ -82,6 +83,7 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
             [
                 ActionsPerDayRegistration::class,
                 ActionsPerMonthRegistration::class,
+                AnnotationsRegistration::class,
                 BounceRateRegistration::class,
                 BrowserPluginsRegistration::class,
                 BrowsersRegistration::class,

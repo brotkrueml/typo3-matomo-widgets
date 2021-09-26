@@ -27,9 +27,8 @@ available.
 
 
 .. tip::
-   Do you miss a widget? Open a `feature request
-   <https://github.com/brotkrueml/typo3-matomo-widgets/issues>`_ and with a
-   little luck the widget is available in the next release.
+   Do you miss a widget? Open a `feature request`_ and with a little luck the
+   widget is available in the next release.
 
 Actions per day
 ===============
@@ -79,6 +78,27 @@ Default configuration parameters in the :file:`Services.yaml` file
    matomo_widgets.actionsPerMonth.parameters
       - period: month
       - date: last12
+
+
+Annotations
+===========
+
+Display a list of the recent `annotations`_ in the last 365 days:
+
+.. figure:: /Images/WidgetAnnotations.png
+   :alt: Widget Annotations
+   :class: with-border
+
+   Widget *Annotations*
+
+Matomo module
+   Annotations
+
+Default configuration parameters in the :file:`Services.yaml` file
+   matomo_widgets.annotations.parameters
+      - period: 'month'
+      - date: 'today'
+      - lastN: 365
 
 
 Bounce rate
@@ -178,9 +198,8 @@ Default configuration parameters in the :file:`Services.yaml` file
 Content names
 =============
 
-The content name report is part of `content tracking
-<https://matomo.org/docs/content-tracking/>`_. The widget displays the names,
-impressions and interaction rate of the content the visitors viewed and
+The content name report is part of `content tracking`_. The widget displays the
+names, impressions and interaction rate of the content the visitors viewed and
 interacted with.
 
 .. figure:: /Images/WidgetContentNames.png
@@ -204,9 +223,8 @@ Default configuration parameters in the :file:`Services.yaml` file
 Content pieces
 ==============
 
-The content piece report is part of `content tracking
-<https://matomo.org/docs/content-tracking/>`_. The widget displays the pieces,
-impressions and interaction rate of the content the visitors viewed and
+The content piece report is part of `content tracking`_. The widget displays the
+pieces, impressions and interaction rate of the content the visitors viewed and
 interacted with.
 
 .. figure:: /Images/WidgetContentPieces.png
@@ -254,10 +272,9 @@ Default configuration parameters in the :file:`Services.yaml` file
 Custom dimensions
 =================
 
-With `custom dimensions <https://matomo.org/docs/custom-dimensions/>`_ any
-custom data can be assigned to visitors or actions. Before a custom dimension
-can be used as a dashboard widget it has to be :ref:`configured for a site
-<configuring-custom-dimensions>`.
+With `custom dimensions`_ any custom data can be assigned to visitors or
+actions. Before a custom dimension can be used as a dashboard widget it has to
+be :ref:`configured for a site <configuring-custom-dimensions>`.
 
 The columns for a custom dimension widget depend on the scope of the custom
 dimension.
@@ -418,3 +435,9 @@ Default configuration parameters in the :file:`Services.yaml` file
    matomo_widgets.visitsPerMonth.parameters:
       - period: month
       - date: last12
+
+
+.. _annotations: https://matomo.org/docs/annotations/
+.. _content tracking: https://matomo.org/docs/content-tracking/
+.. _custom dimensions: https://matomo.org/docs/custom-dimensions/
+.. _feature request: https://github.com/brotkrueml/typo3-matomo-widgets/issues

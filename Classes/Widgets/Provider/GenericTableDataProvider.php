@@ -22,12 +22,12 @@ class GenericTableDataProvider implements TableDataProviderInterface
     /**
      * @var RepositoryInterface
      */
-    private $repository;
+    protected $repository;
 
     /**
      * @var ConnectionConfiguration
      */
-    private $connectionConfiguration;
+    protected $connectionConfiguration;
 
     /**
      * @var LanguageService
@@ -37,7 +37,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
     /**
      * @var string
      */
-    private $method;
+    protected $method;
 
     /**
      * @var array
@@ -47,7 +47,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
     /**
      * @var array
      */
-    private $parameters;
+    protected $parameters;
 
     public function __construct(
         RepositoryInterface $repository,

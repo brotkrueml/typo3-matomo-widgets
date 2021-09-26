@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-04-22T15:10:51Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-09-26T09:54:37Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
+			</trans-unit>
+			<trans-unit id="date" resname="date">
+				<source><![CDATA[Date]]></source>
 			</trans-unit>
 			<trans-unit id="impressions" resname="impressions">
 				<source><![CDATA[Impressions]]></source>
@@ -13,6 +16,9 @@
 			</trans-unit>
 			<trans-unit id="keyword" resname="keyword">
 				<source><![CDATA[Keyword]]></source>
+			</trans-unit>
+			<trans-unit id="note" resname="note">
+				<source><![CDATA[Note]]></source>
 			</trans-unit>
 			<trans-unit id="openReport" resname="openReport">
 				<source><![CDATA[Open report in Matomo]]></source>
@@ -46,6 +52,12 @@
 			</trans-unit>
 			<trans-unit id="widgets.actions.siteSearchNoResultKeywords.title" resname="widgets.actions.siteSearchNoResultKeywords.title">
 				<source><![CDATA[Search keywords with no results]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.annotations.description" resname="widgets.annotations.description">
+				<source><![CDATA[List of annotations]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.annotations.title" resname="widgets.annotations.title">
+				<source><![CDATA[Annotations]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name">
 				<source><![CDATA[Content name]]></source>

@@ -34,6 +34,7 @@ class WidgetsProviderTest extends TestCase
 
         self::assertContains('actionsPerDay', $actual);
         self::assertContains('actionsPerMonth', $actual);
+        self::assertContains('annotations', $actual);
         self::assertContains('bounceRate', $actual);
         self::assertContains('browsers', $actual);
         self::assertContains('campaigns', $actual);
@@ -57,6 +58,7 @@ class WidgetsProviderTest extends TestCase
 
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title', 'actionsPerDay'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title', 'actionsPerMonth'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.annotations.title', 'annotations'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.title', 'bounceRate'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.campaigns.title', 'campaigns'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentNames.title', 'contentNames'], $actual);

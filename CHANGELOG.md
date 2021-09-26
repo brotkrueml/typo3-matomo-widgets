@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Widget "Annotations" (#21)
+
 ## [1.1.2] - 2021-09-26
 
 ### Fixed

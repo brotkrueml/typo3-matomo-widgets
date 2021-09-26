@@ -22,6 +22,7 @@ final class WidgetsProvider
     private $availableWidgets = [
         'actionsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title',
         'actionsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title',
+        'annotations' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.annotations.title',
         'bounceRate' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.title',
         'browserPlugins' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicePlugins.plugin.title',
         'browsers' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.browsers.title',

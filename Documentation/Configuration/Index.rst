@@ -74,8 +74,8 @@ Authentication token
       better security.
 
 Active Widgets
-   You can activate or deactivate each available widget for a site. Deactivated
-   widgets cannot be selected in the dashboard.
+   You can activate or deactivate each available :ref:`widget <widgets>` for a
+   site. Deactivated widgets cannot be selected in the dashboard.
 
 
 .. _configuring-custom-dimensions:
