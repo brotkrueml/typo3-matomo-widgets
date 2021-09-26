@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-09-26T09:54:37Z" product-name="matomo_widgets" target-language="fi">
+    <body>
+      <trans-unit id="searches" resname="searches" approved="yes">
+        <source><![CDATA[Searches]]></source>
+        <target state="final"><![CDATA[Haut]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchKeywords.title" resname="widgets.actions.siteSearchKeywords.title" approved="yes">
+        <source><![CDATA[Site search keywords]]></source>
+        <target state="final"><![CDATA[Sivuhaun hakusanat]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
