@@ -49,7 +49,7 @@ final class DashboardPresetsProvider
         $this->configurationFinder = $configurationFinder
             ?? new ConfigurationFinder(
                 Environment::getConfigPath(),
-                new ExtensionAvailability(),
+                (new ExtensionAvailability())->isMatomoIntegrationAvailable(),
                 GeneralUtility::makeInstance(YamlFileLoader::class)
             );
     }

@@ -46,7 +46,13 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: ${{ runner.os }}-composer-
-      - name: Install composer dependencies
+      - name: Install composer dependencies for PHP < 7.4
+        if: matrix.php-versions < '7.4'
+        run: |
+          composer remove brotkrueml/typo3-matomo-integration --dev --no-progress
+          composer require typo3/cms-core=${{ matrix.typo3-versions }} --no-progress
+      - name: Install composer dependencies for PHP >= 7.4
+        if: matrix.php-versions >= '7.4'
         run: |
           composer require typo3/cms-core=${{ matrix.typo3-versions }} --no-progress
       - name: Run PHP linter

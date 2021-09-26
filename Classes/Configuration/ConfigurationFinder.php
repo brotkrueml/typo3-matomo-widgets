@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Configuration;
 
-use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
 use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
 use Brotkrueml\MatomoWidgets\Domain\Validation\CustomDimensionConfigurationValidator;
 use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
@@ -19,6 +18,9 @@ use Symfony\Component\Finder\Finder;
 use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+/**
+ * @internal
+ */
 class ConfigurationFinder implements \IteratorAggregate, \Countable
 {
     /** @var array */
@@ -26,7 +28,7 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
 
     public function __construct(
         string $configPath,
-        ExtensionAvailability $extensionAvailability,
+        bool $isMatomoIntegrationAvailable,
         YamlFileLoader $yamlFileLoader
     ) {
         $finder = new Finder();
@@ -38,7 +40,7 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
             foreach ($finder as $file) {
                 $siteConfiguration = $yamlFileLoader->load($file->getRealPath());
 
-                $considerMatomoIntegration = $extensionAvailability->isMatomoIntegrationAvailable()
+                $considerMatomoIntegration = $isMatomoIntegrationAvailable
                     && ($siteConfiguration['matomoWidgetsConsiderMatomoIntegration'] ?? false);
 
                 if ($considerMatomoIntegration) {

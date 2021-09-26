@@ -26,6 +26,7 @@
 		"typo3/cms-install": "^10.4.15 || ^11.2"
 	},
 	"require-dev": {
+		"brotkrueml/typo3-matomo-integration": "^1.0",
 		"donatj/mock-webserver": "^2.2",
 		"ergebnis/composer-normalize": "^2.15",
 		"friendsofphp/php-cs-fixer": "^2.18",

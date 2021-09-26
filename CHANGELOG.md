@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- ExtensionManagementUtitily::isLoaded() in Services.yaml throws error in TYPO3 v11.4
+
 ## [1.1.1] - 2021-09-22
 
 ### Fixed

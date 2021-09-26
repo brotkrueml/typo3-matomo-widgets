@@ -9,7 +9,7 @@ declare(strict_types=1);
  * LICENSE.txt file that was distributed with this source code.
  */
 
-use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
+use Brotkrueml\MatomoIntegration\Extension;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
@@ -32,6 +32,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerMonthRegistrat
 use Brotkrueml\MatomoWidgets\Domain\Repository\CachingRepositoryDecorator;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Reference;
 use TYPO3\CMS\Core\Cache\CacheManager;
@@ -40,7 +41,7 @@ use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
+return static function (ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void {
     $services = $containerConfigurator->services();
     $services->defaults()
         ->autowire()
@@ -60,7 +61,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     /** @var YamlFileLoader $yamlFileLoader */
     $yamlFileLoader = GeneralUtility::makeInstance(YamlFileLoader::class);
-    $configurationFinder = new ConfigurationFinder(Environment::getConfigPath(), new ExtensionAvailability(), $yamlFileLoader);
+    $configurationFinder = new ConfigurationFinder(
+        Environment::getConfigPath(),
+        $containerBuilder->hasDefinition(Extension::class),
+        $yamlFileLoader
+    );
     foreach ($configurationFinder as $matomoConfiguration) {
         /** @var Configuration $matomoConfiguration */
         $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $matomoConfiguration->getSiteIdentifier();
