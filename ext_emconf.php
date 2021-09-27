@@ -15,7 +15,6 @@ $EM_CONF[$_EXTKEY] = [
         'conflicts' => [],
         'suggests' => [
             'matomo_integration' => '',
-            'matomo_optout' => '',
         ],
     ],
     'autoload' => [
