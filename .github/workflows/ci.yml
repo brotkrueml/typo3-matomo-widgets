@@ -89,6 +89,9 @@ jobs:
       - name: Install composer dependencies
         run: |
           composer install --no-progress
+      - name: Check coding standards
+        run: |
+          .Build/bin/ecs check --no-progress-bar
       - name: Run unit tests
         run: |
           make code-coverage
