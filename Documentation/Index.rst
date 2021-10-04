@@ -55,4 +55,5 @@ Just click on "Edit me on GitHub" on the top right to submit your change request
    Configuration/Index
    Translation/Index
    Migration/Index
+   Changelog/Index
    Sitemap
