@@ -28,7 +28,7 @@ final class ActionsPerDayRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('actionsPerDay')) {
+        if (! $this->matomoConfiguration->isWidgetActive('actionsPerDay')) {
             return;
         }
 
@@ -43,7 +43,7 @@ final class ActionsPerDayRegistration extends AbstractRegistration
             self::PARAMETERS_PARAMETERS,
             [
                 'period' => 'day',
-                'date' => 'last28'
+                'date' => 'last28',
             ]
         );
     }

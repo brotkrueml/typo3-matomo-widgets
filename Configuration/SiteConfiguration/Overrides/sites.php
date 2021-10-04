@@ -44,7 +44,7 @@ $GLOBALS['SiteConfiguration']['site']['columns'] += [
             'renderType' => 'selectCheckBox',
             'items' => (new Brotkrueml\MatomoWidgets\Configuration\WidgetsProvider())->getItemsForTca(),
         ],
-    ]
+    ],
 ];
 
 if (TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integration')) {
@@ -55,7 +55,10 @@ if (TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integrat
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
-                'items' => [[0 => '', 1 => '']],
+                'items' => [[
+                    0 => '',
+                    1 => '',
+                ]],
             ],
             'onChange' => 'reload',
         ],

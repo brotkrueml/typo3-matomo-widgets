@@ -23,16 +23,24 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 class EnableWidgetsSiteConfigurationMigrationTest extends TestCase
 {
-    /** @var Stub|LegacyEnableWidgetsConfigurationFinder */
+    /**
+     * @var Stub|LegacyEnableWidgetsConfigurationFinder
+     */
     private $legacyConfigurationFinderStub;
 
-    /** @var Stub|SiteFinder */
+    /**
+     * @var Stub|SiteFinder
+     */
     private $siteFinderStub;
 
-    /** @var Stub|SiteConfiguration */
+    /**
+     * @var Stub|SiteConfiguration
+     */
     private $siteConfiguration;
 
-    /** @var EnableWidgetsSiteConfigurationMigration */
+    /**
+     * @var EnableWidgetsSiteConfigurationMigration
+     */
     private $subject;
 
     protected function setUp(): void
@@ -196,7 +204,7 @@ class EnableWidgetsSiteConfigurationMigrationTest extends TestCase
                         'matomoWidgetsUrl' => 'https://demo.matomo.cloud/',
                         'rootPageId' => 42,
                     ]
-                )
+                ),
             ],
             [
                 'other',
@@ -221,8 +229,8 @@ class EnableWidgetsSiteConfigurationMigrationTest extends TestCase
                         'matomoWidgetsUrl' => 'https://demo.matomo.cloud/',
                         'rootPageId' => 84,
                     ]
-                )
-            ]
+                ),
+            ],
         ];
 
         $this->siteFinderStub

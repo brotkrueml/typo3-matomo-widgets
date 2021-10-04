@@ -30,7 +30,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('browserPlugins')) {
+        if (! $this->matomoConfiguration->isWidgetActive('browserPlugins')) {
             return;
         }
 

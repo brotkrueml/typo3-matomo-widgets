@@ -75,9 +75,7 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
             ->arg('$idSite', $matomoConfiguration->getIdSite())
             ->arg('$tokenAuth', $matomoConfiguration->getTokenAuth());
 
-        /*
-         * Register the standard dashboard widgets
-         */
+        // Register the standard dashboard widgets
         $parameters = $containerConfigurator->parameters();
         foreach (
             [
@@ -102,9 +100,7 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
             (new $registrationClass($parameters, $services, $matomoConfiguration, $connectionConfigurationId))->register();
         }
 
-        /*
-         * Register the custom dimensions dashboard widgets
-         */
+        // Register the custom dimensions dashboard widgets
         foreach ($matomoConfiguration->getCustomDimensions() as $customDimension) {
             (new CustomDimensionsRegistration($parameters, $services, $matomoConfiguration, $connectionConfigurationId, $customDimension))->register();
         }

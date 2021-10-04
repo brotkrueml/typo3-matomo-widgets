@@ -23,7 +23,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class ConfigurationFinder implements \IteratorAggregate, \Countable
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     private $configurations = [];
 
     public function __construct(

@@ -56,7 +56,9 @@ class LanguageParameterResolverTest extends TestCase
      */
     public function resolveReturnsLanguageOfBackendUserCorrectly(): void
     {
-        $this->backendUserStub->uc = ['lang' => 'fr'];
+        $this->backendUserStub->uc = [
+            'lang' => 'fr',
+        ];
 
         self::assertSame('fr', $this->subject->resolve());
     }

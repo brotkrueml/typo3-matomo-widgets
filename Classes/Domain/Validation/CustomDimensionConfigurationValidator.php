@@ -43,7 +43,7 @@ final class CustomDimensionConfigurationValidator
     private function checkConfigurationIsArray(): void
     {
         /** @psalm-suppress DocblockTypeContradiction */
-        if (!\is_array($this->configuration)) {
+        if (! \is_array($this->configuration)) {
             throw new ValidationException(
                 \sprintf('A custom dimension configuration is not an array, "%s" given', \gettype($this->configuration)),
                 1618591877
@@ -53,14 +53,14 @@ final class CustomDimensionConfigurationValidator
 
     private function checkScope(): void
     {
-        if (!isset($this->configuration['scope'])) {
+        if (! isset($this->configuration['scope'])) {
             throw new ValidationException(
                 'A custom dimension configuration has no "scope" given',
                 1618591878
             );
         }
 
-        if (!\in_array($this->configuration['scope'], self::ALLOWED_SCOPES, true)) {
+        if (! \in_array($this->configuration['scope'], self::ALLOWED_SCOPES, true)) {
             throw new ValidationException(
                 \sprintf(
                     'A custom dimension configuration has an invalid scope given: "%s", allowed: %s',
@@ -74,14 +74,14 @@ final class CustomDimensionConfigurationValidator
 
     private function checkIdDimension(): void
     {
-        if (!isset($this->configuration['idDimension'])) {
+        if (! isset($this->configuration['idDimension'])) {
             throw new ValidationException(
                 'A custom dimension configuration has no "idDimension" given',
                 1618591880
             );
         }
 
-        if (!\is_numeric($this->configuration['idDimension'])) {
+        if (! \is_numeric($this->configuration['idDimension'])) {
             throw new ValidationException(
                 \sprintf(
                     'A custom dimension configuration has a non-numeric "idDimension" parameter "%s"',

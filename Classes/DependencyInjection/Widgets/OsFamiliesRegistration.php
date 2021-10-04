@@ -29,7 +29,7 @@ final class OsFamiliesRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('osFamilies')) {
+        if (! $this->matomoConfiguration->isWidgetActive('osFamilies')) {
             return;
         }
 

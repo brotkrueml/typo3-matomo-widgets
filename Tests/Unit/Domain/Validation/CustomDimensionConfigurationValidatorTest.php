@@ -73,7 +73,7 @@ class CustomDimensionConfigurationValidatorTest extends TestCase
         yield 'Non-numeric idDimension given' => [
             'configuration' => [
                 'scope' => 'action',
-                'idDimension' => 'foo'
+                'idDimension' => 'foo',
             ],
             'expectedExceptionCode' => 1618591881,
             'expectedExceptionMessage' => 'A custom dimension configuration has a non-numeric "idDimension" parameter "foo"',
@@ -82,7 +82,7 @@ class CustomDimensionConfigurationValidatorTest extends TestCase
         yield 'Invalid idDimension given' => [
             'configuration' => [
                 'scope' => 'action',
-                'idDimension' => '0'
+                'idDimension' => '0',
             ],
             'expectedExceptionCode' => 1618591882,
             'expectedExceptionMessage' => 'A custom dimension configuration has an invalid "idDimension" parameter "0"',
@@ -124,28 +124,28 @@ class CustomDimensionConfigurationValidatorTest extends TestCase
             'configuration' => [
                 'scope' => 'action',
                 'idDimension' => 42,
-            ]
+            ],
         ];
 
         yield 'scope "visit" is accepted' => [
             'configuration' => [
                 'scope' => 'visit',
                 'idDimension' => 42,
-            ]
+            ],
         ];
 
         yield 'idDimension "1" as string is accepted' => [
             'configuration' => [
                 'scope' => 'action',
                 'idDimension' => '1',
-            ]
+            ],
         ];
 
         yield 'idDimension 1 as integer is accepted' => [
             'configuration' => [
                 'scope' => 'action',
                 'idDimension' => 1,
-            ]
+            ],
         ];
     }
 }

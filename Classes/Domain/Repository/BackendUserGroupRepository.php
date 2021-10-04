@@ -19,7 +19,9 @@ class BackendUserGroupRepository
 {
     private const TABLE = 'be_groups';
 
-    /** @var QueryBuilder */
+    /**
+     * @var QueryBuilder
+     */
     private $queryBuilder;
 
     public function __construct()

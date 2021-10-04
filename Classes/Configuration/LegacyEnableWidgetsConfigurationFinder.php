@@ -20,7 +20,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class LegacyEnableWidgetsConfigurationFinder implements \IteratorAggregate, \Countable
 {
-    /** @var list<string> */
+    /**
+     * @var list<string>
+     */
     private $enableWidgetsIdentifier = [
         'matomoWidgetsEnableActionsPerDay',
         'matomoWidgetsEnableActionsPerMonth',
@@ -34,12 +36,14 @@ class LegacyEnableWidgetsConfigurationFinder implements \IteratorAggregate, \Cou
         'matomoWidgetsEnableVisitsPerMonth',
     ];
 
-    /** @var array<string, array<string, bool>> */
+    /**
+     * @var array<string, array<string, bool>>
+     */
     private $configurations = [];
 
     public function __construct(SiteFinder $siteFinder = null)
     {
-        /** @var SiteFinder */
+        /** @var SiteFinder $siteFinder */
         $siteFinder = $siteFinder ?? GeneralUtility::makeInstance(SiteFinder::class);
 
         /** @var array<string, Site> $sites */
@@ -47,7 +51,7 @@ class LegacyEnableWidgetsConfigurationFinder implements \IteratorAggregate, \Cou
 
         foreach ($sites as $siteIdentifier => $site) {
             foreach ($this->enableWidgetsIdentifier as $widgetIdentifier) {
-                if (!isset($site->getConfiguration()[$widgetIdentifier])) {
+                if (! isset($site->getConfiguration()[$widgetIdentifier])) {
                     continue;
                 }
 

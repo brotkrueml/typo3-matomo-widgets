@@ -47,9 +47,6 @@ class GenericDoughnutChartDataProviderTest extends TestCase
     /**
      * @test
      * @dataProvider dataProviderForGetChartData
-     * @param int $limit
-     * @param array $rows
-     * @param array $expected
      */
     public function getChartData(int $limit, array $rows, array $expected): void
     {

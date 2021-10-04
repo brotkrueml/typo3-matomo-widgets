@@ -36,7 +36,6 @@ final class ParameterBag
     }
 
     /**
-     * @param string $name
      * @param string|int|ParameterResolverInterface $value
      * @return $this
      */
@@ -47,7 +46,7 @@ final class ParameterBag
         }
 
         /** @psalm-suppress DocblockTypeContradiction */
-        if (!\is_string($value) && !\is_int($value)) {
+        if (! \is_string($value) && ! \is_int($value)) {
             throw new \InvalidArgumentException(
                 \sprintf(
                     'Value must be of type string, int or an instance of "%s", "%s" given',
@@ -65,7 +64,7 @@ final class ParameterBag
 
     public function get(string $name): string
     {
-        if (!\array_key_exists($name, $this->parameters)) {
+        if (! \array_key_exists($name, $this->parameters)) {
             throw new ParameterNotFoundException(
                 \sprintf('Parameter "%s" not found', $name),
                 1594369628

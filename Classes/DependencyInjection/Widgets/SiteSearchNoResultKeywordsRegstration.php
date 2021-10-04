@@ -29,7 +29,7 @@ final class SiteSearchNoResultKeywordsRegstration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('siteSearchNoResultKeywords')) {
+        if (! $this->matomoConfiguration->isWidgetActive('siteSearchNoResultKeywords')) {
             return;
         }
 

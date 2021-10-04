@@ -19,7 +19,9 @@ class DashboardRepository
 {
     private const TABLE = 'be_dashboards';
 
-    /** @var QueryBuilder */
+    /**
+     * @var QueryBuilder
+     */
     private $queryBuilder;
 
     public function __construct()

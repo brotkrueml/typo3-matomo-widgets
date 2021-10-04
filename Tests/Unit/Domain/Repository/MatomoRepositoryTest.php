@@ -48,7 +48,9 @@ class MatomoRepositoryTest extends TestCase
     public function findCallsConnectorAndReturnsResult(): void
     {
         $parameterBag = new ParameterBag();
-        $expected = ['foo' => 'qux'];
+        $expected = [
+            'foo' => 'qux',
+        ];
 
         $this->connectorMock
             ->expects(self::once())

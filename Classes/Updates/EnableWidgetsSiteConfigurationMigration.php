@@ -24,13 +24,19 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
  */
 final class EnableWidgetsSiteConfigurationMigration implements ChattyInterface, UpgradeWizardInterface
 {
-    /** @var LegacyEnableWidgetsConfigurationFinder */
+    /**
+     * @var LegacyEnableWidgetsConfigurationFinder
+     */
     private $legacyConfigurationFinder;
 
-    /** @var SiteFinder */
+    /**
+     * @var SiteFinder
+     */
     private $siteFinder;
 
-    /** @var SiteConfiguration */
+    /**
+     * @var SiteConfiguration
+     */
     private $siteConfiguration;
 
     /**

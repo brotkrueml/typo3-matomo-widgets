@@ -234,7 +234,9 @@ class GenericTableDataProviderTest extends TestCase
         $this->repositoryMock
             ->expects(self::once())
             ->method('find')
-            ->with($this->connectionConfiguration, 'some.method', new ParameterBag(\array_merge($parameters, ['qux' => 'quu'])))
+            ->with($this->connectionConfiguration, 'some.method', new ParameterBag(\array_merge($parameters, [
+                'qux' => 'quu',
+            ])))
             ->willReturn($result);
 
         $subject = new GenericTableDataProvider(

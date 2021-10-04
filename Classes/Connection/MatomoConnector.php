@@ -20,10 +20,14 @@ use TYPO3\CMS\Core\Http\Stream;
 
 class MatomoConnector
 {
-    /** @var RequestFactoryInterface */
+    /**
+     * @var RequestFactoryInterface
+     */
     private $requestFactory;
 
-    /** @var ClientInterface */
+    /**
+     * @var ClientInterface
+     */
     private $client;
 
     public function __construct(RequestFactoryInterface $requestFactory, ClientInterface $client)
@@ -55,7 +59,7 @@ class MatomoConnector
         $this->checkResponseForErrors($content);
 
         $result = \json_decode($content, true);
-        if (null === $result) {
+        if ($result === null) {
             throw new InvalidResponseException(
                 \sprintf('Content returned from Matomo Reporting API is not JSON encoded: %s', $content),
                 1595862844

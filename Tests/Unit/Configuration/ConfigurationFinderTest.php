@@ -26,13 +26,19 @@ use TYPO3\CMS\Core\Core\Environment;
  */
 class ConfigurationFinderTest extends TestCase
 {
-    /** @var ExtensionAvailability|Stub */
+    /**
+     * @var ExtensionAvailability|Stub
+     */
     private $extensionAvailabilityStub;
 
-    /** @var YamlFileLoader */
+    /**
+     * @var YamlFileLoader
+     */
     private $yamlFileLoader;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     private static $configPath;
 
     public static function setUpBeforeClass(): void
@@ -124,7 +130,9 @@ class ConfigurationFinderTest extends TestCase
      */
     public function siteConfigurationWithNoMatomoConfigurationIsNotTakenIntoAccount(): void
     {
-        $this->createSiteConfiguration('some_site', ['rootPageId' => 1]);
+        $this->createSiteConfiguration('some_site', [
+            'rootPageId' => 1,
+        ]);
         $subject = new ConfigurationFinder(self::$configPath, false, $this->yamlFileLoader);
 
         self::assertCount(0, $subject);

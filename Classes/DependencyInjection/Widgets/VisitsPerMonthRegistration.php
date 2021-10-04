@@ -28,7 +28,7 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('visitsPerMonth')) {
+        if (! $this->matomoConfiguration->isWidgetActive('visitsPerMonth')) {
             return;
         }
 
@@ -43,7 +43,7 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
             self::PARAMETERS_PARAMETERS,
             [
                 'period' => 'month',
-                'date' => 'last12'
+                'date' => 'last12',
             ]
         );
     }

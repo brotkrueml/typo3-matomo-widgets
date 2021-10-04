@@ -33,7 +33,7 @@ class DecorateViewHelper extends ViewHelper\AbstractViewHelper
         $decorator = $arguments['decorator'];
         $value = (string)$arguments['value'];
 
-        if (!$decorator instanceof DecoratorInterface) {
+        if (! $decorator instanceof DecoratorInterface) {
             throw new ViewHelper\Exception(
                 \sprintf(
                     'The decorator "%s" is not an instance of "%s"',

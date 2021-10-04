@@ -38,7 +38,9 @@ final class DashboardPresetsProvider
         'countries' => 'matomo_widgets.%s.userCountry.country',
     ];
 
-    /** @var ConfigurationFinder */
+    /**
+     * @var ConfigurationFinder
+     */
     private $configurationFinder;
 
     /**
@@ -82,7 +84,7 @@ final class DashboardPresetsProvider
                 'defaultWidgets' => \array_map(static function (string $widget) use ($configuration): string {
                     return \sprintf($widget, $configuration->getSiteIdentifier());
                 }, $enabledWidgets),
-                'showInWizard' => true
+                'showInWizard' => true,
             ];
         }
 

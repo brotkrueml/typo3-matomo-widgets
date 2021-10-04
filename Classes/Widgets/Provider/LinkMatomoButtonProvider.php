@@ -17,10 +17,14 @@ use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 
 class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
-    /** @var LanguageService */
+    /**
+     * @var LanguageService
+     */
     private $languageService;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     private $link;
 
     public function __construct(LanguageService $languageService, string $link)

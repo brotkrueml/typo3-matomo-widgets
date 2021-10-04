@@ -29,7 +29,7 @@ final class BounceRateRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('bounceRate')) {
+        if (! $this->matomoConfiguration->isWidgetActive('bounceRate')) {
             return;
         }
 
@@ -44,7 +44,7 @@ final class BounceRateRegistration extends AbstractRegistration
             self::PARAMETERS_PARAMETERS,
             [
                 'period' => 'month',
-                'date' => 'today'
+                'date' => 'today',
             ]
         );
         $this->parameters->set(

@@ -33,14 +33,12 @@ class DecorateViewHelperTest extends TestCase
     /**
      * @test
      * @dataProvider dataProviderForRenderStatic
-     * @param array $arguments
-     * @param string $expected
      */
     public function renderStatic(array $arguments, string $expected): void
     {
         $actual = DecorateViewHelper::renderStatic(
             $arguments,
-            function () {
+            static function () {
             },
             $this->renderingContextStub
         );
@@ -98,7 +96,7 @@ class DecorateViewHelperTest extends TestCase
 
         DecorateViewHelper::renderStatic(
             $arguments,
-            function () {
+            static function () {
             },
             $this->renderingContextStub
         );

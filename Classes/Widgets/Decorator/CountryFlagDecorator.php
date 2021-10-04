@@ -33,12 +33,12 @@ class CountryFlagDecorator implements DecoratorInterface
 
     public function decorate(string $value): string
     {
-        if (!$value) {
+        if (! $value) {
             return '';
         }
 
         $imageUrl = $this->baseUrl . $value;
-        if (!\filter_var($imageUrl, FILTER_VALIDATE_URL)) {
+        if (! \filter_var($imageUrl, FILTER_VALIDATE_URL)) {
             return '';
         }
 

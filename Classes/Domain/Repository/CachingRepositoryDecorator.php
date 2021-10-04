@@ -41,7 +41,7 @@ class CachingRepositoryDecorator implements RepositoryInterface
             \md5(\serialize($configuration) . \serialize($parameterBag))
         );
         $data = $this->cache->get($cacheIdentifier);
-        if (false === $data) {
+        if ($data === false) {
             $data = $this->repository->find($configuration, $method, $parameterBag);
             $this->cache->set($cacheIdentifier, $data);
         }

@@ -56,7 +56,10 @@ class CachingRepositoryDecoratorTest extends TestCase
     {
         $method = 'some.method';
         $parameterBag = (new ParameterBag())->set('bar', 'quu');
-        $data = ['abc' => 'def', 'ghi' => 'jkl'];
+        $data = [
+            'abc' => 'def',
+            'ghi' => 'jkl',
+        ];
 
         $cacheIdentifier = 'some_method_' . \md5(\serialize($this->connectionConfiguration) . \serialize($parameterBag));
 
@@ -86,7 +89,10 @@ class CachingRepositoryDecoratorTest extends TestCase
     {
         $method = 'another.method';
         $parameterBag = (new ParameterBag())->set('qux', 'foo');
-        $data = ['abc' => '123', 'def' => '456'];
+        $data = [
+            'abc' => '123',
+            'def' => '456',
+        ];
 
         $this->cacheMock
             ->expects(self::once())

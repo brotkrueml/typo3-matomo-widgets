@@ -131,9 +131,13 @@ class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
         $iterator = $subject->getIterator();
         self::assertInstanceOf(\ArrayIterator::class, $iterator);
 
-        self::assertSame(['matomoWidgetsEnableActionsPerDay' => true], $iterator->current());
+        self::assertSame([
+            'matomoWidgetsEnableActionsPerDay' => true,
+        ], $iterator->current());
         $iterator->next();
-        self::assertSame(['matomoWidgetsEnableBounceRate' => false], $iterator->current());
+        self::assertSame([
+            'matomoWidgetsEnableBounceRate' => false,
+        ], $iterator->current());
         $iterator->next();
         self::assertNull($iterator->current());
     }

@@ -29,7 +29,7 @@ final class CampaignsRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('campaigns')) {
+        if (! $this->matomoConfiguration->isWidgetActive('campaigns')) {
             return;
         }
 

@@ -29,7 +29,7 @@ final class SiteSearchKeywordsRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('siteSearchKeywords')) {
+        if (! $this->matomoConfiguration->isWidgetActive('siteSearchKeywords')) {
             return;
         }
 

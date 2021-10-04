@@ -27,16 +27,24 @@ use TYPO3\CMS\Core\Http\RequestFactory;
 
 class MatomoConnectorTest extends TestCase
 {
-    /** @var MockWebServer */
+    /**
+     * @var MockWebServer
+     */
     private static $server;
 
-    /** @var RequestFactoryInterface */
+    /**
+     * @var RequestFactoryInterface
+     */
     private $requestFactory;
 
-    /** @var ClientInterface */
+    /**
+     * @var ClientInterface
+     */
     private $client;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     private $url;
 
     public static function setUpBeforeClass(): void
@@ -78,11 +86,6 @@ class MatomoConnectorTest extends TestCase
     /**
      * @test
      * @dataProvider dataProviderForCallApi
-     * @param array $configuration
-     * @param string $method
-     * @param array $parameters
-     * @param string $expectedQuery
-     * @param string $expectedResult
      */
     public function callApi(
         array $configuration,
@@ -97,7 +100,9 @@ class MatomoConnectorTest extends TestCase
             '/',
             new Response(
                 $expectedResult,
-                ['content-type' => 'application/json; charset=utf-8'],
+                [
+                    'content-type' => 'application/json; charset=utf-8',
+                ],
                 200
             )
         );
@@ -187,7 +192,9 @@ class MatomoConnectorTest extends TestCase
             '/',
             new Response(
                 'No JSON',
-                ['content-type' => 'application/json; charset=utf-8'],
+                [
+                    'content-type' => 'application/json; charset=utf-8',
+                ],
                 200
             )
         );

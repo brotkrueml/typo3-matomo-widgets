@@ -96,8 +96,17 @@ class AnnotationsTableDataProviderTest extends TestCase
         $actual = $subject->getRows();
 
         self::assertCount(3, $actual);
-        self::assertSame(['date' => '2021-09-26', 'note' => 'Annotation 2021-09-26'], $actual[0]);
-        self::assertSame(['date' => '2021-05-08', 'note' => 'Annotation 2021-05-08'], $actual[1]);
-        self::assertSame(['date' => '2020-01-01', 'note' => 'Annotation 2020-01-01'], $actual[2]);
+        self::assertSame([
+            'date' => '2021-09-26',
+            'note' => 'Annotation 2021-09-26',
+        ], $actual[0]);
+        self::assertSame([
+            'date' => '2021-05-08',
+            'note' => 'Annotation 2021-05-08',
+        ], $actual[1]);
+        self::assertSame([
+            'date' => '2020-01-01',
+            'note' => 'Annotation 2020-01-01',
+        ], $actual[2]);
     }
 }

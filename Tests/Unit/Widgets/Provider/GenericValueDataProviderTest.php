@@ -44,7 +44,9 @@ class GenericValueDataProviderTest extends TestCase
             $this->connectionConfiguration,
             'some.method',
             'the_column',
-            ['foo' => 'bar']
+            [
+                'foo' => 'bar',
+            ]
         );
     }
 
@@ -55,8 +57,13 @@ class GenericValueDataProviderTest extends TestCase
     {
         $this->repositoryStub
             ->method('find')
-            ->with($this->connectionConfiguration, 'some.method', new ParameterBag(['foo' => 'bar']))
-            ->willReturn(['the_column' => '123', 'another_column' => 987]);
+            ->with($this->connectionConfiguration, 'some.method', new ParameterBag([
+                'foo' => 'bar',
+            ]))
+            ->willReturn([
+                'the_column' => '123',
+                'another_column' => 987,
+            ]);
 
         $actual = $this->subject->getValue();
 
@@ -70,8 +77,12 @@ class GenericValueDataProviderTest extends TestCase
     {
         $this->repositoryStub
             ->method('find')
-            ->with($this->connectionConfiguration, 'some.method', new ParameterBag(['foo' => 'bar']))
-            ->willReturn(['a_column' => 987]);
+            ->with($this->connectionConfiguration, 'some.method', new ParameterBag([
+                'foo' => 'bar',
+            ]))
+            ->willReturn([
+                'a_column' => 987,
+            ]);
 
         $actual = $this->subject->getValue();
 

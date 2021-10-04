@@ -31,7 +31,7 @@ final class CountriesRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('countries')) {
+        if (! $this->matomoConfiguration->isWidgetActive('countries')) {
             return;
         }
 
@@ -67,8 +67,8 @@ final class CountriesRegistration extends AbstractRegistration
             ->arg(
                 '$columns',
                 [
-                    ['column' =>
-                        'logo',
+                    [
+                        'column' => 'logo',
                         'decorator' => new Reference($countryFlagDecoratorId),
                         'classes' => 'matomo-widgets__country-flag__column',
                     ],
@@ -85,7 +85,7 @@ final class CountriesRegistration extends AbstractRegistration
                 ]
             )
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%')
-        ->call('addParameter', ['language', new Reference(LanguageParameterResolver::class)]);
+            ->call('addParameter', ['language', new Reference(LanguageParameterResolver::class)]);
     }
 
     private function registerWidget(): void

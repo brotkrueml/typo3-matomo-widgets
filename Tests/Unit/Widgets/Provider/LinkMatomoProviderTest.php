@@ -20,13 +20,19 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 
 class LinkMatomoProviderTest extends TestCase
 {
-    /** @var Stub|ExtensionConfiguration */
+    /**
+     * @var Stub|ExtensionConfiguration
+     */
     private $extensionConfigurationStub;
 
-    /** @var Stub|LanguageService */
+    /**
+     * @var Stub|LanguageService
+     */
     private $languageServiceStub;
 
-    /** @var LinkMatomoButtonProvider */
+    /**
+     * @var LinkMatomoButtonProvider
+     */
     private $subject;
 
     protected function setUp(): void

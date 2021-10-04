@@ -31,9 +31,13 @@ class ParameterBagTest extends TestCase
     /**
      * @test
      */
-    public function __constructWithParametersAddsThemCorrectly(): void
+    public function constructWithParametersAddsThemCorrectly(): void
     {
-        $subject = new ParameterBag(['foo' => 'bar', 'qux' => 'quu', 'int' => 42]);
+        $subject = new ParameterBag([
+            'foo' => 'bar',
+            'qux' => 'quu',
+            'int' => 42,
+        ]);
 
         self::assertSame('bar', $subject->get('foo'));
         self::assertSame('quu', $subject->get('qux'));
@@ -45,7 +49,10 @@ class ParameterBagTest extends TestCase
      */
     public function addOnceAndGetReturnsAddedValues(): void
     {
-        $this->subject->add(['foo' => 'bar', 'qux' => 'quu']);
+        $this->subject->add([
+            'foo' => 'bar',
+            'qux' => 'quu',
+        ]);
 
         self::assertSame('bar', $this->subject->get('foo'));
         self::assertSame('quu', $this->subject->get('qux'));
@@ -56,8 +63,12 @@ class ParameterBagTest extends TestCase
      */
     public function addTwiceAndGetReturnsLastSetValue(): void
     {
-        $this->subject->add(['foo' => 'bar']);
-        $this->subject->add(['foo' => 'qux']);
+        $this->subject->add([
+            'foo' => 'bar',
+        ]);
+        $this->subject->add([
+            'foo' => 'qux',
+        ]);
 
         self::assertSame('qux', $this->subject->get('foo'));
     }
@@ -67,7 +78,9 @@ class ParameterBagTest extends TestCase
      */
     public function addReturnSameInstanceOfParameterBag(): void
     {
-        $actual = $this->subject->add(['foo' => 'bar']);
+        $actual = $this->subject->add([
+            'foo' => 'bar',
+        ]);
 
         self::assertSame($this->subject, $actual);
     }

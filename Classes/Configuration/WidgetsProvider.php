@@ -18,7 +18,9 @@ use Brotkrueml\MatomoWidgets\Extension;
  */
 final class WidgetsProvider
 {
-    /** @var array<string,string> */
+    /**
+     * @var array<string,string>
+     */
     private $availableWidgets = [
         'actionsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title',
         'actionsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title',

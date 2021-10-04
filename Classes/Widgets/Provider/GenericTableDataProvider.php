@@ -66,7 +66,6 @@ class GenericTableDataProvider implements TableDataProviderInterface
     }
 
     /**
-     * @param string $name
      * @param string|DecoratorInterface $value
      */
     public function addParameter(string $name, $value): void

@@ -28,7 +28,7 @@ final class AnnotationsRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('annotations')) {
+        if (! $this->matomoConfiguration->isWidgetActive('annotations')) {
             return;
         }
 

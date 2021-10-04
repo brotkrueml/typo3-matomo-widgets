@@ -29,7 +29,7 @@ final class ContentNamesRegistration extends AbstractRegistration
 
     public function register(): void
     {
-        if (!$this->matomoConfiguration->isWidgetActive('contentNames')) {
+        if (! $this->matomoConfiguration->isWidgetActive('contentNames')) {
             return;
         }
 

@@ -18,7 +18,7 @@ final class LanguageParameterResolver implements ParameterResolverInterface
     public function resolve(): string
     {
         $backendUser = $this->getBackendUser();
-        if (null === $backendUser) {
+        if ($backendUser === null) {
             return '';
         }
 

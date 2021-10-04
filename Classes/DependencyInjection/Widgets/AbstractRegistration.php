@@ -24,19 +24,29 @@ abstract class AbstractRegistration
     protected const SERVICE_ID_TEMPLATE = 'dashboard.widget.matomo_widgets.%s.%s';
     protected const ICON_IDENTIFIER = 'content-widget-matomo';
 
-    /** @var ParametersConfigurator */
+    /**
+     * @var ParametersConfigurator
+     */
     protected $parameters;
 
-    /** @var ServicesConfigurator */
+    /**
+     * @var ServicesConfigurator
+     */
     protected $services;
 
-    /** @var Configuration */
+    /**
+     * @var Configuration
+     */
     protected $matomoConfiguration;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $connectionConfigurationId;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $serviceIdSuffix = '';
 
     public function __construct(

@@ -52,9 +52,6 @@ class ValueWithIconWidget implements WidgetInterface
         $this->dataProvider = $dataProvider;
     }
 
-    /**
-     * @inheritDoc
-     */
     public function renderWidgetContent(): string
     {
         /** @psalm-suppress InternalMethod */
@@ -65,7 +62,7 @@ class ValueWithIconWidget implements WidgetInterface
             'subtitle' => $this->options['subtitle'],
             'value' => $this->dataProvider->getValue(),
             'options' => $this->options,
-            'configuration' => $this->configuration
+            'configuration' => $this->configuration,
         ]);
 
         return $this->view->render();
