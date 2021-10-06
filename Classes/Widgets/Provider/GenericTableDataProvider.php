@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use TYPO3\CMS\Core\Localization\LanguageService;
@@ -20,7 +20,7 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 class GenericTableDataProvider implements TableDataProviderInterface
 {
     /**
-     * @var RepositoryInterface
+     * @var MatomoRepositoryInterface
      */
     protected $repository;
 
@@ -50,7 +50,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
     protected $parameters;
 
     public function __construct(
-        RepositoryInterface $repository,
+        MatomoRepositoryInterface $repository,
         ConnectionConfiguration $connectionConfiguration,
         LanguageService $languageService,
         string $method,
@@ -119,6 +119,6 @@ class GenericTableDataProvider implements TableDataProviderInterface
 
     public function getRows(): array
     {
-        return $this->repository->find($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));
+        return $this->repository->send($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));
     }
 }

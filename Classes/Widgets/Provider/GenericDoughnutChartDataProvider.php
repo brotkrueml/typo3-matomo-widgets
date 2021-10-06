@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use TYPO3\CMS\Core\Localization\LanguageService;
@@ -21,7 +21,7 @@ use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
 final class GenericDoughnutChartDataProvider implements ChartDataProviderInterface
 {
     /**
-     * @var RepositoryInterface
+     * @var MatomoRepositoryInterface
      */
     private $repository;
 
@@ -66,7 +66,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
     private $parameters;
 
     public function __construct(
-        RepositoryInterface $repository,
+        MatomoRepositoryInterface $repository,
         ConnectionConfiguration $connectionConfiguration,
         LanguageService $languageService,
         string $method,
@@ -104,7 +104,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
 
     private function aggregateData(): array
     {
-        $rows = $this->repository->find($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));
+        $rows = $this->repository->send($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));
 
         $data = [];
         $valueOther = 0;

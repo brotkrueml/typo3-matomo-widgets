@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\DependencyInjection\Widgets;
 
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
+use Brotkrueml\MatomoWidgets\Extension;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ParametersConfigurator;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
 
@@ -84,7 +85,7 @@ abstract class AbstractRegistration
     protected function buildWidgetIdentifier(): string
     {
         return \sprintf(
-            'matomo_widgets.%s.%s',
+            Extension::WIDGET_IDENTIFIER_TEMPLATE,
             $this->matomoConfiguration->getSiteIdentifier(),
             $this->serviceIdSuffix
         );

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * LICENSE.txt file that was distributed with this source code.
  */
 
-namespace Brotkrueml\MatomoWidgets\Tests\Unit\Domain\Repository\MatomoRepository;
+namespace Brotkrueml\MatomoWidgets\Tests\Unit\Domain\Repository;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Connection\MatomoConnector;
@@ -58,6 +58,6 @@ class MatomoRepositoryTest extends TestCase
             ->with($this->connectionConfiguration, 'foo.bar', $parameterBag)
             ->willReturn($expected);
 
-        self::assertSame($expected, $this->subject->find($this->connectionConfiguration, 'foo.bar', $parameterBag));
+        self::assertSame($expected, $this->subject->send($this->connectionConfiguration, 'foo.bar', $parameterBag));
     }
 }

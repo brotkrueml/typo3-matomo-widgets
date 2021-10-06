@@ -11,6 +11,9 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets;
 
+/**
+ * @internal
+ */
 class Extension
 {
     public const KEY = 'matomo_widgets';
@@ -18,4 +21,7 @@ class Extension
     private const LANGUAGE_PATH = 'LLL:EXT:' . self::KEY . '/Resources/Private/Language/';
     public const LANGUAGE_PATH_DASHBOARD = self::LANGUAGE_PATH . 'Dashboard.xlf';
     public const LANGUAGE_PATH_SITECONF = self::LANGUAGE_PATH . 'SiteConfiguration.xlf';
+
+    // Placeholders: site identifier / widget service ID suffix
+    public const WIDGET_IDENTIFIER_TEMPLATE = 'matomo_widgets.%s.%s';
 }

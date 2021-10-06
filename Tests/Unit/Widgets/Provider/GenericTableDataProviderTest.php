@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericTableDataProvider;
@@ -29,7 +29,7 @@ class GenericTableDataProviderTest extends TestCase
     private $connectionConfiguration;
 
     /**
-     * @var MockObject|RepositoryInterface
+     * @var MockObject|MatomoRepositoryInterface
      */
     private $repositoryMock;
 
@@ -41,7 +41,7 @@ class GenericTableDataProviderTest extends TestCase
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
-        $this->repositoryMock = $this->createMock(RepositoryInterface::class);
+        $this->repositoryMock = $this->createMock(MatomoRepositoryInterface::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
     }
 
@@ -192,7 +192,7 @@ class GenericTableDataProviderTest extends TestCase
 
         $this->repositoryMock
             ->expects(self::once())
-            ->method('find')
+            ->method('send')
             ->with($this->connectionConfiguration, 'some.method', new ParameterBag($parameters))
             ->willReturn($result);
 
@@ -233,7 +233,7 @@ class GenericTableDataProviderTest extends TestCase
 
         $this->repositoryMock
             ->expects(self::once())
-            ->method('find')
+            ->method('send')
             ->with($this->connectionConfiguration, 'some.method', new ParameterBag(\array_merge($parameters, [
                 'qux' => 'quu',
             ])))

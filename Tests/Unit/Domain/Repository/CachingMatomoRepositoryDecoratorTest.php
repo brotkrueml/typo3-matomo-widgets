@@ -9,20 +9,21 @@ declare(strict_types=1);
  * LICENSE.txt file that was distributed with this source code.
  */
 
-namespace Brotkrueml\MatomoWidgets\Tests\Unit\Daomin\Repository;
+namespace Brotkrueml\MatomoWidgets\Tests\Unit\Domain\Repository;
 
+use Brotkrueml\MatomoWidgets\Cache\CacheIdentifierCreator;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\CachingRepositoryDecorator;
-use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\CachingMatomoRepositoryDecorator;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 
-class CachingRepositoryDecoratorTest extends TestCase
+class CachingMatomoRepositoryDecoratorTest extends TestCase
 {
     /**
-     * @var RepositoryInterface|MockObject
+     * @var MatomoRepositoryInterface|MockObject
      */
     private $repositoryMock;
 
@@ -37,22 +38,26 @@ class CachingRepositoryDecoratorTest extends TestCase
     private $connectionConfiguration;
 
     /**
-     * @var CachingRepositoryDecorator
+     * @var CachingMatomoRepositoryDecorator
      */
     private $subject;
 
     protected function setUp(): void
     {
-        $this->repositoryMock = $this->createMock(RepositoryInterface::class);
+        $this->repositoryMock = $this->createMock(MatomoRepositoryInterface::class);
         $this->cacheMock = $this->createMock(FrontendInterface::class);
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.com', 2, '');
-        $this->subject = new CachingRepositoryDecorator($this->repositoryMock, $this->cacheMock);
+        $this->subject = new CachingMatomoRepositoryDecorator(
+            $this->repositoryMock,
+            $this->cacheMock,
+            new CacheIdentifierCreator()
+        );
     }
 
     /**
      * @test
      */
-    public function findWithoutCacheHitReturnsData(): void
+    public function sendWithoutCacheHitReturnsData(): void
     {
         $method = 'some.method';
         $parameterBag = (new ParameterBag())->set('bar', 'quu');
@@ -75,17 +80,17 @@ class CachingRepositoryDecoratorTest extends TestCase
 
         $this->repositoryMock
             ->expects(self::once())
-            ->method('find')
+            ->method('send')
             ->with($this->connectionConfiguration, $method, $parameterBag)
             ->willReturn($data);
 
-        self::assertSame($data, $this->subject->find($this->connectionConfiguration, $method, $parameterBag));
+        self::assertSame($data, $this->subject->send($this->connectionConfiguration, $method, $parameterBag));
     }
 
     /**
      * @test
      */
-    public function findWithCacheHitReturnsData(): void
+    public function sendWithCacheHitReturnsData(): void
     {
         $method = 'another.method';
         $parameterBag = (new ParameterBag())->set('qux', 'foo');
@@ -104,8 +109,8 @@ class CachingRepositoryDecoratorTest extends TestCase
 
         $this->repositoryMock
             ->expects(self::never())
-            ->method('find');
+            ->method('send');
 
-        self::assertSame($data, $this->subject->find($this->connectionConfiguration, $method, $parameterBag));
+        self::assertSame($data, $this->subject->send($this->connectionConfiguration, $method, $parameterBag));
     }
 }

@@ -1,0 +1,27 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Widget/Widget" />
+<f:section name="main">
+    <f:variable name="dateId" value="{matomoWidgets:uniqid()}"/>
+    <f:variable name="noteId" value="{matomoWidgets:uniqid()}"/>
+    <form
+        data-matomowidgets-createannotation
+        data-notification-title="{f:translate(key:'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.createAnnotation.title')}"
+        data-notification-success="{f:translate(key:'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.createAnnotation.notification.success')}"
+        data-notification-http-error="{f:translate(key:'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.createAnnotation.notification.httpError')}"
+        data-notification-unknown-error="{f:translate(key:'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.createAnnotation.notification.unknownError')}"
+    >
+        <input type="hidden" name="site_identifier" value="{siteIdentifier}">
+        <div class="form-group">
+            <label for="{dateId}"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:date"/></label>
+            <input class="form-control" type="date" id="{dateId}" name="date" value="{f:format.date(format:'Y-m-d', date:'now')}" required>
+        </div>
+        <div class="form-group">
+            <label for="{noteId}"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:note"/></label>
+            <input class="form-control" type="text" id="{noteId}" name="note" required>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="{f:translate(key:'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:create')}"/>
+        </div>
+    </form>
+</f:section>
+</html>

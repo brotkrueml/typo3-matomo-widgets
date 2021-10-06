@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericValueDataProvider;
 use PHPUnit\Framework\MockObject\Stub;
@@ -26,7 +26,7 @@ class GenericValueDataProviderTest extends TestCase
     private $connectionConfiguration;
 
     /**
-     * @var Stub|RepositoryInterface
+     * @var Stub|MatomoRepositoryInterface
      */
     private $repositoryStub;
 
@@ -38,7 +38,7 @@ class GenericValueDataProviderTest extends TestCase
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
-        $this->repositoryStub = $this->createStub(RepositoryInterface::class);
+        $this->repositoryStub = $this->createStub(MatomoRepositoryInterface::class);
         $this->subject = new GenericValueDataProvider(
             $this->repositoryStub,
             $this->connectionConfiguration,
@@ -56,7 +56,7 @@ class GenericValueDataProviderTest extends TestCase
     public function getValueForExistingColumn(): void
     {
         $this->repositoryStub
-            ->method('find')
+            ->method('send')
             ->with($this->connectionConfiguration, 'some.method', new ParameterBag([
                 'foo' => 'bar',
             ]))
@@ -76,7 +76,7 @@ class GenericValueDataProviderTest extends TestCase
     public function getValueForNonExistingColumn(): void
     {
         $this->repositoryStub
-            ->method('find')
+            ->method('send')
             ->with($this->connectionConfiguration, 'some.method', new ParameterBag([
                 'foo' => 'bar',
             ]))

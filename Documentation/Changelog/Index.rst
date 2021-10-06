@@ -16,6 +16,7 @@ Added
 
 
 * Widget "Annotations" (#21)
+* Widget "Create annotation" (#25)
 
 Changed
 ^^^^^^^

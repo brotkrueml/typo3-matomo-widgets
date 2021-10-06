@@ -18,8 +18,9 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 /**
  * Retrieved data from the Matomo Reporting API dependent on the method
  * @see https://developer.matomo.org/api-reference/reporting-api
+ * @internal
  */
-class MatomoRepository implements RepositoryInterface
+class MatomoRepository implements MatomoRepositoryInterface
 {
     /**
      * @var MatomoConnector
@@ -31,7 +32,7 @@ class MatomoRepository implements RepositoryInterface
         $this->connector = $connector;
     }
 
-    public function find(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array
+    public function send(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array
     {
         return $this->connector->callApi($configuration, $method, $parameterBag);
     }

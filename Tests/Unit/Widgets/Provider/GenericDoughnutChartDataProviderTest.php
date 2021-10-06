@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\RepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericDoughnutChartDataProvider;
@@ -28,7 +28,7 @@ class GenericDoughnutChartDataProviderTest extends TestCase
     private $connectionConfiguration;
 
     /**
-     * @var Stub|RepositoryInterface
+     * @var Stub|MatomoRepositoryInterface
      */
     private $repositoryStub;
 
@@ -40,7 +40,7 @@ class GenericDoughnutChartDataProviderTest extends TestCase
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
-        $this->repositoryStub = $this->createStub(RepositoryInterface::class);
+        $this->repositoryStub = $this->createStub(MatomoRepositoryInterface::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
     }
 
@@ -60,7 +60,7 @@ class GenericDoughnutChartDataProviderTest extends TestCase
         ];
 
         $this->repositoryStub
-            ->method('find')
+            ->method('send')
             ->with($this->connectionConfiguration, $method, new ParameterBag($parameters))
             ->willReturn($rows);
 

@@ -14,7 +14,10 @@ namespace Brotkrueml\MatomoWidgets\Domain\Repository;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 
-interface RepositoryInterface
+/**
+ * @internal
+ */
+interface MatomoRepositoryInterface
 {
-    public function find(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array;
+    public function send(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array;
 }
