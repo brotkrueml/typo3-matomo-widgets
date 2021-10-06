@@ -30,8 +30,14 @@ Widgets` tab:
    Options in the site management
 
 .. attention::
+   Due to technical restrictions it is not possible to import the Matomo
+   Widgets configuration from another file. It has to be stored in the site
+   configuration's :file:`config.yaml`.
+
+.. important::
    If you adjust settings for the Matomo widgets in the site configuration you
-   have to flush the cache via :guilabel:`Admin Tools` > :guilabel:`Maintenance`.
+   have to flush the cache via :guilabel:`Admin Tools` > :guilabel:`Maintenance`
+   or in TYPO3 v11+ on console with :shell:`vendor/bin/typo3 cache:flush`.
 
 .. note::
    A Matomo instance is only connected to a site if a base URL and a site ID

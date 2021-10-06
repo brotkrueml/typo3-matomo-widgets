@@ -17,6 +17,18 @@ Added
 
 * Widget "Annotations" (#21)
 
+Changed
+^^^^^^^
+
+
+* The Matomo Widgets configuration must be stored in the site configuration's config.yaml, imports are not supported anymore (#24)
+
+Fixed
+^^^^^
+
+
+* Exception thrown by YamlFileLoader in TYPO3 v11.5.0 (#24)
+
 `1.1.2 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.1.1...v1.1.2>`_ - 2021-09-26
 ------------------------------------------------------------------------------------------------------
 

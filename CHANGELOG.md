@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Widget "Annotations" (#21)
 
+### Changed
+- The Matomo Widgets configuration must be stored in the site configuration's config.yaml, imports are not supported anymore (#24)
+
+### Fixed
+- Exception thrown by YamlFileLoader in TYPO3 v11.5.0 (#24)
+
 ## [1.1.2] - 2021-09-26
 
 ### Fixed

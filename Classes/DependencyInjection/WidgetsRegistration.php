@@ -33,9 +33,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerDayRegistratio
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerMonthRegistration;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ParametersConfigurator;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
-use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Core\Environment;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * @internal
@@ -66,13 +64,7 @@ final class WidgetsRegistration
         ParametersConfigurator $parameters,
         bool $isMatomoIntegrationAvailable
     ): void {
-        /** @var YamlFileLoader $yamlFileLoader */
-        $yamlFileLoader = GeneralUtility::makeInstance(YamlFileLoader::class);
-        $configurationFinder = new ConfigurationFinder(
-            Environment::getConfigPath(),
-            $isMatomoIntegrationAvailable,
-            $yamlFileLoader
-        );
+        $configurationFinder = new ConfigurationFinder(Environment::getConfigPath(), $isMatomoIntegrationAvailable);
         foreach ($configurationFinder as $matomoConfiguration) {
             /** @var Configuration $matomoConfiguration */
             $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $matomoConfiguration->getSiteIdentifier();

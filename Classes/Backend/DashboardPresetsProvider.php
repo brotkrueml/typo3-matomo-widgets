@@ -15,9 +15,7 @@ use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use Brotkrueml\MatomoWidgets\Extension;
-use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Core\Environment;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * @internal
@@ -51,8 +49,7 @@ final class DashboardPresetsProvider
         $this->configurationFinder = $configurationFinder
             ?? new ConfigurationFinder(
                 Environment::getConfigPath(),
-                (new ExtensionAvailability())->isMatomoIntegrationAvailable(),
-                GeneralUtility::makeInstance(YamlFileLoader::class)
+                (new ExtensionAvailability())->isMatomoIntegrationAvailable()
             );
     }
 
