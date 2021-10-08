@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\Reference;
  */
 final class CreateAnnotationRegistration extends AbstractRegistration
 {
-    protected $serviceIdSuffix = 'annotations.create';
+    protected $serviceIdSuffix = 'annotation.create';
 
     public function register(): void
     {
