@@ -22,7 +22,7 @@ Changed
 ^^^^^^^
 
 
-* The Matomo Widgets configuration must be stored in the site configuration's config.yaml, imports are not supported anymore (#24)
+* The Matomo Widgets configuration must be stored in the site configuration's config.yaml, imports are not supported anymore (#24, #26)
 
 Fixed
 ^^^^^
