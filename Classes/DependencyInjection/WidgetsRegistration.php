@@ -44,7 +44,7 @@ final class WidgetsRegistration
     private const REGISTRATION_CLASSES = [
         ActionsPerDayRegistration::class,
         ActionsPerMonthRegistration::class,
-        CreateAnnotationRegistration::class,
+        //        CreateAnnotationRegistration::class,
         AnnotationsRegistration::class,
         BounceRateRegistration::class,
         BrowserPluginsRegistration::class,
