@@ -83,6 +83,8 @@ Default configuration parameters in the :file:`Services.yaml` file
 Annotations
 ===========
 
+.. versionadded:: 1.2.0
+
 Display a list of the recent `annotations`_ in the last 365 days:
 
 .. figure:: /Images/WidgetAnnotations.png
