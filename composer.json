@@ -1,7 +1,8 @@
 {
 	"name": "brotkrueml/typo3-matomo-widgets",
-	"type": "typo3-cms-extension",
 	"description": "TYPO3 Dashboard widgets with Matomo reports",
+	"license": "GPL-2.0-or-later",
+	"type": "typo3-cms-extension",
 	"keywords": [
 		"TYPO3 CMS",
 		"TYPO3 extension",
@@ -9,13 +10,17 @@
 		"Dashboard",
 		"Widgets"
 	],
-	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Chris Müller",
 			"role": "Developer"
 		}
 	],
+	"support": {
+		"issues": "https://github.com/brotkrueml/typo3-matomo-widgets/issues",
+		"source": "https://github.com/brotkrueml/typo3-matomo-widgets",
+		"docs": "https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/master/en-us/"
+	},
 	"require": {
 		"php": ">=7.2",
 		"ext-json": "*",
@@ -29,7 +34,7 @@
 		"brotkrueml/coding-standards": "~1.1.0",
 		"brotkrueml/typo3-matomo-integration": "^1.0",
 		"donatj/mock-webserver": "^2.2",
-		"ergebnis/composer-normalize": "^2.15",
+		"ergebnis/composer-normalize": "^2.18",
 		"php-coveralls/php-coveralls": "^2.4",
 		"phpunit/phpunit": "^8.5 || ^9.5",
 		"symfony/yaml": "^5.3",
@@ -37,6 +42,16 @@
 	},
 	"suggest": {
 		"brotkrueml/typo3-matomo-integration": "Matomo integration for TYPO3"
+	},
+	"autoload": {
+		"psr-4": {
+			"Brotkrueml\\MatomoWidgets\\": "Classes"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Brotkrueml\\MatomoWidgets\\Tests\\": "Tests"
+		}
 	},
 	"config": {
 		"bin-dir": ".Build/bin",
@@ -52,20 +67,5 @@
 			"extension-key": "matomo_widgets",
 			"web-dir": ".Build/web"
 		}
-	},
-	"autoload": {
-		"psr-4": {
-			"Brotkrueml\\MatomoWidgets\\": "Classes"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Brotkrueml\\MatomoWidgets\\Tests\\": "Tests"
-		}
-	},
-	"support": {
-		"issues": "https://github.com/brotkrueml/typo3-matomo-widgets/issues",
-		"source": "https://github.com/brotkrueml/typo3-matomo-widgets",
-		"docs": "https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/master/en-us/"
 	}
 }
