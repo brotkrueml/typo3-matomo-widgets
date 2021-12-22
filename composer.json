@@ -24,7 +24,7 @@
 	"require": {
 		"php": ">=7.2",
 		"ext-json": "*",
-		"symfony/finder": "^4.4 || ^5.0",
+		"symfony/finder": "^4.4 || ^5.0 || ^6.0",
 		"symfony/polyfill-php80": "^1.17",
 		"typo3/cms-core": "^10.4.15 || ^11.5",
 		"typo3/cms-dashboard": "^10.4.15 || ^11.5",
@@ -37,7 +37,7 @@
 		"ergebnis/composer-normalize": "^2.18",
 		"php-coveralls/php-coveralls": "^2.4",
 		"phpunit/phpunit": "^8.5 || ^9.5",
-		"symfony/yaml": "^5.3",
+		"symfony/yaml": "^5.4 || ^6.0",
 		"vimeo/psalm": "^4.7"
 	},
 	"suggest": {
