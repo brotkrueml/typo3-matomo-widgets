@@ -31,7 +31,7 @@ class ValueWithIconWidget implements WidgetInterface
     private $view;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     private $options;
 
@@ -40,6 +40,9 @@ class ValueWithIconWidget implements WidgetInterface
      */
     private $dataProvider;
 
+    /**
+     * @param array<string, string> $options
+     */
     public function __construct(
         WidgetConfigurationInterface $configuration,
         ValueDataProviderInterface $dataProvider,

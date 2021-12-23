@@ -44,10 +44,13 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
     private $buttonProvider;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     private $options;
 
+    /**
+     * @param array<string, string> $options
+     */
     public function __construct(
         WidgetConfigurationInterface $configuration,
         TableDataProviderInterface $dataProvider,
@@ -81,6 +84,9 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
         return $this->view->render();
     }
 
+    /**
+     * @return list<string>
+     */
     public function getCssFiles(): array
     {
         return [

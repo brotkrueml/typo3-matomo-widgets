@@ -266,11 +266,6 @@ parameters:
 			path: Classes/Widgets/BarChartWidget.php
 
 		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\BarChartWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/BarChartWidget.php
-
-		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Widgets/CreateAnnotationWidget.php
@@ -286,11 +281,6 @@ parameters:
 			path: Classes/Widgets/CreateAnnotationWidget.php
 
 		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/CreateAnnotationWidget.php
-
-		-
 			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Widgets/CreateAnnotationWidget.php
@@ -301,17 +291,7 @@ parameters:
 			path: Classes/Widgets/CtaWidget.php
 
 		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CtaWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/CtaWidget.php
-
-		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\DoughnutChartWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/DoughnutChartWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\DoughnutChartWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Widgets/DoughnutChartWidget.php
 
@@ -444,39 +424,3 @@ parameters:
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\TableDataProviderInterface\\:\\:getRows\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Widgets/Provider/TableDataProviderInterface.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\TableWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/TableWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\TableWidget\\:\\:getCssFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/TableWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\TableWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/TableWidget.php
-
-		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\TableWidget\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/TableWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\ValueWithIconWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/ValueWithIconWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\ValueWithIconWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/ValueWithIconWidget.php
-
-		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\ValueWithIconWidget\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/ValueWithIconWidget.php
-

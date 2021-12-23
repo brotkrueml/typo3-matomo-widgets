@@ -17,15 +17,18 @@ use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 
 trait WidgetTitleAdaptionTrait
 {
+    /**
+     * @param array<string, string> $options
+     */
     private function prefixWithSiteTitle(WidgetConfigurationInterface $configuration, array $options): WidgetConfigurationInterface
     {
         $title = $this->getLanguageService()->sL($options['title'] ?? '') ?: $configuration->getTitle();
         $siteTitle = $options['siteTitle'] ?? '';
         if ($siteTitle) {
-            $title = \sprintf('%s: %s', $options['siteTitle'], $title);
+            $title = \sprintf('%s: %s', $siteTitle, $title);
         }
 
-        $configuration = new WidgetConfiguration(
+        return new WidgetConfiguration(
             $configuration->getIdentifier(),
             $configuration->getServiceName(),
             $configuration->getGroupNames(),
@@ -36,8 +39,6 @@ trait WidgetTitleAdaptionTrait
             $configuration->getWidth(),
             \explode(' ', $configuration->getAdditionalCssClasses())
         );
-
-        return $configuration;
     }
 
     private function getLanguageService(): LanguageService
