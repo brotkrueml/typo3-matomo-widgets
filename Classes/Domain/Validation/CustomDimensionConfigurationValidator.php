@@ -42,7 +42,6 @@ final class CustomDimensionConfigurationValidator
 
     private function checkConfigurationIsArray(): void
     {
-        /** @psalm-suppress DocblockTypeContradiction */
         if (! \is_array($this->configuration)) {
             throw new ValidationException(
                 \sprintf('A custom dimension configuration is not an array, "%s" given', \gettype($this->configuration)),

@@ -49,7 +49,6 @@ class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface,
 
     public function renderWidgetContent(): string
     {
-        /** @psalm-suppress InternalMethod */
         $this->view->setTemplate('Widget/CreateAnnotationWidget.html');
         $this->view->assignMultiple([
             'configuration' => $this->configuration,

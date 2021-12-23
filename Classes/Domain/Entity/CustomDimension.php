@@ -12,28 +12,31 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Domain\Entity;
 
 /**
- * @psalm-immutable
  * @internal
  */
 final class CustomDimension
 {
     /**
      * @var string
+     * @readonly
      */
     public $scope;
 
     /**
      * @var int
+     * @readonly
      */
     public $idDimension;
 
     /**
      * @var string
+     * @readonly
      */
     public $title;
 
     /**
      * @var string
+     * @readonly
      */
     public $description;
 

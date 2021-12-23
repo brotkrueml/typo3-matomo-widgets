@@ -9,6 +9,6 @@
 /CHANGELOG.md export-ignore
 /ecs.php export-ignore
 /Makefile export-ignore
-/psalm.xml export-ignore
+/phpstan*.neon export-ignore
 /README.md export-ignore
 *.xsd export-ignore

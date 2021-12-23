@@ -27,7 +27,6 @@ final class ParameterBag
 
     public function add(array $parameters): self
     {
-        /** @psalm-suppress MissingClosureParamType */
         \array_walk($parameters, function ($value, string $name) {
             $this->set($name, $value);
         });
@@ -45,7 +44,6 @@ final class ParameterBag
             $value = $value->resolve();
         }
 
-        /** @psalm-suppress DocblockTypeContradiction */
         if (! \is_string($value) && ! \is_int($value)) {
             throw new \InvalidArgumentException(
                 \sprintf(

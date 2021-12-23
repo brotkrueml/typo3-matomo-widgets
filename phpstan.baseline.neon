@@ -1,0 +1,482 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
+			count: 1
+			path: Classes/Backend/DashboardPresetsProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Backend\\\\DashboardPresetsProvider\\:\\:__construct\\(\\) has parameter \\$configurationFinder with no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\.$#"
+			count: 1
+			path: Classes/Backend/DashboardPresetsProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Backend\\\\DashboardPresetsProvider\\:\\:getPresets\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Backend/DashboardPresetsProvider.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Backend\\\\DashboardPresetsProvider\\:\\:\\$configurationFinder type has no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\.$#"
+			count: 1
+			path: Classes/Backend/DashboardPresetsProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\Configuration\\:\\:__construct\\(\\) has parameter \\$activeWidgets with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Configuration/Configuration.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\Configuration\\:\\:__construct\\(\\) has parameter \\$customDimensions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Configuration/Configuration.php
+
+		-
+			message: "#^Class Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: Classes/Configuration/ConfigurationFinder.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:buildCustomDimensions\\(\\) has parameter \\$configurations with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Configuration/ConfigurationFinder.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:getIterator\\(\\) return type has no value type specified in iterable type Traversable\\<mixed, mixed\\>\\.$#"
+			count: 1
+			path: Classes/Configuration/ConfigurationFinder.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parseFile\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: Classes/Configuration/ConfigurationFinder.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:\\$configurations type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Configuration/ConfigurationFinder.php
+
+		-
+			message: "#^Class Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: Classes/Configuration/LegacyEnableWidgetsConfigurationFinder.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder\\:\\:getEnableWidgetsIdentifier\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Configuration/LegacyEnableWidgetsConfigurationFinder.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder\\:\\:getIterator\\(\\) return type has no value type specified in iterable type Traversable\\<mixed, mixed\\>\\.$#"
+			count: 1
+			path: Classes/Configuration/LegacyEnableWidgetsConfigurationFinder.php
+
+		-
+			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
+			count: 1
+			path: Classes/Configuration/WidgetsProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Connection\\\\MatomoConnector\\:\\:callApi\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Connection/MatomoConnector.php
+
+		-
+			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
+			count: 1
+			path: Classes/Controller/CreateAnnotationController.php
+
+		-
+			message: "#^Cannot access offset 'date' on array\\|object\\|null\\.$#"
+			count: 1
+			path: Classes/Controller/CreateAnnotationController.php
+
+		-
+			message: "#^Cannot access offset 'note' on array\\|object\\|null\\.$#"
+			count: 1
+			path: Classes/Controller/CreateAnnotationController.php
+
+		-
+			message: "#^Cannot access offset 'siteIdentifier' on array\\|object\\|null\\.$#"
+			count: 1
+			path: Classes/Controller/CreateAnnotationController.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Controller\\\\CreateAnnotationController\\:\\:__construct\\(\\) has parameter \\$configurationFinder with no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\.$#"
+			count: 1
+			path: Classes/Controller/CreateAnnotationController.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Controller\\\\CreateAnnotationController\\:\\:log\\(\\) has parameter \\$createdAnnotation with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Controller/CreateAnnotationController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of method Psr\\\\Http\\\\Message\\\\StreamInterface\\:\\:write\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: Classes/Controller/CreateAnnotationController.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Controller\\\\CreateAnnotationController\\:\\:\\$configurationFinder type has no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\.$#"
+			count: 1
+			path: Classes/Controller/CreateAnnotationController.php
+
+		-
+			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
+			count: 3
+			path: Classes/DependencyInjection/Widgets/CustomDimensionsRegistration.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\DependencyInjection\\\\Widgets\\\\CustomDimensionsRegistration\\:\\:buildColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/DependencyInjection/Widgets/CustomDimensionsRegistration.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Result\\|int\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/BackendUserGroupRepository.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\BackendUserGroupRepository\\:\\:findAll\\(\\) return type has no value type specified in iterable type Generator\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/BackendUserGroupRepository.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\BackendUserGroupRepository\\:\\:updateAvailableWidgets\\(\\) has parameter \\$availableWidgets with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/BackendUserGroupRepository.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\CachingMatomoRepositoryDecorator\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/CachingMatomoRepositoryDecorator.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Result\\|int\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/DashboardRepository.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\DashboardRepository\\:\\:findAll\\(\\) return type has no value type specified in iterable type Generator\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/DashboardRepository.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\DashboardRepository\\:\\:updateWidgetConfig\\(\\) has parameter \\$widgets with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/DashboardRepository.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:set\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/DashboardRepository.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\MatomoRepository\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/MatomoRepository.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\MatomoRepositoryInterface\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/MatomoRepositoryInterface.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Validation\\\\CustomDimensionConfigurationValidator\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Domain/Validation/CustomDimensionConfigurationValidator.php
+
+		-
+			message: "#^Cannot assign offset 'lang' to array\\|string\\.$#"
+			count: 1
+			path: Classes/Parameter/LanguageParameterResolver.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\ParameterBag\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Parameter/ParameterBag.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\ParameterBag\\:\\:add\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Parameter/ParameterBag.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: Classes/Parameter/ParameterBag.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:__construct\\(\\) has parameter \\$legacyConfigurationFinder with no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder\\.$#"
+			count: 1
+			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:buildActiveWidgetsConfiguration\\(\\) has parameter \\$enableWidgets with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:rebuildSiteConfiguration\\(\\) has parameter \\$siteConfiguration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:rebuildSiteConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:\\$legacyConfigurationFinder type has no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder\\.$#"
+			count: 1
+			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:\\$siteConfiguration \\(TYPO3\\\\CMS\\\\Core\\\\Configuration\\\\SiteConfiguration\\) does not accept object\\.$#"
+			count: 1
+			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:\\$siteFinder \\(TYPO3\\\\CMS\\\\Core\\\\Site\\\\SiteFinder\\) does not accept object\\.$#"
+			count: 1
+			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
+
+		-
+			message: "#^Class has a static method must so must contains \"Static\" in its name$#"
+			count: 1
+			path: Classes/ViewHelpers/DecorateViewHelper.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\ViewHelpers\\\\DecorateViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/ViewHelpers/DecorateViewHelper.php
+
+		-
+			message: "#^Class has a static method must so must contains \"Static\" in its name$#"
+			count: 1
+			path: Classes/ViewHelpers/UniqidViewHelper.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\ViewHelpers\\\\UniqidViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/ViewHelpers/UniqidViewHelper.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\BarChartWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/BarChartWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\BarChartWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/BarChartWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/CreateAnnotationWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:getCssFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/CreateAnnotationWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:getJsFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/CreateAnnotationWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/CreateAnnotationWidget.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/CreateAnnotationWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CtaWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/CtaWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CtaWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/CtaWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\DoughnutChartWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/DoughnutChartWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\DoughnutChartWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/DoughnutChartWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\AnnotationsTableDataProvider\\:\\:getRows\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/AnnotationsTableDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericBarChartDataProvider\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericBarChartDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericBarChartDataProvider\\:\\:getChartData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericBarChartDataProvider.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericBarChartDataProvider\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericBarChartDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericDoughnutChartDataProvider\\:\\:__construct\\(\\) has parameter \\$backgroundColours with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericDoughnutChartDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericDoughnutChartDataProvider\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericDoughnutChartDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericDoughnutChartDataProvider\\:\\:aggregateData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericDoughnutChartDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericDoughnutChartDataProvider\\:\\:getChartData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericDoughnutChartDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericTableDataProvider\\:\\:__construct\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericTableDataProvider\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericTableDataProvider\\:\\:getClasses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericTableDataProvider\\:\\:getColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericTableDataProvider\\:\\:getDecorators\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericTableDataProvider\\:\\:getHeaders\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericTableDataProvider\\:\\:getRows\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericTableDataProvider\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericTableDataProvider\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Variable \\$classes in PHPDoc tag @var does not match assigned variable \\$columns\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Variable \\$classes in PHPDoc tag @var does not match assigned variable \\$decorators\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericValueDataProvider\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericValueDataProvider.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\GenericValueDataProvider\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericValueDataProvider.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\TableDataProviderInterface\\:\\:getClasses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/TableDataProviderInterface.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\TableDataProviderInterface\\:\\:getColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/TableDataProviderInterface.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\TableDataProviderInterface\\:\\:getDecorators\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/TableDataProviderInterface.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\TableDataProviderInterface\\:\\:getHeaders\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/TableDataProviderInterface.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\Provider\\\\TableDataProviderInterface\\:\\:getRows\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/TableDataProviderInterface.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\TableWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/TableWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\TableWidget\\:\\:getCssFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/TableWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\TableWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/TableWidget.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\TableWidget\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/TableWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\ValueWithIconWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/ValueWithIconWidget.php
+
+		-
+			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\ValueWithIconWidget\\:\\:prefixWithSiteTitle\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/ValueWithIconWidget.php
+
+		-
+			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\ValueWithIconWidget\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Classes/Widgets/ValueWithIconWidget.php
+

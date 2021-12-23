@@ -1,5 +1,5 @@
 .PHONY: qa
-qa: cs tests psalm yaml-lint
+qa: cs tests phpstan yaml-lint changelog
 
 # See: https://github.com/crossnox/m2r2
 .PHONY: changelog
@@ -17,9 +17,9 @@ code-coverage: vendor
 cs: vendor
 	.Build/bin/ecs check --fix
 
-.PHONY: psalm
-psalm: vendor
-	.Build/bin/psalm
+.PHONY: phpstan
+phpstan: vendor
+	.Build/bin/phpstan analyse
 
 .PHONY: tests
 tests: vendor

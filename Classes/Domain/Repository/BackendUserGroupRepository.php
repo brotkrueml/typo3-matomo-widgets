@@ -41,7 +41,6 @@ class BackendUserGroupRepository
             ->from(self::TABLE)
             ->execute();
 
-        /** @psalm-suppress DeprecatedMethod, PossiblyInvalidMethodCall */
         while ($row = $statement->fetch()) {
             yield $row;
         }

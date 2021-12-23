@@ -64,7 +64,6 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
 
     public function renderWidgetContent(): string
     {
-        /** @psalm-suppress InternalMethod */
         $this->view->setTemplate('Widget/TableWidget.html');
         $this->view->assignMultiple([
             'table' => [

@@ -54,7 +54,6 @@ class ValueWithIconWidget implements WidgetInterface
 
     public function renderWidgetContent(): string
     {
-        /** @psalm-suppress InternalMethod */
         $this->view->setTemplate('Widget/ValueWithIconWidget');
         $this->view->assignMultiple([
             'icon' => $this->options['icon'],

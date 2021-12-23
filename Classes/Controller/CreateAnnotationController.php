@@ -54,17 +54,14 @@ final class CreateAnnotationController
     private $responseFactory;
     /**
      * @var string
-     * @psalm-suppress PropertyNotSetInConstructor
      */
     private $siteIdentifier;
     /**
      * @var \DateTimeImmutable
-     * @psalm-suppress PropertyNotSetInConstructor
      */
     private $date;
     /**
      * @var string
-     * @psalm-suppress PropertyNotSetInConstructor
      */
     private $note;
 

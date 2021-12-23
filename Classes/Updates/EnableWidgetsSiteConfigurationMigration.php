@@ -41,7 +41,6 @@ final class EnableWidgetsSiteConfigurationMigration implements ChattyInterface, 
 
     /**
      * @var OutputInterface
-     * @psalm-suppress PropertyNotSetInConstructor
      */
     private $output;
 
@@ -51,9 +50,7 @@ final class EnableWidgetsSiteConfigurationMigration implements ChattyInterface, 
         SiteConfiguration $siteConfiguration = null
     ) {
         $this->legacyConfigurationFinder = $legacyConfigurationFinder ?? new LegacyEnableWidgetsConfigurationFinder();
-        /** @psalm-suppress PropertyTypeCoercion */
         $this->siteFinder = $siteFinder ?? GeneralUtility::makeInstance(SiteFinder::class);
-        /** @psalm-suppress PropertyTypeCoercion */
         $this->siteConfiguration = $siteConfiguration ?? GeneralUtility::makeInstance(SiteConfiguration::class);
     }
 
@@ -83,7 +80,6 @@ final class EnableWidgetsSiteConfigurationMigration implements ChattyInterface, 
             $newActiveWidgetsConfiguration = $this->buildActiveWidgetsConfiguration($enableWidgetsConfiguration);
             $site = $this->siteFinder->getSiteByIdentifier($siteIdentifier);
             $newSiteConfiguration = $this->rebuildSiteConfiguration($site->getConfiguration(), $newActiveWidgetsConfiguration);
-            /** @psalm-suppress InternalMethod */
             $this->siteConfiguration->write($siteIdentifier, $newSiteConfiguration);
 
             $this->output->writeln(\sprintf(
