@@ -13,10 +13,14 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
+use Brotkrueml\MatomoWidgets\Parameter\LanguageParameterResolver;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
+/**
+ * @phpstan-type Column array{column: string, header?: string, decorator?: DecoratorInterface, classes?: string}
+ */
 class GenericTableDataProvider implements TableDataProviderInterface
 {
     /**
@@ -40,15 +44,19 @@ class GenericTableDataProvider implements TableDataProviderInterface
     protected $method;
 
     /**
-     * @var array
+     * @var list<Column>
      */
     private $columns;
 
     /**
-     * @var array
+     * @var array<string, string|LanguageParameterResolver>
      */
     protected $parameters;
 
+    /**
+     * @param list<Column> $columns
+     * @param array<string, string|LanguageParameterResolver> $parameters
+     */
     public function __construct(
         MatomoRepositoryInterface $repository,
         ConnectionConfiguration $connectionConfiguration,
@@ -66,7 +74,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
     }
 
     /**
-     * @param string|DecoratorInterface $value
+     * @param string|LanguageParameterResolver $value
      */
     public function addParameter(string $name, $value): void
     {
@@ -86,10 +94,9 @@ class GenericTableDataProvider implements TableDataProviderInterface
 
     public function getColumns(): array
     {
-        /** @var string[] $classes */
         $columns = [];
         foreach ($this->columns as $column) {
-            $columns[] = (string)($column['column'] ?? 'unknown');
+            $columns[] = $column['column'];
         }
 
         return $columns;
@@ -97,7 +104,6 @@ class GenericTableDataProvider implements TableDataProviderInterface
 
     public function getDecorators(): array
     {
-        /** @var ?DecoratorInterface[] $classes */
         $decorators = [];
         foreach ($this->columns as $column) {
             $decorators[] = $column['decorator'] ?? null;

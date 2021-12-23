@@ -50,10 +50,13 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
     private $backgroundColour;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     private $parameters;
 
+    /**
+     * @param array<string, string> $parameters
+     */
     public function __construct(
         MatomoRepositoryInterface $repository,
         ConnectionConfiguration $connectionConfiguration,
@@ -72,6 +75,9 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
         $this->parameters = $parameters;
     }
 
+    /**
+     * @return array<mixed>
+     */
     public function getChartData(): array
     {
         $data = $this->repository->send($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));

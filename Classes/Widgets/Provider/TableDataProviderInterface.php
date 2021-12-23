@@ -11,15 +11,32 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
+use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
+
 interface TableDataProviderInterface
 {
+    /**
+     * @return list<string>
+     */
     public function getClasses(): array;
 
+    /**
+     * @return list<string>
+     */
     public function getColumns(): array;
 
+    /**
+     * @return list<DecoratorInterface|null>
+     */
     public function getDecorators(): array;
 
+    /**
+     * @return list<string>
+     */
     public function getHeaders(): array;
 
+    /**
+     * @return list<array<string, mixed>>
+     */
     public function getRows(): array;
 }

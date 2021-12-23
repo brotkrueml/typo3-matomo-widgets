@@ -94,13 +94,11 @@ class GenericTableDataProviderTest extends TestCase
                 [
                     'column' => 'column2',
                 ],
-                [
-                ],
             ],
             []
         );
 
-        $expected = ['column1', 'column2', 'unknown'];
+        $expected = ['column1', 'column2'];
         $actual = $subject->getColumns();
 
         self::assertSame($expected, $actual);

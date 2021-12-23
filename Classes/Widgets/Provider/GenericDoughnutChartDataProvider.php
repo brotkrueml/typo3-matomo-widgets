@@ -65,6 +65,10 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
      */
     private $parameters;
 
+    /**
+     * @param list<string> $backgroundColours
+     * @param array<string, string> $parameters
+     */
     public function __construct(
         MatomoRepositoryInterface $repository,
         ConnectionConfiguration $connectionConfiguration,
@@ -87,6 +91,9 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         $this->parameters = $parameters;
     }
 
+    /**
+     * @return array{labels: list<string>, datasets: list<mixed>}
+     */
     public function getChartData(): array
     {
         $data = $this->aggregateData();
@@ -102,6 +109,9 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         ];
     }
 
+    /**
+     * @return array<mixed>
+     */
     private function aggregateData(): array
     {
         $rows = $this->repository->send($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));

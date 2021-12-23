@@ -38,10 +38,13 @@ final class GenericValueDataProvider implements ValueDataProviderInterface
     private $columnName;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     private $parameters;
 
+    /**
+     * @param array<string, string> $parameters
+     */
     public function __construct(
         MatomoRepositoryInterface $repository,
         ConnectionConfiguration $connectionConfiguration,
