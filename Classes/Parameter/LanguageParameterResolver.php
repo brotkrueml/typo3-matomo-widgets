@@ -22,6 +22,10 @@ final class LanguageParameterResolver implements ParameterResolverInterface
             return '';
         }
 
+        if (! \is_array($backendUser->uc)) {
+            return '';
+        }
+
         return $backendUser->uc['lang'] ?? '';
     }
 
