@@ -25,6 +25,9 @@ class DecorateViewHelper extends ViewHelper\AbstractViewHelper
         $this->registerArgument('value', 'string', 'The value to decorate', true);
     }
 
+    /**
+     * @param array{decorator: DecoratorInterface, value: string} $arguments
+     */
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,

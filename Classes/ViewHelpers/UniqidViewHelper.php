@@ -19,6 +19,9 @@ use TYPO3Fluid\Fluid\Core\ViewHelper;
  */
 final class UniqidViewHelper extends ViewHelper\AbstractViewHelper
 {
+    /**
+     * @param array{} $arguments
+     */
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,

@@ -239,23 +239,3 @@ parameters:
 			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:\\$siteFinder \\(TYPO3\\\\CMS\\\\Core\\\\Site\\\\SiteFinder\\) does not accept object\\.$#"
 			count: 1
 			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
-
-		-
-			message: "#^Class has a static method must so must contains \"Static\" in its name$#"
-			count: 1
-			path: Classes/ViewHelpers/DecorateViewHelper.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\ViewHelpers\\\\DecorateViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/ViewHelpers/DecorateViewHelper.php
-
-		-
-			message: "#^Class has a static method must so must contains \"Static\" in its name$#"
-			count: 1
-			path: Classes/ViewHelpers/UniqidViewHelper.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\ViewHelpers\\\\UniqidViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/ViewHelpers/UniqidViewHelper.php

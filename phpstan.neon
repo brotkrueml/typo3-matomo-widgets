@@ -10,6 +10,8 @@ parameters:
     level: 8
     paths:
         - Classes
+    ignoreErrors:
+        - '#\Class has a static method must so must contains "Static" in its name#'
 
 services:
     -
