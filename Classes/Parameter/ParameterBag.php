@@ -20,11 +20,17 @@ final class ParameterBag
      */
     private $parameters = [];
 
+    /**
+     * @param array<string, string|int|ParameterResolverInterface> $parameters
+     */
     public function __construct(array $parameters = [])
     {
         $this->add($parameters);
     }
 
+    /**
+     * @param array<string, string|int|ParameterResolverInterface> $parameters
+     */
     public function add(array $parameters): self
     {
         \array_walk($parameters, function ($value, string $name) {
