@@ -18,7 +18,7 @@ final class CustomDimensionConfigurationValidator
     private const ALLOWED_SCOPES = ['action', 'visit'];
 
     /**
-     * @var array
+     * @var array<string, string|int>
      */
     private $configuration = [];
 
@@ -28,7 +28,7 @@ final class CustomDimensionConfigurationValidator
     private $alreadyDefinedIdDimensions = [];
 
     /**
-     * @param array<string,string|int> $configuration
+     * @param array<string, string|int> $configuration It is intended to have no type hint "array" as a speaking error should be returned
      */
     public function validate($configuration): bool
     {

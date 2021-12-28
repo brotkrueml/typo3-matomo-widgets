@@ -181,11 +181,6 @@ parameters:
 			path: Classes/Domain/Repository/MatomoRepositoryInterface.php
 
 		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Validation\\\\CustomDimensionConfigurationValidator\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Domain/Validation/CustomDimensionConfigurationValidator.php
-
-		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:__construct\\(\\) has parameter \\$legacyConfigurationFinder with no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder\\.$#"
 			count: 1
 			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
