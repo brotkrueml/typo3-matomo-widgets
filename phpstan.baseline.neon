@@ -1,61 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
-			count: 1
-			path: Classes/Backend/DashboardPresetsProvider.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Backend\\\\DashboardPresetsProvider\\:\\:__construct\\(\\) has parameter \\$configurationFinder with no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\.$#"
-			count: 1
-			path: Classes/Backend/DashboardPresetsProvider.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Backend\\\\DashboardPresetsProvider\\:\\:getPresets\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Backend/DashboardPresetsProvider.php
-
-		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Backend\\\\DashboardPresetsProvider\\:\\:\\$configurationFinder type has no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\.$#"
-			count: 1
-			path: Classes/Backend/DashboardPresetsProvider.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\Configuration\\:\\:__construct\\(\\) has parameter \\$activeWidgets with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Configuration/Configuration.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\Configuration\\:\\:__construct\\(\\) has parameter \\$customDimensions with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Configuration/Configuration.php
-
-		-
-			message: "#^Class Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: Classes/Configuration/ConfigurationFinder.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:buildCustomDimensions\\(\\) has parameter \\$configurations with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Configuration/ConfigurationFinder.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:getIterator\\(\\) return type has no value type specified in iterable type Traversable\\<mixed, mixed\\>\\.$#"
-			count: 1
-			path: Classes/Configuration/ConfigurationFinder.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parseFile\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: Classes/Configuration/ConfigurationFinder.php
-
-		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:\\$configurations type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Configuration/ConfigurationFinder.php
-
-		-
 			message: "#^Class Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
 			count: 1
 			path: Classes/Configuration/LegacyEnableWidgetsConfigurationFinder.php
@@ -101,22 +46,12 @@ parameters:
 			path: Classes/Controller/CreateAnnotationController.php
 
 		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Controller\\\\CreateAnnotationController\\:\\:__construct\\(\\) has parameter \\$configurationFinder with no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\.$#"
-			count: 1
-			path: Classes/Controller/CreateAnnotationController.php
-
-		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Controller\\\\CreateAnnotationController\\:\\:log\\(\\) has parameter \\$createdAnnotation with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Controller/CreateAnnotationController.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of method Psr\\\\Http\\\\Message\\\\StreamInterface\\:\\:write\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: Classes/Controller/CreateAnnotationController.php
-
-		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Controller\\\\CreateAnnotationController\\:\\:\\$configurationFinder type has no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\.$#"
 			count: 1
 			path: Classes/Controller/CreateAnnotationController.php
 

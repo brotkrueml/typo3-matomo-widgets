@@ -41,7 +41,7 @@ final class Configuration
     private $tokenAuth;
 
     /**
-     * @var list<string>
+     * @var string[]
      */
     private $activeWidgets;
 
@@ -50,6 +50,10 @@ final class Configuration
      */
     private $customDimensions;
 
+    /**
+     * @param string[] $activeWidgets
+     * @param CustomDimension[] $customDimensions
+     */
     public function __construct(
         string $siteIdentifier,
         string $siteTitle,

@@ -19,12 +19,13 @@ use Symfony\Component\Yaml\Yaml;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
+ * @implements \IteratorAggregate<Configuration>
  * @internal
  */
 class ConfigurationFinder implements \IteratorAggregate, \Countable
 {
     /**
-     * @var array
+     * @var Configuration[]
      */
     private $configurations = [];
 
@@ -37,7 +38,11 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
                 ->name('config.yaml');
 
             foreach ($finder as $file) {
-                $siteConfiguration = Yaml::parseFile($file->getRealPath());
+                $realFile = $file->getRealPath();
+                if ($realFile === false) {
+                    continue;
+                }
+                $siteConfiguration = Yaml::parseFile($realFile);
 
                 $considerMatomoIntegration = $isMatomoIntegrationAvailable
                     && ($siteConfiguration['matomoWidgetsConsiderMatomoIntegration'] ?? false);
@@ -79,9 +84,10 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
     }
 
     /**
+     * @param list<array{scope: string, idDimension: int|string, title?: string, description?: string}> $configurations
      * @return CustomDimension[]
      */
-    public function buildCustomDimensions(array $configurations): array
+    private function buildCustomDimensions(array $configurations): array
     {
         $validator = new CustomDimensionConfigurationValidator();
         $customDimensions = [];
@@ -98,6 +104,9 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
         return $customDimensions;
     }
 
+    /**
+     * @return \ArrayIterator<int, Configuration>
+     */
     public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->configurations);

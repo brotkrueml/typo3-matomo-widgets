@@ -53,6 +53,9 @@ final class DashboardPresetsProvider
             );
     }
 
+    /**
+     * @return array<string, array<string, list<string>|string|true>>
+     */
     public function getPresets(): array
     {
         $presets = [];
@@ -74,6 +77,7 @@ final class DashboardPresetsProvider
                 ? \sprintf('Matomo (%s)', $configuration->getSiteTitle() ?: $configuration->getSiteIdentifier())
                 : 'Matomo';
 
+            /** @phpstan-ignore-next-line */
             $presets['matomo_' . $configuration->getSiteIdentifier()] = [
                 'title' => $title,
                 'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':preset.description',
