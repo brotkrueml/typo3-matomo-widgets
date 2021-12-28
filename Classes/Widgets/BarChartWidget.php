@@ -20,6 +20,9 @@ class BarChartWidget extends \TYPO3\CMS\Dashboard\Widgets\BarChartWidget
 {
     use WidgetTitleAdaptionTrait;
 
+    /**
+     * @param array<string, string> $options
+     */
     public function __construct(
         WidgetConfigurationInterface $configuration,
         ChartDataProviderInterface $dataProvider,

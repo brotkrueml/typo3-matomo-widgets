@@ -20,6 +20,9 @@ class DoughnutChartWidget extends \TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidg
 {
     use WidgetTitleAdaptionTrait;
 
+    /**
+     * @param array<string, string> $options
+     */
     public function __construct(
         WidgetConfigurationInterface $configuration,
         ChartDataProviderInterface $dataProvider,

@@ -33,10 +33,13 @@ class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface,
     private $view;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     private $options;
 
+    /**
+     * @param array<string, string> $options
+     */
     public function __construct(
         WidgetConfigurationInterface $configuration,
         StandaloneView $view,
@@ -59,6 +62,9 @@ class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface,
         return $this->view->render();
     }
 
+    /**
+     * @return list<string>
+     */
     public function getCssFiles(): array
     {
         return [
@@ -66,6 +72,9 @@ class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface,
         ];
     }
 
+    /**
+     * @return list<string>
+     */
     public function getJsFiles(): array
     {
         return [

@@ -259,38 +259,3 @@ parameters:
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\ViewHelpers\\\\UniqidViewHelper\\:\\:renderStatic\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/ViewHelpers/UniqidViewHelper.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\BarChartWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/BarChartWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/CreateAnnotationWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:getCssFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/CreateAnnotationWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:getJsFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/CreateAnnotationWidget.php
-
-		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CreateAnnotationWidget\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/CreateAnnotationWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\CtaWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/CtaWidget.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Widgets\\\\DoughnutChartWidget\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Widgets/DoughnutChartWidget.php

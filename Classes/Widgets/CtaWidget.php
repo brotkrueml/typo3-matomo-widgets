@@ -19,6 +19,9 @@ class CtaWidget extends \TYPO3\CMS\Dashboard\Widgets\CtaWidget
 {
     use WidgetTitleAdaptionTrait;
 
+    /**
+     * @param array<string, string> $options
+     */
     public function __construct(
         WidgetConfigurationInterface $configuration,
         StandaloneView $view,
