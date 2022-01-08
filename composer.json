@@ -34,7 +34,7 @@
 		"brotkrueml/coding-standards": "~1.2.0",
 		"brotkrueml/typo3-matomo-integration": "^1.0",
 		"donatj/mock-webserver": "^2.2",
-		"ergebnis/composer-normalize": "^2.18",
+		"ergebnis/composer-normalize": "~2.18.0",
 		"php-coveralls/php-coveralls": "^2.4",
 		"phpstan/extension-installer": "^1.1",
 		"phpstan/phpstan": "~1.2.0",
