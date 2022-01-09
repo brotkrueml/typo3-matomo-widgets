@@ -16,12 +16,13 @@ use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
+ * @implements \IteratorAggregate<array>
  * @internal
  */
 class LegacyEnableWidgetsConfigurationFinder implements \IteratorAggregate, \Countable
 {
     /**
-     * @var list<string>
+     * @var string[]
      */
     private $enableWidgetsIdentifier = [
         'matomoWidgetsEnableActionsPerDay',
@@ -60,11 +61,17 @@ class LegacyEnableWidgetsConfigurationFinder implements \IteratorAggregate, \Cou
         }
     }
 
+    /**
+     * @return string[]
+     */
     public function getEnableWidgetsIdentifier(): array
     {
         return $this->enableWidgetsIdentifier;
     }
 
+    /**
+     * @return \ArrayIterator<string, array<string, bool>>
+     */
     public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->configurations);

@@ -1,21 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Class Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: Classes/Configuration/LegacyEnableWidgetsConfigurationFinder.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder\\:\\:getEnableWidgetsIdentifier\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Configuration/LegacyEnableWidgetsConfigurationFinder.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder\\:\\:getIterator\\(\\) return type has no value type specified in iterable type Traversable\\<mixed, mixed\\>\\.$#"
-			count: 1
-			path: Classes/Configuration/LegacyEnableWidgetsConfigurationFinder.php
-
-		-
 			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
 			count: 1
 			path: Classes/Configuration/WidgetsProvider.php
@@ -116,11 +101,6 @@ parameters:
 			path: Classes/Domain/Repository/MatomoRepositoryInterface.php
 
 		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:__construct\\(\\) has parameter \\$legacyConfigurationFinder with no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder\\.$#"
-			count: 1
-			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
-
-		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:buildActiveWidgetsConfiguration\\(\\) has parameter \\$enableWidgets with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
@@ -132,11 +112,6 @@ parameters:
 
 		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:rebuildSiteConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
-
-		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:\\$legacyConfigurationFinder type has no value type specified in iterable type Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\LegacyEnableWidgetsConfigurationFinder\\.$#"
 			count: 1
 			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
 
