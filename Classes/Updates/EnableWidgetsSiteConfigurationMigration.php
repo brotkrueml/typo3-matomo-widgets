@@ -91,6 +91,9 @@ final class EnableWidgetsSiteConfigurationMigration implements ChattyInterface, 
         return true;
     }
 
+    /**
+     * @param array<string, bool> $enableWidgets
+     */
     private function buildActiveWidgetsConfiguration(array $enableWidgets): string
     {
         $activeWidgets = [];
@@ -103,6 +106,10 @@ final class EnableWidgetsSiteConfigurationMigration implements ChattyInterface, 
         return \implode(',', $activeWidgets);
     }
 
+    /**
+     * @param array<string, mixed> $siteConfiguration
+     * @return array<string, mixed>
+     */
     private function rebuildSiteConfiguration(array $siteConfiguration, string $newActiveWidgetsConfiguration): array
     {
         foreach ($this->legacyConfigurationFinder->getEnableWidgetsIdentifier() as $enableWidgetsIdentifier) {

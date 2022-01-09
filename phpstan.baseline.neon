@@ -99,28 +99,3 @@ parameters:
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\MatomoRepositoryInterface\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Domain/Repository/MatomoRepositoryInterface.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:buildActiveWidgetsConfiguration\\(\\) has parameter \\$enableWidgets with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:rebuildSiteConfiguration\\(\\) has parameter \\$siteConfiguration with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:rebuildSiteConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
-
-		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:\\$siteConfiguration \\(TYPO3\\\\CMS\\\\Core\\\\Configuration\\\\SiteConfiguration\\) does not accept object\\.$#"
-			count: 1
-			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
-
-		-
-			message: "#^Property Brotkrueml\\\\MatomoWidgets\\\\Updates\\\\EnableWidgetsSiteConfigurationMigration\\:\\:\\$siteFinder \\(TYPO3\\\\CMS\\\\Core\\\\Site\\\\SiteFinder\\) does not accept object\\.$#"
-			count: 1
-			path: Classes/Updates/EnableWidgetsSiteConfigurationMigration.php
