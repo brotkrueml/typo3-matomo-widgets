@@ -29,7 +29,8 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
         ->autowire()
         ->autoconfigure()
         ->private();
-    $services->load('Brotkrueml\\MatomoWidgets\\', dirname(__DIR__) . '/Classes/*');
+    $services->load('Brotkrueml\\MatomoWidgets\\', '../Classes/*')
+        ->exclude('../Classes/{DependencyInjection,Domain/Entity,Exception,Extension.php}');
 
     $services->set('cache.matomo_widgets', FrontendInterface::class)
         ->factory([new Reference(CacheManager::class), 'getCache'])
