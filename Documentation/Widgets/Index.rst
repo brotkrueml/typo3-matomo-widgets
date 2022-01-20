@@ -103,38 +103,41 @@ Default configuration parameters in the :file:`Services.yaml` file
       - lastN: 365
 
 
-.. This widget is commented out (see: https://github.com/brotkrueml/typo3-matomo-widgets/issues/25#issuecomment-947739839)
-   Create annotation
-   =================
+Create annotation
+=================
 
-   This widget provides a form to create an `annotation`_ conveniently from the
-   TYPO3 backend:
+This widget provides a form to create an `annotation`_ conveniently from the
+TYPO3 backend:
 
-   .. figure:: /Images/WidgetCreateAnnotation.png
-      :alt: Widget Create annotation
+.. figure:: /Images/WidgetCreateAnnotation.png
+   :alt: Widget Create annotation
+   :class: with-border
+
+   Widget *Create annotation*
+
+After submitting the form, a notification is displayed in the upper right corner
+of the browser window. If the creation of the annotation was successful, the
+:guilabel:`Note` field will be cleared.
+
+Matomo module
+   Annotations
+
+.. note::
+   The annotation is stored in Matomo under the user configured in the
+   :ref:`site configuration <site-configuration>`. A log entry has been created
+   that can be viewed in the :guilabel:`System` > :guilabel:`Log` module.
+   In addition to the user, the date, the note and the note ID received are
+   saved:
+
+   .. figure:: /Images/AdministrationLogEntry.png
+      :alt: Entry in the administration log
       :class: with-border
 
-      Widget *Create annotation*
+      Entry in the administration log
 
-   After submitting the form, a notification is displayed in the upper right corner
-   of the browser window. If the creation of the annotation was successful, the
-   :guilabel:`Note` field will be cleared.
-
-   Matomo module
-      Annotations
-
-   .. note::
-      The annotation is stored in Matomo under the user configured in the
-      :ref:`site configuration <site-configuration>`. A log entry has been created
-      that can be viewed in the :guilabel:`System` > :guilabel:`Log` module.
-      In addition to the user, the date, the note and the note ID received are
-      saved:
-
-      .. figure:: /Images/AdministrationLogEntry.png
-         :alt: Entry in the administration log
-         :class: with-border
-
-         Entry in the administration log
+.. note::
+   For the creation of an annotation the according Matomo user needs only the
+   `view` permission.
 
 
 Bounce rate

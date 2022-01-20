@@ -25,7 +25,7 @@ final class WidgetsProvider
         'actionsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title',
         'actionsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title',
         'annotations' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.annotations.title',
-        //        'createAnnotation' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.createAnnotation.title',
+        'createAnnotation' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.createAnnotation.title',
         'bounceRate' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.title',
         'browserPlugins' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicePlugins.plugin.title',
         'browsers' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.browsers.title',
