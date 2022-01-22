@@ -352,6 +352,37 @@ Scope "visit"
    Example widget for a custom dimension with scope "visit"
 
 
+JavaScript errors
+=================
+
+.. versionadded:: 1.3.0
+
+Displays a list of JavaScript errors that occurred in the last seven days:
+
+.. figure:: /Images/WidgetJavaScriptErrors.png
+   :alt: Widget JavaScript errors
+   :class: with-border
+
+   Widget *JavaScript errors*
+
+Matomo module
+   Events
+
+Default configuration parameters in the :file:`Services.yaml` file
+   matomo_widgets.javaScriptErrors.parameters:
+      - period: range
+      - date: last7
+      - filter_limit: 50
+      - filter_sort_column: nb_events
+      - filter_sort_order: desc
+
+.. note::
+   To use this widget, JavaScript error tracking must be activated. This can be
+   done either by adding the `enableJSErrorTracking`_ code or by enabling the
+   corresponding option in the installed :ref:`Matomo Integration extension
+   <matomo_integration:site-configuration>`.
+
+
 Link to Matomo
 ==============
 
@@ -480,4 +511,5 @@ Default configuration parameters in the :file:`Services.yaml` file
 .. _annotations: https://matomo.org/docs/annotations/
 .. _content tracking: https://matomo.org/docs/content-tracking/
 .. _custom dimensions: https://matomo.org/docs/custom-dimensions/
+.. _enableJSErrorTracking: https://matomo.org/faq/how-to/how-do-i-enable-basic-javascript-error-tracking-and-reporting-in-matomo-browser-console-error-messages/
 .. _feature request: https://github.com/brotkrueml/typo3-matomo-widgets/issues

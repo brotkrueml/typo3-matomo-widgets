@@ -9,3 +9,7 @@
 .matomo-widgets__country-flag__image {
     border: 1px solid #ccc;
 }
+
+.matomo-widgets__break-word {
+    word-break: break-all;
+}

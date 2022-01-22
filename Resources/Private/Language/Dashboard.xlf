@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2021-10-08T04:12:43Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2022-01-22T09:06:28Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
@@ -8,8 +8,14 @@
 			<trans-unit id="create" resname="create">
 				<source><![CDATA[Create]]></source>
 			</trans-unit>
+			<trans-unit id="count" resname="count">
+				<source><![CDATA[Count]]></source>
+			</trans-unit>
 			<trans-unit id="date" resname="date">
 				<source><![CDATA[Date]]></source>
+			</trans-unit>
+			<trans-unit id="error" resname="error">
+				<source><![CDATA[Error]]></source>
 			</trans-unit>
 			<trans-unit id="error.emptyDate" resname="error.emptyDate">
 				<source><![CDATA[Date is empty!]]></source>
@@ -130,6 +136,12 @@
 			</trans-unit>
 			<trans-unit id="widgets.devicePlugins.plugin.title" resname="widgets.devicePlugins.plugin.title">
 				<source><![CDATA[Browser plugins]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.events.javaScriptErrors.description" resname="widgets.events.javaScriptErrors.description">
+				<source><![CDATA[Display the last common JavaScript errors on the website.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.events.javaScriptErrors.title" resname="widgets.events.javaScriptErrors.title">
+				<source><![CDATA[JavaScript errors]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.linkMatomo.buttonText" resname="widgets.linkMatomo.buttonText">
 				<source><![CDATA[To the Matomo installation]]></source>

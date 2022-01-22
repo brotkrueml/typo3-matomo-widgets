@@ -7,8 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Compatibility with Symfony 6
 - Widget "Create annotation" (#25)
+- Widget "JavaScript errors" (#29)
+- Compatibility with Symfony 6
 
 ## [1.2.0] - 2021-10-20
 

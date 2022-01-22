@@ -44,6 +44,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains('contentNames', $actual);
         self::assertContains('contentPieces', $actual);
         self::assertContains('countries', $actual);
+        self::assertContains('javaScriptErrors', $actual);
         self::assertContains('linkMatomo', $actual);
         self::assertContains('osFamilies', $actual);
         self::assertContains('siteSearchKeywords', $actual);
@@ -68,6 +69,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentNames.title', 'contentNames'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentPieces.title', 'contentPieces'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title', 'countries'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.events.javaScriptErrors.title', 'javaScriptErrors'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title', 'linkMatomo'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title', 'osFamilies'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchKeywords.title', 'siteSearchKeywords'], $actual);
