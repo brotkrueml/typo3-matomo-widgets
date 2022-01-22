@@ -62,7 +62,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
                 [
                     [
                         'column' => 'Events_EventName',
-                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':error',
+                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':errorMessage',
                         'classes' => 'matomo-widgets__break-word',
                     ],
                     [
