@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2021-08-29T14:01:17Z" product-name="matomo_widgets" target-language="da">
+    <body>
+      <trans-unit id="activeWidgets" resname="activeWidgets" approved="yes">
+        <source><![CDATA[Active Widgets]]></source>
+        <target state="final"><![CDATA[Aktive Widgets]]></target>
+      </trans-unit>
+      <trans-unit id="dashboardWidgets" resname="dashboardWidgets" approved="yes">
+        <source><![CDATA[Dashboard Widgets]]></source>
+        <target state="final"><![CDATA[Dashboard widgets]]></target>
+      </trans-unit>
+      <trans-unit id="idSite" resname="idSite" approved="yes">
+        <source><![CDATA[Site ID]]></source>
+        <target state="final"><![CDATA[Websted ID]]></target>
+      </trans-unit>
+      <trans-unit id="matomoInstallation" resname="matomoInstallation" approved="yes">
+        <source><![CDATA[Matomo Instance]]></source>
+        <target state="final"><![CDATA[Matomo instans]]></target>
+      </trans-unit>
+      <trans-unit id="matomoWidgets" resname="matomoWidgets" approved="yes">
+        <source><![CDATA[Matomo Widgets]]></source>
+        <target state="final"><![CDATA[Matomo Widgets]]></target>
+      </trans-unit>
+      <trans-unit id="tokenAuth" resname="tokenAuth" approved="yes">
+        <source><![CDATA[Authentication token]]></source>
+        <target state="final"><![CDATA[Godkendelse token]]></target>
+      </trans-unit>
+      <trans-unit id="title" resname="title" approved="yes">
+        <source><![CDATA[Title]]></source>
+        <target state="final"><![CDATA[Titel]]></target>
+      </trans-unit>
+      <trans-unit id="title.description" resname="title.description" approved="yes">
+        <source><![CDATA[The title will prefix the widget title. Leave empty if you have only one site.
+ATTENTION: If you change one of the values in this tab you have to flush the cache via "Admin Tools > Maintenance"!]]></source>
+        <target state="final"><![CDATA[Titlen vil tildele præfiks til widget ltitlen. Efterlad blank hvis du kun har ét websted.
+BEMÆRK: Hvis du ændrer en af værdierne i denne fane, skal du rydde cachen via "Admin Tools > Vedligeholdelse"!]]></target>
+      </trans-unit>
+      <trans-unit id="url" resname="url" approved="yes">
+        <source><![CDATA[Base URL]]></source>
+        <target state="final"><![CDATA[Base URL]]></target>
+      </trans-unit>
+      <trans-unit id="considerMatomoIntegration" resname="considerMatomoIntegration" approved="yes">
+        <source><![CDATA[Use Base URL and Site ID from "Matomo Integration" configuration]]></source>
+        <target state="final"><![CDATA[Brug Base URL og Site ID fra "Matomo Integration" konfiguration]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
