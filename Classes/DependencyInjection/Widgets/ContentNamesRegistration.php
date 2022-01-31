@@ -78,7 +78,10 @@ final class ContentNamesRegistration extends AbstractRegistration
                     ],
                 ]
             )
-            ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%');
+            ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%')
+            ->call('addParameter', [
+                'showColumns', 'nb_impressions,interaction_rate',
+            ]);
     }
 
     private function registerWidget(): void

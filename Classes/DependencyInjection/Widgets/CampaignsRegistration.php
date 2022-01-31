@@ -73,7 +73,10 @@ final class CampaignsRegistration extends AbstractRegistration
                     ],
                 ]
             )
-            ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%');
+            ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%')
+            ->call('addParameter', [
+                'showColumns', 'nb_visits',
+            ]);
     }
 
     private function registerWidget(): void
