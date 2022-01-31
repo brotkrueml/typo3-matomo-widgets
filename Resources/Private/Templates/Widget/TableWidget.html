@@ -15,7 +15,7 @@
                     <f:for each="{table.rows}" as="row">
                         <tr>
                             <f:for each="{table.columns}" as="column" key="index">
-                                <td class="{table.classes.{index}}">
+                                <td{f:if(condition: '{table.classes.{index}}', then: ' class="{table.classes.{index}}"')}>
                                     <f:if condition="{table.decorators.{index}}">
                                         <f:then>
                                             <f:variable name="content" value="{matomoWidgets:decorate(decorator: '{table.decorators.{index}}', value: '{row.{column}}')}"/>
