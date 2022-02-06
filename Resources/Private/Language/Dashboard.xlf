@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2022-01-22T13:15:52Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2022-01-30T16:51:22Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
 			</trans-unit>
+			<trans-unit id="browser" resname="browser">
+				<source><![CDATA[Browser]]></source>
+			</trans-unit>
+			<trans-unit id="browsers" resname="browsers">
+				<source><![CDATA[Browsers]]></source>
+			</trans-unit>
+			<trans-unit id="column" resname="column">
+				<source><![CDATA[Column]]></source>
+			</trans-unit>
 			<trans-unit id="create" resname="create">
 				<source><![CDATA[Create]]></source>
 			</trans-unit>
-			<trans-unit id="count" resname="count">
-				<source><![CDATA[Count]]></source>
-			</trans-unit>
 			<trans-unit id="date" resname="date">
 				<source><![CDATA[Date]]></source>
-			</trans-unit>
-			<trans-unit id="errorMessage" resname="errorMessage">
-				<source><![CDATA[Error message]]></source>
 			</trans-unit>
 			<trans-unit id="error.emptyDate" resname="error.emptyDate">
 				<source><![CDATA[Date is empty!]]></source>
@@ -29,6 +32,15 @@
 			<trans-unit id="error.invalidDate" resname="error.invalidDate">
 				<source><![CDATA[Date is invalid, please use format "YYYY-MM-DD"!]]></source>
 			</trans-unit>
+			<trans-unit id="error.noDetailsAvailable" resname="error.noDetailsAvailable">
+				<source><![CDATA[No details available.]]></source>
+			</trans-unit>
+			<trans-unit id="errorMessage" resname="errorMessage">
+				<source><![CDATA[Error message]]></source>
+			</trans-unit>
+			<trans-unit id="hits" resname="hits">
+				<source><![CDATA[Hits]]></source>
+			</trans-unit>
 			<trans-unit id="impressions" resname="impressions">
 				<source><![CDATA[Impressions]]></source>
 			</trans-unit>
@@ -37,6 +49,12 @@
 			</trans-unit>
 			<trans-unit id="keyword" resname="keyword">
 				<source><![CDATA[Keyword]]></source>
+			</trans-unit>
+			<trans-unit id="lastAppearance" resname="lastAppearance">
+				<source><![CDATA[Last appearance]]></source>
+			</trans-unit>
+			<trans-unit id="line" resname="line">
+				<source><![CDATA[Line]]></source>
 			</trans-unit>
 			<trans-unit id="noResultsAvailable" resname="noResultsAvailable">
 				<source><![CDATA[No results available.]]></source>
@@ -50,14 +68,35 @@
 			<trans-unit id="other" resname="other">
 				<source><![CDATA[Other]]></source>
 			</trans-unit>
+			<trans-unit id="plusMoreBrowsers" resname="plusMoreBrowsers">
+				<source><![CDATA[... plus %d more browsers]]></source>
+			</trans-unit>
+			<trans-unit id="plusMoreScripts" resname="plusMoreScripts">
+				<source><![CDATA[... plus %d more scripts]]></source>
+			</trans-unit>
+			<trans-unit id="plusMoreUrls" resname="plusMoreUrls">
+				<source><![CDATA[... plus %d more URLs]]></source>
+			</trans-unit>
 			<trans-unit id="preset.description" resname="preset.description">
 				<source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
+			</trans-unit>
+			<trans-unit id="script" resname="script">
+				<source><![CDATA[Script]]></source>
+			</trans-unit>
+			<trans-unit id="scripts" resname="scripts">
+				<source><![CDATA[Scripts]]></source>
 			</trans-unit>
 			<trans-unit id="searches" resname="searches">
 				<source><![CDATA[Searches]]></source>
 			</trans-unit>
 			<trans-unit id="thousandsSeparator" resname="thousandsSeparator">
 				<source><![CDATA[,]]></source>
+			</trans-unit>
+			<trans-unit id="url" resname="url">
+				<source><![CDATA[URL]]></source>
+			</trans-unit>
+			<trans-unit id="urls" resname="urls">
+				<source><![CDATA[URLs]]></source>
 			</trans-unit>
 			<trans-unit id="visits" resname="visits">
 				<source><![CDATA[Visits]]></source>

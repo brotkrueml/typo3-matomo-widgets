@@ -357,7 +357,7 @@ JavaScript errors
 
 .. versionadded:: 1.3.0
 
-Displays a list of JavaScript errors that occurred in the last seven days:
+Displays a list of JavaScript errors that occurred in the last 14 days:
 
 .. figure:: /Images/WidgetJavaScriptErrors.png
    :alt: Widget JavaScript errors
@@ -365,13 +365,22 @@ Displays a list of JavaScript errors that occurred in the last seven days:
 
    Widget *JavaScript errors*
 
+Clicking on the message opens a modal with details to this message:
+
+.. figure:: /Images/WidgetJavaScriptErrorsDetailsModal.png
+   :alt: Modal with details for a specific error
+   :class: with-border
+
+   Modal with details for a specific error
+
+
 Matomo module
    Events
 
 Default configuration parameters in the :file:`Services.yaml` file
    matomo_widgets.javaScriptErrors.parameters:
       - period: range
-      - date: last7
+      - date: last14
       - filter_limit: 50
       - filter_sort_column: nb_events
       - filter_sort_order: desc

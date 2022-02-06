@@ -13,3 +13,41 @@
 .matomo-widgets__break-word {
     word-break: break-all;
 }
+
+.matomo-widgets__table {
+    width: 100%;
+}
+
+.matomo-widgets__table td,
+.matomo-widgets__table th {
+    padding: 10px;
+}
+
+
+.matomo-widgets__table tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.matomo-widgets__table tbody tr {
+    border-top: 1px solid #e0e0e0
+}
+
+.matomo-widgets__browsers-items {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+}
+
+.matomo-widgets__browsers-item {
+    padding: 0 20px 10px 0;
+}
+
+.matomo-widgets__browsers-item img {
+    margin-right: 5px;
+    vertical-align: middle
+}
+
+.matomo_widgets__text-right {
+    text-align: right;
+}

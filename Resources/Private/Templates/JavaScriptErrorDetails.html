@@ -1,0 +1,174 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<matomoWidgets:css path="EXT:matomo_widgets/Resources/Public/Css/matomo-widgets.css"/>
+
+<f:variable name="MAX_ROWS" value="30"/>
+
+<f:if condition="{details.browsersCount}">
+    <f:then>
+        <f:render section="lastAppearance" arguments="{date: details.lastAppearance}"/>
+        <f:render section="browsers" arguments="{browsers: details.browsers, count: details.browsersCount, matomoBaseUrl: matomoBaseUrl, maxRows: MAX_ROWS}"/>
+        <f:render section="scripts" arguments="{scripts: details.scripts, count: details.scriptsCount, maxRows: MAX_ROWS}"/>
+        <f:render section="urls" arguments="{urls: details.urls, count: details.urlsCount, maxRows: MAX_ROWS}"/>
+    </f:then>
+    <f:else>
+        <p><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:error.noDetailsAvailable"/></p>
+    </f:else>
+</f:if>
+
+<f:section name="lastAppearance">
+    <p>
+        <f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:lastAppearance"/>:
+        {date}
+    </p>
+</f:section>
+
+<f:section name="browsers">
+    <h2>
+        <f:if condition="{count} == 1">
+            <f:then><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:browser"/></f:then>
+            <f:else><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:browsers"/></f:else>
+        </f:if>
+    </h2>
+    <table class="matomo-widgets__table">
+        <thead>
+        <tr>
+            <th colspan="2"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:browser"/></th>
+            <th class="matomo_widgets__text-right"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:hits"/></th>
+        </tr>
+        </thead>
+        <tbody>
+        <f:for each="{browsers}" as="browser" iteration="i">
+            <f:if condition="{i.cycle} <= {maxRows}">
+                <f:then>
+                    <f:render section="browserRow" arguments="{browser: browser, matomoBaseUrl: matomoBaseUrl}"/>
+                </f:then>
+                <f:else>
+                    <f:variable name="moreBrowsersAvailable" value="1"/>
+                </f:else>
+            </f:if>
+        </f:for>
+        <f:if condition="{moreBrowsersAvailable}">
+            <f:variable name="numberOfMoreRows" value="{count - maxRows}"/>
+            <f:if condition="{numberOfMoreRows} == 1">
+                <f:then><f:render section="browserRow" arguments="{browser: '{browsers.{maxRows}}', matomoBaseUrl: matomoBaseUrl}"/></f:then>
+                <f:else>
+                    <tr><td colspan="3">
+                        <f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:plusMoreBrowsers" arguments="{0: numberOfMoreRows}"/>
+                    </td></tr>
+                </f:else>
+            </f:if>
+        </f:if>
+        </tbody>
+    </table>
+</f:section>
+
+<f:section name="browserRow">
+    <tr>
+        <td width="24">
+            <img src="{matomoBaseUrl}{browser.icon}" alt="{browser.name}" title="{browser.name}" width="24" height="24">
+        </td>
+        <td>{browser.name}</td>
+        <td class="matomo_widgets__text-right">{browser.hits}</td>
+    </tr>
+</f:section>
+
+<f:section name="scripts">
+    <h2>
+        <f:if condition="{count} == 1">
+            <f:then><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:script"/></f:then>
+            <f:else><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:scripts"/></f:else>
+        </f:if>
+    </h2>
+    <table class="matomo-widgets__table">
+        <thead>
+        <tr>
+            <th><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:script"/></th>
+            <th class="matomo_widgets__text-right"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:line"/></th>
+            <th class="matomo_widgets__text-right"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:column"/></th>
+            <th class="matomo_widgets__text-right"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:hits"/></th>
+        </tr>
+        </thead>
+        <tbody>
+            <f:for each="{scripts}" as="script" iteration="i">
+                <f:if condition="{i.cycle} <= {maxRows}">
+                    <f:then>
+                        <f:render section="scriptRow" arguments="{script: script}"/>
+                    </f:then>
+                    <f:else>
+                        <f:variable name="moreScriptsAvailable" value="1"/>
+                    </f:else>
+                </f:if>
+            </f:for>
+            <f:if condition="{moreScriptsAvailable}">
+                <f:variable name="numberOfMoreRows" value="{count - maxRows}"/>
+                <f:if condition="{numberOfMoreRows} == 1">
+                    <f:then><f:render section="scriptRow" arguments="{script: '{scripts.{maxRows}}'}"/></f:then>
+                    <f:else>
+                        <tr><td colspan="4">
+                            <f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:plusMoreScripts" arguments="{0: numberOfMoreRows}"/>
+                        </td></tr>
+                    </f:else>
+                </f:if>
+            </f:if>
+        </tbody>
+    </table>
+</f:section>
+
+<f:section name="scriptRow">
+    <tr>
+        <td>{script.script}</td>
+        <td class="matomo_widgets__text-right">{script.line}</td>
+        <td class="matomo_widgets__text-right">{script.column}</td>
+        <td class="matomo_widgets__text-right">{script.hits}</td>
+    </tr>
+</f:section>
+
+<f:section name="urls">
+    <h2>
+        <f:if condition="{count} == 1">
+            <f:then><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:url"/></f:then>
+            <f:else><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:urls"/></f:else>
+        </f:if>
+    </h2>
+    <table class="matomo-widgets__table">
+        <thead>
+        <tr>
+            <th>URL</th>
+            <th class="matomo_widgets__text-right"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:hits"/></th>
+        </tr>
+        </thead>
+        <tbody>
+        <f:for each="{urls}" as="url" iteration="i">
+            <f:if condition="{i.cycle} <= {maxRows}">
+                <f:then>
+                    <f:render section="urlRow" arguments="{url: url}"/>
+                </f:then>
+                <f:else>
+                    <f:variable name="moreUrlsAvailable" value="1"/>
+                </f:else>
+            </f:if>
+        </f:for>
+        <f:if condition="{moreUrlsAvailable}">
+            <f:variable name="numberOfMoreRows" value="{count - maxRows}"/>
+            <f:if condition="{numberOfMoreRows} == 1">
+                <f:then><f:render section="urlRow" arguments="{url: '{urls.{maxRows}}'}"/></f:then>
+                <f:else>
+                    <tr><td colspan="2">
+                        <f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:plusMoreUrls" arguments="{0: numberOfMoreRows}"/>
+                    </td></tr>
+                </f:else>
+            </f:if>
+        </f:if>
+        </tbody>
+    </table>
+</f:section>
+
+<f:section name="urlRow">
+    <tr>
+        <td>{url.url}</td>
+        <td class="matomo_widgets__text-right">{url.hits}</td>
+    </tr>
+</f:section>
+
+</html>

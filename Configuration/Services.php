@@ -12,6 +12,8 @@ declare(strict_types=1);
 use Brotkrueml\MatomoIntegration\Extension as MatomoIntegrationExtension;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController;
+use Brotkrueml\MatomoWidgets\Controller\JavaScriptErrorDetailsController;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\JavaScriptErrorsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\WidgetsRegistration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\CachingMatomoRepositoryDecorator;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
@@ -57,4 +59,10 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
     $parameters = $containerConfigurator->parameters();
 
     (new WidgetsRegistration())->register($services, $parameters, $isMatomoIntegrationAvailable);
+
+    if ($containerBuilder->hasParameter(JavaScriptErrorsRegistration::PARAMETERS_PARAMETERS)) {
+        $services->set(JavaScriptErrorDetailsController::class)
+            ->public()
+            ->arg('$parameters', '%' . JavaScriptErrorsRegistration::PARAMETERS_PARAMETERS . '%');
+    }
 };

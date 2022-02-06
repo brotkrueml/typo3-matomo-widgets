@@ -15,4 +15,9 @@ return [
         'methods' => ['POST'],
         'target' => Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController::class,
     ],
+    'matomo_widgets_javascript_error_details' => [
+        'path' => '/matomo-widgets/javascript-error-details',
+        'methods' => ['GET'],
+        'target' => Brotkrueml\MatomoWidgets\Controller\JavaScriptErrorDetailsController::class,
+    ],
 ];

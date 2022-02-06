@@ -12,8 +12,9 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\DependencyInjection\Widgets;
 
 use Brotkrueml\MatomoWidgets\Extension;
+use Brotkrueml\MatomoWidgets\Widgets\Decorator\JavaScriptErrorDecorator;
+use Brotkrueml\MatomoWidgets\Widgets\JavaScriptErrorsWidget;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericTableDataProvider;
-use Brotkrueml\MatomoWidgets\Widgets\TableWidget;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
@@ -22,7 +23,7 @@ use Symfony\Component\DependencyInjection\Reference;
 final class JavaScriptErrorsRegistration extends AbstractRegistration
 {
     private const METHOD = 'Events.getName';
-    private const PARAMETERS_PARAMETERS = 'matomo_widgets.javaScriptErrors.parameters';
+    public const PARAMETERS_PARAMETERS = 'matomo_widgets.javaScriptErrors.parameters';
 
     protected $serviceIdSuffix = 'events.javaScriptErrors';
 
@@ -43,7 +44,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
             self::PARAMETERS_PARAMETERS,
             [
                 'period' => 'range',
-                'date' => 'last7',
+                'date' => 'last14',
                 'filter_limit' => '50',
                 'filter_sort_column' => 'nb_events',
                 'filter_sort_order' => 'desc',
@@ -53,6 +54,10 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
 
     private function registerDataProvider(): void
     {
+        $javaScriptErrorDecoratorId = 'matomo_widgets.javaScriptErrorDecorator.' . $this->matomoConfiguration->getSiteIdentifier();
+        $this->services->set($javaScriptErrorDecoratorId, JavaScriptErrorDecorator::class)
+            ->arg('$siteIdentifier', $this->matomoConfiguration->getSiteIdentifier());
+
         $this->services
             ->set($this->buildServiceDataProviderId(), GenericTableDataProvider::class)
             ->arg('$connectionConfiguration', new Reference($this->connectionConfigurationId))
@@ -63,11 +68,12 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
                     [
                         'column' => 'Events_EventName',
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':errorMessage',
+                        'decorator' => new Reference($javaScriptErrorDecoratorId),
                         'classes' => 'matomo-widgets__break-word',
                     ],
                     [
                         'column' => 'nb_events',
-                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':count',
+                        'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':hits',
                         'classes' => 'text-right',
                     ],
                 ]
@@ -95,7 +101,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
             : $localisedTitle;
 
         $this->services
-            ->set($this->buildServiceWidgetId(), TableWidget::class)
+            ->set($this->buildServiceWidgetId(), JavaScriptErrorsWidget::class)
             ->arg('$dataProvider', new Reference($this->buildServiceDataProviderId()))
             ->arg('$view', new Reference('dashboard.views.widget'))
             ->arg(
