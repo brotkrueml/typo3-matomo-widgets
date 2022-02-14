@@ -316,7 +316,8 @@ final class CreateAnnotationControllerTest extends TestCase
             42,
             '',
             [],
-            []
+            [],
+            ''
         );
     }
 

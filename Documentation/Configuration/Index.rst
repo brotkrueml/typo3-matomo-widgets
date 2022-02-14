@@ -49,22 +49,26 @@ Title
    instances with your TYPO3 installation to differentiate them in the
    dashboard.
 
-Use Base URL and Site ID from "Matomo Integration" configuration
+Consider configuration from Matomo Integration extension
    This field is only displayed with installed and activated
    :ref:`Matomo Integration <matomo_integration:introduction>` extension.
-   Enable this option to use the configuration of the base URL and the site ID
-   from the "Matomo Integration" extension. In this case the base URL and site
-   ID are hidden from this tab.
+   Enable this option to use common configuration (like base URL and site ID)
+   from the "Matomo Integration" extension. In this case the common
+   configuration is hidden from this tab.
 
 Base URL
-   Enter the URL of your Matomo instance.
+   Enter the URL of your Matomo instance. This field is only available when
+   :guilabel:`Consider configuration from Matomo Integration extension` is
+   deactivated.
 
    .. important::
       Please ensure TLS (https) is used for connecting to the Matomo
       installation as the authentication token is transferred in plain text!
 
 Site ID
-   Enter the site id for the website.
+   Enter the site id for the website. This field is only available when
+   :guilabel:`Consider configuration from Matomo Integration extension` is
+   deactivated.
 
 Authentication token
    Enter the authentication token (token_auth).
@@ -83,6 +87,16 @@ Active Widgets
    You can activate or deactivate each available :ref:`widget <widgets>` for a
    site. Deactivated widgets cannot be selected in the dashboard.
 
+Pages Not Found Template
+   .. versionadded:: 1.3.0
+
+   Enter the template to specify the page title for pages which are not found.
+   See `How to track error pages in Matomo`_ for more information. Please use
+   the placeholders `{path}` for the path/URL and `{referrer}` for the referrer.
+   This field is only available when :guilabel:`Consider configuration from
+   Matomo Integration extension` is deactivated.
+
+   Default: *404/URL = {path}/From = {referrer}*
 
 .. _configuring-custom-dimensions:
 
@@ -196,3 +210,6 @@ You can find all configuration parameters in the chapter :ref:`widgets`.
    will get an error. This means that even if you only overwrite the
    :yaml:`date` parameter, you must specify the :yaml:`period` parameter even
    though it has not changed.
+
+
+.. _How to track error pages in Matomo: https://matomo.org/faq/how-to/faq_60/

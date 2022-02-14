@@ -29,6 +29,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CustomDimensionsRegistr
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\JavaScriptErrorsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\LinkMatomoRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\OsFamiliesRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\PagesNotFoundRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\SiteSearchKeywordsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\SiteSearchNoResultKeywordsRegstration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerDayRegistration;
@@ -57,6 +58,7 @@ final class WidgetsRegistration
         JavaScriptErrorsRegistration::class,
         LinkMatomoRegistration::class,
         OsFamiliesRegistration::class,
+        PagesNotFoundRegistration::class,
         SiteSearchKeywordsRegistration::class,
         SiteSearchNoResultKeywordsRegstration::class,
         VisitsPerDayRegistration::class,

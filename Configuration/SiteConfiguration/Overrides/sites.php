@@ -45,6 +45,15 @@ $GLOBALS['SiteConfiguration']['site']['columns'] += [
             'items' => (new Brotkrueml\MatomoWidgets\Configuration\WidgetsProvider())->getItemsForTca(),
         ],
     ],
+    'matomoWidgetsPagesNotFoundTemplate' => [
+        'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':pagesNotFoundTemplate',
+        'description' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':pagesNotFoundTemplate.description',
+        'config' => [
+            'type' => 'input',
+            'eval' => 'trim',
+            'default' => '404/URL = {path}/From = {referrer}',
+        ],
+    ],
 ];
 
 if (TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integration')) {
@@ -65,6 +74,7 @@ if (TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integrat
     ];
     $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsUrl']['displayCond'] = 'FIELD:matomoWidgetsConsiderMatomoIntegration:REQ:false';
     $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsIdSite']['displayCond'] = 'FIELD:matomoWidgetsConsiderMatomoIntegration:REQ:false';
+    $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsPagesNotFoundTemplate']['displayCond'] = 'FIELD:matomoWidgetsConsiderMatomoIntegration:REQ:false';
 }
 
 $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',
@@ -86,6 +96,6 @@ $GLOBALS['SiteConfiguration']['site']['palettes'] += [
     ],
     'matomoWidgetsActiveWidgets' => [
         'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':dashboardWidgets',
-        'showitem' => 'matomoWidgetsActiveWidgets',
+        'showitem' => 'matomoWidgetsActiveWidgets, --linebreak--, matomoWidgetsPagesNotFoundTemplate,',
     ],
 ];

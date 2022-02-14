@@ -55,6 +55,12 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
                     $idSite = (int)($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
                 }
 
+                if ($considerMatomoIntegration && \str_contains($siteConfiguration['matomoIntegrationOptions'] ?? '', 'trackErrorPages')) {
+                    $pagesNotFoundTemplate = (string)($siteConfiguration['matomoIntegrationErrorPagesTemplate'] ?? '');
+                } else {
+                    $pagesNotFoundTemplate = (string)($siteConfiguration['matomoWidgetsPagesNotFoundTemplate'] ?? '');
+                }
+
                 if ($url === '' || $idSite < 1) {
                     continue;
                 }
@@ -75,7 +81,8 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
                     $idSite,
                     $tokenAuth,
                     $activeWidgets,
-                    $customDimensions
+                    $customDimensions,
+                    $pagesNotFoundTemplate
                 );
             }
         } catch (DirectoryNotFoundException $e) {

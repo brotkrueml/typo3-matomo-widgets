@@ -17,6 +17,7 @@ Added
 
 * Widget "Create annotation" (#25)
 * Widget "JavaScript errors" (#29, #32)
+* Widget "Pages not found" (#30)
 * Compatibility with Symfony 6
 
 `1.2.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.1.2...v1.2.0>`_ - 2021-10-20

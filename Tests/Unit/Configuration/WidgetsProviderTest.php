@@ -47,6 +47,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains('javaScriptErrors', $actual);
         self::assertContains('linkMatomo', $actual);
         self::assertContains('osFamilies', $actual);
+        self::assertContains('pagesNotFound', $actual);
         self::assertContains('siteSearchKeywords', $actual);
         self::assertContains('siteSearchNoResultKeywords', $actual);
         self::assertContains('visitsPerDay', $actual);
@@ -72,6 +73,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.events.javaScriptErrors.title', 'javaScriptErrors'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title', 'linkMatomo'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title', 'osFamilies'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.pagesNotFound.title', 'pagesNotFound'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchKeywords.title', 'siteSearchKeywords'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchNoResultKeywords.title', 'siteSearchNoResultKeywords'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title', 'visitsPerDay'], $actual);

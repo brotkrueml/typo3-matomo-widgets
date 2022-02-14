@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2022-01-30T16:51:22Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2022-02-06T14:07:37Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
@@ -68,6 +68,9 @@
 			<trans-unit id="other" resname="other">
 				<source><![CDATA[Other]]></source>
 			</trans-unit>
+			<trans-unit id="path" resname="path">
+				<source><![CDATA[Path]]></source>
+			</trans-unit>
 			<trans-unit id="plusMoreBrowsers" resname="plusMoreBrowsers">
 				<source><![CDATA[... plus %d more browsers]]></source>
 			</trans-unit>
@@ -79,6 +82,9 @@
 			</trans-unit>
 			<trans-unit id="preset.description" resname="preset.description">
 				<source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
+			</trans-unit>
+			<trans-unit id="referrer" resname="referrer">
+				<source><![CDATA[Referrer]]></source>
 			</trans-unit>
 			<trans-unit id="script" resname="script">
 				<source><![CDATA[Script]]></source>
@@ -103,6 +109,12 @@
 			</trans-unit>
 			<trans-unit id="visitsPercentage" resname="visitsPercentage">
 				<source><![CDATA[% Visits]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.actions.pagesNotFound.description" resname="widgets.actions.pagesNotFound.description">
+				<source><![CDATA[A list of the pages which cannot be found (404).]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.actions.pagesNotFound.title" resname="widgets.actions.pagesNotFound.title">
+				<source><![CDATA[Pages not found]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.actions.siteSearchKeywords.description" resname="widgets.actions.siteSearchKeywords.description">
 				<source><![CDATA[Overview of the search keywords that visitors searched for on the internal search engine.]]></source>

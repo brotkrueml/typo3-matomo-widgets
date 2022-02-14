@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Widget "Create annotation" (#25)
 - Widget "JavaScript errors" (#29, #32)
+- Widget "Pages not found" (#30)
 - Compatibility with Symfony 6
 
 ## [1.2.0] - 2021-10-20

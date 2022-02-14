@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2021-08-29T14:01:17Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2022-02-14T08:26:40Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="activeWidgets" resname="activeWidgets">
 				<source><![CDATA[Active Widgets]]></source>
@@ -20,6 +20,12 @@
 			<trans-unit id="tokenAuth" resname="tokenAuth">
 				<source><![CDATA[Authentication token]]></source>
 			</trans-unit>
+			<trans-unit id="pagesNotFoundTemplate" resname="pagesNotFoundTemplate">
+				<source><![CDATA[Pages Not Found Template]]></source>
+			</trans-unit>
+			<trans-unit id="pagesNotFoundTemplate.description" resname="pagesNotFoundTemplate.description">
+				<source><![CDATA[The template for a 404 page title to distinguish between URL and referrer. Use the placeholders {path} and {referrer}.]]></source>
+			</trans-unit>
 			<trans-unit id="title" resname="title">
 				<source><![CDATA[Title]]></source>
 			</trans-unit>
@@ -31,7 +37,7 @@ ATTENTION: If you change one of the values in this tab you have to flush the cac
 				<source><![CDATA[Base URL]]></source>
 			</trans-unit>
 			<trans-unit id="considerMatomoIntegration" resname="considerMatomoIntegration">
-				<source><![CDATA[Use Base URL and Site ID from "Matomo Integration" configuration]]></source>
+				<source><![CDATA[Consider configuration from Matomo Integration extension]]></source>
 			</trans-unit>
 		</body>
 	</file>

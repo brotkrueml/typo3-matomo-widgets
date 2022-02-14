@@ -33,7 +33,8 @@ class ConfigurationTest extends TestCase
             [
                 'actionsPerDay',
             ],
-            []
+            [],
+            ''
         );
     }
 
@@ -105,11 +106,33 @@ class ConfigurationTest extends TestCase
             [
                 $customDimension1,
                 $customDimension2,
-            ]
+            ],
+            ''
         );
 
         self::assertCount(2, $subject->getCustomDimensions());
         self::assertSame($customDimension1, $subject->getCustomDimensions()[0]);
         self::assertSame($customDimension2, $subject->getCustomDimensions()[1]);
+    }
+
+    /**
+     * @test
+     */
+    public function getPagesNotFoundTemplateReturnsTemplateCorrectly(): void
+    {
+        $subject = new Configuration(
+            'some_site_identifier',
+            'some site title',
+            'http://example.org/',
+            42,
+            'some token auth',
+            [
+                'pagesNotFound',
+            ],
+            [],
+            '404/URL = {path}/Referrer = {referrer}'
+        );
+
+        self::assertSame('404/URL = {path}/Referrer = {referrer}', $subject->getPagesNotFoundTemplate());
     }
 }

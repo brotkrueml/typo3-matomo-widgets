@@ -51,6 +51,11 @@ final class Configuration
     private $customDimensions;
 
     /**
+     * @var string
+     */
+    private $pagesNotFoundTemplate;
+
+    /**
      * @param string[] $activeWidgets
      * @param CustomDimension[] $customDimensions
      */
@@ -61,7 +66,8 @@ final class Configuration
         int $idSite,
         string $tokenAuth,
         array $activeWidgets,
-        array $customDimensions
+        array $customDimensions,
+        string $pagesNotFoundTemplate
     ) {
         $this->siteIdentifier = $siteIdentifier;
         $this->siteTitle = $siteTitle;
@@ -70,6 +76,7 @@ final class Configuration
         $this->tokenAuth = $tokenAuth;
         $this->activeWidgets = $activeWidgets;
         $this->customDimensions = $customDimensions;
+        $this->pagesNotFoundTemplate = $pagesNotFoundTemplate;
     }
 
     public function getSiteIdentifier(): string
@@ -108,5 +115,10 @@ final class Configuration
     public function getCustomDimensions(): array
     {
         return $this->customDimensions;
+    }
+
+    public function getPagesNotFoundTemplate(): string
+    {
+        return $this->pagesNotFoundTemplate;
     }
 }

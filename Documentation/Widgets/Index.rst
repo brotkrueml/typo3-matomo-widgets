@@ -106,6 +106,8 @@ Default configuration parameters in the :file:`Services.yaml` file
 Create annotation
 =================
 
+.. versionadded:: 1.3.0
+
 This widget provides a form to create an `annotation`_ conveniently from the
 TYPO3 backend:
 
@@ -426,6 +428,31 @@ Default configuration parameters in the :file:`Services.yaml` file
       - period: month
       - date: today
       - filter_sort_column: nb_visits
+      - filter_sort_order: desc
+
+
+Pages not found
+===============
+
+.. versionadded:: 1.3.0
+
+List of pages in the last 28 days which returned a status code 404 (not found):
+
+.. figure:: /Images/WidgetPagesNotFound.png
+   :alt: Widget Pages not found
+   :class: with-border
+
+   Widget *Pages not found*
+
+Matomo module
+   Actions
+
+Default configuration parameters in the :file:`Services.yaml` file
+   matomo_widgets.siteSearchKeywords.parameters:
+      - period: range
+      - date: last28
+      - filter_limit: 50
+      - filter_sort_column: nb_hits
       - filter_sort_order: desc
 
 
