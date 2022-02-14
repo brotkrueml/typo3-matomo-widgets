@@ -60,8 +60,10 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
                 } else {
                     $pagesNotFoundTemplate = (string)($siteConfiguration['matomoWidgetsPagesNotFoundTemplate'] ?? '');
                 }
-
-                if ($url === '' || $idSite < 1) {
+                if ($url === '') {
+                    continue;
+                }
+                if ($idSite < 1) {
                     continue;
                 }
 

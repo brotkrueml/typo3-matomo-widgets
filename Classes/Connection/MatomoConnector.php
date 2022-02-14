@@ -74,8 +74,13 @@ class MatomoConnector
         }
 
         $decoded = \json_decode($content, true);
-        if (isset($decoded['result']) && $decoded['result'] === 'error') {
-            throw new ConnectionException($decoded['message'], 1593955989);
+        if (! isset($decoded['result'])) {
+            return;
         }
+        if ($decoded['result'] !== 'error') {
+            return;
+        }
+
+        throw new ConnectionException($decoded['message'], 1593955989);
     }
 }

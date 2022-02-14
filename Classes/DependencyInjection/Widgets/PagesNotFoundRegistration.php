@@ -109,7 +109,7 @@ final class PagesNotFoundRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.pagesNotFound.title';
-        $title = $this->matomoConfiguration->getSiteTitle()
+        $title = $this->matomoConfiguration->getSiteTitle() !== ''
             ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Pages not found')
             : $localisedTitle;
 

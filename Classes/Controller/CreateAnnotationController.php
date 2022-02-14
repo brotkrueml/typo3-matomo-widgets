@@ -126,7 +126,7 @@ final class CreateAnnotationController
         try {
             $this->date = new \DateTimeImmutable($date);
         } catch (\Exception $e) {
-            throw new \InvalidArgumentException($this->translate('error.invalidDate'));
+            throw new \InvalidArgumentException($this->translate('error.invalidDate'), $e->getCode(), $e);
         }
         $this->note = $note;
     }

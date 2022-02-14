@@ -28,7 +28,7 @@ final class JavaScriptErrorDecorator implements DecoratorInterface
 
     public function decorate(string $value): string
     {
-        if (! $value) {
+        if ($value === '') {
             return '';
         }
 

@@ -69,7 +69,7 @@ final class DashboardPresetsProvider
                 \ARRAY_FILTER_USE_KEY
             ));
 
-            if (\count($enabledWidgets) === 0) {
+            if ($enabledWidgets === []) {
                 continue;
             }
 

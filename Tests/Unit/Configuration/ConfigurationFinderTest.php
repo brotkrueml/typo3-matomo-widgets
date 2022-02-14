@@ -11,10 +11,8 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
-use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
-use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Core\ApplicationContext;
 use TYPO3\CMS\Core\Core\Environment;
@@ -24,11 +22,6 @@ use TYPO3\CMS\Core\Core\Environment;
  */
 class ConfigurationFinderTest extends TestCase
 {
-    /**
-     * @var ExtensionAvailability|Stub
-     */
-    private $extensionAvailabilityStub;
-
     /**
      * @var string
      */

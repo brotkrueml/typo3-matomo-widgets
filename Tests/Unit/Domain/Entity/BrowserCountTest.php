@@ -16,6 +16,11 @@ use PHPUnit\Framework\TestCase;
 
 final class BrowserCountTest extends TestCase
 {
+    /**
+     * @var BrowserCount
+     */
+    public $subject;
+
     protected function setUp(): void
     {
         $this->subject = new BrowserCount('some name', 'some icon');

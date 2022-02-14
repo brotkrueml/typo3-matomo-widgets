@@ -68,7 +68,7 @@ final class BrowsersRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.browsers.title';
-        $title = $this->matomoConfiguration->getSiteTitle()
+        $title = $this->matomoConfiguration->getSiteTitle() !== ''
             ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Browsers')
             : $localisedTitle;
 

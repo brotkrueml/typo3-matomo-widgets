@@ -38,7 +38,7 @@ class DecorateViewHelperTest extends TestCase
     {
         $actual = DecorateViewHelper::renderStatic(
             $arguments,
-            static function () {
+            static function (): void {
             },
             $this->renderingContextStub
         );
@@ -65,7 +65,7 @@ class DecorateViewHelperTest extends TestCase
         ];
     }
 
-    protected function getDecoratorStub()
+    protected function getDecoratorStub(): DecoratorInterface
     {
         return new class() implements DecoratorInterface {
             public function decorate(string $value): string
@@ -96,7 +96,7 @@ class DecorateViewHelperTest extends TestCase
 
         DecorateViewHelper::renderStatic(
             $arguments,
-            static function () {
+            static function (): void {
             },
             $this->renderingContextStub
         );

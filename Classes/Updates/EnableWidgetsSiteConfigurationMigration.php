@@ -98,7 +98,7 @@ final class EnableWidgetsSiteConfigurationMigration implements ChattyInterface, 
     {
         $activeWidgets = [];
         foreach ($enableWidgets as $legacyWidgetIdentifier => $isEnabled) {
-            if ($isEnabled === true) {
+            if ($isEnabled) {
                 $activeWidgets[] = \lcfirst(\str_replace('matomoWidgetsEnable', '', $legacyWidgetIdentifier));
             }
         }

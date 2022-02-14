@@ -117,7 +117,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
         /** @var string[] $headers */
         $headers = [];
         foreach ($this->columns as $column) {
-            $headers[] = isset($column['header']) ? $this->languageService->sL((string)$column['header']) : '';
+            $headers[] = isset($column['header']) ? $this->languageService->sL($column['header']) : '';
         }
 
         return $headers;

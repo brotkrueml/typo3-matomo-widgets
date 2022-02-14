@@ -128,7 +128,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
             $valueOther += $value;
         }
 
-        if ($valueOther) {
+        if ($valueOther !== 0) {
             $data[$this->languageService->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':other')] = $valueOther;
         }
 

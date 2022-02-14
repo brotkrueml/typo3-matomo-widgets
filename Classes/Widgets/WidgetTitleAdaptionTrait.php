@@ -24,7 +24,7 @@ trait WidgetTitleAdaptionTrait
     {
         $title = $this->getLanguageService()->sL($options['title'] ?? '') ?: $configuration->getTitle();
         $siteTitle = $options['siteTitle'] ?? '';
-        if ($siteTitle) {
+        if ($siteTitle !== '') {
             $title = \sprintf('%s: %s', $siteTitle, $title);
         }
 

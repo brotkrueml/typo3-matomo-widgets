@@ -26,7 +26,7 @@ class DecorateViewHelper extends ViewHelper\AbstractViewHelper
     }
 
     /**
-     * @param array{decorator: DecoratorInterface, value: string} $arguments
+     * @param array{decorator: DecoratorInterface|null, value: string|null} $arguments
      */
     public static function renderStatic(
         array $arguments,

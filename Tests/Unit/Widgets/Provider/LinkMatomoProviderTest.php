@@ -15,16 +15,10 @@ use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoButtonProvider;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
 class LinkMatomoProviderTest extends TestCase
 {
-    /**
-     * @var Stub|ExtensionConfiguration
-     */
-    private $extensionConfigurationStub;
-
     /**
      * @var Stub|LanguageService
      */

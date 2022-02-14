@@ -18,7 +18,7 @@ final class LanguageParameterResolver implements ParameterResolverInterface
     public function resolve(): string
     {
         $backendUser = $this->getBackendUser();
-        if ($backendUser === null) {
+        if (! $backendUser instanceof BackendUserAuthentication) {
             return '';
         }
 

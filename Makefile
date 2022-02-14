@@ -1,5 +1,5 @@
 .PHONY: qa
-qa: cs tests phpstan yaml-lint changelog
+qa: cs tests phpstan rector-dry yaml-lint changelog
 
 # See: https://github.com/crossnox/m2r2
 .PHONY: changelog
@@ -20,6 +20,14 @@ cs: vendor
 .PHONY: phpstan
 phpstan: vendor
 	.Build/bin/phpstan analyse
+
+.PHONY: rector
+rector: vendor
+	.Build/bin/rector
+
+.PHONY: rector-dry
+rector-dry: vendor
+	.Build/bin/rector --dry-run
 
 .PHONY: tests
 tests: vendor

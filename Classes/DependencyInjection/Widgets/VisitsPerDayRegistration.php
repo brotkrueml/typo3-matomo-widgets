@@ -65,7 +65,7 @@ final class VisitsPerDayRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title';
-        $title = $this->matomoConfiguration->getSiteTitle()
+        $title = $this->matomoConfiguration->getSiteTitle() !== ''
             ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Visits per day')
             : $localisedTitle;
 

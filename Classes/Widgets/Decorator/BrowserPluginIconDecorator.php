@@ -26,14 +26,13 @@ class BrowserPluginIconDecorator implements DecoratorInterface
     private function normaliseUrl(string $url): string
     {
         $url = \str_replace('index.php', '', $url);
-        $url = \rtrim($url, '/') . '/';
 
-        return $url;
+        return \rtrim($url, '/') . '/';
     }
 
     public function decorate(string $value): string
     {
-        if (! $value) {
+        if ($value === '') {
             return '';
         }
 

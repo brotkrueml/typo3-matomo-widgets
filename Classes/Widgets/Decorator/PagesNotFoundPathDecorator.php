@@ -35,11 +35,7 @@ final class PagesNotFoundPathDecorator implements DecoratorInterface
     {
         $pathPosition = \strpos($template, '{path}');
         $referrerPosition = \strpos($template, '{referrer}');
-        if ($referrerPosition === false) {
-            $this->isPathBeforeReferrer = true;
-        } else {
-            $this->isPathBeforeReferrer = $pathPosition < $referrerPosition;
-        }
+        $this->isPathBeforeReferrer = $referrerPosition === false ? true : $pathPosition < $referrerPosition;
 
         $replacements = [
             '\{statusCode\}' => '404',

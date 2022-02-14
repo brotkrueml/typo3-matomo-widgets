@@ -46,7 +46,7 @@ class GenericBarChartDataProviderTest extends TestCase
     /**
      * @test
      */
-    public function getChartData()
+    public function getChartData(): void
     {
         $method = 'some.method';
         $backgroundColour = '#abc';
