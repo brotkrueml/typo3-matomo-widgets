@@ -20,6 +20,7 @@ final class WidgetsProvider
 {
     /**
      * @var array<string,string>
+     * @phpstan-ignore-next-line Array with keys is intended
      */
     private $availableWidgets = [
         'actionsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title',

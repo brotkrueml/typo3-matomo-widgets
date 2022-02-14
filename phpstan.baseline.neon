@@ -1,19 +1,9 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
-			count: 1
-			path: Classes/Configuration/WidgetsProvider.php
-
-		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Connection\\\\MatomoConnector\\:\\:callApi\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Connection/MatomoConnector.php
-
-		-
-			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
-			count: 1
-			path: Classes/Controller/CreateAnnotationController.php
 
 		-
 			message: "#^Cannot access offset 'date' on array\\|object\\|null\\.$#"
