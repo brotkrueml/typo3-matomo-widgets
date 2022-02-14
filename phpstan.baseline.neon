@@ -66,11 +66,6 @@ parameters:
 			path: Classes/Domain/Repository/BackendUserGroupRepository.php
 
 		-
-			message: "#^Parameter \\#1 \\.\\.\\.\\$predicates of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:where\\(\\) expects array\\<int, mixed\\>\\|Doctrine\\\\DBAL\\\\Query\\\\Expression\\\\CompositeExpression, string given\\.$#"
-			count: 1
-			path: Classes/Domain/Repository/BackendUserGroupRepository.php
-
-		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\CachingMatomoRepositoryDecorator\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Domain/Repository/CachingMatomoRepositoryDecorator.php
@@ -87,11 +82,6 @@ parameters:
 
 		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\DashboardRepository\\:\\:updateWidgetConfig\\(\\) has parameter \\$widgets with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Domain/Repository/DashboardRepository.php
-
-		-
-			message: "#^Parameter \\#1 \\.\\.\\.\\$predicates of method TYPO3\\\\CMS\\\\Core\\\\Database\\\\Query\\\\QueryBuilder\\:\\:where\\(\\) expects array\\<int, mixed\\>\\|Doctrine\\\\DBAL\\\\Query\\\\Expression\\\\CompositeExpression, string given\\.$#"
 			count: 1
 			path: Classes/Domain/Repository/DashboardRepository.php
 
