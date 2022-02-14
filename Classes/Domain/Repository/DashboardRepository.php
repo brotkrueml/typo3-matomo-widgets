@@ -34,7 +34,10 @@ class DashboardRepository
         $this->queryBuilder = $connectionPool->getQueryBuilderForTable(self::TABLE);
     }
 
-    public function findAll(): \Generator
+    /**
+     * @return iterable<array{identifier: string, widgets: string}>
+     */
+    public function findAll(): iterable
     {
         $statement = $this->queryBuilder
             ->select('identifier', 'widgets')

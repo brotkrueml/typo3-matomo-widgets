@@ -34,7 +34,10 @@ class BackendUserGroupRepository
         $this->queryBuilder = $connectionPool->getQueryBuilderForTable(self::TABLE);
     }
 
-    public function findAll(): \Generator
+    /**
+     * @return iterable<array{uid: int, availableWidgets: string}>
+     */
+    public function findAll(): iterable
     {
         $statement = $this->queryBuilder
             ->select('uid', 'availableWidgets')
@@ -46,6 +49,9 @@ class BackendUserGroupRepository
         }
     }
 
+    /**
+     * @param list<string> $availableWidgets
+     */
     public function updateAvailableWidgets(int $uid, array $availableWidgets): void
     {
         $this->queryBuilder

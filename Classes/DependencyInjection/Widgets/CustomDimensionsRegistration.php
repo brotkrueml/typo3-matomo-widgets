@@ -91,6 +91,9 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             ->call('addParameter', ['idDimension', $this->customDimension->idDimension]);
     }
 
+    /**
+     * @return list<array{column: string, header: string, decorator?: Reference, classes?: string}>
+     */
     private function buildColumns(): array
     {
         $columns = [

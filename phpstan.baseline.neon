@@ -36,22 +36,7 @@ parameters:
 			path: Classes/DependencyInjection/Widgets/CustomDimensionsRegistration.php
 
 		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\DependencyInjection\\\\Widgets\\\\CustomDimensionsRegistration\\:\\:buildColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/DependencyInjection/Widgets/CustomDimensionsRegistration.php
-
-		-
 			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Result\\|int\\.$#"
-			count: 1
-			path: Classes/Domain/Repository/BackendUserGroupRepository.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\BackendUserGroupRepository\\:\\:findAll\\(\\) return type has no value type specified in iterable type Generator\\.$#"
-			count: 1
-			path: Classes/Domain/Repository/BackendUserGroupRepository.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\BackendUserGroupRepository\\:\\:updateAvailableWidgets\\(\\) has parameter \\$availableWidgets with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Domain/Repository/BackendUserGroupRepository.php
 
@@ -62,11 +47,6 @@ parameters:
 
 		-
 			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\Result\\|int\\.$#"
-			count: 1
-			path: Classes/Domain/Repository/DashboardRepository.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\DashboardRepository\\:\\:findAll\\(\\) return type has no value type specified in iterable type Generator\\.$#"
 			count: 1
 			path: Classes/Domain/Repository/DashboardRepository.php
 
