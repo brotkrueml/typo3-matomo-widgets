@@ -82,6 +82,9 @@ final class CreateAnnotationController
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
         $parameters = $request->getParsedBody();
+        if (! \is_array($parameters)) {
+            return $this->buildResponse(true, 'Given parameters in body cannot be converted to an array');
+        }
         try {
             $this->checkParameters(
                 (string)($parameters['siteIdentifier'] ?? ''),
@@ -188,11 +191,15 @@ final class CreateAnnotationController
             'note' => $this->note,
         ]);
 
+        /** @var array{date: string, note: string, idNote: string} $createdAnnotation */
         $createdAnnotation = $this->repository->send($connectionConfiguration, 'Annotations.add', $parameterBag);
         $this->log($createdAnnotation);
         $this->flushCache($connectionConfiguration);
     }
 
+    /**
+     * @param array{date: string, note: string, idNote: string} $createdAnnotation
+     */
     private function log(array $createdAnnotation): void
     {
         // Usage of writelog() should be avoided, instead the new logging API should be used.

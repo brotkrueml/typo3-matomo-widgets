@@ -6,26 +6,6 @@ parameters:
 			path: Classes/Connection/MatomoConnector.php
 
 		-
-			message: "#^Cannot access offset 'date' on array\\|object\\|null\\.$#"
-			count: 1
-			path: Classes/Controller/CreateAnnotationController.php
-
-		-
-			message: "#^Cannot access offset 'note' on array\\|object\\|null\\.$#"
-			count: 1
-			path: Classes/Controller/CreateAnnotationController.php
-
-		-
-			message: "#^Cannot access offset 'siteIdentifier' on array\\|object\\|null\\.$#"
-			count: 1
-			path: Classes/Controller/CreateAnnotationController.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Controller\\\\CreateAnnotationController\\:\\:log\\(\\) has parameter \\$createdAnnotation with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Controller/CreateAnnotationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of method Psr\\\\Http\\\\Message\\\\StreamInterface\\:\\:write\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: Classes/Controller/CreateAnnotationController.php
