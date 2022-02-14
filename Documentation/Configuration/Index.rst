@@ -73,8 +73,7 @@ Site ID
 Authentication token
    Enter the authentication token (token_auth).
 
-   See the Matomo documentation for how to `generate a token_auth
-   <https://matomo.org/faq/general/faq_114/>`_.
+   See the Matomo documentation for how to `generate a token_auth`_.
 
    .. important::
       It is recommended to create an own user in Matomo which has only read
@@ -199,9 +198,8 @@ to raise the displayed number of days for the *Visits per month* widget from
 There are some more that might be interesting for you.
 
 .. tip::
-   Have a look into the `Matomo Reporting API
-   <https://developer.matomo.org/api-reference/reporting-api>`_ for a reference
-   of the available Matomo parameters and values.
+   Have a look into the `Matomo Reporting API`_ for a reference of the available
+   Matomo parameters and values.
 
 You can find all configuration parameters in the chapter :ref:`widgets`.
 
@@ -212,4 +210,6 @@ You can find all configuration parameters in the chapter :ref:`widgets`.
    though it has not changed.
 
 
+.. _generate a token_auth: https://matomo.org/faq/general/faq_114/
 .. _How to track error pages in Matomo: https://matomo.org/faq/how-to/faq_60/
+.. _Matomo Reporting API: https://developer.matomo.org/api-reference/reporting-api
