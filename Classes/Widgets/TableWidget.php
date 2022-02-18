@@ -90,7 +90,7 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
     public function getCssFiles(): array
     {
         return [
-            \sprintf('EXT:%s/Resources/Public/Css/matomo-widgets.css', Extension::KEY),
+            'EXT:' . Extension::KEY . '/Resources/Public/Css/matomo-widgets.css',
         ];
     }
 }

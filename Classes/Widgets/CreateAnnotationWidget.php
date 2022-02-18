@@ -68,7 +68,7 @@ class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface,
     public function getCssFiles(): array
     {
         return [
-            \sprintf('EXT:%s/Resources/Public/Css/matomo-widgets.css', Extension::KEY),
+            'EXT:' . Extension::KEY . '/Resources/Public/Css/matomo-widgets.css',
         ];
     }
 
@@ -78,7 +78,7 @@ class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface,
     public function getJsFiles(): array
     {
         return [
-            \sprintf('EXT:%s/Resources/Public/JavaScript/CreateAnnotation.js', Extension::KEY),
+            'EXT:' . Extension::KEY . '/Resources/Public/JavaScript/CreateAnnotation.js',
         ];
     }
 }

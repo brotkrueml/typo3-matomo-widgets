@@ -41,7 +41,7 @@ class BrowserPluginIconDecorator implements DecoratorInterface
             return '';
         }
 
-        return \sprintf('<img src="%s" width="16" alt="">', $imageUrl);
+        return '<img src="' . $imageUrl . '" width="16" alt="">';
     }
 
     public function isHtmlOutput(): bool

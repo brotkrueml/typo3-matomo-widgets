@@ -25,7 +25,7 @@ class JavaScriptErrorsWidget extends TableWidget implements AdditionalJavaScript
     public function getJsFiles(): array
     {
         return [
-            \sprintf('EXT:%s/Resources/Public/JavaScript/JavaScriptErrors.js', Extension::KEY),
+            'EXT:' . Extension::KEY . '/Resources/Public/JavaScript/JavaScriptErrors.js',
         ];
     }
 }

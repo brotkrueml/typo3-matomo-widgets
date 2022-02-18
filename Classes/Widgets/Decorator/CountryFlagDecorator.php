@@ -41,7 +41,7 @@ class CountryFlagDecorator implements DecoratorInterface
             return '';
         }
 
-        return \sprintf('<img src="%s" width="24" alt="" class="matomo-widgets__country-flag__image">', $imageUrl);
+        return '<img src="' . $imageUrl . '" width="24" alt="" class="matomo-widgets__country-flag__image">';
     }
 
     public function isHtmlOutput(): bool
