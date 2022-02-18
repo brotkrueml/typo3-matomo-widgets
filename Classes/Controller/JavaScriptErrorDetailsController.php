@@ -21,13 +21,17 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
 /**
  * @internal
  */
-final class JavaScriptErrorDetailsController
+final class JavaScriptErrorDetailsController implements LoggerAwareInterface
 {
+    use LoggerAwareTrait;
+
     /**
      * @var ConfigurationFinder
      */
@@ -106,7 +110,16 @@ final class JavaScriptErrorDetailsController
             'showColumns' => 'actionDetails,browserName,browserIcon',
         ]);
 
-        $visits = $this->repository->send($connectionConfiguration, 'Live.getLastVisitsDetails', $parameterBag);
+        try {
+            $visits = $this->repository->send($connectionConfiguration, 'Live.getLastVisitsDetails', $parameterBag);
+        } catch (\Throwable $t) {
+            $this->logger->error($t->getMessage());
+            $response = $this->responseFactory->createResponse()
+                ->withHeader('Content-Type', 'text/plain; charset=utf-8');
+            $response->getBody()->write('An error occurred, please have a look into the TYPO3 log file for details.');
+
+            return $response;
+        }
         $details = $this->aggregator->aggregate($visits);
 
         $this->view->setTemplatePathAndFilename('EXT:matomo_widgets/Resources/Private/Templates/JavaScriptErrorDetails.html');
