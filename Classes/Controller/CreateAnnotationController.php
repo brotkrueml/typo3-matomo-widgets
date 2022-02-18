@@ -16,13 +16,14 @@ use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
-use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\SiteConfigurationNotFoundException;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 use TYPO3\CMS\Core\Localization\LanguageService;
@@ -30,8 +31,10 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 /**
  * @internal
  */
-final class CreateAnnotationController
+final class CreateAnnotationController implements LoggerAwareInterface
 {
+    use LoggerAwareTrait;
+
     /**
      * @var FrontendInterface
      */
@@ -101,8 +104,10 @@ final class CreateAnnotationController
 
         try {
             $this->createAnnotation();
-        } catch (SiteConfigurationNotFoundException | ConnectionException $e) {
-            return $this->buildResponse(true, $e->getMessage());
+        } catch (\Throwable $t) {
+            $this->logger->error($t->getMessage());
+
+            return $this->buildResponse(true, 'An error occurred, please have a look into the TYPO3 log file for details.');
         }
 
         return $this->buildResponse();

@@ -22,6 +22,7 @@ use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Log\NullLogger;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 use TYPO3\CMS\Core\Http\ResponseFactory;
@@ -75,6 +76,7 @@ final class CreateAnnotationControllerTest extends TestCase
             $this->matomoRepositoryStub,
             $responseFactory
         );
+        $this->subject->setLogger(new NullLogger());
 
         $this->backendUserStub = $this->createStub(BackendUserAuthentication::class);
         $GLOBALS['BE_USER'] = $this->backendUserStub;
@@ -230,7 +232,10 @@ final class CreateAnnotationControllerTest extends TestCase
 
         $actual = $this->invokeController($parameters);
 
-        self::assertJsonStringEqualsJsonString('{"status":"error","message":"Site configuration not found!"}', $actual->getBody()->getContents());
+        self::assertJsonStringEqualsJsonString(
+            '{"status":"error","message":"An error occurred, please have a look into the TYPO3 log file for details."}',
+            $actual->getBody()->getContents()
+        );
     }
 
     /**
@@ -296,7 +301,10 @@ final class CreateAnnotationControllerTest extends TestCase
 
         $actual = $this->invokeController($parameters);
 
-        self::assertJsonStringEqualsJsonString('{"status":"error","message":"some exception message"}', $actual->getBody()->getContents());
+        self::assertJsonStringEqualsJsonString(
+            '{"status":"error","message":"An error occurred, please have a look into the TYPO3 log file for details."}',
+            $actual->getBody()->getContents()
+        );
     }
 
     private function stubCheckOnBackendUser(bool $hasPermission): void

@@ -6,6 +6,11 @@ parameters:
 			path: Classes/Connection/MatomoConnector.php
 
 		-
+			message: "#^Cannot call method error\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+			count: 1
+			path: Classes/Controller/CreateAnnotationController.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of method Psr\\\\Http\\\\Message\\\\StreamInterface\\:\\:write\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: Classes/Controller/CreateAnnotationController.php
@@ -34,3 +39,4 @@ parameters:
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\MatomoRepositoryInterface\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Domain/Repository/MatomoRepositoryInterface.php
+
