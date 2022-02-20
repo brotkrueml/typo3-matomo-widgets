@@ -19,6 +19,7 @@ use TYPO3\CMS\Core\Core\Environment;
 
 /**
  * @runTestsInSeparateProcesses
+ * @covers \Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder
  */
 class ConfigurationFinderTest extends TestCase
 {
@@ -80,9 +81,9 @@ class ConfigurationFinderTest extends TestCase
      */
     public function noSiteConfigurationFoundThenNoMatomoConfigurationExists(): void
     {
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $subject);
+        self::assertCount(0, $configurations);
     }
 
     /**
@@ -93,9 +94,9 @@ class ConfigurationFinderTest extends TestCase
         $this->createSiteConfiguration('some_site', [
             'rootPageId' => 1,
         ]);
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $subject);
+        self::assertCount(0, $configurations);
     }
 
     /**
@@ -110,9 +111,9 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => '',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $subject);
+        self::assertCount(0, $configurations);
     }
 
     /**
@@ -129,12 +130,12 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsPagesNotFoundTemplate' => 'some 404 | {path} | {referrer}',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(1, $subject);
+        self::assertCount(1, $configurations);
 
         /** @var Configuration $actualConfiguration */
-        $actualConfiguration = $subject->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()->current();
         self::assertInstanceOf(Configuration::class, $actualConfiguration);
         self::assertSame('some_site', $actualConfiguration->getSiteIdentifier());
         self::assertSame(42, $actualConfiguration->getIdSite());
@@ -159,9 +160,9 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => 'https://example.org/',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $subject);
+        self::assertCount(0, $configurations);
     }
 
     /**
@@ -176,9 +177,9 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsUrl' => '',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $subject);
+        self::assertCount(0, $configurations);
     }
 
     /**
@@ -198,9 +199,9 @@ class ConfigurationFinderTest extends TestCase
             'matomoIntegrationErrorPagesTemplate' => 'matomo integration 404 | {path} | {referrer}',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        $actualConfiguration = $subject->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()->current();
         self::assertSame(42, $actualConfiguration->getIdSite());
         self::assertSame('https://example.org/', $actualConfiguration->getUrl());
         self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->getPagesNotFoundTemplate());
@@ -224,12 +225,12 @@ class ConfigurationFinderTest extends TestCase
             'matomoIntegrationErrorPagesTemplate' => 'matomo integration 404 | {path} | {referrer}',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, true);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
 
-        self::assertCount(1, $subject);
+        self::assertCount(1, $configurations);
 
         /** @var Configuration $actualConfiguration */
-        $actualConfiguration = $subject->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()->current();
         self::assertSame(1, $actualConfiguration->getIdSite());
         self::assertSame('https://example.com/', $actualConfiguration->getUrl());
         self::assertSame('matomo integration 404 | {path} | {referrer}', $actualConfiguration->getPagesNotFoundTemplate());
@@ -248,9 +249,9 @@ class ConfigurationFinderTest extends TestCase
             'matomoWidgetsConsiderMatomoIntegration' => true,
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, true);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
 
-        self::assertCount(0, $subject);
+        self::assertCount(0, $configurations);
     }
 
     /**
@@ -269,11 +270,44 @@ class ConfigurationFinderTest extends TestCase
             'matomoIntegrationErrorPagesTemplate' => 'matomo integration 404 | {path} | {referrer}',
         ];
         $this->createSiteConfiguration('some_site', $configuration);
-        $subject = ConfigurationFinder::buildConfigurations(self::$configPath, true);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
 
-        $actualConfiguration = $subject->getIterator()->current();
-        self::assertCount(1, $subject);
+        $actualConfiguration = $configurations->getIterator()->current();
+        self::assertCount(1, $configurations);
         self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->getPagesNotFoundTemplate());
+    }
+
+    /**
+     * @test
+     */
+    public function environmentVariablesAreResolvedCorrectly(): void
+    {
+        \putenv('SOME_TITLE=The resolved title');
+        \putenv('SOME_URL=The resolved URL');
+        \putenv('SOME_ID=42');
+        \putenv('SOME_TOKEN=The resolved token');
+        \putenv('SOME_ACTIVE_WIDGETS=widget1,widget2');
+        \putenv('SOME_ERROR_PAGES_TEMPLATE=The resolved pages not found template');
+        $configuration = [
+            'matomoWidgetsTitle' => '%env(SOME_TITLE)%',
+            'matomoWidgetsUrl' => '%env(SOME_URL)%',
+            'matomoWidgetsIdSite' => '%env(SOME_ID)%',
+            'matomoWidgetsTokenAuth' => '%env(SOME_TOKEN)%',
+            'matomoWidgetsActiveWidgets' => '%env(SOME_ACTIVE_WIDGETS)%',
+            'matomoWidgetsPagesNotFoundTemplate' => '%env(SOME_ERROR_PAGES_TEMPLATE)%',
+        ];
+        $this->createSiteConfiguration('some_site', $configuration);
+
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
+        $actual = $configurations->findConfigurationBySiteIdentifier('some_site');
+
+        self::assertSame('The resolved title', $actual->getSiteTitle());
+        self::assertSame('The resolved URL', $actual->getUrl());
+        self::assertSame(42, $actual->getIdSite());
+        self::assertSame('The resolved token', $actual->getTokenAuth());
+        self::assertTrue($actual->isWidgetActive('widget1'));
+        self::assertTrue($actual->isWidgetActive('widget2'));
+        self::assertSame('The resolved pages not found template', $actual->getPagesNotFoundTemplate());
     }
 
     private function createSiteConfiguration(string $identifier, array $configuration): void
@@ -287,7 +321,7 @@ class ConfigurationFinderTest extends TestCase
                 $value = $value ? 'true' : 'false';
             }
 
-            $yamlConfiguration .= \sprintf('%s: %s', $key, $value) . PHP_EOL;
+            $yamlConfiguration .= \sprintf('%s: "%s"', $key, $value) . PHP_EOL;
         }
         \file_put_contents($path . '/config.yaml', $yamlConfiguration);
     }

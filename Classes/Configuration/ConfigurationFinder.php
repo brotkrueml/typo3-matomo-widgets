@@ -23,6 +23,13 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 final class ConfigurationFinder
 {
+    /**
+     * Regex pattern for allowed characters in environment variables
+     * @see https://regex101.com/r/hIXvef/1
+     * @see https://stackoverflow.com/questions/2821043/allowed-characters-in-linux-environment-variable-names
+     */
+    private const ENV_VAR_REGEX = '/^%env\(([a-zA-Z_]\w*)\)%$/';
+
     public static function buildConfigurations(string $configPath, bool $isMatomoIntegrationAvailable): Configurations
     {
         $configurationsArray = [];
@@ -43,18 +50,14 @@ final class ConfigurationFinder
                     && ($siteConfiguration['matomoWidgetsConsiderMatomoIntegration'] ?? false);
 
                 if ($considerMatomoIntegration) {
-                    $url = (string)($siteConfiguration['matomoIntegrationUrl'] ?? '');
-                    $idSite = (int)($siteConfiguration['matomoIntegrationSiteId'] ?? 0);
+                    $url = $siteConfiguration['matomoIntegrationUrl'] ?? '';
+                    $idSite = (string)($siteConfiguration['matomoIntegrationSiteId'] ?? 0);
                 } else {
-                    $url = (string)($siteConfiguration['matomoWidgetsUrl'] ?? '');
-                    $idSite = (int)($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
+                    $url = $siteConfiguration['matomoWidgetsUrl'] ?? '';
+                    $idSite = (string)($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
                 }
-
-                if ($considerMatomoIntegration && \str_contains($siteConfiguration['matomoIntegrationOptions'] ?? '', 'trackErrorPages')) {
-                    $pagesNotFoundTemplate = (string)($siteConfiguration['matomoIntegrationErrorPagesTemplate'] ?? '');
-                } else {
-                    $pagesNotFoundTemplate = (string)($siteConfiguration['matomoWidgetsPagesNotFoundTemplate'] ?? '');
-                }
+                $url = self::resolveEnvironmentVariable($url);
+                $idSite = (int)self::resolveEnvironmentVariable($idSite);
                 if ($url === '') {
                     continue;
                 }
@@ -62,13 +65,24 @@ final class ConfigurationFinder
                     continue;
                 }
 
-                $siteTitle = $siteConfiguration['matomoWidgetsTitle'] ?? '';
-                $tokenAuth = $siteConfiguration['matomoWidgetsTokenAuth'] ?? '';
+                if ($considerMatomoIntegration && \str_contains($siteConfiguration['matomoIntegrationOptions'] ?? '', 'trackErrorPages')) {
+                    $pagesNotFoundTemplate = $siteConfiguration['matomoIntegrationErrorPagesTemplate'] ?? '';
+                } else {
+                    $pagesNotFoundTemplate = $siteConfiguration['matomoWidgetsPagesNotFoundTemplate'] ?? '';
+                }
+                $pagesNotFoundTemplate = self::resolveEnvironmentVariable($pagesNotFoundTemplate);
+
+                $siteTitle = self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsTitle'] ?? '');
+                $tokenAuth = self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsTokenAuth'] ?? '');
 
                 $pathSegments = \explode('/', $file->getPath());
                 $siteIdentifier = \end($pathSegments);
 
-                $activeWidgets = GeneralUtility::trimExplode(',', $siteConfiguration['matomoWidgetsActiveWidgets'] ?? '', true);
+                $activeWidgets = GeneralUtility::trimExplode(
+                    ',',
+                    self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsActiveWidgets'] ?? ''),
+                    true
+                );
                 $customDimensions = self::buildCustomDimensions($siteConfiguration['matomoWidgetsCustomDimensions'] ?? []);
 
                 $configurationsArray[] = new Configuration(
@@ -87,6 +101,24 @@ final class ConfigurationFinder
         }
 
         return new Configurations($configurationsArray);
+    }
+
+    /**
+     * This method is necessary as environment variables are not resolved when configuration
+     * is available in controllers.
+     */
+    private static function resolveEnvironmentVariable(string $value): string
+    {
+        if (\preg_match(self::ENV_VAR_REGEX, $value, $matches) !== 1) {
+            return $value;
+        }
+
+        $resolvedValue = \getenv($matches[1]);
+        if ($resolvedValue === false) {
+            return '';
+        }
+
+        return $resolvedValue;
     }
 
     /**
