@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 use Brotkrueml\MatomoIntegration\Extension as MatomoIntegrationExtension;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
+use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController;
 use Brotkrueml\MatomoWidgets\Controller\JavaScriptErrorDetailsController;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\JavaScriptErrorsRegistration;
@@ -31,6 +32,7 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
         ->autowire()
         ->autoconfigure()
         ->private();
+
     $services->load('Brotkrueml\\MatomoWidgets\\', '../Classes/*')
         ->exclude('../Classes/{DependencyInjection,Domain/Entity,Exception,Extension.php}');
 
@@ -44,12 +46,12 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
 
     $services->alias(MatomoRepositoryInterface::class, CachingMatomoRepositoryDecorator::class);
 
-    $isMatomoIntegrationAvailable = $containerBuilder->hasDefinition(MatomoIntegrationExtension::class);
-
-    $services->set(ConfigurationFinder::class)
-        ->share()
-        ->arg('$configPath', Environment::getConfigPath())
-        ->arg('$isMatomoIntegrationAvailable', $isMatomoIntegrationAvailable);
+    $services->set(Configurations::class)
+        ->factory([ConfigurationFinder::class, 'buildConfigurations'])
+        ->args([
+            Environment::getConfigPath(),
+            $containerBuilder->hasDefinition(MatomoIntegrationExtension::class),
+        ]);
 
     $services->set(CreateAnnotationController::class)
         ->share(false)
@@ -58,7 +60,9 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
 
     $parameters = $containerConfigurator->parameters();
 
-    (new WidgetsRegistration())->register($services, $parameters, $isMatomoIntegrationAvailable);
+    /** @var Configurations $configurations */
+    $configurations = $containerBuilder->get(Configurations::class);
+    (new WidgetsRegistration())->register($services, $parameters, $configurations);
 
     if ($containerBuilder->hasParameter(JavaScriptErrorsRegistration::PARAMETERS_PARAMETERS)) {
         $services->set(JavaScriptErrorDetailsController::class)

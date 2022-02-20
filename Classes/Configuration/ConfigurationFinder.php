@@ -19,18 +19,13 @@ use Symfony\Component\Yaml\Yaml;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * @implements \IteratorAggregate<Configuration>
  * @internal
  */
-class ConfigurationFinder implements \IteratorAggregate, \Countable
+final class ConfigurationFinder
 {
-    /**
-     * @var Configuration[]
-     */
-    private $configurations = [];
-
-    public function __construct(string $configPath, bool $isMatomoIntegrationAvailable)
+    public static function buildConfigurations(string $configPath, bool $isMatomoIntegrationAvailable): Configurations
     {
+        $configurationsArray = [];
         $finder = new Finder();
         try {
             $finder
@@ -74,9 +69,9 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
                 $siteIdentifier = \end($pathSegments);
 
                 $activeWidgets = GeneralUtility::trimExplode(',', $siteConfiguration['matomoWidgetsActiveWidgets'] ?? '', true);
-                $customDimensions = $this->buildCustomDimensions($siteConfiguration['matomoWidgetsCustomDimensions'] ?? []);
+                $customDimensions = self::buildCustomDimensions($siteConfiguration['matomoWidgetsCustomDimensions'] ?? []);
 
-                $this->configurations[] = new Configuration(
+                $configurationsArray[] = new Configuration(
                     $siteIdentifier,
                     $siteTitle,
                     $url,
@@ -90,13 +85,15 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
         } catch (DirectoryNotFoundException $e) {
             // do nothing
         }
+
+        return new Configurations($configurationsArray);
     }
 
     /**
      * @param list<array{scope: string, idDimension: int|string, title?: string, description?: string}> $configurations
      * @return CustomDimension[]
      */
-    private function buildCustomDimensions(array $configurations): array
+    private static function buildCustomDimensions(array $configurations): array
     {
         $validator = new CustomDimensionConfigurationValidator();
         $customDimensions = [];
@@ -111,18 +108,5 @@ class ConfigurationFinder implements \IteratorAggregate, \Countable
         }
 
         return $customDimensions;
-    }
-
-    /**
-     * @return \ArrayIterator<int, Configuration>
-     */
-    public function getIterator(): \Traversable
-    {
-        return new \ArrayIterator($this->configurations);
-    }
-
-    public function count(): int
-    {
-        return \count($this->configurations);
     }
 }

@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Controller;
 
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
-use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
+use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Aggregation\JavaScriptErrorDetailsAggregator;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
@@ -33,9 +33,9 @@ final class JavaScriptErrorDetailsController implements LoggerAwareInterface
     use LoggerAwareTrait;
 
     /**
-     * @var ConfigurationFinder
+     * @var Configurations
      */
-    private $configurationFinder;
+    private $configurations;
     /**
      * @var JavaScriptErrorDetailsAggregator
      */
@@ -61,14 +61,14 @@ final class JavaScriptErrorDetailsController implements LoggerAwareInterface
      * @param array{period: string, date: string} $parameters
      */
     public function __construct(
-        ConfigurationFinder $configurationFinder,
+        Configurations $configurations,
         JavaScriptErrorDetailsAggregator $aggregator,
         MatomoRepository $repository,
         ResponseFactoryInterface $responseFactory,
         StandaloneView $view,
         array $parameters
     ) {
-        $this->configurationFinder = $configurationFinder;
+        $this->configurations = $configurations;
         $this->aggregator = $aggregator;
         $this->repository = $repository;
         $this->responseFactory = $responseFactory;
@@ -83,17 +83,8 @@ final class JavaScriptErrorDetailsController implements LoggerAwareInterface
         $siteIdentifier = $queryParams['siteIdentifier'];
         $errorMessage = $queryParams['errorMessage'];
 
-        $siteConfiguration = null;
-
-        foreach ($this->configurationFinder as $configuration) {
-            /** @var Configuration $configuration */
-            if ($configuration->getSiteIdentifier() === $siteIdentifier) {
-                $siteConfiguration = $configuration;
-                break;
-            }
-        }
-
-        if ($siteConfiguration === null) {
+        $siteConfiguration = $this->configurations->findConfigurationBySiteIdentifier($siteIdentifier);
+        if (! $siteConfiguration instanceof Configuration) {
             throw new SiteConfigurationNotFoundException('Site configuration not found!');
         }
 

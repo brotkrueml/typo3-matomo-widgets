@@ -11,11 +11,8 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Backend;
 
-use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
-use Brotkrueml\MatomoWidgets\Configuration\Configuration;
-use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
+use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use Brotkrueml\MatomoWidgets\Extension;
-use TYPO3\CMS\Core\Core\Environment;
 
 /**
  * @internal
@@ -37,20 +34,13 @@ final class DashboardPresetsProvider
     ];
 
     /**
-     * @var ConfigurationFinder
+     * @var Configurations
      */
-    private $configurationFinder;
+    private $configurations;
 
-    /**
-     * @param ConfigurationFinder|null $configurationFinder For testing purposes only
-     */
-    public function __construct($configurationFinder = null)
+    public function __construct(Configurations $configurations)
     {
-        $this->configurationFinder = $configurationFinder
-            ?? new ConfigurationFinder(
-                Environment::getConfigPath(),
-                (new ExtensionAvailability())->isMatomoIntegrationAvailable()
-            );
+        $this->configurations = $configurations;
     }
 
     /**
@@ -59,8 +49,7 @@ final class DashboardPresetsProvider
     public function getPresets(): array
     {
         $presets = [];
-        foreach ($this->configurationFinder as $configuration) {
-            /** @var Configuration $configuration */
+        foreach ($this->configurations as $configuration) {
             $enabledWidgets = \array_values(\array_filter(
                 self::DEFAULT_WIDGETS_TEMPLATES,
                 static function (string $widgetConfigurationKey) use ($configuration): bool {
@@ -73,7 +62,7 @@ final class DashboardPresetsProvider
                 continue;
             }
 
-            $title = \count($this->configurationFinder) > 1
+            $title = \count($this->configurations) > 1
                 ? \sprintf('Matomo (%s)', $configuration->getSiteTitle() ?: $configuration->getSiteIdentifier())
                 : 'Matomo';
 

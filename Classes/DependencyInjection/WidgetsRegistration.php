@@ -11,8 +11,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\DependencyInjection;
 
-use Brotkrueml\MatomoWidgets\Configuration\Configuration;
-use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
+use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ActionsPerDayRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ActionsPerMonthRegistration;
@@ -36,7 +35,6 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerDayRegistratio
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerMonthRegistration;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ParametersConfigurator;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
-use TYPO3\CMS\Core\Core\Environment;
 
 /**
  * @internal
@@ -68,25 +66,23 @@ final class WidgetsRegistration
     public function register(
         ServicesConfigurator $services,
         ParametersConfigurator $parameters,
-        bool $isMatomoIntegrationAvailable
+        Configurations $configurations
     ): void {
-        $configurationFinder = new ConfigurationFinder(Environment::getConfigPath(), $isMatomoIntegrationAvailable);
-        foreach ($configurationFinder as $matomoConfiguration) {
-            /** @var Configuration $matomoConfiguration */
-            $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $matomoConfiguration->getSiteIdentifier();
+        foreach ($configurations as $configuration) {
+            $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $configuration->getSiteIdentifier();
             $services->set($connectionConfigurationId, ConnectionConfiguration::class)
-                ->arg('$url', $matomoConfiguration->getUrl())
-                ->arg('$idSite', $matomoConfiguration->getIdSite())
-                ->arg('$tokenAuth', $matomoConfiguration->getTokenAuth());
+                ->arg('$url', $configuration->getUrl())
+                ->arg('$idSite', $configuration->getIdSite())
+                ->arg('$tokenAuth', $configuration->getTokenAuth());
 
             // Register the standard dashboard widgets
             foreach (self::REGISTRATION_CLASSES as $registrationClass) {
-                (new $registrationClass($parameters, $services, $matomoConfiguration, $connectionConfigurationId))->register();
+                (new $registrationClass($parameters, $services, $configuration, $connectionConfigurationId))->register();
             }
 
             // Register the custom dimensions dashboard widgets
-            foreach ($matomoConfiguration->getCustomDimensions() as $customDimension) {
-                (new CustomDimensionsRegistration($parameters, $services, $matomoConfiguration, $connectionConfigurationId, $customDimension))->register();
+            foreach ($configuration->getCustomDimensions() as $customDimension) {
+                (new CustomDimensionsRegistration($parameters, $services, $configuration, $connectionConfigurationId, $customDimension))->register();
             }
         }
     }

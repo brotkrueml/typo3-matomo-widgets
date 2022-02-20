@@ -9,5 +9,15 @@ declare(strict_types=1);
  * LICENSE.txt file that was distributed with this source code.
  */
 
-return (new \Brotkrueml\MatomoWidgets\Backend\DashboardPresetsProvider())
+use Brotkrueml\MatomoWidgets\Adapter\ExtensionAvailability;
+use Brotkrueml\MatomoWidgets\Backend\DashboardPresetsProvider;
+use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
+use TYPO3\CMS\Core\Core\Environment;
+
+$configurations = ConfigurationFinder::buildConfigurations(
+    Environment::getConfigPath(),
+    (new ExtensionAvailability())->isMatomoIntegrationAvailable()
+);
+
+return (new DashboardPresetsProvider($configurations))
     ->getPresets();

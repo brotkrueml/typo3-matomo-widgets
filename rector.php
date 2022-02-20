@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Rector\CodeQuality\Rector\Array_\CallableThisArrayToAnonymousFunctionRector;
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPromotedPropertyRector;
@@ -34,6 +35,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_72);
 
     $parameters->set(Option::SKIP, [
+        CallableThisArrayToAnonymousFunctionRector::class => [
+            __DIR__ . '/Configuration/Services.php',
+        ],
         RemoveUnusedPromotedPropertyRector::class, // Skip until compatibility with PHP >= 8.0
     ]);
 };

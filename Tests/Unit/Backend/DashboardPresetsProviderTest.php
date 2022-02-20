@@ -13,6 +13,7 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Backend;
 
 use Brotkrueml\MatomoWidgets\Backend\DashboardPresetsProvider;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
+use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use PHPUnit\Framework\TestCase;
 
 class DashboardPresetsProviderTest extends TestCase
@@ -22,7 +23,7 @@ class DashboardPresetsProviderTest extends TestCase
      */
     public function getPresetsReturnsEmptyArrayIfNoConfigurationIsAvailable(): void
     {
-        $subject = new DashboardPresetsProvider([]);
+        $subject = new DashboardPresetsProvider(new Configurations([]));
 
         self::assertSame([], $subject->getPresets());
     }
@@ -32,7 +33,7 @@ class DashboardPresetsProviderTest extends TestCase
      */
     public function getPresetsReturnsOnePresetCorrectlyIfOneConfigurationIsAvailable(): void
     {
-        $configurationFinder = [
+        $configurations = new Configurations([
             new Configuration(
                 'some_site',
                 'Some Site',
@@ -45,9 +46,9 @@ class DashboardPresetsProviderTest extends TestCase
                 [],
                 ''
             ),
-        ];
+        ]);
 
-        $subject = new DashboardPresetsProvider($configurationFinder);
+        $subject = new DashboardPresetsProvider($configurations);
 
         $expected = [
             'matomo_some_site' => [
@@ -69,7 +70,7 @@ class DashboardPresetsProviderTest extends TestCase
      */
     public function getPresetsReturnsTwoPresetsCorrectlyIfTwoConfigurationsAreAvailable(): void
     {
-        $configurationFinder = [
+        $configurations = new Configurations([
             new Configuration(
                 'some_site',
                 'Some Site',
@@ -95,9 +96,9 @@ class DashboardPresetsProviderTest extends TestCase
                 [],
                 ''
             ),
-        ];
+        ]);
 
-        $subject = new DashboardPresetsProvider($configurationFinder);
+        $subject = new DashboardPresetsProvider($configurations);
 
         $expected = [
             'matomo_some_site' => [
@@ -129,7 +130,7 @@ class DashboardPresetsProviderTest extends TestCase
      */
     public function getPresetsReturnsAllWidgetsIfAllAreEnabled(): void
     {
-        $configurationFinder = [
+        $configurations = new Configurations([
             new Configuration(
                 'some_site',
                 'Some Site',
@@ -152,9 +153,9 @@ class DashboardPresetsProviderTest extends TestCase
                 [],
                 ''
             ),
-        ];
+        ]);
 
-        $subject = new DashboardPresetsProvider($configurationFinder);
+        $subject = new DashboardPresetsProvider($configurations);
 
         $expected = [
             'matomo_some_site' => [
@@ -186,7 +187,7 @@ class DashboardPresetsProviderTest extends TestCase
      */
     public function getPresetsIgnoresPresetIfAllWidgetsAreDisabled(): void
     {
-        $configurationFinder = [
+        $configurations = new Configurations([
             new Configuration(
                 'some_site',
                 'Some Site',
@@ -208,9 +209,9 @@ class DashboardPresetsProviderTest extends TestCase
                 [],
                 ''
             ),
-        ];
+        ]);
 
-        $subject = new DashboardPresetsProvider($configurationFinder);
+        $subject = new DashboardPresetsProvider($configurations);
 
         self::assertSame([], $subject->getPresets());
     }

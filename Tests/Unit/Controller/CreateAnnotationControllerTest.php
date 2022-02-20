@@ -13,7 +13,7 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Controller;
 
 use Brotkrueml\MatomoWidgets\Cache\CacheIdentifierCreator;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
-use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
+use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
@@ -38,10 +38,6 @@ final class CreateAnnotationControllerTest extends TestCase
      */
     private $cacheMock;
     /**
-     * @var ConfigurationFinder|Stub
-     */
-    private $configurationFinderStub;
-    /**
      * @var MatomoRepository|Stub
      */
     private $matomoRepositoryStub;
@@ -65,14 +61,25 @@ final class CreateAnnotationControllerTest extends TestCase
     protected function setUp(): void
     {
         $this->cacheMock = $this->createMock(FrontendInterface::class);
-        $this->configurationFinderStub = $this->createStub(ConfigurationFinder::class);
+        $configurations = new Configurations([
+            new Configuration(
+                'some_identifier',
+                'some title',
+                'https://example.org/',
+                42,
+                '',
+                [],
+                [],
+                ''
+            ),
+        ]);
         $this->matomoRepositoryStub = $this->createStub(MatomoRepository::class);
         $responseFactory = new ResponseFactory();
 
         $this->subject = new CreateAnnotationController(
             $this->cacheMock,
             new CacheIdentifierCreator(),
-            $this->configurationFinderStub,
+            $configurations,
             $this->matomoRepositoryStub,
             $responseFactory
         );
@@ -225,11 +232,6 @@ final class CreateAnnotationControllerTest extends TestCase
 
         $this->stubCheckOnBackendUser(true);
 
-        $configuration = $this->buildConfiguration('another_identifier');
-        $this->configurationFinderStub
-            ->method('getIterator')
-            ->willReturn(new \ArrayIterator([$configuration]));
-
         $actual = $this->invokeController($parameters);
 
         self::assertJsonStringEqualsJsonString(
@@ -254,11 +256,6 @@ final class CreateAnnotationControllerTest extends TestCase
         $this->cacheMock
             ->expects(self::once())
             ->method('flushByTag');
-
-        $configuration = $this->buildConfiguration('some_identifier');
-        $this->configurationFinderStub
-            ->method('getIterator')
-            ->willReturn(new \ArrayIterator([$configuration]));
 
         $this->matomoRepositoryStub
             ->method('send')
@@ -290,11 +287,6 @@ final class CreateAnnotationControllerTest extends TestCase
             ->expects(self::never())
             ->method('flushByTag');
 
-        $configuration = $this->buildConfiguration('some_identifier');
-        $this->configurationFinderStub
-            ->method('getIterator')
-            ->willReturn(new \ArrayIterator([$configuration]));
-
         $this->matomoRepositoryStub
             ->method('send')
             ->willThrowException(new ConnectionException('some exception message'));
@@ -313,20 +305,6 @@ final class CreateAnnotationControllerTest extends TestCase
             ->method('check')
             ->with('available_widgets', 'matomo_widgets.some_identifier.annotation.create')
             ->willReturn($hasPermission);
-    }
-
-    private function buildConfiguration(string $siteIdentifier): Configuration
-    {
-        return new Configuration(
-            $siteIdentifier,
-            'some title',
-            'https://example.org/',
-            42,
-            '',
-            [],
-            [],
-            ''
-        );
     }
 
     private function invokeController(array $parameters): ResponseInterface

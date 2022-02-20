@@ -13,7 +13,7 @@ namespace Brotkrueml\MatomoWidgets\Controller;
 
 use Brotkrueml\MatomoWidgets\Cache\CacheIdentifierCreator;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
-use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
+use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Exception\SiteConfigurationNotFoundException;
@@ -44,9 +44,9 @@ final class CreateAnnotationController implements LoggerAwareInterface
      */
     private $cacheIdentifierCreator;
     /**
-     * @var ConfigurationFinder
+     * @var Configurations
      */
-    private $configurationFinder;
+    private $configurations;
     /**
      * @var MatomoRepository
      */
@@ -71,13 +71,13 @@ final class CreateAnnotationController implements LoggerAwareInterface
     public function __construct(
         FrontendInterface $cache,
         CacheIdentifierCreator $cacheIdentifierCreator,
-        ConfigurationFinder $configurationFinder,
+        Configurations $configurations,
         MatomoRepository $repository,
         ResponseFactoryInterface $responseFactory
     ) {
         $this->cache = $cache;
         $this->cacheIdentifierCreator = $cacheIdentifierCreator;
-        $this->configurationFinder = $configurationFinder;
+        $this->configurations = $configurations;
         $this->repository = $repository;
         $this->responseFactory = $responseFactory;
     }
@@ -170,18 +170,8 @@ final class CreateAnnotationController implements LoggerAwareInterface
 
     private function createAnnotation(): void
     {
-        $siteConfiguration = null;
-        /**
-         * @var Configuration $configuration
-         */
-        foreach ($this->configurationFinder as $configuration) {
-            if ($configuration->getSiteIdentifier() === $this->siteIdentifier) {
-                $siteConfiguration = $configuration;
-                break;
-            }
-        }
-
-        if ($siteConfiguration === null) {
+        $siteConfiguration = $this->configurations->findConfigurationBySiteIdentifier($this->siteIdentifier);
+        if (! $siteConfiguration instanceof Configuration) {
             throw new SiteConfigurationNotFoundException('Site configuration not found!');
         }
 
