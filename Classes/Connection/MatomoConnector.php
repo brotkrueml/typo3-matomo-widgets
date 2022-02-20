@@ -18,6 +18,9 @@ use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use TYPO3\CMS\Core\Http\Stream;
 
+/**
+ * @internal
+ */
 class MatomoConnector
 {
     /**

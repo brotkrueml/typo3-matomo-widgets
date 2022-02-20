@@ -18,6 +18,9 @@ use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
+/**
+ * @internal
+ */
 class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface, AdditionalJavaScriptInterface
 {
     use WidgetTitleAdaptionTrait;

@@ -15,6 +15,9 @@ use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 
+/**
+ * @internal
+ */
 final class GenericValueDataProvider implements ValueDataProviderInterface
 {
     /**

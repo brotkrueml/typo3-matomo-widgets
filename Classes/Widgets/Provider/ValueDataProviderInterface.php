@@ -11,6 +11,9 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
+/**
+ * @internal
+ */
 interface ValueDataProviderInterface
 {
     public function getValue(): string;

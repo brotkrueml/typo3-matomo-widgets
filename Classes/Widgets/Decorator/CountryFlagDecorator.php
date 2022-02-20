@@ -11,6 +11,9 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
 
+/**
+ * @internal
+ */
 class CountryFlagDecorator implements DecoratorInterface
 {
     /**

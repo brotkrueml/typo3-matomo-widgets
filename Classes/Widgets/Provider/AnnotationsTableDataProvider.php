@@ -13,6 +13,9 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 
+/**
+ * @internal
+ */
 class AnnotationsTableDataProvider extends GenericTableDataProvider
 {
     public function getRows(): array

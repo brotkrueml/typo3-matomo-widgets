@@ -19,6 +19,7 @@ use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
 /**
+ * @internal
  * @phpstan-type Column array{column: string, header?: string, decorator?: DecoratorInterface, classes?: string}
  */
 class GenericTableDataProvider implements TableDataProviderInterface

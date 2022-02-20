@@ -15,6 +15,9 @@ use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
+/**
+ * @internal
+ */
 class CtaWidget extends \TYPO3\CMS\Dashboard\Widgets\CtaWidget
 {
     use WidgetTitleAdaptionTrait;

@@ -11,6 +11,9 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Parameter;
 
+/**
+ * @internal
+ */
 interface ParameterResolverInterface
 {
     public function resolve(): string;

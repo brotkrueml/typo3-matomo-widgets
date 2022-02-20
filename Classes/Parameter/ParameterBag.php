@@ -13,6 +13,9 @@ namespace Brotkrueml\MatomoWidgets\Parameter;
 
 use Brotkrueml\MatomoWidgets\Exception\ParameterNotFoundException;
 
+/**
+ * @internal
+ */
 final class ParameterBag
 {
     /**

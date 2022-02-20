@@ -15,6 +15,9 @@ use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper;
 
+/**
+ * @internal
+ */
 class DecorateViewHelper extends ViewHelper\AbstractViewHelper
 {
     public function initializeArguments()

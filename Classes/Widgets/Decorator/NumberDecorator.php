@@ -14,6 +14,9 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
 use Brotkrueml\MatomoWidgets\Extension;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
+/**
+ * @internal
+ */
 class NumberDecorator implements DecoratorInterface
 {
     /**

@@ -13,6 +13,9 @@ namespace Brotkrueml\MatomoWidgets\Configuration;
 
 use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
 
+/**
+ * @internal
+ */
 final class Configuration
 {
     /**

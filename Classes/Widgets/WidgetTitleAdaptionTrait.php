@@ -15,6 +15,9 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfiguration;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 
+/**
+ * @internal
+ */
 trait WidgetTitleAdaptionTrait
 {
     /**

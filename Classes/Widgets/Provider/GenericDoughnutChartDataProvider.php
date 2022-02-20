@@ -18,6 +18,9 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
 
+/**
+ * @internal
+ */
 final class GenericDoughnutChartDataProvider implements ChartDataProviderInterface
 {
     /**

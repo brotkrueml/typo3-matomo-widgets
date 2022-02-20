@@ -11,6 +11,9 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
 
+/**
+ * @internal
+ */
 interface DecoratorInterface
 {
     public function decorate(string $value): string;

@@ -13,6 +13,9 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 
+/**
+ * @internal
+ */
 interface TableDataProviderInterface
 {
     /**

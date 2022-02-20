@@ -15,6 +15,9 @@ use Brotkrueml\MatomoWidgets\Extension;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 
+/**
+ * @internal
+ */
 class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
     /**
