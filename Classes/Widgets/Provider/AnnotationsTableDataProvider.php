@@ -16,7 +16,7 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 /**
  * @internal
  */
-class AnnotationsTableDataProvider extends GenericTableDataProvider
+final class AnnotationsTableDataProvider extends GenericTableDataProvider
 {
     public function getRows(): array
     {

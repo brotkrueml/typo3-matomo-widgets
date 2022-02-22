@@ -19,7 +19,7 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 /**
  * @internal
  */
-class DoughnutChartWidget extends \TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget
+final class DoughnutChartWidget extends \TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget
 {
     use WidgetTitleAdaptionTrait;
 

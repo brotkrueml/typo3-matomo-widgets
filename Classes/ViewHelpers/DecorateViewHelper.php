@@ -18,7 +18,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper;
 /**
  * @internal
  */
-class DecorateViewHelper extends ViewHelper\AbstractViewHelper
+final class DecorateViewHelper extends ViewHelper\AbstractViewHelper
 {
     public function initializeArguments()
     {

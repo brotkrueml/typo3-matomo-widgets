@@ -19,7 +19,7 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 /**
  * @internal
  */
-class ValueWithIconWidget implements WidgetInterface
+final class ValueWithIconWidget implements WidgetInterface
 {
     use WidgetTitleAdaptionTrait;
 

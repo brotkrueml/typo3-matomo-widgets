@@ -14,7 +14,7 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
 /**
  * @internal
  */
-class CountryFlagDecorator implements DecoratorInterface
+final class CountryFlagDecorator implements DecoratorInterface
 {
     /**
      * @var string

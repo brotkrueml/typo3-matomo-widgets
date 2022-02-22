@@ -17,7 +17,7 @@ use TYPO3\CMS\Dashboard\Widgets\AdditionalJavaScriptInterface;
 /**
  * @internal
  */
-class JavaScriptErrorsWidget extends TableWidget implements AdditionalJavaScriptInterface
+final class JavaScriptErrorsWidget extends TableWidget implements AdditionalJavaScriptInterface
 {
     /**
      * @return string[]

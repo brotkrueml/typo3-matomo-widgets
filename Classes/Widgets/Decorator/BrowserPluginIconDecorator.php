@@ -14,7 +14,7 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
 /**
  * @internal
  */
-class BrowserPluginIconDecorator implements DecoratorInterface
+final class BrowserPluginIconDecorator implements DecoratorInterface
 {
     /**
      * @var string

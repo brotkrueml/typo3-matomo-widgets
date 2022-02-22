@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 /**
  * @internal
  */
-class NumberDecorator implements DecoratorInterface
+final class NumberDecorator implements DecoratorInterface
 {
     /**
      * @var LanguageService

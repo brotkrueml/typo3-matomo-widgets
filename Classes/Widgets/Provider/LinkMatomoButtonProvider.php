@@ -18,7 +18,7 @@ use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 /**
  * @internal
  */
-class LinkMatomoButtonProvider implements ButtonProviderInterface
+final class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
     /**
      * @var LanguageService

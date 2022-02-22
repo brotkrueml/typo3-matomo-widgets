@@ -21,7 +21,7 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 /**
  * @internal
  */
-class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface, AdditionalJavaScriptInterface
+final class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface, AdditionalJavaScriptInterface
 {
     use WidgetTitleAdaptionTrait;
 

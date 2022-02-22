@@ -19,7 +19,7 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 /**
  * @internal
  */
-class BarChartWidget extends \TYPO3\CMS\Dashboard\Widgets\BarChartWidget
+final class BarChartWidget extends \TYPO3\CMS\Dashboard\Widgets\BarChartWidget
 {
     use WidgetTitleAdaptionTrait;
 
