@@ -15,6 +15,7 @@ use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\CtaWidget;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoButtonProvider;
 use Symfony\Component\DependencyInjection\Reference;
+use TYPO3\CMS\Core\Http\Uri;
 
 /**
  * @internal
@@ -35,9 +36,12 @@ final class LinkMatomoRegistration extends AbstractRegistration
 
     private function registerDataProvider(): void
     {
+        $link = (string)(new Uri($this->matomoConfiguration->getUrl()))
+            ->withQuery('idSite=' . $this->matomoConfiguration->getIdSite());
+
         $this->services
             ->set($this->buildServiceDataProviderId(), LinkMatomoButtonProvider::class)
-            ->arg('$link', $this->matomoConfiguration->getUrl());
+            ->arg('$link', $link);
     }
 
     private function registerWidget(): void
@@ -50,7 +54,8 @@ final class LinkMatomoRegistration extends AbstractRegistration
         $this->services
             ->set($this->buildServiceWidgetId(), CtaWidget::class)
             ->arg('$view', new Reference('dashboard.views.widget'))
-            ->arg('$buttonProvider', new Reference($this->buildServiceDataProviderId()))            ->arg(
+            ->arg('$buttonProvider', new Reference($this->buildServiceDataProviderId()))
+            ->arg(
                 '$options',
                 [
                     'siteTitle' => $this->matomoConfiguration->getSiteTitle(),

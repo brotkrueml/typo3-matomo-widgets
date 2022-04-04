@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Site ID to the "Link to Matomo" widget link
+
 ## [1.3.0] - 2022-02-25
 
 ### Added
