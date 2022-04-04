@@ -23,8 +23,8 @@ The default parameters of the widgets can be adjusted to your needs, e.g. in the
 
 .. tip::
    If you use Matomo, the
-   :ref:`Matomo Integration <matomo_integration:introduction>` and
-   :ref:`Matomo Opt-Out <matomo_optout:introduction>`
+   :ref:`Matomo Integration <ext_matomo_integration:introduction>` and
+   :ref:`Matomo Opt-Out <ext_matomo_optout:introduction>`
    extensions might be of interest to you.
 
 .. _screenshots:

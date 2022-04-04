@@ -6,6 +6,12 @@
 Matomo Widgets
 ==============
 
+:Extension key:
+   matomo_widgets
+
+:Package name:
+   brotkrueml/typo3-matomo-widgets
+
 :Version:
    |release|
 
@@ -15,38 +21,23 @@ Matomo Widgets
 :Author:
    Chris Müller
 
-:Email:
-   typo3 (at) krue (dot) ml
-
-:Slack:
-   chris on `typo3.slack.com <https://typo3.slack.com>`_
-
 :License:
-   This extension documentation is published under the `CC BY-NC-SA 4.0
-   <https://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (Creative Commons)
-   license
+   This document is published under the `Creative Commons BY 4.0`_ license.
+
+:Rendered:
+   |today|
+
+----
 
 Dashboard widgets showing Matomo reports
 
-**TYPO3**
+----
 
-The content of this document is related to TYPO3 CMS,
-a GNU/GPL CMS/Framework available from `typo3.org <https://typo3.org/>`_.
-
-**Extension Manual**
-
-This documentation is for the TYPO3 extension matomo_widgets.
-
-If you find an error or something is missing, please:
-`Report a Problem <https://github.com/brotkrueml/typo3-matomo-widgets/issues/new>`_
-
-**For Contributors**
-
-You are welcome to help improve this guide.
-Just click on "Edit me on GitHub" on the top right to submit your change request.
+**Table of Contents:**
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
+   :titlesonly:
 
    Introduction/Index
    Dashboard/Index
@@ -56,4 +47,13 @@ Just click on "Edit me on GitHub" on the top right to submit your change request
    Translation/Index
    Migration/Index
    Changelog/Index
+
+.. Meta Menu
+
+.. toctree::
+   :hidden:
+
    Sitemap
+
+
+.. _Creative Commons BY 4.0: https://creativecommons.org/licenses/by/4.0/

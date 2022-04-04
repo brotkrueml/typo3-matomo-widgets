@@ -37,7 +37,7 @@ Widgets` tab:
 .. important::
    If you adjust settings for the Matomo widgets in the site configuration you
    have to flush the cache via :guilabel:`Admin Tools` > :guilabel:`Maintenance`
-   or in TYPO3 v11+ on console with :shell:`vendor/bin/typo3 cache:flush`.
+   or in TYPO3 v11+ on console with :bash:`vendor/bin/typo3 cache:flush`.
 
 .. note::
    A Matomo instance is only connected to a site if a base URL and a site ID
@@ -51,7 +51,7 @@ Title
 
 Consider configuration from Matomo Integration extension
    This field is only displayed with installed and activated
-   :ref:`Matomo Integration <matomo_integration:introduction>` extension.
+   :ref:`Matomo Integration <ext_matomo_integration:introduction>` extension.
    Enable this option to use common configuration (like base URL and site ID)
    from the "Matomo Integration" extension. In this case the common
    configuration is hidden from this tab.

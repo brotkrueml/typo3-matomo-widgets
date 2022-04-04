@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 
-.. highlight:: shell
+.. highlight:: bash
 
 .. _installation:
 
@@ -22,7 +22,7 @@ Composer-based TYPO3 project root, just type::
 and the recent version will be installed.
 
 You can also install the extension from the `TYPO3 Extension Repository (TER)`_.
-See :ref:`t3gettingstarted:extensions_legacy_management` for a manual how to
+See :ref:`t3start:extensions_legacy_management` for a manual how to
 install an extension.
 
 The extension offers some configuration which is explained in the

@@ -391,7 +391,7 @@ Default configuration parameters in the :file:`Services.yaml` file
    To use this widget, JavaScript error tracking must be activated. This can be
    done either by adding the `enableJSErrorTracking`_ code or by enabling the
    corresponding option in the installed :ref:`Matomo Integration extension
-   <matomo_integration:site-configuration>`.
+   <ext_matomo_integration:site-configuration>`.
 
 
 Link to Matomo
