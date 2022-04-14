@@ -56,32 +56,30 @@ class MatomoConnector
             ->withBody($body);
         $response = $this->client->sendRequest($request);
 
-        $content = $response->getBody()->getContents();
-        $this->checkResponseForErrors($content);
-
-        $result = \json_decode($content, true);
-        if ($result === null) {
-            throw new InvalidResponseException(
-                \sprintf('Content returned from Matomo Reporting API is not JSON encoded: %s', $content),
-                1595862844
-            );
-        }
-
-        return $result;
+        return $this->checkResponse($response->getBody()->getContents());
     }
 
-    private function checkResponseForErrors(string $content): void
+    private function checkResponse(string $content): array
     {
         if (\strpos($content, 'Error') === 0) {
             throw new ConnectionException($content, 1593955897);
         }
 
-        $decoded = \json_decode($content, true);
+        try {
+            $decoded = \json_decode($content, true, 512, \JSON_THROW_ON_ERROR);
+        } catch (\JsonException $e) {
+            throw new InvalidResponseException(
+                \sprintf('Content returned from Matomo Reporting API is not JSON encoded: %s', $content),
+                1595862844,
+                $e
+            );
+        }
+
         if (! isset($decoded['result'])) {
-            return;
+            return $decoded;
         }
         if ($decoded['result'] !== 'error') {
-            return;
+            return $decoded;
         }
 
         throw new ConnectionException($decoded['message'], 1593955989);

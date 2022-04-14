@@ -121,7 +121,7 @@ class MatomoConnectorTest extends TestCase
         self::assertSame('/', $lastRequest->getRequestUri());
         $body = \http_build_query($lastRequest->getPost());
         self::assertSame($expectedQuery, $body);
-        self::assertSame($expectedResult, \json_encode($actual));
+        self::assertSame($expectedResult, \json_encode($actual, \JSON_THROW_ON_ERROR));
     }
 
     public function dataProviderForCallApi(): \Generator

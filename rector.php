@@ -12,7 +12,7 @@ use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(LevelSetList::UP_TO_PHP_72);
+    $containerConfigurator->import(LevelSetList::UP_TO_PHP_73);
     $containerConfigurator->import(SetList::CODE_QUALITY);
     $containerConfigurator->import(SetList::DEAD_CODE);
     $containerConfigurator->import(SetList::EARLY_RETURN);
@@ -32,7 +32,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters->set(Option::AUTOLOAD_PATHS, [__DIR__ . '/.Build/vendor/autoload.php']);
 
-    $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_72);
+    $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_73);
 
     $parameters->set(Option::SKIP, [
         CallableThisArrayToAnonymousFunctionRector::class => [

@@ -113,7 +113,7 @@ final class CreateAnnotationControllerTest extends TestCase
     {
         $actual = $this->invokeController($parameters);
 
-        self::assertJsonStringEqualsJsonString(\json_encode($expected), $actual->getBody()->getContents());
+        self::assertJsonStringEqualsJsonString(\json_encode($expected, \JSON_THROW_ON_ERROR), $actual->getBody()->getContents());
     }
 
     public function dataProviderForEmptyOrMissingParameterReturnsResponseWithError(): iterable

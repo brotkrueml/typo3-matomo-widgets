@@ -155,7 +155,7 @@ final class CreateAnnotationController implements LoggerAwareInterface
 
         $response = $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'application/json; charset=utf-8');
-        $response->getBody()->write(\json_encode($data));
+        $response->getBody()->write(\json_encode($data, \JSON_THROW_ON_ERROR));
 
         return $response;
     }

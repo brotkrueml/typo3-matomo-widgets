@@ -22,7 +22,7 @@
 		"docs": "https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/main/en-us/"
 	},
 	"require": {
-		"php": ">=7.2",
+		"php": ">=7.3",
 		"ext-json": "*",
 		"symfony/finder": "^4.4 || ^5.0 || ^6.0",
 		"symfony/polyfill-php80": "^1.17",
