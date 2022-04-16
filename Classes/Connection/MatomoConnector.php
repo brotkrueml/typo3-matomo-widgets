@@ -59,6 +59,9 @@ class MatomoConnector
         return $this->checkResponse($response->getBody()->getContents());
     }
 
+    /**
+     * @return array<int|string, mixed>
+     */
     private function checkResponse(string $content): array
     {
         if (\strpos($content, 'Error') === 0) {

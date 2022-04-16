@@ -11,11 +11,6 @@ parameters:
 			path: Classes/Controller/CreateAnnotationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of method Psr\\\\Http\\\\Message\\\\StreamInterface\\:\\:write\\(\\) expects string, string\\|false given\\.$#"
-			count: 1
-			path: Classes/Controller/CreateAnnotationController.php
-
-		-
 			message: "#^Cannot call method error\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
 			count: 1
 			path: Classes/Controller/JavaScriptErrorDetailsController.php
