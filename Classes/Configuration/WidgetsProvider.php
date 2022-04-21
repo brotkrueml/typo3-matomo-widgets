@@ -22,7 +22,7 @@ final class WidgetsProvider
      * @var array<string,string>
      * @phpstan-ignore-next-line Array with keys is intended
      */
-    private $availableWidgets = [
+    private array $availableWidgets = [
         'actionsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title',
         'actionsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title',
         'annotations' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.annotations.title',

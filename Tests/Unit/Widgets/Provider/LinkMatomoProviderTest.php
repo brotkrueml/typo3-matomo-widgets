@@ -23,11 +23,7 @@ class LinkMatomoProviderTest extends TestCase
      * @var Stub|LanguageService
      */
     private $languageServiceStub;
-
-    /**
-     * @var LinkMatomoButtonProvider
-     */
-    private $subject;
+    private LinkMatomoButtonProvider $subject;
 
     protected function setUp(): void
     {

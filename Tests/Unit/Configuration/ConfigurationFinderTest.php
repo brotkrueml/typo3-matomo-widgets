@@ -23,10 +23,7 @@ use TYPO3\CMS\Core\Core\Environment;
  */
 class ConfigurationFinderTest extends TestCase
 {
-    /**
-     * @var string
-     */
-    private static $configPath;
+    private static string $configPath;
 
     public static function setUpBeforeClass(): void
     {

@@ -20,15 +20,8 @@ use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
  */
 final class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
-    /**
-     * @var LanguageService
-     */
-    private $languageService;
-
-    /**
-     * @var string
-     */
-    private $link;
+    private LanguageService $languageService;
+    private string $link;
 
     public function __construct(LanguageService $languageService, string $link)
     {

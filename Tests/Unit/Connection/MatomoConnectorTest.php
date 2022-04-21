@@ -27,25 +27,10 @@ use TYPO3\CMS\Core\Http\RequestFactory;
 
 class MatomoConnectorTest extends TestCase
 {
-    /**
-     * @var MockWebServer
-     */
-    private static $server;
-
-    /**
-     * @var RequestFactoryInterface
-     */
-    private $requestFactory;
-
-    /**
-     * @var ClientInterface
-     */
-    private $client;
-
-    /**
-     * @var string
-     */
-    private $url;
+    private static MockWebServer $server;
+    private RequestFactoryInterface $requestFactory;
+    private ClientInterface $client;
+    private string $url;
 
     public static function setUpBeforeClass(): void
     {

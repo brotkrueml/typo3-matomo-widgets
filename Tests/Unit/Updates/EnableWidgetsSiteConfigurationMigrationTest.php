@@ -27,21 +27,15 @@ class EnableWidgetsSiteConfigurationMigrationTest extends TestCase
      * @var Stub|LegacyEnableWidgetsConfigurationFinder
      */
     private $legacyConfigurationFinderStub;
-
     /**
      * @var Stub|SiteFinder
      */
     private $siteFinderStub;
-
     /**
      * @var Stub|SiteConfiguration
      */
     private $siteConfiguration;
-
-    /**
-     * @var EnableWidgetsSiteConfigurationMigration
-     */
-    private $subject;
+    private EnableWidgetsSiteConfigurationMigration $subject;
 
     protected function setUp(): void
     {

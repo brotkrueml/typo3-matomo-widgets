@@ -11,6 +11,12 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.4.0...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+Removed
+^^^^^^^
+
+
+* Compatibility with PHP 7.2 and PHP 7.3
+
 `1.4.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.3.0...v1.4.0>`_ - 2022-04-04
 ------------------------------------------------------------------------------------------------------
 
@@ -18,7 +24,7 @@ Added
 ^^^^^
 
 
-* Site ID to the "Link to Matomo" widget link
+* Site ID to the "Link to Matomo" widget link (#33)
 
 `1.3.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.2.0...v1.3.0>`_ - 2022-02-25
 ------------------------------------------------------------------------------------------------------

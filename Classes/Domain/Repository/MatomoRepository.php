@@ -22,10 +22,7 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
  */
 class MatomoRepository implements MatomoRepositoryInterface
 {
-    /**
-     * @var MatomoConnector
-     */
-    private $connector;
+    private MatomoConnector $connector;
 
     public function __construct(MatomoConnector $connector)
     {

@@ -23,25 +23,13 @@ final class ValueWithIconWidget implements WidgetInterface
 {
     use WidgetTitleAdaptionTrait;
 
-    /**
-     * @var WidgetConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @var StandaloneView
-     */
-    private $view;
-
+    private WidgetConfigurationInterface $configuration;
+    private StandaloneView $view;
     /**
      * @var array<string, string>
      */
-    private $options;
-
-    /**
-     * @var ValueDataProviderInterface
-     */
-    private $dataProvider;
+    private array $options;
+    private ValueDataProviderInterface $dataProvider;
 
     /**
      * @param array<string, string> $options

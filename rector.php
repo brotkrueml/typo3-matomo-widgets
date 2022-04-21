@@ -6,13 +6,14 @@ use Rector\CodeQuality\Rector\Array_\CallableThisArrayToAnonymousFunctionRector;
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPromotedPropertyRector;
+use Rector\Php74\Rector\LNumber\AddLiteralSeparatorToNumberRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(LevelSetList::UP_TO_PHP_73);
+    $containerConfigurator->import(LevelSetList::UP_TO_PHP_74);
     $containerConfigurator->import(SetList::CODE_QUALITY);
     $containerConfigurator->import(SetList::DEAD_CODE);
     $containerConfigurator->import(SetList::EARLY_RETURN);
@@ -30,11 +31,14 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/Tests',
     ]);
 
-    $parameters->set(Option::AUTOLOAD_PATHS, [__DIR__ . '/.Build/vendor/autoload.php']);
+    $parameters->set(Option::AUTOLOAD_PATHS, [
+        __DIR__ . '/.Build/vendor/autoload.php'
+    ]);
 
-    $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_73);
+    $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_74);
 
     $parameters->set(Option::SKIP, [
+        AddLiteralSeparatorToNumberRector::class,
         CallableThisArrayToAnonymousFunctionRector::class => [
             __DIR__ . '/Configuration/Services.php',
         ],

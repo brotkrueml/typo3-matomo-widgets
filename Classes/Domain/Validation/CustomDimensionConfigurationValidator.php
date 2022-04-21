@@ -20,31 +20,33 @@ final class CustomDimensionConfigurationValidator
     /**
      * @var array<string, string|int>
      */
-    private $configuration = [];
-
+    private array $configuration = [];
     /**
      * @var int[]
      */
-    private $alreadyDefinedIdDimensions = [];
+    private array $alreadyDefinedIdDimensions = [];
 
     /**
      * @param array<string, string|int> $configuration It is intended to have no type hint "array" as a speaking error should be returned
      */
     public function validate($configuration): bool
     {
+        $this->checkConfigurationIsArray($configuration);
         $this->configuration = $configuration;
-        $this->checkConfigurationIsArray();
         $this->checkScope();
         $this->checkIdDimension();
 
         return true;
     }
 
-    private function checkConfigurationIsArray(): void
+    /**
+     * @param mixed $configuration
+     */
+    private function checkConfigurationIsArray($configuration): void
     {
-        if (! \is_array($this->configuration)) {
+        if (! \is_array($configuration)) {
             throw new ValidationException(
-                \sprintf('A custom dimension configuration is not an array, "%s" given', \gettype($this->configuration)),
+                \sprintf('A custom dimension configuration is not an array, "%s" given', \gettype($configuration)),
                 1618591877
             );
         }

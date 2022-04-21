@@ -19,10 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class JavaScriptErrorVisitsAggregatorTest extends TestCase
 {
-    /**
-     * @var JavaScriptErrorDetailsAggregator
-     */
-    private $subject;
+    private JavaScriptErrorDetailsAggregator $subject;
 
     protected function setUp(): void
     {

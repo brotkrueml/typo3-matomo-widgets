@@ -23,15 +23,8 @@ use TYPO3\CMS\Core\Http\Stream;
  */
 class MatomoConnector
 {
-    /**
-     * @var RequestFactoryInterface
-     */
-    private $requestFactory;
-
-    /**
-     * @var ClientInterface
-     */
-    private $client;
+    private RequestFactoryInterface $requestFactory;
+    private ClientInterface $client;
 
     public function __construct(RequestFactoryInterface $requestFactory, ClientInterface $client)
     {

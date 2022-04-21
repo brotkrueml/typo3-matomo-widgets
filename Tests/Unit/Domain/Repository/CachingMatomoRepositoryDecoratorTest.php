@@ -26,21 +26,12 @@ class CachingMatomoRepositoryDecoratorTest extends TestCase
      * @var MatomoRepositoryInterface|MockObject
      */
     private $repositoryMock;
-
     /**
      * @var MockObject|FrontendInterface
      */
     private $cacheMock;
-
-    /**
-     * @var ConnectionConfiguration
-     */
-    private $connectionConfiguration;
-
-    /**
-     * @var CachingMatomoRepositoryDecorator
-     */
-    private $subject;
+    private ConnectionConfiguration $connectionConfiguration;
+    private CachingMatomoRepositoryDecorator $subject;
 
     protected function setUp(): void
     {

@@ -19,10 +19,7 @@ use TYPO3\CMS\Core\Localization\LanguageService;
  */
 final class NumberDecorator implements DecoratorInterface
 {
-    /**
-     * @var LanguageService
-     */
-    private $languageService;
+    private LanguageService $languageService;
 
     public function __construct(LanguageService $languageService)
     {

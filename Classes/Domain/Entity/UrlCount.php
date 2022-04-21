@@ -16,15 +16,8 @@ namespace Brotkrueml\MatomoWidgets\Domain\Entity;
  */
 final class UrlCount
 {
-    /**
-     * @var string
-     */
-    private $url;
-
-    /**
-     * @var int
-     */
-    private $hits = 0;
+    private string $url;
+    private int $hits = 0;
 
     public function __construct(string $url)
     {

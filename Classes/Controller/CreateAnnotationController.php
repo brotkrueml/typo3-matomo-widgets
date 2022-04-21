@@ -35,38 +35,14 @@ final class CreateAnnotationController implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
-    /**
-     * @var FrontendInterface
-     */
-    private $cache;
-    /**
-     * @var CacheIdentifierCreator
-     */
-    private $cacheIdentifierCreator;
-    /**
-     * @var Configurations
-     */
-    private $configurations;
-    /**
-     * @var MatomoRepository
-     */
-    private $repository;
-    /**
-     * @var ResponseFactoryInterface
-     */
-    private $responseFactory;
-    /**
-     * @var string
-     */
-    private $siteIdentifier;
-    /**
-     * @var \DateTimeImmutable
-     */
-    private $date;
-    /**
-     * @var string
-     */
-    private $note;
+    private FrontendInterface $cache;
+    private CacheIdentifierCreator $cacheIdentifierCreator;
+    private Configurations $configurations;
+    private MatomoRepository $repository;
+    private ResponseFactoryInterface $responseFactory;
+    private string $siteIdentifier;
+    private \DateTimeImmutable $date;
+    private string $note;
 
     public function __construct(
         FrontendInterface $cache,

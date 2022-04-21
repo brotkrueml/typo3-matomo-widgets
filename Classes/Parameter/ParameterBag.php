@@ -21,7 +21,7 @@ final class ParameterBag
     /**
      * @var array<string,string>
      */
-    private $parameters = [];
+    private array $parameters = [];
 
     /**
      * @param array<string, string|int|ParameterResolverInterface> $parameters

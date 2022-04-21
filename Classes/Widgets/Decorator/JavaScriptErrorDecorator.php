@@ -16,10 +16,7 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
  */
 final class JavaScriptErrorDecorator implements DecoratorInterface
 {
-    /**
-     * @var string
-     */
-    private $siteIdentifier;
+    private string $siteIdentifier;
 
     public function __construct(string $siteIdentifier)
     {

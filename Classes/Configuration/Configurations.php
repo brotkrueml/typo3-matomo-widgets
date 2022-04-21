@@ -20,7 +20,7 @@ final class Configurations implements \IteratorAggregate, \Countable
     /**
      * @var Configuration[]
      */
-    private $configurations = [];
+    private array $configurations = [];
 
     /**
      * @param Configuration[] $configurations

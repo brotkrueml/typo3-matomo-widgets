@@ -16,10 +16,7 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
  */
 final class BrowserPluginIconDecorator implements DecoratorInterface
 {
-    /**
-     * @var string
-     */
-    private $baseUrl;
+    private string $baseUrl;
 
     public function __construct(string $url)
     {

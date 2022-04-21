@@ -18,10 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 final class CacheIdentifierCreatorTest extends TestCase
 {
-    /**
-     * @var CacheIdentifierCreator
-     */
-    private $subject;
+    private CacheIdentifierCreator $subject;
 
     protected function setUp(): void
     {

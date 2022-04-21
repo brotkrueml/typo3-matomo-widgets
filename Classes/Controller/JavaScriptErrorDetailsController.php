@@ -32,30 +32,15 @@ final class JavaScriptErrorDetailsController implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
-    /**
-     * @var Configurations
-     */
-    private $configurations;
-    /**
-     * @var JavaScriptErrorDetailsAggregator
-     */
-    private $aggregator;
-    /**
-     * @var MatomoRepository
-     */
-    private $repository;
-    /**
-     * @var ResponseFactoryInterface
-     */
-    private $responseFactory;
-    /**
-     * @var StandaloneView
-     */
-    private $view;
+    private Configurations $configurations;
+    private JavaScriptErrorDetailsAggregator $aggregator;
+    private MatomoRepository $repository;
+    private ResponseFactoryInterface $responseFactory;
+    private StandaloneView $view;
     /**
      * @var array<string, string|int>
      */
-    private $parameters;
+    private array $parameters;
 
     /**
      * @param array{period: string, date: string} $parameters

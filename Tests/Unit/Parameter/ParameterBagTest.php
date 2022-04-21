@@ -18,10 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 class ParameterBagTest extends TestCase
 {
-    /**
-     * @var ParameterBag
-     */
-    private $subject;
+    private ParameterBag $subject;
 
     protected function setUp(): void
     {

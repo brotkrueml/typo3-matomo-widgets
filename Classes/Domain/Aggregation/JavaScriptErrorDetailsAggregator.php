@@ -18,10 +18,7 @@ use Brotkrueml\MatomoWidgets\Domain\Entity\JavaScriptErrorDetails;
  */
 final class JavaScriptErrorDetailsAggregator
 {
-    /**
-     * @var JavaScriptErrorDetails
-     */
-    private $javaScriptDetails;
+    private JavaScriptErrorDetails $javaScriptDetails;
 
     public function __construct()
     {

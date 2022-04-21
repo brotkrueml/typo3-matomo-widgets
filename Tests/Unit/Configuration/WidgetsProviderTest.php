@@ -17,10 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 class WidgetsProviderTest extends TestCase
 {
-    /**
-     * @var WidgetsProvider
-     */
-    private $subject;
+    private WidgetsProvider $subject;
 
     protected function setUp(): void
     {

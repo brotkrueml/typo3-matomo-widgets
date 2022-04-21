@@ -17,10 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 class CustomDimensionConfigurationValidatorTest extends TestCase
 {
-    /**
-     * @var CustomDimensionConfigurationValidator
-     */
-    private $subject;
+    private CustomDimensionConfigurationValidator $subject;
 
     protected function setUp(): void
     {

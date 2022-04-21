@@ -33,10 +33,7 @@ final class DashboardPresetsProvider
         'countries' => 'matomo_widgets.%s.userCountry.country',
     ];
 
-    /**
-     * @var Configurations
-     */
-    private $configurations;
+    private Configurations $configurations;
 
     public function __construct(Configurations $configurations)
     {
@@ -52,9 +49,7 @@ final class DashboardPresetsProvider
         foreach ($this->configurations as $configuration) {
             $enabledWidgets = \array_values(\array_filter(
                 self::DEFAULT_WIDGETS_TEMPLATES,
-                static function (string $widgetConfigurationKey) use ($configuration): bool {
-                    return $configuration->isWidgetActive($widgetConfigurationKey);
-                },
+                static fn (string $widgetConfigurationKey): bool => $configuration->isWidgetActive($widgetConfigurationKey),
                 \ARRAY_FILTER_USE_KEY
             ));
 
@@ -71,9 +66,10 @@ final class DashboardPresetsProvider
                 'title' => $title,
                 'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':preset.description',
                 'iconIdentifier' => 'content-dashboard',
-                'defaultWidgets' => \array_map(static function (string $widget) use ($configuration): string {
-                    return \sprintf($widget, $configuration->getSiteIdentifier());
-                }, $enabledWidgets),
+                'defaultWidgets' => \array_map(
+                    static fn (string $widget): string => \sprintf($widget, $configuration->getSiteIdentifier()),
+                    $enabledWidgets
+                ),
                 'showInWizard' => true,
             ];
         }

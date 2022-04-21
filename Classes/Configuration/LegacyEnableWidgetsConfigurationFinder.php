@@ -24,7 +24,7 @@ class LegacyEnableWidgetsConfigurationFinder implements \IteratorAggregate, \Cou
     /**
      * @var string[]
      */
-    private $enableWidgetsIdentifier = [
+    private array $enableWidgetsIdentifier = [
         'matomoWidgetsEnableActionsPerDay',
         'matomoWidgetsEnableActionsPerMonth',
         'matomoWidgetsEnableBounceRate',
@@ -36,16 +36,14 @@ class LegacyEnableWidgetsConfigurationFinder implements \IteratorAggregate, \Cou
         'matomoWidgetsEnableVisitsPerDay',
         'matomoWidgetsEnableVisitsPerMonth',
     ];
-
     /**
      * @var array<string, array<string, bool>>
      */
-    private $configurations = [];
+    private array $configurations = [];
 
     public function __construct(SiteFinder $siteFinder = null)
     {
-        /** @var SiteFinder $siteFinder */
-        $siteFinder = $siteFinder ?? GeneralUtility::makeInstance(SiteFinder::class);
+        $siteFinder ??= GeneralUtility::makeInstance(SiteFinder::class);
 
         /** @var array<string, Site> $sites */
         $sites = $siteFinder->getAllSites();

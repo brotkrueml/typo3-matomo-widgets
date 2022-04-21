@@ -21,15 +21,8 @@ final class PagesNotFoundPathDecorator implements DecoratorInterface
 {
     private const LLL_REFERRER = Extension::LANGUAGE_PATH_DASHBOARD . ':referrer';
 
-    /**
-     * @var string
-     */
-    private $regex;
-
-    /**
-     * @var bool
-     */
-    private $isPathBeforeReferrer;
+    private string $regex;
+    private bool $isPathBeforeReferrer;
 
     public function __construct(string $template)
     {

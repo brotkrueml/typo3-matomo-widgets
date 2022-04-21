@@ -34,15 +34,8 @@ final class CustomDimensionsRegistration extends AbstractRegistration
 
     protected $serviceIdSuffix = 'customDimensions.customDimension';
 
-    /**
-     * @var CustomDimension
-     */
-    private $customDimension;
-
-    /**
-     * @var string
-     */
-    private $parametersName;
+    private CustomDimension $customDimension;
+    private string $parametersName;
 
     public function __construct(
         ParametersConfigurator $parameters,

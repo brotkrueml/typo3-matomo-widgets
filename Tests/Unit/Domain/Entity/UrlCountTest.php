@@ -16,10 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 final class UrlCountTest extends TestCase
 {
-    /**
-     * @var UrlCount
-     */
-    private $subject;
+    private UrlCount $subject;
 
     protected function setUp(): void
     {

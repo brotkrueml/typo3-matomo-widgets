@@ -24,16 +24,8 @@ class MatomoRepositoryTest extends TestCase
      * @var MatomoConnector|MockObject
      */
     private $connectorMock;
-
-    /**
-     * @var ConnectionConfiguration
-     */
-    private $connectionConfiguration;
-
-    /**
-     * @var MatomoRepository
-     */
-    private $subject;
+    private ConnectionConfiguration $connectionConfiguration;
+    private MatomoRepository $subject;
 
     protected function setUp(): void
     {

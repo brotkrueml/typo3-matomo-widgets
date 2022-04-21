@@ -25,20 +25,12 @@ final class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInte
 {
     use WidgetTitleAdaptionTrait;
 
-    /**
-     * @var WidgetConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @var StandaloneView
-     */
-    private $view;
-
+    private WidgetConfigurationInterface $configuration;
+    private StandaloneView $view;
     /**
      * @var array<string, string>
      */
-    private $options;
+    private array $options;
 
     /**
      * @param array<string, string> $options

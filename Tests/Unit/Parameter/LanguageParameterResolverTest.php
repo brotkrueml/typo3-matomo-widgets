@@ -22,11 +22,7 @@ class LanguageParameterResolverTest extends TestCase
      * @var Stub|BackendUserAuthentication
      */
     private $backendUserStub;
-
-    /**
-     * @var LanguageParameterResolver
-     */
-    private $subject;
+    private LanguageParameterResolver $subject;
 
     protected function setUp(): void
     {

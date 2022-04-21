@@ -24,11 +24,7 @@ class NumberDecoratorTest extends TestCase
      * @var Stub|LanguageService
      */
     private $languageServiceStub;
-
-    /**
-     * @var NumberDecorator
-     */
-    private $subject;
+    private NumberDecorator $subject;
 
     protected function setUp(): void
     {

@@ -18,45 +18,20 @@ use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
  */
 final class Configuration
 {
-    /**
-     * @var string
-     */
-    private $siteIdentifier;
-
-    /**
-     * @var string
-     */
-    private $siteTitle;
-
-    /**
-     * @var string
-     */
-    private $url;
-
-    /**
-     * @var int
-     */
-    private $idSite;
-
-    /**
-     * @var string
-     */
-    private $tokenAuth;
-
+    private string $siteIdentifier;
+    private string $siteTitle;
+    private string $url;
+    private int $idSite;
+    private string $tokenAuth;
     /**
      * @var string[]
      */
-    private $activeWidgets;
-
+    private array $activeWidgets;
     /**
      * @var CustomDimension[]
      */
-    private $customDimensions;
-
-    /**
-     * @var string
-     */
-    private $pagesNotFoundTemplate;
+    private array $customDimensions;
+    private string $pagesNotFoundTemplate;
 
     /**
      * @param string[] $activeWidgets

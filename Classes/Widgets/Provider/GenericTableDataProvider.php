@@ -24,35 +24,19 @@ use TYPO3\CMS\Core\Localization\LanguageService;
  */
 class GenericTableDataProvider implements TableDataProviderInterface
 {
-    /**
-     * @var MatomoRepositoryInterface
-     */
-    protected $repository;
-
-    /**
-     * @var ConnectionConfiguration
-     */
-    protected $connectionConfiguration;
-
-    /**
-     * @var LanguageService
-     */
-    private $languageService;
-
-    /**
-     * @var string
-     */
-    protected $method;
-
-    /**
-     * @var list<Column>
-     */
-    private $columns;
-
+    protected MatomoRepositoryInterface $repository;
+    protected ConnectionConfiguration $connectionConfiguration;
+    protected string $method;
     /**
      * @var array<string, string|LanguageParameterResolver>
      */
-    protected $parameters;
+    protected array $parameters;
+
+    private LanguageService $languageService;
+    /**
+     * @var list<Column>
+     */
+    private array $columns;
 
     /**
      * @param list<Column> $columns
@@ -79,7 +63,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
      */
     public function addParameter(string $name, $value): void
     {
-        $this->parameters[$name] = $this->parameters[$name] ?? $value;
+        $this->parameters[$name] ??= $value;
     }
 
     public function getClasses(): array

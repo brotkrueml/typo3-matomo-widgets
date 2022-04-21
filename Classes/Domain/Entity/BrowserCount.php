@@ -16,20 +16,9 @@ namespace Brotkrueml\MatomoWidgets\Domain\Entity;
  */
 final class BrowserCount
 {
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $icon;
-
-    /**
-     * @var int
-     */
-    private $hits = 0;
+    private string $name;
+    private string $icon;
+    private int $hits = 0;
 
     public function __construct(string $name, string $icon)
     {

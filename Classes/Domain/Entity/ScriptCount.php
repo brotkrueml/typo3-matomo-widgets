@@ -16,25 +16,10 @@ namespace Brotkrueml\MatomoWidgets\Domain\Entity;
  */
 final class ScriptCount
 {
-    /**
-     * @var string
-     */
-    private $script;
-
-    /**
-     * @var string
-     */
-    private $line;
-
-    /**
-     * @var string
-     */
-    private $column;
-
-    /**
-     * @var int
-     */
-    private $hits = 0;
+    private string $script;
+    private string $line;
+    private string $column;
+    private int $hits = 0;
 
     public function __construct(string $fullScriptUrlWithLineAndColumn)
     {

@@ -26,30 +26,14 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
 {
     use WidgetTitleAdaptionTrait;
 
-    /**
-     * @var WidgetConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @var TableDataProviderInterface
-     */
-    private $dataProvider;
-
-    /**
-     * @var StandaloneView
-     */
-    private $view;
-
-    /**
-     * @var ButtonProviderInterface|null
-     */
-    private $buttonProvider;
-
+    private WidgetConfigurationInterface $configuration;
+    private TableDataProviderInterface $dataProvider;
+    private StandaloneView $view;
+    private ?ButtonProviderInterface $buttonProvider;
     /**
      * @var array<string, string>
      */
-    private $options;
+    private array $options;
 
     /**
      * @param array<string, string> $options

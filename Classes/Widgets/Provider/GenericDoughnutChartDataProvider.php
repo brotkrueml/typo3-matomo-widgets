@@ -23,50 +23,21 @@ use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
  */
 final class GenericDoughnutChartDataProvider implements ChartDataProviderInterface
 {
-    /**
-     * @var MatomoRepositoryInterface
-     */
-    private $repository;
-
-    /**
-     * @var ConnectionConfiguration
-     */
-    private $connectionConfiguration;
-
-    /**
-     * @var LanguageService
-     */
-    private $languageService;
-
-    /**
-     * @var string
-     */
-    private $method;
-
-    /**
-     * @var string
-     */
-    private $labelColumn;
-
-    /**
-     * @var string
-     */
-    private $valueColumn;
-
-    /**
-     * @var int
-     */
-    private $limit;
-
+    private MatomoRepositoryInterface $repository;
+    private ConnectionConfiguration $connectionConfiguration;
+    private LanguageService $languageService;
+    private string $method;
+    private string $labelColumn;
+    private string $valueColumn;
+    private int $limit;
     /**
      * @var list<string>
      */
-    private $backgroundColours;
-
+    private array $backgroundColours;
     /**
      * @var array<string,string>
      */
-    private $parameters;
+    private array $parameters;
 
     /**
      * @param list<string> $backgroundColours

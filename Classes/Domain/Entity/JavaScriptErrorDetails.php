@@ -18,25 +18,19 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
  */
 final class JavaScriptErrorDetails
 {
-    /**
-     * @var int
-     */
-    private $lastAppearance = 0;
-
+    private int $lastAppearance = 0;
     /**
      * @var array<string, BrowserCount>
      */
-    private $browsers = [];
-
+    private array $browsers = [];
     /**
      * @var array<string, UrlCount>
      */
-    private $urls = [];
-
+    private array $urls = [];
     /**
      * @var array<string, ScriptCount>
      */
-    private $scripts = [];
+    private array $scripts = [];
 
     public function compareAndStoreLastAppearance(int $timestamp): void
     {
@@ -80,9 +74,7 @@ final class JavaScriptErrorDetails
     public function getBrowsers(): array
     {
         $browsers = \array_values($this->browsers);
-        \usort($browsers, static function (BrowserCount $a, BrowserCount $b): int {
-            return $b->getHits() <=> $a->getHits();
-        });
+        \usort($browsers, static fn (BrowserCount $a, BrowserCount $b): int => $b->getHits() <=> $a->getHits());
 
         return \array_values($browsers);
     }
@@ -98,9 +90,7 @@ final class JavaScriptErrorDetails
     public function getUrls(): array
     {
         $urls = \array_values($this->urls);
-        \usort($urls, static function (UrlCount $a, UrlCount $b): int {
-            return $b->getHits() <=> $a->getHits();
-        });
+        \usort($urls, static fn (UrlCount $a, UrlCount $b): int => $b->getHits() <=> $a->getHits());
 
         return \array_values($urls);
     }
@@ -116,9 +106,7 @@ final class JavaScriptErrorDetails
     public function getScripts(): array
     {
         $scripts = \array_values($this->scripts);
-        \usort($scripts, static function (ScriptCount $a, ScriptCount $b): int {
-            return $b->getHits() <=> $a->getHits();
-        });
+        \usort($scripts, static fn (ScriptCount $a, ScriptCount $b): int => $b->getHits() <=> $a->getHits());
 
         return \array_values($scripts);
     }

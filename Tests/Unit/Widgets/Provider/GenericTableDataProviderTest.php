@@ -23,10 +23,7 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 
 class GenericTableDataProviderTest extends TestCase
 {
-    /**
-     * @var ConnectionConfiguration
-     */
-    private $connectionConfiguration;
+    private ConnectionConfiguration $connectionConfiguration;
 
     /**
      * @var MockObject|MatomoRepositoryInterface

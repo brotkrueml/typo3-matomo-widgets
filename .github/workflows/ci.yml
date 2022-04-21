@@ -22,8 +22,6 @@ jobs:
         php-versions: ['7.4']
         typo3-versions: ['^10', '^11']
         include:
-          - php-versions: 7.3
-            typo3-versions: ^10
           - php-versions: 8.0
             typo3-versions: ^11
           - php-versions: 8.1

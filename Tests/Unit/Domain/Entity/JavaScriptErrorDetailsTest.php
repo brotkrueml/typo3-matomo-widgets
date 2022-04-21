@@ -22,10 +22,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class JavaScriptErrorDetailsTest extends TestCase
 {
-    /**
-     * @var JavaScriptErrorDetails
-     */
-    private $subject;
+    private JavaScriptErrorDetails $subject;
 
     public static function setUpBeforeClass(): void
     {

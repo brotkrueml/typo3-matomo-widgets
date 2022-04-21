@@ -20,20 +20,12 @@ use PHPUnit\Framework\TestCase;
 
 class GenericValueDataProviderTest extends TestCase
 {
-    /**
-     * @var ConnectionConfiguration
-     */
-    private $connectionConfiguration;
-
+    private ConnectionConfiguration $connectionConfiguration;
     /**
      * @var Stub|MatomoRepositoryInterface
      */
     private $repositoryStub;
-
-    /**
-     * @var GenericValueDataProvider
-     */
-    private $subject;
+    private GenericValueDataProvider $subject;
 
     protected function setUp(): void
     {

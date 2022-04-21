@@ -16,20 +16,9 @@ namespace Brotkrueml\MatomoWidgets\Connection;
  */
 class ConnectionConfiguration
 {
-    /**
-     * @var int
-     */
-    private $idSite;
-
-    /**
-     * @var string
-     */
-    private $tokenAuth;
-
-    /**
-     * @var string
-     */
-    private $url;
+    private int $idSite;
+    private string $tokenAuth;
+    private string $url;
 
     public function __construct(string $url, int $idSite, string $tokenAuth)
     {
