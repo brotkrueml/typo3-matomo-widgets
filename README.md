@@ -7,7 +7,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/brotkrueml/typo3-matomo-widgets.svg)](https://packagist.org/packages/brotkrueml/typo3-matomo-widgets)
 
 The extension supports TYPO3 v10 LTS and TYPO3 v11 LTS and requires at least
-PHP 7.4. Use version 1.4 for support with PHP 7.2.
+PHP 7.4. Use version 1.4 for support with PHP 7.2 and 7.3.
 
 [Documentation](https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/main/en-us/) |
 [Translation](https://crowdin.com/project/typo3-extension-matomowidgets) |
