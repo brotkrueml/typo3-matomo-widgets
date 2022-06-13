@@ -3,41 +3,37 @@
 declare(strict_types=1);
 
 use Rector\CodeQuality\Rector\Array_\CallableThisArrayToAnonymousFunctionRector;
-use Rector\Core\Configuration\Option;
+use Rector\Config\RectorConfig;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPromotedPropertyRector;
 use Rector\Php74\Rector\LNumber\AddLiteralSeparatorToNumberRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(LevelSetList::UP_TO_PHP_74);
-    $containerConfigurator->import(SetList::CODE_QUALITY);
-    $containerConfigurator->import(SetList::DEAD_CODE);
-    $containerConfigurator->import(SetList::EARLY_RETURN);
-    $containerConfigurator->import(PHPUnitSetList::PHPUNIT_CODE_QUALITY);
-    $containerConfigurator->import(PHPUnitSetList::PHPUNIT_EXCEPTION);
-    $containerConfigurator->import(PHPUnitSetList::PHPUNIT_MOCK);
-    $containerConfigurator->import(PHPUnitSetList::PHPUNIT_SPECIFIC_METHOD);
-    $containerConfigurator->import(PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER);
+return static function (RectorConfig $config): void {
+    $config->phpVersion(PhpVersion::PHP_74);
 
-    $parameters = $containerConfigurator->parameters();
+    $config->sets([
+        LevelSetList::UP_TO_PHP_74,
+        SetList::CODE_QUALITY,
+        SetList::DEAD_CODE,
+        SetList::EARLY_RETURN,
+        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
+        PHPUnitSetList::PHPUNIT_EXCEPTION,
+        PHPUnitSetList::PHPUNIT_SPECIFIC_METHOD,
+        PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER,
+    ]);
 
-    $parameters->set(Option::PATHS, [
+    $config->autoloadPaths([
+        __DIR__ . '/.Build/vendor/autoload.php'
+    ]);
+    $config->paths([
         __DIR__ . '/Classes',
         __DIR__ . '/Configuration',
         __DIR__ . '/Tests',
     ]);
-
-    $parameters->set(Option::AUTOLOAD_PATHS, [
-        __DIR__ . '/.Build/vendor/autoload.php'
-    ]);
-
-    $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_74);
-
-    $parameters->set(Option::SKIP, [
+    $config->skip([
         AddLiteralSeparatorToNumberRector::class,
         CallableThisArrayToAnonymousFunctionRector::class => [
             __DIR__ . '/Configuration/Services.php',
