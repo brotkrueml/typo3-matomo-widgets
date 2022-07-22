@@ -83,7 +83,7 @@ final class JavaScriptErrorDetailsController implements LoggerAwareInterface
             'period' => $this->parameters['period'],
             'date' => $this->parameters['date'],
             'segment' => 'eventName==' . $errorMessage,
-            'showColumns' => 'actionDetails,browserName,browserIcon',
+            'showColumns' => 'actionDetails,browserName,browserIcon,browserVersion',
         ]);
 
         try {

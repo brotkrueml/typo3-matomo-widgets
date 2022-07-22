@@ -94,7 +94,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
      */
     public function incrementBrowserCountCalledOnce(): void
     {
-        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon');
+        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
 
         self::assertCount(1, $this->subject->getBrowsers());
         $browser = $this->subject->getBrowsers()[0];
@@ -109,8 +109,8 @@ final class JavaScriptErrorDetailsTest extends TestCase
      */
     public function incrementBrowserCountCalledTwiceWithSameBrowser(): void
     {
-        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon');
-        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon');
+        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
+        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
 
         self::assertCount(1, $this->subject->getBrowsers());
         $browser = $this->subject->getBrowsers()[0];
@@ -125,8 +125,8 @@ final class JavaScriptErrorDetailsTest extends TestCase
      */
     public function incrementBrowserCountCalledTwiceWithDifferentBrowser(): void
     {
-        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon');
-        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon');
+        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
+        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon', '42.0');
 
         self::assertCount(2, $this->subject->getBrowsers());
         $browser1 = $this->subject->getBrowsers()[0];
@@ -144,11 +144,23 @@ final class JavaScriptErrorDetailsTest extends TestCase
     /**
      * @test
      */
+    public function incrementBrowserCountTakesVersionIntoAccount(): void
+    {
+        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
+        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
+
+        $browser = $this->subject->getBrowsers()[0];
+        self::assertSame('42.0 (2)', $browser->getVersions());
+    }
+
+    /**
+     * @test
+     */
     public function getBrowsersReturnsTheTwoDefinedBrowsersSortedCorrectly(): void
     {
-        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon');
-        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon');
-        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon');
+        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
+        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon', '42.0');
+        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon', '42.0');
 
         self::assertCount(2, $this->subject->getBrowsers());
         self::assertInstanceOf(BrowserCount::class, $this->subject->getBrowsers()[0]);
@@ -162,9 +174,9 @@ final class JavaScriptErrorDetailsTest extends TestCase
      */
     public function getBrowsersCountReturnsCountCorrectly(): void
     {
-        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon');
-        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon');
-        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon');
+        $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
+        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon', '42.0');
+        $this->subject->incrementBrowserCount('Chrome', 'chrome-icon', '42.0');
 
         self::assertSame(2, $this->subject->getBrowsersCount());
     }

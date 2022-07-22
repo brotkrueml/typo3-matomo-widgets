@@ -39,12 +39,12 @@ final class JavaScriptErrorDetails
         }
     }
 
-    public function incrementBrowserCount(string $name, string $icon): void
+    public function incrementBrowserCount(string $name, string $icon, string $version): void
     {
         if (! isset($this->browsers[$name])) {
             $this->browsers[$name] = new BrowserCount($name, $icon);
         }
-        $this->browsers[$name]->incrementHit();
+        $this->browsers[$name]->incrementHit($version);
     }
 
     public function incrementUrlCount(string $url): void

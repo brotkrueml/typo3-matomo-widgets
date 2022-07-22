@@ -18,6 +18,10 @@ final class BrowserCount
 {
     private string $name;
     private string $icon;
+    /**
+     * @var array<string, int>
+     */
+    private array $versions = [];
     private int $hits = 0;
 
     public function __construct(string $name, string $icon)
@@ -26,9 +30,14 @@ final class BrowserCount
         $this->icon = $icon;
     }
 
-    public function incrementHit(): void
+    public function incrementHit(string $version): void
     {
         $this->hits++;
+
+        if (! ($this->versions[$version] ?? false)) {
+            $this->versions[$version] = 0;
+        }
+        $this->versions[$version]++;
     }
 
     public function getName(): string
@@ -44,5 +53,15 @@ final class BrowserCount
     public function getHits(): int
     {
         return $this->hits;
+    }
+
+    public function getVersions(): string
+    {
+        \arsort($this->versions, \SORT_NUMERIC);
+
+        return \implode(
+            ', ',
+            \array_map(static fn (string $version, int $count): string => "${version} (${count})", \array_keys($this->versions), \array_values($this->versions))
+        );
     }
 }

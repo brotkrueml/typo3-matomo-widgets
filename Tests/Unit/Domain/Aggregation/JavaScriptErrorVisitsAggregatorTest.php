@@ -30,11 +30,13 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
      * @test
      * @dataProvider dataProviderForAggregate
      */
-    public function aggregate(array $details, int $expectedBrowserCount, int $expectedScriptCount, int $expectedUrlCount): void
+    public function aggregate(array $details, int $expectedBrowserCount, int $expectedScriptCount, int $expectedUrlsCount): void
     {
         $actual = $this->subject->aggregate($details);
 
         self::assertSame($expectedBrowserCount, $actual->getBrowsersCount());
+        self::assertSame($expectedScriptCount, $actual->getScriptsCount());
+        self::assertSame($expectedUrlsCount, $actual->getUrlsCount());
     }
 
     public function dataProviderForAggregate(): iterable
@@ -43,7 +45,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
             'details' => [],
             'expectedBrowserCount' => 0,
             'expectedScriptCount' => 0,
-            'expectedUrlCount' => 0,
+            'expectedUrlsCount' => 0,
         ];
 
         yield 'Action details with no event are filtered out' => [
@@ -51,6 +53,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
                 [
                     'browserName' => 'Firefox',
                     'browserIcon' => 'firefox-icon',
+                    'browserVersion' => '42.0',
                     'actionDetails' => [
                         [
                             'type' => 'action',
@@ -60,7 +63,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
             ],
             'expectedBrowserCount' => 0,
             'expectedScriptCount' => 0,
-            'expectedUrlCount' => 0,
+            'expectedUrlsCount' => 0,
         ];
 
         yield 'Action details with event but wrong event category are filtered out' => [
@@ -68,6 +71,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
                 [
                     'browserName' => 'Firefox',
                     'browserIcon' => 'firefox-icon',
+                    'browserVersion' => '42.0',
                     'actionDetails' => [
                         [
                             'type' => 'event',
@@ -78,7 +82,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
             ],
             'expectedBrowserCount' => 0,
             'expectedScriptCount' => 0,
-            'expectedUrlCount' => 0,
+            'expectedUrlsCount' => 0,
         ];
 
         yield 'Action details with one correct event category in one session is considered correctly' => [
@@ -86,6 +90,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
                 [
                     'browserName' => 'Firefox',
                     'browserIcon' => 'firefox-icon',
+                    'browserVersion' => '42.0',
                     'actionDetails' => [
                         [
                             'type' => 'action',
@@ -106,7 +111,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
             ],
             'expectedBrowserCount' => 1,
             'expectedScriptCount' => 1,
-            'expectedUrlCount' => 1,
+            'expectedUrlsCount' => 1,
         ];
 
         yield 'Action details with two correct event categories in one session is considered correctly' => [
@@ -114,6 +119,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
                 [
                     'browserName' => 'Firefox',
                     'browserIcon' => 'firefox-icon',
+                    'browserVersion' => '42.0',
                     'actionDetails' => [
                         [
                             'type' => 'action',
@@ -141,7 +147,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
             ],
             'expectedBrowserCount' => 1,
             'expectedScriptCount' => 2,
-            'expectedUrlCount' => 1,
+            'expectedUrlsCount' => 1,
         ];
 
         yield 'Action details with two correct event categories in two session is considered correctly' => [
@@ -149,6 +155,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
                 [
                     'browserName' => 'Firefox',
                     'browserIcon' => 'firefox-icon',
+                    'browserVersion' => '42.0',
                     'actionDetails' => [
                         [
                             'type' => 'event',
@@ -169,6 +176,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
                 [
                     'browserName' => 'Chrome',
                     'browserIcon' => 'chrome-icon',
+                    'browserVersion' => '42.0',
                     'actionDetails' => [
                         [
                             'type' => 'event',
@@ -189,7 +197,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
             ],
             'expectedBrowserCount' => 2,
             'expectedScriptCount' => 3,
-            'expectedUrlCount' => 2,
+            'expectedUrlsCount' => 2,
         ];
     }
 }

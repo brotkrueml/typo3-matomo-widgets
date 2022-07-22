@@ -55,12 +55,63 @@ final class BrowserCountTest extends TestCase
      */
     public function incrementHitIncrementsCorrectly(): void
     {
-        $this->subject->incrementHit();
+        $this->subject->incrementHit('42');
 
         self::assertSame(1, $this->subject->getHits());
 
-        $this->subject->incrementHit();
+        $this->subject->incrementHit('42');
 
         self::assertSame(2, $this->subject->getHits());
+    }
+
+    /**
+     * @test
+     * @dataProvider providerForGetVersions
+     */
+    public function getVersionsReturnsVersionInformationCorrectly(array $versions, string $expected): void
+    {
+        foreach ($versions as $version) {
+            $this->subject->incrementHit($version);
+        }
+
+        self::assertSame($expected, $this->subject->getVersions());
+    }
+
+    public function providerForGetVersions(): iterable
+    {
+        yield 'With one version and one hit' => [
+            'versions' => [
+                '42',
+            ],
+            'expected' => '42 (1)',
+        ];
+
+        yield 'With one version and two hits' => [
+            'versions' => [
+                '42',
+                '42',
+            ],
+            'expected' => '42 (2)',
+        ];
+
+        yield 'With two version' => [
+            'versions' => [
+                '42',
+                '43',
+            ],
+            'expected' => '42 (1), 43 (1)',
+        ];
+
+        yield 'With three versions and ordered correctly by hits' => [
+            'versions' => [
+                '42',
+                '43',
+                '42',
+                '44',
+                '44',
+                '44',
+            ],
+            'expected' => '44 (3), 42 (2), 43 (1)',
+        ];
     }
 }

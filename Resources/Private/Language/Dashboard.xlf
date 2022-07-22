@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2022-02-06T14:07:37Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2022-07-20T17:31:48Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
@@ -103,6 +103,9 @@
 			</trans-unit>
 			<trans-unit id="urls" resname="urls">
 				<source><![CDATA[URLs]]></source>
+			</trans-unit>
+			<trans-unit id="versions" resname="versions">
+				<source><![CDATA[Versions]]></source>
 			</trans-unit>
 			<trans-unit id="visits" resname="visits">
 				<source><![CDATA[Visits]]></source>

@@ -34,6 +34,7 @@
         <thead>
         <tr>
             <th colspan="2"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:browser"/></th>
+            <th><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:versions"/></th>
             <th class="matomo_widgets__text-right"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:hits"/></th>
         </tr>
         </thead>
@@ -69,6 +70,7 @@
             <img src="{matomoBaseUrl}{browser.icon}" alt="{browser.name}" title="{browser.name}" width="24" height="24">
         </td>
         <td>{browser.name}</td>
+        <td>{browser.versions}</td>
         <td class="matomo_widgets__text-right">{browser.hits}</td>
     </tr>
 </f:section>
