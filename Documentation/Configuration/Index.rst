@@ -108,6 +108,7 @@ configuration by an extension. So, custom dimensions have to be configured
 manually in the :file:`config/sites/*/config.yml` file:
 
 .. code-block:: yaml
+   :caption: config/sites/your_site/config.yml
    :linenos:
    :emphasize-lines: 2-12
 
@@ -188,6 +189,7 @@ to raise the displayed number of days for the *Visits per month* widget from
 **Example:**
 
 .. code-block:: yaml
+   :caption: EXT:your_site_package/Configuration/Services.yaml
 
    parameters:
       matomo_widgets.visitsPerMonth.parameters:
