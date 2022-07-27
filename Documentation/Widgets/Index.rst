@@ -49,7 +49,7 @@ This widget displays the number of actions per day for the last 28 days
 Matomo module
    VisitsSummary
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.actionsPerDay.parameters
       - period: day
       - date: last28
@@ -74,7 +74,7 @@ This widget displays the number of actions per month for the last 12 months
 Matomo module
    VisitsSummary
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.actionsPerMonth.parameters
       - period: month
       - date: last12
@@ -96,7 +96,7 @@ Display a list of the recent `annotations`_ in the last 365 days:
 Matomo module
    Annotations
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.annotations.parameters
       - period: 'month'
       - date: 'today'
@@ -156,7 +156,7 @@ The bounce rate for the current month shows this widget:
 Matomo module
    VisitsSummary
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.bounceRate.parameters
       - period: month
       - date: today
@@ -179,7 +179,7 @@ This report shows which browser plugins your visitors had enabled:
 Matomo module
    DevicePlugins
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.browserPlugins.parameters
       - period: month
       - date: today
@@ -203,7 +203,7 @@ The browser share for the current month shows this widget:
 Matomo module
    DevicesDetection
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.browsers.limit
       5
    matomo_widgets.browsers.parameters
@@ -227,7 +227,7 @@ Displays a report of the campaigns for the current month:
 Matomo module
    Referrers
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.campaigns.parameters:
       - period: month
       - date: today
@@ -252,7 +252,7 @@ interacted with.
 Matomo module
    Contents
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.campaigns.parameters:
       - period: month
       - date: today
@@ -277,7 +277,7 @@ interacted with.
 Matomo module
    Contents
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.campaigns.parameters:
       - period: month
       - date: today
@@ -301,7 +301,7 @@ month:
 Matomo module
    UserCountry
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.country.parameters:
       - period: month
       - date: today
@@ -323,7 +323,7 @@ dimension.
 Matomo module
    CustomDimensions
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.customDimension<idDimension>.parameters:
       - period: month
       - date: today
@@ -379,7 +379,7 @@ Clicking on the message opens a modal with details to this message:
 Matomo module
    Events
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.javaScriptErrors.parameters:
       - period: range
       - date: last14
@@ -421,7 +421,7 @@ The operating system families used by the visitors for the current month:
 Matomo module
    DevicesDetection
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.osFamilies.limit:
       5
    matomo_widgets.osFamilies.parameters:
@@ -447,7 +447,7 @@ List of pages in the last 28 days which returned a status code 404 (not found):
 Matomo module
    Actions
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.siteSearchKeywords.parameters:
       - period: range
       - date: last28
@@ -471,7 +471,7 @@ search engine:
 Matomo module
    Actions
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.siteSearchKeywords.parameters:
       - period: month
       - date: today
@@ -494,7 +494,7 @@ List of the site search keywords that did not return any search result:
 Matomo module
    Actions
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.siteSearchNoResultKeywords.parameters:
       - period: month
       - date: today
@@ -517,7 +517,7 @@ This widget displays the number of visits per day for the last 28 days:
 Matomo module
    VisitsSummary
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.visitsPerDay.parameters:
       - period: day
       - date: last28
@@ -537,7 +537,7 @@ This widget displays the number of visits per month for the last 12 months:
 Matomo module
    VisitsSummary
 
-Default configuration parameters in the :file:`Services.yaml` file
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.visitsPerMonth.parameters:
       - period: month
       - date: last12
