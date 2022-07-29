@@ -20,7 +20,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper;
  */
 final class DecorateViewHelper extends ViewHelper\AbstractViewHelper
 {
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
 
