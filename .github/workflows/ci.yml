@@ -48,15 +48,8 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: ${{ runner.os }}-composer-
-      - name: Install composer dependencies for PHP <= 8.1
-        if: matrix.php-versions <= '8.1'
+      - name: Install composer dependencies
         run: |
-          composer remove symplify/phpstan-rules --dev --no-update
-          composer require typo3/cms-core=${{ matrix.typo3-versions }} --no-progress
-      - name: Install composer dependencies for PHP 8.2
-        if: matrix.php-versions == '8.2'
-        run: |
-          composer config platform.php 8.1
           composer remove symplify/phpstan-rules --dev --no-update
           composer require typo3/cms-core=${{ matrix.typo3-versions }} --no-progress
       - name: Run PHP linter
