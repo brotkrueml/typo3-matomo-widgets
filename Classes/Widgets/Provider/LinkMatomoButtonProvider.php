@@ -20,18 +20,16 @@ use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
  */
 final class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
-    private LanguageService $languageService;
     private string $link;
 
-    public function __construct(LanguageService $languageService, string $link)
+    public function __construct(string $link)
     {
-        $this->languageService = $languageService;
         $this->link = $link;
     }
 
     public function getTitle(): string
     {
-        return $this->languageService->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.buttonText');
+        return $this->getLanguageService()->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.buttonText');
     }
 
     public function getLink(): string
@@ -42,5 +40,10 @@ final class LinkMatomoButtonProvider implements ButtonProviderInterface
     public function getTarget(): string
     {
         return '_blank';
+    }
+
+    private function getLanguageService(): LanguageService
+    {
+        return $GLOBALS['LANG'];
     }
 }

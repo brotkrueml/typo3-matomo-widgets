@@ -25,7 +25,6 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
 {
     private MatomoRepositoryInterface $repository;
     private ConnectionConfiguration $connectionConfiguration;
-    private LanguageService $languageService;
     private string $method;
     private string $labelColumn;
     private string $valueColumn;
@@ -40,27 +39,26 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
     private array $parameters;
 
     /**
+     * @param int|string $limit In TYPO3 v11 an int is given, in TYPO3 v12 a string
      * @param list<string> $backgroundColours
      * @param array<string, string> $parameters
      */
     public function __construct(
         MatomoRepositoryInterface $repository,
         ConnectionConfiguration $connectionConfiguration,
-        LanguageService $languageService,
         string $method,
         string $labelColumn,
         string $valueColumn,
-        int $limit,
+        $limit,
         array $backgroundColours,
         array $parameters
     ) {
         $this->repository = $repository;
         $this->connectionConfiguration = $connectionConfiguration;
-        $this->languageService = $languageService;
         $this->method = $method;
         $this->labelColumn = $labelColumn;
         $this->valueColumn = $valueColumn;
-        $this->limit = $limit;
+        $this->limit = (int)$limit;
         $this->backgroundColours = $backgroundColours;
         $this->parameters = $parameters;
     }
@@ -103,9 +101,14 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         }
 
         if ($valueOther !== 0) {
-            $data[$this->languageService->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':other')] = $valueOther;
+            $data[$this->getLanguageService()->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':other')] = $valueOther;
         }
 
         return $data;
+    }
+
+    private function getLanguageService(): LanguageService
+    {
+        return $GLOBALS['LANG'];
     }
 }

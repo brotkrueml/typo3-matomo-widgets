@@ -38,6 +38,13 @@ class GenericBarChartDataProviderTest extends TestCase
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryStub = $this->createStub(MatomoRepositoryInterface::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
+
+        $GLOBALS['LANG'] = $this->languageServiceStub;
+    }
+
+    protected function tearDown(): void
+    {
+        unset($GLOBALS['LANG']);
     }
 
     /**
@@ -70,7 +77,6 @@ class GenericBarChartDataProviderTest extends TestCase
         $actual = (new GenericBarChartDataProvider(
             $this->repositoryStub,
             $this->connectionConfiguration,
-            $this->languageServiceStub,
             $method,
             $barLabel,
             $backgroundColour,

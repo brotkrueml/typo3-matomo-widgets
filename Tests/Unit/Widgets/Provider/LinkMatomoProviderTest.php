@@ -28,8 +28,14 @@ class LinkMatomoProviderTest extends TestCase
     protected function setUp(): void
     {
         $this->languageServiceStub = $this->createStub(LanguageService::class);
+        $GLOBALS['LANG'] = $this->languageServiceStub;
 
-        $this->subject = new LinkMatomoButtonProvider($this->languageServiceStub, 'https://example.net/');
+        $this->subject = new LinkMatomoButtonProvider('https://example.net/');
+    }
+
+    protected function tearDown(): void
+    {
+        unset($GLOBALS['LANG']);
     }
 
     /**

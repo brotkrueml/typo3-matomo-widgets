@@ -16,7 +16,6 @@ use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\AnnotationsTableDataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
@@ -29,16 +28,18 @@ class AnnotationsTableDataProviderTest extends TestCase
      */
     private $repositoryMock;
 
-    /**
-     * @var Stub|LanguageService
-     */
-    private $languageServiceStub;
-
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryMock = $this->createMock(MatomoRepositoryInterface::class);
-        $this->languageServiceStub = $this->createStub(LanguageService::class);
+
+        $languageServiceStub = $this->createStub(LanguageService::class);
+        $GLOBALS['LANG'] = $languageServiceStub;
+    }
+
+    protected function tearDown(): void
+    {
+        unset($GLOBALS['LANG']);
     }
 
     /**
@@ -77,7 +78,6 @@ class AnnotationsTableDataProviderTest extends TestCase
         $subject = new AnnotationsTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
-            $this->languageServiceStub,
             'some.method',
             [
                 [

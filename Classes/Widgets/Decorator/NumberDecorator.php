@@ -19,25 +19,23 @@ use TYPO3\CMS\Core\Localization\LanguageService;
  */
 final class NumberDecorator implements DecoratorInterface
 {
-    private LanguageService $languageService;
-
-    public function __construct(LanguageService $languageService)
-    {
-        $this->languageService = $languageService;
-    }
-
     public function decorate(string $value): string
     {
         return \number_format(
             (int)$value,
             0,
             '',
-            $this->languageService->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':thousandsSeparator')
+            $this->getLanguageService()->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':thousandsSeparator')
         );
     }
 
     public function isHtmlOutput(): bool
     {
         return false;
+    }
+
+    private function getLanguageService(): LanguageService
+    {
+        return $GLOBALS['LANG'];
     }
 }

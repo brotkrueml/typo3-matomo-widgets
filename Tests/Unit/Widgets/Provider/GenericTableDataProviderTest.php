@@ -39,7 +39,14 @@ class GenericTableDataProviderTest extends TestCase
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryMock = $this->createMock(MatomoRepositoryInterface::class);
+
         $this->languageServiceStub = $this->createStub(LanguageService::class);
+        $GLOBALS['LANG'] = $this->languageServiceStub;
+    }
+
+    protected function tearDown(): void
+    {
+        unset($GLOBALS['LANG']);
     }
 
     /**
@@ -50,7 +57,6 @@ class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
-            $this->languageServiceStub,
             'some.method',
             [
                 [
@@ -82,7 +88,6 @@ class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
-            $this->languageServiceStub,
             'some.method',
             [
                 [
@@ -111,7 +116,6 @@ class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
-            $this->languageServiceStub,
             'some.method',
             [
                 [
@@ -144,7 +148,6 @@ class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
-            $this->languageServiceStub,
             'some.method',
             [
                 [
@@ -194,7 +197,6 @@ class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
-            $this->languageServiceStub,
             'some.method',
             [
                 [
@@ -237,7 +239,6 @@ class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
-            $this->languageServiceStub,
             'some.method',
             [
                 [

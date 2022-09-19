@@ -38,7 +38,14 @@ class GenericDoughnutChartDataProviderTest extends TestCase
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryStub = $this->createStub(MatomoRepositoryInterface::class);
+
         $this->languageServiceStub = $this->createStub(LanguageService::class);
+        $GLOBALS['LANG'] = $this->languageServiceStub;
+    }
+
+    protected function tearDown(): void
+    {
+        unset($GLOBALS['LANG']);
     }
 
     /**
@@ -69,7 +76,6 @@ class GenericDoughnutChartDataProviderTest extends TestCase
         $actual = (new GenericDoughnutChartDataProvider(
             $this->repositoryStub,
             $this->connectionConfiguration,
-            $this->languageServiceStub,
             $method,
             $labelColumn,
             $valueColumn,

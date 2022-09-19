@@ -31,8 +31,6 @@ class GenericTableDataProvider implements TableDataProviderInterface
      * @var array<string, string|LanguageParameterResolver>
      */
     protected array $parameters;
-
-    private LanguageService $languageService;
     /**
      * @var list<Column>
      */
@@ -45,14 +43,12 @@ class GenericTableDataProvider implements TableDataProviderInterface
     public function __construct(
         MatomoRepositoryInterface $repository,
         ConnectionConfiguration $connectionConfiguration,
-        LanguageService $languageService,
         string $method,
         array $columns,
         array $parameters
     ) {
         $this->repository = $repository;
         $this->connectionConfiguration = $connectionConfiguration;
-        $this->languageService = $languageService;
         $this->method = $method;
         $this->columns = $columns;
         $this->parameters = $parameters;
@@ -102,7 +98,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
         /** @var string[] $headers */
         $headers = [];
         foreach ($this->columns as $column) {
-            $headers[] = isset($column['header']) ? $this->languageService->sL($column['header']) : '';
+            $headers[] = isset($column['header']) ? $this->getLanguageService()->sL($column['header']) : '';
         }
 
         return $headers;
@@ -111,5 +107,10 @@ class GenericTableDataProvider implements TableDataProviderInterface
     public function getRows(): array
     {
         return $this->repository->send($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));
+    }
+
+    private function getLanguageService(): LanguageService
+    {
+        return $GLOBALS['LANG'];
     }
 }

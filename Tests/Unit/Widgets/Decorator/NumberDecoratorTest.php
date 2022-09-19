@@ -14,27 +14,28 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Decorator;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\NumberDecorator;
-use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
 class NumberDecoratorTest extends TestCase
 {
-    /**
-     * @var Stub|LanguageService
-     */
-    private $languageServiceStub;
     private NumberDecorator $subject;
 
     protected function setUp(): void
     {
-        $this->languageServiceStub = $this->createStub(LanguageService::class);
-        $this->languageServiceStub
+        $languageServiceStub = $this->createStub(LanguageService::class);
+        $languageServiceStub
             ->method('sL')
             ->with(Extension::LANGUAGE_PATH_DASHBOARD . ':thousandsSeparator')
             ->willReturn('.');
+        $GLOBALS['LANG'] = $languageServiceStub;
 
-        $this->subject = new NumberDecorator($this->languageServiceStub);
+        $this->subject = new NumberDecorator();
+    }
+
+    protected function tearDown(): void
+    {
+        unset($GLOBALS['LANG']);
     }
 
     /**

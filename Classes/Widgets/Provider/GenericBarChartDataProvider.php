@@ -24,7 +24,6 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
 {
     private MatomoRepositoryInterface $repository;
     private ConnectionConfiguration $connectionConfiguration;
-    private LanguageService $languageService;
     private string $method;
     private string $barLabel;
     private string $backgroundColour;
@@ -39,7 +38,6 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
     public function __construct(
         MatomoRepositoryInterface $repository,
         ConnectionConfiguration $connectionConfiguration,
-        LanguageService $languageService,
         string $method,
         string $barLabel,
         string $backgroundColour,
@@ -47,7 +45,6 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
     ) {
         $this->repository = $repository;
         $this->connectionConfiguration = $connectionConfiguration;
-        $this->languageService = $languageService;
         $this->method = $method;
         $this->backgroundColour = $backgroundColour;
         $this->barLabel = $barLabel;
@@ -65,11 +62,16 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
             'labels' => \array_keys($data),
             'datasets' => [
                 [
-                    'label' => $this->languageService->sL($this->barLabel),
+                    'label' => $this->getLanguageService()->sL($this->barLabel),
                     'backgroundColor' => $this->backgroundColour,
                     'data' => \array_values($data),
                 ],
             ],
         ];
+    }
+
+    private function getLanguageService(): LanguageService
+    {
+        return $GLOBALS['LANG'];
     }
 }
