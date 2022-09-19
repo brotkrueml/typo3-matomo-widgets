@@ -60,4 +60,12 @@ final class ValueWithIconWidget implements WidgetInterface
 
         return $this->view->render();
     }
+
+    /**
+     * @return array<string, string>
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
 }

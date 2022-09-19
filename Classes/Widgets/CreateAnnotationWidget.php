@@ -58,6 +58,14 @@ final class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInte
     }
 
     /**
+     * @return array<string, string>
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+    /**
      * @return list<string>
      */
     public function getCssFiles(): array
