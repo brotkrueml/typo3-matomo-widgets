@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2022-09-19
+
 ### Added
 - Browser version to JavaScript error details modal (#34)
 
@@ -123,7 +125,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.2.0...v1.3.0
