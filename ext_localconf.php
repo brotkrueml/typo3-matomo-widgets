@@ -13,6 +13,3 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['matomo_wid
 ];
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['matomoWidgets'] = ['Brotkrueml\\MatomoWidgets\\ViewHelpers'];
-
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['matomoWidgetsEnableWidgetsSiteConfigurationMigration']
-    = Brotkrueml\MatomoWidgets\Updates\EnableWidgetsSiteConfigurationMigration::class;

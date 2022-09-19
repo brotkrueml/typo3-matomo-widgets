@@ -16,6 +16,7 @@ Removed
 
 
 * Compatibility with TYPO3 v10 LTS (#37)
+* Upgrade wizard for version 1.0 (#38)
 
 `1.6.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.5.0...v1.6.0>`_ - 2022-09-19
 ------------------------------------------------------------------------------------------------------

@@ -7,9 +7,9 @@ Migration
 =========
 
 .. important::
-   Before updating from a version before 0.3 to 1.0 or up you should update
-   to version 0.3.2 first and execute the upgrade wizards. Then update to the
-   newest version and run the next upgrade wizards.
+   Before updating from a version before 0.3 to 1.x you should update to version
+   0.3.2 first and execute the upgrade wizards. Then update to the newest 1.x
+   version and run the next upgrade wizards.
 
 .. contents::
    :depth: 2
