@@ -33,11 +33,9 @@ final class DashboardPresetsProvider
         'countries' => 'matomo_widgets.%s.userCountry.country',
     ];
 
-    private Configurations $configurations;
-
-    public function __construct(Configurations $configurations)
-    {
-        $this->configurations = $configurations;
+    public function __construct(
+        private readonly Configurations $configurations
+    ) {
     }
 
     /**

@@ -96,7 +96,7 @@ final class ConfigurationFinder
                     $pagesNotFoundTemplate
                 );
             }
-        } catch (DirectoryNotFoundException $e) {
+        } catch (DirectoryNotFoundException) {
             // do nothing
         }
 

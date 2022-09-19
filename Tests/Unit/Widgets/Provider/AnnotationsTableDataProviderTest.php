@@ -23,10 +23,7 @@ class AnnotationsTableDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
 
-    /**
-     * @var MockObject|MatomoRepositoryInterface
-     */
-    private $repositoryMock;
+    private MockObject|MatomoRepositoryInterface $repositoryMock;
 
     protected function setUp(): void
     {

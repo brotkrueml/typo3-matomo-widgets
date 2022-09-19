@@ -23,13 +23,10 @@ use TYPO3\CMS\Core\Http\Stream;
  */
 class MatomoConnector
 {
-    private RequestFactoryInterface $requestFactory;
-    private ClientInterface $client;
-
-    public function __construct(RequestFactoryInterface $requestFactory, ClientInterface $client)
-    {
-        $this->requestFactory = $requestFactory;
-        $this->client = $client;
+    public function __construct(
+        private readonly RequestFactoryInterface $requestFactory,
+        private readonly ClientInterface $client
+    ) {
     }
 
     public function callApi(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array
@@ -57,7 +54,7 @@ class MatomoConnector
      */
     private function checkResponse(string $content): array
     {
-        if (\strpos($content, 'Error') === 0) {
+        if (\str_starts_with($content, 'Error')) {
             throw new ConnectionException($content, 1593955897);
         }
 

@@ -20,10 +20,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 class DecorateViewHelperTest extends TestCase
 {
-    /**
-     * @var Stub|RenderingContextInterface
-     */
-    private $renderingContextStub;
+    private Stub|RenderingContextInterface $renderingContextStub;
 
     protected function setUp(): void
     {

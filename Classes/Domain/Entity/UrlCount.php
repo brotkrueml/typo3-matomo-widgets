@@ -16,12 +16,11 @@ namespace Brotkrueml\MatomoWidgets\Domain\Entity;
  */
 final class UrlCount
 {
-    private string $url;
     private int $hits = 0;
 
-    public function __construct(string $url)
-    {
-        $this->url = $url;
+    public function __construct(
+        private readonly string $url
+    ) {
     }
 
     public function incrementHits(): void

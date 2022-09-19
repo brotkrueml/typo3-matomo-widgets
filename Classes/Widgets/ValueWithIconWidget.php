@@ -23,27 +23,18 @@ final class ValueWithIconWidget implements WidgetInterface
 {
     use WidgetTitleAdaptionTrait;
 
-    private WidgetConfigurationInterface $configuration;
-    private StandaloneView $view;
-    /**
-     * @var array<string, string>
-     */
-    private array $options;
-    private ValueDataProviderInterface $dataProvider;
+    private readonly WidgetConfigurationInterface $configuration;
 
     /**
      * @param array<string, string> $options
      */
     public function __construct(
         WidgetConfigurationInterface $configuration,
-        ValueDataProviderInterface $dataProvider,
-        StandaloneView $view,
-        array $options = []
+        private readonly ValueDataProviderInterface $dataProvider,
+        private readonly StandaloneView $view,
+        private readonly array $options = []
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
-        $this->view = $view;
-        $this->options = $options;
-        $this->dataProvider = $dataProvider;
     }
 
     public function renderWidgetContent(): string

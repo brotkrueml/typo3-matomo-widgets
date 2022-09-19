@@ -7,15 +7,16 @@ use Rector\Config\RectorConfig;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPromotedPropertyRector;
 use Rector\Php74\Rector\LNumber\AddLiteralSeparatorToNumberRector;
+use Rector\Php81\Rector\Array_\FirstClassCallableRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $config): void {
-    $config->phpVersion(PhpVersion::PHP_74);
+    $config->phpVersion(PhpVersion::PHP_81);
 
     $config->sets([
-        LevelSetList::UP_TO_PHP_74,
+        LevelSetList::UP_TO_PHP_81,
         SetList::CODE_QUALITY,
         SetList::DEAD_CODE,
         SetList::EARLY_RETURN,
@@ -38,6 +39,8 @@ return static function (RectorConfig $config): void {
         CallableThisArrayToAnonymousFunctionRector::class => [
             __DIR__ . '/Configuration/Services.php',
         ],
-        RemoveUnusedPromotedPropertyRector::class, // Skip until compatibility with PHP >= 8.0
+        FirstClassCallableRector::class => [
+                __DIR__ . '/Configuration/Services.php',
+        ],
     ]);
 };

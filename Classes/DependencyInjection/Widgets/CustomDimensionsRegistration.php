@@ -33,19 +33,16 @@ final class CustomDimensionsRegistration extends AbstractRegistration
     private const PARAMETERS_PARAMETERS_TEMPLATE = 'matomo_widgets.customDimension%d.parameters';
 
     protected $serviceIdSuffix = 'customDimensions.customDimension';
-
-    private CustomDimension $customDimension;
-    private string $parametersName;
+    private readonly string $parametersName;
 
     public function __construct(
         ParametersConfigurator $parameters,
         ServicesConfigurator $services,
         Configuration $matomoConfiguration,
         string $connectionConfigurationId,
-        CustomDimension $customDimension
+        private readonly CustomDimension $customDimension
     ) {
         parent::__construct($parameters, $services, $matomoConfiguration, $connectionConfigurationId);
-        $this->customDimension = $customDimension;
         $this->parametersName = \sprintf(self::PARAMETERS_PARAMETERS_TEMPLATE, $this->customDimension->idDimension);
     }
 

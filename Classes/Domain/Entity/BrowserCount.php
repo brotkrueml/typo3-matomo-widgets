@@ -16,18 +16,16 @@ namespace Brotkrueml\MatomoWidgets\Domain\Entity;
  */
 final class BrowserCount
 {
-    private string $name;
-    private string $icon;
     /**
      * @var array<string, int>
      */
     private array $versions = [];
     private int $hits = 0;
 
-    public function __construct(string $name, string $icon)
-    {
-        $this->name = $name;
-        $this->icon = $icon;
+    public function __construct(
+        private readonly string $name,
+        private readonly string $icon
+    ) {
     }
 
     public function incrementHit(string $version): void

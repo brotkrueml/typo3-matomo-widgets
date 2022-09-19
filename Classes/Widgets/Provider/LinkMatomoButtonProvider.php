@@ -20,11 +20,9 @@ use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
  */
 final class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
-    private string $link;
-
-    public function __construct(string $link)
-    {
-        $this->link = $link;
+    public function __construct(
+        private readonly string $link
+    ) {
     }
 
     public function getTitle(): string

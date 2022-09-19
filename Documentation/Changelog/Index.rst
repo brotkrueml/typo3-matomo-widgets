@@ -16,6 +16,7 @@ Removed
 
 
 * Compatibility with TYPO3 v10 LTS (#37)
+* Compatibility with PHP 7.4 and 8.0 (#39)
 * Upgrade wizard for version 1.0 (#38)
 
 `1.6.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.5.0...v1.6.0>`_ - 2022-09-19
@@ -34,7 +35,7 @@ Removed
 ^^^^^^^
 
 
-* Compatibility with PHP 7.2 and PHP 7.3
+* Compatibility with PHP 7.2 and 7.3
 
 `1.4.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.3.0...v1.4.0>`_ - 2022-04-04
 ------------------------------------------------------------------------------------------------------

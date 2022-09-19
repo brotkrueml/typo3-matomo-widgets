@@ -21,18 +21,11 @@ use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
  */
 class CachingMatomoRepositoryDecorator implements MatomoRepositoryInterface
 {
-    private MatomoRepositoryInterface $repository;
-    private FrontendInterface $cache;
-    private CacheIdentifierCreator $cacheIdentifierCreator;
-
     public function __construct(
-        MatomoRepositoryInterface $repository,
-        FrontendInterface $cache,
-        CacheIdentifierCreator $cacheIdentifierCreator
+        private readonly MatomoRepositoryInterface $repository,
+        private readonly FrontendInterface $cache,
+        private readonly CacheIdentifierCreator $cacheIdentifierCreator
     ) {
-        $this->repository = $repository;
-        $this->cache = $cache;
-        $this->cacheIdentifierCreator = $cacheIdentifierCreator;
     }
 
     public function send(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array

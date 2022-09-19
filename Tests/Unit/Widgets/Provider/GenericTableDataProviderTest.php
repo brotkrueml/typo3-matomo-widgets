@@ -24,16 +24,8 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 class GenericTableDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-
-    /**
-     * @var MockObject|MatomoRepositoryInterface
-     */
-    private $repositoryMock;
-
-    /**
-     * @var Stub|LanguageService
-     */
-    private $languageServiceStub;
+    private MockObject|MatomoRepositoryInterface $repositoryMock;
+    private Stub|LanguageService $languageServiceStub;
 
     protected function setUp(): void
     {
@@ -231,9 +223,9 @@ class GenericTableDataProviderTest extends TestCase
         $this->repositoryMock
             ->expects(self::once())
             ->method('send')
-            ->with($this->connectionConfiguration, 'some.method', new ParameterBag(\array_merge($parameters, [
+            ->with($this->connectionConfiguration, 'some.method', new ParameterBag([...$parameters, ...[
                 'qux' => 'quu',
-            ])))
+            ]]))
             ->willReturn($result);
 
         $subject = new GenericTableDataProvider(

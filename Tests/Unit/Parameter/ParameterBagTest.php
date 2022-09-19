@@ -133,19 +133,6 @@ class ParameterBagTest extends TestCase
     /**
      * @test
      */
-    public function setWithClassAsValueThrowsException(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionCode(1594742873);
-        $this->expectExceptionMessage('Value must be of type string, int or an instance of "Brotkrueml\MatomoWidgets\Parameter\ParameterResolverInterface", "stdClass" given');
-
-        /** @noinspection PhpParamsInspection */
-        $this->subject->set('foo', new \stdClass());
-    }
-
-    /**
-     * @test
-     */
     public function getThrowsExceptionWhenParameterIsNotFound(): void
     {
         $this->expectException(ParameterNotFoundException::class);

@@ -25,24 +25,17 @@ final class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInte
 {
     use WidgetTitleAdaptionTrait;
 
-    private WidgetConfigurationInterface $configuration;
-    private StandaloneView $view;
-    /**
-     * @var array<string, string>
-     */
-    private array $options;
+    private readonly WidgetConfigurationInterface $configuration;
 
     /**
      * @param array<string, string> $options
      */
     public function __construct(
         WidgetConfigurationInterface $configuration,
-        StandaloneView $view,
-        array $options = []
+        private readonly StandaloneView $view,
+        private readonly array $options = []
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
-        $this->view = $view;
-        $this->options = $options;
     }
 
     public function renderWidgetContent(): string

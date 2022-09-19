@@ -23,20 +23,7 @@ use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
  */
 final class GenericDoughnutChartDataProvider implements ChartDataProviderInterface
 {
-    private MatomoRepositoryInterface $repository;
-    private ConnectionConfiguration $connectionConfiguration;
-    private string $method;
-    private string $labelColumn;
-    private string $valueColumn;
-    private int $limit;
-    /**
-     * @var list<string>
-     */
-    private array $backgroundColours;
-    /**
-     * @var array<string,string>
-     */
-    private array $parameters;
+    private readonly int $limit;
 
     /**
      * @param int|string $limit In TYPO3 v11 an int is given, in TYPO3 v12 a string
@@ -44,23 +31,16 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
      * @param array<string, string> $parameters
      */
     public function __construct(
-        MatomoRepositoryInterface $repository,
-        ConnectionConfiguration $connectionConfiguration,
-        string $method,
-        string $labelColumn,
-        string $valueColumn,
+        private readonly MatomoRepositoryInterface $repository,
+        private readonly ConnectionConfiguration $connectionConfiguration,
+        private readonly string $method,
+        private readonly string $labelColumn,
+        private readonly string $valueColumn,
         $limit,
-        array $backgroundColours,
-        array $parameters
+        private readonly array $backgroundColours,
+        private readonly array $parameters
     ) {
-        $this->repository = $repository;
-        $this->connectionConfiguration = $connectionConfiguration;
-        $this->method = $method;
-        $this->labelColumn = $labelColumn;
-        $this->valueColumn = $valueColumn;
         $this->limit = (int)$limit;
-        $this->backgroundColours = $backgroundColours;
-        $this->parameters = $parameters;
     }
 
     /**

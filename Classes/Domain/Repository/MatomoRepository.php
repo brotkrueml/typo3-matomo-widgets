@@ -22,11 +22,9 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
  */
 class MatomoRepository implements MatomoRepositoryInterface
 {
-    private MatomoConnector $connector;
-
-    public function __construct(MatomoConnector $connector)
-    {
-        $this->connector = $connector;
+    public function __construct(
+        private readonly MatomoConnector $connector
+    ) {
     }
 
     public function send(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array

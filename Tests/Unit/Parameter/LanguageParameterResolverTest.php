@@ -18,10 +18,7 @@ use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 
 class LanguageParameterResolverTest extends TestCase
 {
-    /**
-     * @var Stub|BackendUserAuthentication
-     */
-    private $backendUserStub;
+    private Stub|BackendUserAuthentication $backendUserStub;
     private LanguageParameterResolver $subject;
 
     protected function setUp(): void

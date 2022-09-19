@@ -22,33 +22,17 @@ use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
  */
 final class GenericBarChartDataProvider implements ChartDataProviderInterface
 {
-    private MatomoRepositoryInterface $repository;
-    private ConnectionConfiguration $connectionConfiguration;
-    private string $method;
-    private string $barLabel;
-    private string $backgroundColour;
-    /**
-     * @var array<string, string>
-     */
-    private array $parameters;
-
     /**
      * @param array<string, string> $parameters
      */
     public function __construct(
-        MatomoRepositoryInterface $repository,
-        ConnectionConfiguration $connectionConfiguration,
-        string $method,
-        string $barLabel,
-        string $backgroundColour,
-        array $parameters
+        private readonly MatomoRepositoryInterface $repository,
+        private readonly ConnectionConfiguration $connectionConfiguration,
+        private readonly string $method,
+        private readonly string $barLabel,
+        private readonly string $backgroundColour,
+        private readonly array $parameters
     ) {
-        $this->repository = $repository;
-        $this->connectionConfiguration = $connectionConfiguration;
-        $this->method = $method;
-        $this->backgroundColour = $backgroundColour;
-        $this->barLabel = $barLabel;
-        $this->parameters = $parameters;
     }
 
     /**

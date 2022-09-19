@@ -20,30 +20,16 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
  */
 final class GenericValueDataProvider implements ValueDataProviderInterface
 {
-    private MatomoRepositoryInterface $repository;
-    private ConnectionConfiguration $connectionConfiguration;
-    private string $method;
-    private string $columnName;
-    /**
-     * @var array<string, string>
-     */
-    private array $parameters;
-
     /**
      * @param array<string, string> $parameters
      */
     public function __construct(
-        MatomoRepositoryInterface $repository,
-        ConnectionConfiguration $connectionConfiguration,
-        string $method,
-        string $columnName,
-        array $parameters
+        private readonly MatomoRepositoryInterface $repository,
+        private readonly ConnectionConfiguration $connectionConfiguration,
+        private readonly string $method,
+        private readonly string $columnName,
+        private readonly array $parameters
     ) {
-        $this->repository = $repository;
-        $this->connectionConfiguration = $connectionConfiguration;
-        $this->method = $method;
-        $this->columnName = $columnName;
-        $this->parameters = $parameters;
     }
 
     public function getValue(): string

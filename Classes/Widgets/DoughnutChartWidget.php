@@ -13,7 +13,6 @@ namespace Brotkrueml\MatomoWidgets\Widgets;
 
 use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
 use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
-use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\EventDataInterface;
 use TYPO3\CMS\Dashboard\Widgets\JavaScriptInterface;
@@ -28,32 +27,19 @@ final class DoughnutChartWidget implements WidgetInterface, EventDataInterface, 
 {
     use WidgetTitleAdaptionTrait;
 
-    private WidgetConfigurationInterface $configuration;
-    private ChartDataProviderInterface $dataProvider;
-    private StandaloneView $view;
-    private ?ButtonProviderInterface $buttonProvider;
-    /**
-     * @var array<string, string>
-     */
-    private array $options;
+    private readonly WidgetConfigurationInterface $configuration;
 
     /**
      * @param array<string, string> $options
      */
     public function __construct(
         WidgetConfigurationInterface $configuration,
-        ChartDataProviderInterface $dataProvider,
-        StandaloneView $view,
-        ?ButtonProviderInterface $buttonProvider = null,
-        array $options = []
+        private readonly ChartDataProviderInterface $dataProvider,
+        private readonly StandaloneView $view,
+        private readonly ?\TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface $buttonProvider = null,
+        private readonly array $options = []
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
-        $this->dataProvider = $dataProvider;
-        $this->view = $view;
-        $this->buttonProvider = $buttonProvider;
-        $this->options = $options;
-
-        $view->assign('reportLink', $options['reportLink'] ?? '');
     }
 
     public function renderWidgetContent(): string
@@ -62,6 +48,7 @@ final class DoughnutChartWidget implements WidgetInterface, EventDataInterface, 
         $this->view->assignMultiple([
             'button' => $this->buttonProvider,
             'options' => $this->options,
+            'reportLink' => $this->options['reportLink'] ?? '',
             'configuration' => $this->configuration,
         ]);
         return $this->view->render();

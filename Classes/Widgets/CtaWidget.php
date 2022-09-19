@@ -23,29 +23,25 @@ final class CtaWidget implements WidgetInterface
 {
     use WidgetTitleAdaptionTrait;
 
-    private WidgetConfigurationInterface $configuration;
-    private StandaloneView $view;
-    private ?ButtonProviderInterface $buttonProvider;
+    private readonly WidgetConfigurationInterface $configuration;
     /**
      * @var array<string, string>
      */
-    private array $options;
+    private readonly array $options;
 
     /**
      * @param array<string, string> $options
      */
     public function __construct(
         WidgetConfigurationInterface $configuration,
-        StandaloneView $view,
-        ?ButtonProviderInterface $buttonProvider = null,
+        private readonly StandaloneView $view,
+        private readonly ?ButtonProviderInterface $buttonProvider = null,
         array $options = []
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
-        $this->view = $view;
-        $this->buttonProvider = $buttonProvider;
-        $this->options = \array_merge([
+        $this->options = [...[
             'text' => '',
-        ], $options);
+        ], ...$options];
     }
 
     public function renderWidgetContent(): string

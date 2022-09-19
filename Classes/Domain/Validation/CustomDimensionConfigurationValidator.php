@@ -39,10 +39,7 @@ final class CustomDimensionConfigurationValidator
         return true;
     }
 
-    /**
-     * @param mixed $configuration
-     */
-    private function checkConfigurationIsArray($configuration): void
+    private function checkConfigurationIsArray(mixed $configuration): void
     {
         if (! \is_array($configuration)) {
             throw new ValidationException(

@@ -22,16 +22,8 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 class GenericBarChartDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-
-    /**
-     * @var Stub|MatomoRepositoryInterface
-     */
-    private $repositoryStub;
-
-    /**
-     * @var Stub|LanguageService
-     */
-    private $languageServiceStub;
+    private Stub|MatomoRepositoryInterface $repositoryStub;
+    private Stub|LanguageService $languageServiceStub;
 
     protected function setUp(): void
     {

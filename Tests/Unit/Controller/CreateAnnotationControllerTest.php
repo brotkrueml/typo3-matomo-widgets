@@ -33,27 +33,12 @@ use TYPO3\CMS\Core\Localization\LanguageService;
  */
 final class CreateAnnotationControllerTest extends TestCase
 {
-    /**
-     * @var FrontendInterface|MockObject
-     */
-    private $cacheMock;
-    /**
-     * @var MatomoRepository|Stub
-     */
-    private $matomoRepositoryStub;
+    private FrontendInterface|MockObject $cacheMock;
+    private MatomoRepository|Stub $matomoRepositoryStub;
     private CreateAnnotationController $subject;
-    /**
-     * @var BackendUserAuthentication|Stub
-     */
-    private $backendUserStub;
-    /**
-     * @var LanguageService|Stub
-     */
-    private $languageServiceStub;
-    /**
-     * @var ServerRequestInterface|Stub
-     */
-    private $serverRequestStub;
+    private BackendUserAuthentication|Stub $backendUserStub;
+    private LanguageService|Stub $languageServiceStub;
+    private ServerRequestInterface|Stub $serverRequestStub;
 
     protected function setUp(): void
     {

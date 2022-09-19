@@ -22,14 +22,8 @@ use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 
 class CachingMatomoRepositoryDecoratorTest extends TestCase
 {
-    /**
-     * @var MatomoRepositoryInterface|MockObject
-     */
-    private $repositoryMock;
-    /**
-     * @var MockObject|FrontendInterface
-     */
-    private $cacheMock;
+    private MatomoRepositoryInterface|MockObject $repositoryMock;
+    private MockObject|FrontendInterface $cacheMock;
     private ConnectionConfiguration $connectionConfiguration;
     private CachingMatomoRepositoryDecorator $subject;
 

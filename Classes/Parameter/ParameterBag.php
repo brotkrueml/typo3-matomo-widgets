@@ -44,24 +44,12 @@ final class ParameterBag
     }
 
     /**
-     * @param string|int|ParameterResolverInterface $value
      * @return $this
      */
-    public function set(string $name, $value): self
+    public function set(string $name, string|int|ParameterResolverInterface $value): self
     {
         if ($value instanceof ParameterResolverInterface) {
             $value = $value->resolve();
-        }
-
-        if (! \is_string($value) && ! \is_int($value)) {
-            throw new \InvalidArgumentException(
-                \sprintf(
-                    'Value must be of type string, int or an instance of "%s", "%s" given',
-                    ParameterResolverInterface::class,
-                    \get_debug_type($value)
-                ),
-                1594742873
-            );
         }
 
         $this->parameters[$name] = (string)$value;

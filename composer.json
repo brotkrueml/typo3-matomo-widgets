@@ -22,10 +22,9 @@
 		"docs": "https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/main/en-us/"
 	},
 	"require": {
-		"php": ">=7.4",
+		"php": ">=8.1",
 		"ext-json": "*",
 		"symfony/finder": "^5.4 || ^6.1",
-		"symfony/polyfill-php80": "^1.17",
 		"typo3/cms-core": "^11.5 || 12.0.x-dev",
 		"typo3/cms-dashboard": "^11.5 || 12.0.x-dev"
 	},

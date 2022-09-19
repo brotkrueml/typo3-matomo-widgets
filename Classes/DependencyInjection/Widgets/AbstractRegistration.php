@@ -26,40 +26,16 @@ abstract class AbstractRegistration
     protected const ICON_IDENTIFIER = 'content-widget-matomo';
 
     /**
-     * @var ParametersConfigurator
-     */
-    protected $parameters;
-
-    /**
-     * @var ServicesConfigurator
-     */
-    protected $services;
-
-    /**
-     * @var Configuration
-     */
-    protected $matomoConfiguration;
-
-    /**
-     * @var string
-     */
-    protected $connectionConfigurationId;
-
-    /**
      * @var string
      */
     protected $serviceIdSuffix = '';
 
     public function __construct(
-        ParametersConfigurator $parameters,
-        ServicesConfigurator $services,
-        Configuration $matomoConfiguration,
-        string $connectionConfigurationId
+        protected ParametersConfigurator $parameters,
+        protected ServicesConfigurator $services,
+        protected Configuration $matomoConfiguration,
+        protected string $connectionConfigurationId
     ) {
-        $this->parameters = $parameters;
-        $this->services = $services;
-        $this->matomoConfiguration = $matomoConfiguration;
-        $this->connectionConfigurationId = $connectionConfigurationId;
     }
 
     abstract public function register(): void;

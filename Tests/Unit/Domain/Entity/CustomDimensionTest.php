@@ -19,7 +19,7 @@ class CustomDimensionTest extends TestCase
     /**
      * @test
      */
-    public function propertiesAreSetCorrectly(): void
+    public function propertiesAreSetInTheCorrectOrder(): void
     {
         $subject = new CustomDimension('action', 42, 'Some title', 'Some description');
 

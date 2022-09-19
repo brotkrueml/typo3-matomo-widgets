@@ -32,33 +32,17 @@ final class JavaScriptErrorDetailsController implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
-    private Configurations $configurations;
-    private JavaScriptErrorDetailsAggregator $aggregator;
-    private MatomoRepository $repository;
-    private ResponseFactoryInterface $responseFactory;
-    private StandaloneView $view;
-    /**
-     * @var array<string, string|int>
-     */
-    private array $parameters;
-
     /**
      * @param array{period: string, date: string} $parameters
      */
     public function __construct(
-        Configurations $configurations,
-        JavaScriptErrorDetailsAggregator $aggregator,
-        MatomoRepository $repository,
-        ResponseFactoryInterface $responseFactory,
-        StandaloneView $view,
-        array $parameters
+        private readonly Configurations $configurations,
+        private readonly JavaScriptErrorDetailsAggregator $aggregator,
+        private readonly MatomoRepository $repository,
+        private readonly ResponseFactoryInterface $responseFactory,
+        private readonly StandaloneView $view,
+        private readonly array $parameters
     ) {
-        $this->configurations = $configurations;
-        $this->aggregator = $aggregator;
-        $this->repository = $repository;
-        $this->responseFactory = $responseFactory;
-        $this->view = $view;
-        $this->parameters = $parameters;
     }
 
     public function __invoke(ServerRequestInterface $request): ResponseInterface

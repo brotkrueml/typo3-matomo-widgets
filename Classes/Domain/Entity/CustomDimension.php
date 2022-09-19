@@ -16,35 +16,11 @@ namespace Brotkrueml\MatomoWidgets\Domain\Entity;
  */
 final class CustomDimension
 {
-    /**
-     * @var string
-     * @readonly
-     */
-    public $scope;
-
-    /**
-     * @var int
-     * @readonly
-     */
-    public $idDimension;
-
-    /**
-     * @var string
-     * @readonly
-     */
-    public $title;
-
-    /**
-     * @var string
-     * @readonly
-     */
-    public $description;
-
-    public function __construct(string $scope, int $idDimension, string $title, string $description)
-    {
-        $this->scope = $scope;
-        $this->idDimension = $idDimension;
-        $this->title = $title;
-        $this->description = $description;
+    public function __construct(
+        public readonly string $scope,
+        public readonly int $idDimension,
+        public readonly string $title,
+        public readonly string $description
+    ) {
     }
 }

@@ -18,43 +18,20 @@ use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
  */
 final class Configuration
 {
-    private string $siteIdentifier;
-    private string $siteTitle;
-    private string $url;
-    private int $idSite;
-    private string $tokenAuth;
-    /**
-     * @var string[]
-     */
-    private array $activeWidgets;
-    /**
-     * @var CustomDimension[]
-     */
-    private array $customDimensions;
-    private string $pagesNotFoundTemplate;
-
     /**
      * @param string[] $activeWidgets
      * @param CustomDimension[] $customDimensions
      */
     public function __construct(
-        string $siteIdentifier,
-        string $siteTitle,
-        string $url,
-        int $idSite,
-        string $tokenAuth,
-        array $activeWidgets,
-        array $customDimensions,
-        string $pagesNotFoundTemplate
+        private readonly string $siteIdentifier,
+        private readonly string $siteTitle,
+        private readonly string $url,
+        private readonly int $idSite,
+        private readonly string $tokenAuth,
+        private readonly array $activeWidgets,
+        private readonly array $customDimensions,
+        private readonly string $pagesNotFoundTemplate
     ) {
-        $this->siteIdentifier = $siteIdentifier;
-        $this->siteTitle = $siteTitle;
-        $this->url = $url;
-        $this->idSite = $idSite;
-        $this->tokenAuth = $tokenAuth;
-        $this->activeWidgets = $activeWidgets;
-        $this->customDimensions = $customDimensions;
-        $this->pagesNotFoundTemplate = $pagesNotFoundTemplate;
     }
 
     public function getSiteIdentifier(): string

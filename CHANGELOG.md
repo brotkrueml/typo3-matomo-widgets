@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - Compatibility with TYPO3 v10 LTS (#37)
+- Compatibility with PHP 7.4 and 8.0 (#39)
 - Upgrade wizard for version 1.0 (#38)
 
 ## [1.6.0] - 2022-09-19
@@ -18,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.5.0] - 2022-06-13
 
 ### Removed
-- Compatibility with PHP 7.2 and PHP 7.3
+- Compatibility with PHP 7.2 and 7.3
 
 ## [1.4.0] - 2022-04-04
 

@@ -21,10 +21,7 @@ use PHPUnit\Framework\TestCase;
 class GenericValueDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-    /**
-     * @var Stub|MatomoRepositoryInterface
-     */
-    private $repositoryStub;
+    private Stub|MatomoRepositoryInterface $repositoryStub;
     private GenericValueDataProvider $subject;
 
     protected function setUp(): void

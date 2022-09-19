@@ -34,28 +34,17 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 final class CreateAnnotationController implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
-
-    private FrontendInterface $cache;
-    private CacheIdentifierCreator $cacheIdentifierCreator;
-    private Configurations $configurations;
-    private MatomoRepository $repository;
-    private ResponseFactoryInterface $responseFactory;
     private string $siteIdentifier;
     private \DateTimeImmutable $date;
     private string $note;
 
     public function __construct(
-        FrontendInterface $cache,
-        CacheIdentifierCreator $cacheIdentifierCreator,
-        Configurations $configurations,
-        MatomoRepository $repository,
-        ResponseFactoryInterface $responseFactory
+        private readonly FrontendInterface $cache,
+        private readonly CacheIdentifierCreator $cacheIdentifierCreator,
+        private readonly Configurations $configurations,
+        private readonly MatomoRepository $repository,
+        private readonly ResponseFactoryInterface $responseFactory
     ) {
-        $this->cache = $cache;
-        $this->cacheIdentifierCreator = $cacheIdentifierCreator;
-        $this->configurations = $configurations;
-        $this->repository = $repository;
-        $this->responseFactory = $responseFactory;
     }
 
     public function __invoke(ServerRequestInterface $request): ResponseInterface

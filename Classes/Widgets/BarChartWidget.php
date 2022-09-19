@@ -28,30 +28,19 @@ final class BarChartWidget implements WidgetInterface, EventDataInterface, Addit
 {
     use WidgetTitleAdaptionTrait;
 
-    private WidgetConfigurationInterface $configuration;
-    private ChartDataProviderInterface $dataProvider;
-    private StandaloneView $view;
-    private ?ButtonProviderInterface $buttonProvider;
-    /**
-     * @var array<string, string>
-     */
-    private array $options;
+    private readonly WidgetConfigurationInterface $configuration;
 
     /**
      * @param array<string, string> $options
      */
     public function __construct(
         WidgetConfigurationInterface $configuration,
-        ChartDataProviderInterface $dataProvider,
-        StandaloneView $view,
-        ?ButtonProviderInterface $buttonProvider = null,
-        array $options = []
+        private readonly ChartDataProviderInterface $dataProvider,
+        private readonly StandaloneView $view,
+        private readonly ?ButtonProviderInterface $buttonProvider = null,
+        private readonly array $options = []
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
-        $this->dataProvider = $dataProvider;
-        $this->view = $view;
-        $this->buttonProvider = $buttonProvider;
-        $this->options = $options;
     }
 
     public function renderWidgetContent(): string
