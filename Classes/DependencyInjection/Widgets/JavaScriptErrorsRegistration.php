@@ -54,9 +54,9 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
 
     private function registerDataProvider(): void
     {
-        $javaScriptErrorDecoratorId = 'matomo_widgets.javaScriptErrorDecorator.' . $this->matomoConfiguration->getSiteIdentifier();
+        $javaScriptErrorDecoratorId = 'matomo_widgets.javaScriptErrorDecorator.' . $this->matomoConfiguration->siteIdentifier;
         $this->services->set($javaScriptErrorDecoratorId, JavaScriptErrorDecorator::class)
-            ->arg('$siteIdentifier', $this->matomoConfiguration->getSiteIdentifier());
+            ->arg('$siteIdentifier', $this->matomoConfiguration->siteIdentifier);
 
         $this->services
             ->set($this->buildServiceDataProviderId(), GenericTableDataProvider::class)
@@ -96,8 +96,8 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.events.javaScriptErrors.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'JavaScript errors')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'JavaScript errors')
             : $localisedTitle;
 
         $this->services
@@ -108,7 +108,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
                 '$options',
                 [
                     'reportLink' => $this->buildReportLink(),
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ]
             )
@@ -130,8 +130,8 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
     {
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?period=month&date=today&segment=&category=General_Actions&subcategory=Events_Events',
-            $this->matomoConfiguration->getUrl(),
-            $this->matomoConfiguration->getIdSite()
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite
         );
     }
 }

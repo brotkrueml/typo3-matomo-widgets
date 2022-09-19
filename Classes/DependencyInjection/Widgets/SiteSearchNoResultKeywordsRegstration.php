@@ -82,8 +82,8 @@ final class SiteSearchNoResultKeywordsRegstration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchNoResultKeywords.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Search keywords with no results')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Search keywords with no results')
             : $localisedTitle;
 
         $this->services
@@ -94,7 +94,7 @@ final class SiteSearchNoResultKeywordsRegstration extends AbstractRegistration
                 '$options',
                 [
                     'reportLink' => $this->buildReportLink(),
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ]
             )
@@ -116,8 +116,8 @@ final class SiteSearchNoResultKeywordsRegstration extends AbstractRegistration
     {
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?category=General_Actions&subcategory=Actions_SubmenuSitesearch',
-            $this->matomoConfiguration->getUrl(),
-            $this->matomoConfiguration->getIdSite()
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite
         );
     }
 }

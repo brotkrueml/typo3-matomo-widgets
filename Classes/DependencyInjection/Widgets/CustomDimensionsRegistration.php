@@ -116,7 +116,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
     {
         return \sprintf(
             self::PROVIDER_ID_TEMPLATE,
-            $this->matomoConfiguration->getSiteIdentifier(),
+            $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix,
             $this->customDimension->idDimension
         );
@@ -125,10 +125,10 @@ final class CustomDimensionsRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $title = $localisedTitle = $this->customDimension->title;
-        if ($this->matomoConfiguration->getSiteTitle() !== '') {
+        if ($this->matomoConfiguration->siteTitle !== '') {
             $title = \sprintf(
                 '%s: %s',
-                $this->matomoConfiguration->getSiteTitle(),
+                $this->matomoConfiguration->siteTitle,
                 $this->getLanguageService()->sL($title)
             );
         }
@@ -141,7 +141,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
                 '$options',
                 [
                     'reportLink' => $this->buildReportLink(),
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ]
             )
@@ -163,7 +163,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
     {
         return \sprintf(
             self::SERVICE_ID_TEMPLATE,
-            $this->matomoConfiguration->getSiteIdentifier(),
+            $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix,
             $this->customDimension->idDimension
         );
@@ -173,7 +173,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
     {
         return \sprintf(
             'matomo_widgets.%s.%s.%d',
-            $this->matomoConfiguration->getSiteIdentifier(),
+            $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix,
             $this->customDimension->idDimension
         );
@@ -183,8 +183,8 @@ final class CustomDimensionsRegistration extends AbstractRegistration
     {
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?category=%s&subcategory=customdimension%d',
-            $this->matomoConfiguration->getUrl(),
-            $this->matomoConfiguration->getIdSite(),
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite,
             $this->customDimension->scope === 'action' ? 'General_Actions' : 'General_Visitors',
             $this->customDimension->idDimension
         );

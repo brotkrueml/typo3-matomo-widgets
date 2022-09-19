@@ -28,7 +28,7 @@ final class Configurations implements \IteratorAggregate, \Countable
     public function __construct(array $configurations)
     {
         foreach ($configurations as $configuration) {
-            $this->configurations[$configuration->getSiteIdentifier()] = $configuration;
+            $this->configurations[$configuration->siteIdentifier] = $configuration;
         }
     }
 

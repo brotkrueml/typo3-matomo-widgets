@@ -23,57 +23,19 @@ final class Configuration
      * @param CustomDimension[] $customDimensions
      */
     public function __construct(
-        private readonly string $siteIdentifier,
-        private readonly string $siteTitle,
-        private readonly string $url,
-        private readonly int $idSite,
-        private readonly string $tokenAuth,
-        private readonly array $activeWidgets,
-        private readonly array $customDimensions,
-        private readonly string $pagesNotFoundTemplate
+        public readonly string $siteIdentifier,
+        public readonly string $siteTitle,
+        public readonly string $url,
+        public readonly int $idSite,
+        public readonly string $tokenAuth,
+        public readonly array $activeWidgets,
+        public readonly array $customDimensions,
+        public readonly string $pagesNotFoundTemplate
     ) {
-    }
-
-    public function getSiteIdentifier(): string
-    {
-        return $this->siteIdentifier;
-    }
-
-    public function getSiteTitle(): string
-    {
-        return $this->siteTitle;
-    }
-
-    public function getUrl(): string
-    {
-        return $this->url;
-    }
-
-    public function getIdSite(): int
-    {
-        return $this->idSite;
-    }
-
-    public function getTokenAuth(): string
-    {
-        return $this->tokenAuth;
     }
 
     public function isWidgetActive(string $widgetIdentifier): bool
     {
         return \in_array($widgetIdentifier, $this->activeWidgets, true);
-    }
-
-    /**
-     * @return CustomDimension[]
-     */
-    public function getCustomDimensions(): array
-    {
-        return $this->customDimensions;
-    }
-
-    public function getPagesNotFoundTemplate(): string
-    {
-        return $this->pagesNotFoundTemplate;
     }
 }

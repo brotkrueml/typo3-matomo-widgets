@@ -55,9 +55,9 @@ final class BrowserPluginsRegistration extends AbstractRegistration
 
     private function registerDataProvider(): void
     {
-        $browserPluginIconDecoratorId = 'matomo_widgets.browserPluginDecorator.' . $this->matomoConfiguration->getSiteIdentifier();
+        $browserPluginIconDecoratorId = 'matomo_widgets.browserPluginDecorator.' . $this->matomoConfiguration->siteIdentifier;
         $this->services->set($browserPluginIconDecoratorId, BrowserPluginIconDecorator::class)
-            ->arg('$url', $this->matomoConfiguration->getUrl());
+            ->arg('$url', $this->matomoConfiguration->url);
 
         $this->services
             ->set($this->buildServiceDataProviderId(), GenericTableDataProvider::class)
@@ -94,8 +94,8 @@ final class BrowserPluginsRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicePlugins.plugin.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Browser plugins')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Browser plugins')
             : $localisedTitle;
 
         $this->services
@@ -106,7 +106,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
                 '$options',
                 [
                     'reportLink' => $this->buildReportLink(),
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ]
             )
@@ -128,8 +128,8 @@ final class BrowserPluginsRegistration extends AbstractRegistration
     {
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?category=General_Visitors&subcategory=DevicesDetection_Software',
-            $this->matomoConfiguration->getUrl(),
-            $this->matomoConfiguration->getIdSite()
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite
         );
     }
 }

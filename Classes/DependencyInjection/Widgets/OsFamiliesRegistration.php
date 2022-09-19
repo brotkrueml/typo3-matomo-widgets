@@ -68,8 +68,8 @@ final class OsFamiliesRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Operating system families')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Operating system families')
             : $localisedTitle;
 
         $this->services
@@ -80,7 +80,7 @@ final class OsFamiliesRegistration extends AbstractRegistration
                 '$options',
                 [
                     'reportLink' => $this->buildReportLink(),
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ]
             )
@@ -102,8 +102,8 @@ final class OsFamiliesRegistration extends AbstractRegistration
     {
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?segment=&category=General_Visitors&subcategory=DevicesDetection_Software',
-            $this->matomoConfiguration->getUrl(),
-            $this->matomoConfiguration->getIdSite()
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite
         );
     }
 }

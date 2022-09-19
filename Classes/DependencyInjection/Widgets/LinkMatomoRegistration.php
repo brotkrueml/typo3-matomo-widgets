@@ -36,8 +36,8 @@ final class LinkMatomoRegistration extends AbstractRegistration
 
     private function registerDataProvider(): void
     {
-        $link = (string)(new Uri($this->matomoConfiguration->getUrl()))
-            ->withQuery('idSite=' . $this->matomoConfiguration->getIdSite());
+        $link = (string)(new Uri($this->matomoConfiguration->url))
+            ->withQuery('idSite=' . $this->matomoConfiguration->idSite);
 
         $this->services
             ->set($this->buildServiceDataProviderId(), LinkMatomoButtonProvider::class)
@@ -47,8 +47,8 @@ final class LinkMatomoRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Link to Matomo')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Link to Matomo')
             : $localisedTitle;
 
         $this->services
@@ -58,7 +58,7 @@ final class LinkMatomoRegistration extends AbstractRegistration
             ->arg(
                 '$options',
                 [
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                     'text' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.text',
                 ]

@@ -65,8 +65,8 @@ final class VisitsPerDayRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Visits per day')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Visits per day')
             : $localisedTitle;
 
         $this->services
@@ -77,7 +77,7 @@ final class VisitsPerDayRegistration extends AbstractRegistration
                 '$options',
                 [
                     'reportLink' => $this->buildReportLink(),
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ]
             )
@@ -99,8 +99,8 @@ final class VisitsPerDayRegistration extends AbstractRegistration
     {
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=day&date=today#?segment=&category=General_Visitors&subcategory=General_Overview',
-            $this->matomoConfiguration->getUrl(),
-            $this->matomoConfiguration->getIdSite()
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite
         );
     }
 }

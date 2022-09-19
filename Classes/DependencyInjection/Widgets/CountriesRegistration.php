@@ -56,9 +56,9 @@ final class CountriesRegistration extends AbstractRegistration
 
     private function registerDataProvider(): void
     {
-        $countryFlagDecoratorId = 'matomo_widgets.countryFlagDecorator.' . $this->matomoConfiguration->getSiteIdentifier();
+        $countryFlagDecoratorId = 'matomo_widgets.countryFlagDecorator.' . $this->matomoConfiguration->siteIdentifier;
         $this->services->set($countryFlagDecoratorId, CountryFlagDecorator::class)
-            ->arg('$url', $this->matomoConfiguration->getUrl());
+            ->arg('$url', $this->matomoConfiguration->url);
 
         $this->services
             ->set($this->buildServiceDataProviderId(), GenericTableDataProvider::class)
@@ -91,8 +91,8 @@ final class CountriesRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Countries')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Countries')
             : $localisedTitle;
 
         $this->services
@@ -103,7 +103,7 @@ final class CountriesRegistration extends AbstractRegistration
                 '$options',
                 [
                     'reportLink' => $this->buildReportLink(),
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ]
             )
@@ -125,8 +125,8 @@ final class CountriesRegistration extends AbstractRegistration
     {
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?segment=&category=General_Visitors&subcategory=UserCountry_SubmenuLocations',
-            $this->matomoConfiguration->getUrl(),
-            $this->matomoConfiguration->getIdSite()
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite
         );
     }
 }

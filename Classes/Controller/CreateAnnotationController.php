@@ -140,9 +140,9 @@ final class CreateAnnotationController
         }
 
         $connectionConfiguration = new ConnectionConfiguration(
-            $siteConfiguration->getUrl(),
-            $siteConfiguration->getIdSite(),
-            $siteConfiguration->getTokenAuth()
+            $siteConfiguration->url,
+            $siteConfiguration->idSite,
+            $siteConfiguration->tokenAuth
         );
 
         $parameterBag = new ParameterBag([

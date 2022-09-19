@@ -44,7 +44,7 @@ abstract class AbstractRegistration
     {
         return \sprintf(
             self::PROVIDER_ID_TEMPLATE,
-            $this->matomoConfiguration->getSiteIdentifier(),
+            $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix
         );
     }
@@ -53,7 +53,7 @@ abstract class AbstractRegistration
     {
         return \sprintf(
             self::SERVICE_ID_TEMPLATE,
-            $this->matomoConfiguration->getSiteIdentifier(),
+            $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix
         );
     }
@@ -62,7 +62,7 @@ abstract class AbstractRegistration
     {
         return \sprintf(
             Extension::WIDGET_IDENTIFIER_TEMPLATE,
-            $this->matomoConfiguration->getSiteIdentifier(),
+            $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix
         );
     }

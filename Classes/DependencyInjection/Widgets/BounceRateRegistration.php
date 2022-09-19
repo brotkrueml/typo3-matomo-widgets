@@ -66,8 +66,8 @@ final class BounceRateRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Bounce rate')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Bounce rate')
             : $localisedTitle;
 
         $this->services
@@ -77,7 +77,7 @@ final class BounceRateRegistration extends AbstractRegistration
             ->arg(
                 '$options',
                 [
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                     'subtitle' => '%' . self::PARAMETERS_SUBTITLE . '%',
                     'icon' => 'content-bounce-rate',

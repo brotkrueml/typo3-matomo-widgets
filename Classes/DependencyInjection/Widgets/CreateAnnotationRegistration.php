@@ -34,8 +34,8 @@ final class CreateAnnotationRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.createAnnotation.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Create annotation')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Create annotation')
             : $localisedTitle;
 
         $this->services
@@ -45,8 +45,8 @@ final class CreateAnnotationRegistration extends AbstractRegistration
                 '$options',
                 [
                     'reportLink' => $this->buildReportLink(),
-                    'siteIdentifier' => $this->matomoConfiguration->getSiteIdentifier(),
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteIdentifier' => $this->matomoConfiguration->siteIdentifier,
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ]
             )
@@ -68,8 +68,8 @@ final class CreateAnnotationRegistration extends AbstractRegistration
     {
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?period=month&date=today&segment=&category=General_Visitors&subcategory=General_Overview',
-            $this->matomoConfiguration->getUrl(),
-            $this->matomoConfiguration->getIdSite()
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite
         );
     }
 }

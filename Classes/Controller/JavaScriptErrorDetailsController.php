@@ -56,9 +56,9 @@ final class JavaScriptErrorDetailsController
         }
 
         $connectionConfiguration = new ConnectionConfiguration(
-            $siteConfiguration->getUrl(),
-            $siteConfiguration->getIdSite(),
-            $siteConfiguration->getTokenAuth()
+            $siteConfiguration->url,
+            $siteConfiguration->idSite,
+            $siteConfiguration->tokenAuth
         );
 
         $parameterBag = new ParameterBag([
@@ -82,7 +82,7 @@ final class JavaScriptErrorDetailsController
 
         $this->view->setTemplatePathAndFilename('EXT:matomo_widgets/Resources/Private/Templates/JavaScriptErrorDetails.html');
         $this->view->assignMultiple([
-            'matomoBaseUrl' => $siteConfiguration->getUrl(),
+            'matomoBaseUrl' => $siteConfiguration->url,
             'details' => $details,
         ]);
 

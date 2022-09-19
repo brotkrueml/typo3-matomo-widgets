@@ -69,11 +69,11 @@ final class WidgetsRegistration
         Configurations $configurations
     ): void {
         foreach ($configurations as $configuration) {
-            $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $configuration->getSiteIdentifier();
+            $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $configuration->siteIdentifier;
             $services->set($connectionConfigurationId, ConnectionConfiguration::class)
-                ->arg('$url', $configuration->getUrl())
-                ->arg('$idSite', $configuration->getIdSite())
-                ->arg('$tokenAuth', $configuration->getTokenAuth());
+                ->arg('$url', $configuration->url)
+                ->arg('$idSite', $configuration->idSite)
+                ->arg('$tokenAuth', $configuration->tokenAuth);
 
             // Register the standard dashboard widgets
             foreach (self::REGISTRATION_CLASSES as $registrationClass) {
@@ -81,7 +81,7 @@ final class WidgetsRegistration
             }
 
             // Register the custom dimensions dashboard widgets
-            foreach ($configuration->getCustomDimensions() as $customDimension) {
+            foreach ($configuration->customDimensions as $customDimension) {
                 (new CustomDimensionsRegistration($parameters, $services, $configuration, $connectionConfigurationId, $customDimension))->register();
             }
         }

@@ -56,16 +56,16 @@ final class DashboardPresetsProvider
             }
 
             $title = \count($this->configurations) > 1
-                ? \sprintf('Matomo (%s)', $configuration->getSiteTitle() ?: $configuration->getSiteIdentifier())
+                ? \sprintf('Matomo (%s)', $configuration->siteTitle ?: $configuration->siteIdentifier)
                 : 'Matomo';
 
             /** @phpstan-ignore-next-line */
-            $presets['matomo_' . $configuration->getSiteIdentifier()] = [
+            $presets['matomo_' . $configuration->siteIdentifier] = [
                 'title' => $title,
                 'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':preset.description',
                 'iconIdentifier' => 'content-dashboard',
                 'defaultWidgets' => \array_map(
-                    static fn (string $widget): string => \sprintf($widget, $configuration->getSiteIdentifier()),
+                    static fn (string $widget): string => \sprintf($widget, $configuration->siteIdentifier),
                     $enabledWidgets
                 ),
                 'showInWizard' => true,

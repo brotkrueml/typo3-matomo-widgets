@@ -33,7 +33,7 @@ final class PagesNotFoundRegistration extends AbstractRegistration
             return;
         }
 
-        if ($this->matomoConfiguration->getPagesNotFoundTemplate() === '') {
+        if ($this->matomoConfiguration->pagesNotFoundTemplate === '') {
             return;
         }
 
@@ -58,9 +58,9 @@ final class PagesNotFoundRegistration extends AbstractRegistration
 
     private function registerDataProvider(): void
     {
-        $pathDecoratorId = 'matomo_widgets.pagesNotFoundPathDecorator.' . $this->matomoConfiguration->getSiteIdentifier();
+        $pathDecoratorId = 'matomo_widgets.pagesNotFoundPathDecorator.' . $this->matomoConfiguration->siteIdentifier;
         $this->services->set($pathDecoratorId, PagesNotFoundPathDecorator::class)
-            ->arg('$template', $this->matomoConfiguration->getPagesNotFoundTemplate());
+            ->arg('$template', $this->matomoConfiguration->pagesNotFoundTemplate);
 
         $this->services
             ->set($this->buildServiceDataProviderId(), GenericTableDataProvider::class)
@@ -87,7 +87,7 @@ final class PagesNotFoundRegistration extends AbstractRegistration
                 'filter_column', 'label',
             ])
             ->call('addParameter', [
-                'filter_pattern', $this->buildFilterPattern($this->matomoConfiguration->getPagesNotFoundTemplate()),
+                'filter_pattern', $this->buildFilterPattern($this->matomoConfiguration->pagesNotFoundTemplate),
             ])
             ->call('addParameter', [
                 'showColumns', 'nb_hits',
@@ -109,8 +109,8 @@ final class PagesNotFoundRegistration extends AbstractRegistration
     private function registerWidget(): void
     {
         $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.pagesNotFound.title';
-        $title = $this->matomoConfiguration->getSiteTitle() !== ''
-            ? \sprintf('%s: %s', $this->matomoConfiguration->getSiteTitle(), 'Pages not found')
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Pages not found')
             : $localisedTitle;
 
         $this->services
@@ -121,7 +121,7 @@ final class PagesNotFoundRegistration extends AbstractRegistration
                 '$options',
                 [
                     'reportLink' => $this->buildReportLink(),
-                    'siteTitle' => $this->matomoConfiguration->getSiteTitle(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ]
             )
@@ -143,8 +143,8 @@ final class PagesNotFoundRegistration extends AbstractRegistration
     {
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?period=month&date=today&segment=&category=General_Actions&subcategory=Actions_SubmenuPageTitles',
-            $this->matomoConfiguration->getUrl(),
-            $this->matomoConfiguration->getIdSite()
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite
         );
     }
 }

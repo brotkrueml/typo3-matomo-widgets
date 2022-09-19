@@ -21,7 +21,7 @@ use TYPO3\CMS\Core\Core\Environment;
  * @runTestsInSeparateProcesses
  * @covers \Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder
  */
-class ConfigurationFinderTest extends TestCase
+final class ConfigurationFinderTest extends TestCase
 {
     private static string $configPath;
 
@@ -134,12 +134,12 @@ class ConfigurationFinderTest extends TestCase
         /** @var Configuration $actualConfiguration */
         $actualConfiguration = $configurations->getIterator()->current();
         self::assertInstanceOf(Configuration::class, $actualConfiguration);
-        self::assertSame('some_site', $actualConfiguration->getSiteIdentifier());
-        self::assertSame(42, $actualConfiguration->getIdSite());
-        self::assertSame('Some Title', $actualConfiguration->getSiteTitle());
-        self::assertSame('some token', $actualConfiguration->getTokenAuth());
-        self::assertSame('https://example.org/', $actualConfiguration->getUrl());
-        self::assertSame('some 404 | {path} | {referrer}', $actualConfiguration->getPagesNotFoundTemplate());
+        self::assertSame('some_site', $actualConfiguration->siteIdentifier);
+        self::assertSame(42, $actualConfiguration->idSite);
+        self::assertSame('Some Title', $actualConfiguration->siteTitle);
+        self::assertSame('some token', $actualConfiguration->tokenAuth);
+        self::assertSame('https://example.org/', $actualConfiguration->url);
+        self::assertSame('some 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
         self::assertTrue($actualConfiguration->isWidgetActive('actionsPerDay'));
         self::assertFalse($actualConfiguration->isWidgetActive('actionsPerMonth'));
         self::assertFalse($actualConfiguration->isWidgetActive('notDefined'));
@@ -199,9 +199,9 @@ class ConfigurationFinderTest extends TestCase
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
         $actualConfiguration = $configurations->getIterator()->current();
-        self::assertSame(42, $actualConfiguration->getIdSite());
-        self::assertSame('https://example.org/', $actualConfiguration->getUrl());
-        self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->getPagesNotFoundTemplate());
+        self::assertSame(42, $actualConfiguration->idSite);
+        self::assertSame('https://example.org/', $actualConfiguration->url);
+        self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
     }
 
     /**
@@ -228,9 +228,9 @@ class ConfigurationFinderTest extends TestCase
 
         /** @var Configuration $actualConfiguration */
         $actualConfiguration = $configurations->getIterator()->current();
-        self::assertSame(1, $actualConfiguration->getIdSite());
-        self::assertSame('https://example.com/', $actualConfiguration->getUrl());
-        self::assertSame('matomo integration 404 | {path} | {referrer}', $actualConfiguration->getPagesNotFoundTemplate());
+        self::assertSame(1, $actualConfiguration->idSite);
+        self::assertSame('https://example.com/', $actualConfiguration->url);
+        self::assertSame('matomo integration 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
     }
 
     /**
@@ -271,7 +271,7 @@ class ConfigurationFinderTest extends TestCase
 
         $actualConfiguration = $configurations->getIterator()->current();
         self::assertCount(1, $configurations);
-        self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->getPagesNotFoundTemplate());
+        self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
     }
 
     /**
@@ -298,13 +298,13 @@ class ConfigurationFinderTest extends TestCase
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
         $actual = $configurations->findConfigurationBySiteIdentifier('some_site');
 
-        self::assertSame('The resolved title', $actual->getSiteTitle());
-        self::assertSame('The resolved URL', $actual->getUrl());
-        self::assertSame(42, $actual->getIdSite());
-        self::assertSame('The resolved token', $actual->getTokenAuth());
+        self::assertSame('The resolved title', $actual->siteTitle);
+        self::assertSame('The resolved URL', $actual->url);
+        self::assertSame(42, $actual->idSite);
+        self::assertSame('The resolved token', $actual->tokenAuth);
         self::assertTrue($actual->isWidgetActive('widget1'));
         self::assertTrue($actual->isWidgetActive('widget2'));
-        self::assertSame('The resolved pages not found template', $actual->getPagesNotFoundTemplate());
+        self::assertSame('The resolved pages not found template', $actual->pagesNotFoundTemplate);
     }
 
     private function createSiteConfiguration(string $identifier, array $configuration): void
