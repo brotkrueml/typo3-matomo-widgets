@@ -21,23 +21,21 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerAwareTrait;
+use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
 /**
  * @internal
  */
-final class JavaScriptErrorDetailsController implements LoggerAwareInterface
+final class JavaScriptErrorDetailsController
 {
-    use LoggerAwareTrait;
-
     /**
      * @param array{period: string, date: string} $parameters
      */
     public function __construct(
         private readonly Configurations $configurations,
         private readonly JavaScriptErrorDetailsAggregator $aggregator,
+        private readonly LoggerInterface $logger,
         private readonly MatomoRepository $repository,
         private readonly ResponseFactoryInterface $responseFactory,
         private readonly StandaloneView $view,

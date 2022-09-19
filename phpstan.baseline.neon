@@ -6,16 +6,6 @@ parameters:
 			path: Classes/Connection/MatomoConnector.php
 
 		-
-			message: "#^Cannot call method error\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
-			count: 1
-			path: Classes/Controller/CreateAnnotationController.php
-
-		-
-			message: "#^Cannot call method error\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
-			count: 1
-			path: Classes/Controller/JavaScriptErrorDetailsController.php
-
-		-
 			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
 			count: 3
 			path: Classes/DependencyInjection/Widgets/CustomDimensionsRegistration.php

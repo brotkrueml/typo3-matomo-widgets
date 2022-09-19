@@ -62,10 +62,10 @@ final class CreateAnnotationControllerTest extends TestCase
             $this->cacheMock,
             new CacheIdentifierCreator(),
             $configurations,
+            new NullLogger(),
             $this->matomoRepositoryStub,
             $responseFactory
         );
-        $this->subject->setLogger(new NullLogger());
 
         $this->backendUserStub = $this->createStub(BackendUserAuthentication::class);
         $GLOBALS['BE_USER'] = $this->backendUserStub;

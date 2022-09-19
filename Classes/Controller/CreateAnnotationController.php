@@ -22,8 +22,7 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerAwareTrait;
+use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 use TYPO3\CMS\Core\Localization\LanguageService;
@@ -31,9 +30,8 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 /**
  * @internal
  */
-final class CreateAnnotationController implements LoggerAwareInterface
+final class CreateAnnotationController
 {
-    use LoggerAwareTrait;
     private string $siteIdentifier;
     private \DateTimeImmutable $date;
     private string $note;
@@ -42,6 +40,7 @@ final class CreateAnnotationController implements LoggerAwareInterface
         private readonly FrontendInterface $cache,
         private readonly CacheIdentifierCreator $cacheIdentifierCreator,
         private readonly Configurations $configurations,
+        private readonly LoggerInterface $logger,
         private readonly MatomoRepository $repository,
         private readonly ResponseFactoryInterface $responseFactory
     ) {
