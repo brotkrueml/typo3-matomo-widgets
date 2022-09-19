@@ -13,14 +13,23 @@ namespace Brotkrueml\MatomoWidgets\Widgets;
 
 use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
+use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
 /**
  * @internal
  */
-final class CtaWidget extends \TYPO3\CMS\Dashboard\Widgets\CtaWidget
+final class CtaWidget implements WidgetInterface
 {
     use WidgetTitleAdaptionTrait;
+
+    private WidgetConfigurationInterface $configuration;
+    private StandaloneView $view;
+    private ?ButtonProviderInterface $buttonProvider;
+    /**
+     * @var array<string, string>
+     */
+    private array $options;
 
     /**
      * @param array<string, string> $options
@@ -31,7 +40,31 @@ final class CtaWidget extends \TYPO3\CMS\Dashboard\Widgets\CtaWidget
         ?ButtonProviderInterface $buttonProvider = null,
         array $options = []
     ) {
-        $configuration = $this->prefixWithSiteTitle($configuration, $options);
-        parent::__construct($configuration, $view, $buttonProvider, $options);
+        $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
+        $this->view = $view;
+        $this->buttonProvider = $buttonProvider;
+        $this->options = \array_merge([
+            'text' => '',
+        ], $options);
+    }
+
+    public function renderWidgetContent(): string
+    {
+        $this->view->setTemplate('Widget/CtaWidget');
+        $this->view->assignMultiple([
+            'text' => $this->options['text'],
+            'options' => $this->options,
+            'button' => $this->buttonProvider,
+            'configuration' => $this->configuration,
+        ]);
+        return $this->view->render();
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
     }
 }
