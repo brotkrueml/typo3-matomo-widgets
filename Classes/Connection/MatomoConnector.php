@@ -33,15 +33,15 @@ class MatomoConnector
     {
         $parameterBag
             ->set('module', 'API')
-            ->set('idSite', (string)$configuration->getIdSite())
+            ->set('idSite', (string)$configuration->idSite)
             ->set('method', $method)
-            ->set('token_auth', $configuration->getTokenAuth())
+            ->set('token_auth', $configuration->tokenAuth)
             ->set('format', 'json');
 
         $body = new Stream('php://temp', 'r+');
         $body->write($parameterBag->buildQuery());
 
-        $request = $this->requestFactory->createRequest('POST', $configuration->getUrl())
+        $request = $this->requestFactory->createRequest('POST', $configuration->url)
             ->withHeader('content-type', 'application/x-www-form-urlencoded')
             ->withBody($body);
         $response = $this->client->sendRequest($request);

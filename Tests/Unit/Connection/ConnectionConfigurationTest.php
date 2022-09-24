@@ -14,45 +14,15 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Connection;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use PHPUnit\Framework\TestCase;
 
-class ConnectionConfigurationTest extends TestCase
+final class ConnectionConfigurationTest extends TestCase
 {
     /**
      * @test
      */
-    public function getUrlReturnsGivenUrl(): void
+    public function tokenAuthHasAnonymousValueIfGivenTokenAuthIsEmpty(): void
     {
         $subject = new ConnectionConfiguration('https://example.org/', 1, '');
 
-        self::assertSame('https://example.org/', $subject->getUrl());
-    }
-
-    /**
-     * @test
-     */
-    public function getIdSiteReturnsGivenIdSite(): void
-    {
-        $subject = new ConnectionConfiguration('https://example.org/', 1, '');
-
-        self::assertSame(1, $subject->getIdSite());
-    }
-
-    /**
-     * @test
-     */
-    public function getTokenAuthReturnsGivenTokenAuthIfNotEmpty(): void
-    {
-        $subject = new ConnectionConfiguration('https://example.org/', 1, 'secrettoken');
-
-        self::assertSame('secrettoken', $subject->getTokenAuth());
-    }
-
-    /**
-     * @test
-     */
-    public function getTokenAuthReturnsAnonymousIfGivenTokenAuthIsEmpty(): void
-    {
-        $subject = new ConnectionConfiguration('https://example.org/', 1, '');
-
-        self::assertSame('anonymous', $subject->getTokenAuth());
+        self::assertSame('anonymous', $subject->tokenAuth);
     }
 }

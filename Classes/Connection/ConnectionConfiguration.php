@@ -16,28 +16,13 @@ namespace Brotkrueml\MatomoWidgets\Connection;
  */
 class ConnectionConfiguration
 {
-    private readonly string $tokenAuth;
+    public readonly string $tokenAuth;
 
     public function __construct(
-        private readonly string $url,
-        private readonly int $idSite,
+        public readonly string $url,
+        public readonly int $idSite,
         string $tokenAuth
     ) {
         $this->tokenAuth = $tokenAuth ?: 'anonymous';
-    }
-
-    public function getUrl(): string
-    {
-        return $this->url;
-    }
-
-    public function getIdSite(): int
-    {
-        return $this->idSite;
-    }
-
-    public function getTokenAuth(): string
-    {
-        return $this->tokenAuth;
     }
 }
