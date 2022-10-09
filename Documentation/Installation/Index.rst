@@ -11,10 +11,9 @@ Installation
 Target group: **Administrators**
 
 .. note::
-
-   The extension in version |version| supports TYPO3 v11 LTS
+   The extension in version |version| supports TYPO3 v11 LTS and TYPO3 v12
    and requires at least PHP 8.1. Use version 1.6 for compatibility with
-   TYPO3 v10 and PHP 7.4 and 8.0, and version 1.4 for support of PHP 7.2 and
+   TYPO3 v10 LTS and PHP 7.4 and 8.0, and version 1.4 for support of PHP 7.2 and
    7.3.
 
 The recommended way to install this extension is by using Composer. In your
