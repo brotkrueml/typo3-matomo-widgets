@@ -18,14 +18,14 @@ use Brotkrueml\MatomoWidgets\Exception\InvalidResponseException;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use donatj\MockWebServer\MockWebServer;
 use donatj\MockWebServer\Response;
-use GuzzleHttp\Client as GuzzleClient;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use TYPO3\CMS\Core\Http\Client;
 use TYPO3\CMS\Core\Http\RequestFactory;
+use TYPO3\CMS\Core\Information\Typo3Version;
 
-class MatomoConnectorTest extends TestCase
+final class MatomoConnectorTest extends TestCase
 {
     private static MockWebServer $server;
     private RequestFactoryInterface $requestFactory;
@@ -47,8 +47,13 @@ class MatomoConnectorTest extends TestCase
     {
         $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify'] = false;
 
-        $this->requestFactory = new RequestFactory();
-        $this->client = $this->getClient();
+        $isTypo3Version12 = (new Typo3Version())->getMajorVersion() === 12;
+        if ($isTypo3Version12) {
+            $this->requestFactory = new RequestFactory(new Client\GuzzleClientFactory());
+        } else {
+            $this->requestFactory = new RequestFactory();
+        }
+        $this->client = $this->getClient($isTypo3Version12);
         $this->url = \sprintf('http://%s:%s/', self::$server->getHost(), self::$server->getPort());
     }
 
@@ -57,14 +62,12 @@ class MatomoConnectorTest extends TestCase
         unset($GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']);
     }
 
-    private function getClient(): ClientInterface
+    private function getClient(bool $isTypo3Version12): ClientInterface
     {
-        if (\class_exists(Client::class)) {
-            // Before TYPO3 v11.2
-            return new Client(new GuzzleClient());
+        if ($isTypo3Version12) {
+            return (new Client\GuzzleClientFactory())->getClient();
         }
 
-        // Since TYPO3 v11.2
         return Client\GuzzleClientFactory::getClient();
     }
 
