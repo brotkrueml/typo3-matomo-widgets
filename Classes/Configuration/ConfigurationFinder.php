@@ -111,7 +111,7 @@ final class ConfigurationFinder
                     ->in($configPath . '/sites/*')
                     ->name('config.yaml')
             );
-        } catch (DirectoryNotFoundException $e) {
+        } catch (DirectoryNotFoundException) {
             $siteFiles = [];
         }
 
@@ -121,11 +121,11 @@ final class ConfigurationFinder
                     ->in($configPath . '/' . Extension::ADDITIONAL_CONFIG_PATH_SEGMENT)
                     ->name('*.yaml')
             );
-        } catch (DirectoryNotFoundException $e) {
+        } catch (DirectoryNotFoundException) {
             $additionalFiles = [];
         }
 
-        return \array_merge($siteFiles, $additionalFiles);
+        return [...$siteFiles, ...$additionalFiles];
     }
 
     /**
