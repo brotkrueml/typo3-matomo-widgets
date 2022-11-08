@@ -22,6 +22,8 @@ final class Extension
     public const LANGUAGE_PATH_DASHBOARD = self::LANGUAGE_PATH . 'Dashboard.xlf';
     public const LANGUAGE_PATH_SITECONF = self::LANGUAGE_PATH . 'SiteConfiguration.xlf';
 
+    public const ADDITIONAL_CONFIG_PATH_SEGMENT = self::KEY;
+
     // Placeholders: site identifier / widget service ID suffix
     public const WIDGET_IDENTIFIER_TEMPLATE = 'matomo_widgets.%s.%s';
 }
