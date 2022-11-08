@@ -13,6 +13,7 @@ namespace Brotkrueml\MatomoWidgets\Configuration;
 
 use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
 use Brotkrueml\MatomoWidgets\Domain\Validation\CustomDimensionConfigurationValidator;
+use Brotkrueml\MatomoWidgets\Extension;
 use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
@@ -33,74 +34,98 @@ final class ConfigurationFinder
     public static function buildConfigurations(string $configPath, bool $isMatomoIntegrationAvailable): Configurations
     {
         $configurationsArray = [];
-        $finder = new Finder();
-        try {
-            $finder
-                ->in($configPath . '/sites/*')
-                ->name('config.yaml');
-
-            foreach ($finder as $file) {
-                $realFile = $file->getRealPath();
-                if ($realFile === false) {
-                    continue;
-                }
-                $siteConfiguration = Yaml::parseFile($realFile);
-
-                $considerMatomoIntegration = $isMatomoIntegrationAvailable
-                    && ($siteConfiguration['matomoWidgetsConsiderMatomoIntegration'] ?? false);
-
-                if ($considerMatomoIntegration) {
-                    $url = $siteConfiguration['matomoIntegrationUrl'] ?? '';
-                    $idSite = (string)($siteConfiguration['matomoIntegrationSiteId'] ?? 0);
-                } else {
-                    $url = $siteConfiguration['matomoWidgetsUrl'] ?? '';
-                    $idSite = (string)($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
-                }
-                $url = self::resolveEnvironmentVariable($url);
-                $idSite = (int)self::resolveEnvironmentVariable($idSite);
-                if ($url === '') {
-                    continue;
-                }
-                if ($idSite < 1) {
-                    continue;
-                }
-
-                if ($considerMatomoIntegration && \str_contains($siteConfiguration['matomoIntegrationOptions'] ?? '', 'trackErrorPages')) {
-                    $pagesNotFoundTemplate = $siteConfiguration['matomoIntegrationErrorPagesTemplate'] ?? '';
-                } else {
-                    $pagesNotFoundTemplate = $siteConfiguration['matomoWidgetsPagesNotFoundTemplate'] ?? '';
-                }
-                $pagesNotFoundTemplate = self::resolveEnvironmentVariable($pagesNotFoundTemplate);
-
-                $siteTitle = self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsTitle'] ?? '');
-                $tokenAuth = self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsTokenAuth'] ?? '');
-
-                $pathSegments = \explode('/', $file->getPath());
-                $siteIdentifier = \end($pathSegments);
-
-                $activeWidgets = GeneralUtility::trimExplode(
-                    ',',
-                    self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsActiveWidgets'] ?? ''),
-                    true
-                );
-                $customDimensions = self::buildCustomDimensions($siteConfiguration['matomoWidgetsCustomDimensions'] ?? []);
-
-                $configurationsArray[] = new Configuration(
-                    $siteIdentifier,
-                    $siteTitle,
-                    $url,
-                    $idSite,
-                    $tokenAuth,
-                    $activeWidgets,
-                    $customDimensions,
-                    $pagesNotFoundTemplate
-                );
+        foreach (self::getConfigurationFiles($configPath) as $file) {
+            $realFile = $file->getRealPath();
+            if ($realFile === false) {
+                continue;
             }
-        } catch (DirectoryNotFoundException $e) {
-            // do nothing
+            $siteConfiguration = Yaml::parseFile($realFile);
+
+            $considerMatomoIntegration = $isMatomoIntegrationAvailable
+                && ($siteConfiguration['matomoWidgetsConsiderMatomoIntegration'] ?? false);
+
+            if ($considerMatomoIntegration) {
+                $url = $siteConfiguration['matomoIntegrationUrl'] ?? '';
+                $idSite = (string)($siteConfiguration['matomoIntegrationSiteId'] ?? 0);
+            } else {
+                $url = $siteConfiguration['matomoWidgetsUrl'] ?? '';
+                $idSite = (string)($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
+            }
+            $url = self::resolveEnvironmentVariable($url);
+            $idSite = (int)self::resolveEnvironmentVariable($idSite);
+            if ($url === '') {
+                continue;
+            }
+            if ($idSite < 1) {
+                continue;
+            }
+
+            if ($considerMatomoIntegration && \str_contains($siteConfiguration['matomoIntegrationOptions'] ?? '', 'trackErrorPages')) {
+                $pagesNotFoundTemplate = $siteConfiguration['matomoIntegrationErrorPagesTemplate'] ?? '';
+            } else {
+                $pagesNotFoundTemplate = $siteConfiguration['matomoWidgetsPagesNotFoundTemplate'] ?? '';
+            }
+            $pagesNotFoundTemplate = self::resolveEnvironmentVariable($pagesNotFoundTemplate);
+
+            $siteTitle = self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsTitle'] ?? '');
+            $tokenAuth = self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsTokenAuth'] ?? '');
+
+            $pathSegments = \explode('/', $file->getPath());
+            $identifier = \end($pathSegments);
+            if ($identifier === Extension::ADDITIONAL_CONFIG_PATH_SEGMENT) {
+                // Prefix the identifier with underscores to avoid a clash with a possible site identifier
+                // (which mostly do not start with underscores)
+                $identifier = '__' . \rtrim($file->getBasename($file->getExtension()), '.');
+            }
+
+            $activeWidgets = GeneralUtility::trimExplode(
+                ',',
+                self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsActiveWidgets'] ?? ''),
+                true
+            );
+            $customDimensions = self::buildCustomDimensions($siteConfiguration['matomoWidgetsCustomDimensions'] ?? []);
+
+            $configurationsArray[] = new Configuration(
+                $identifier,
+                $siteTitle,
+                $url,
+                $idSite,
+                $tokenAuth,
+                $activeWidgets,
+                $customDimensions,
+                $pagesNotFoundTemplate
+            );
         }
 
         return new Configurations($configurationsArray);
+    }
+
+    /**
+     * @return \SplFileInfo[]
+     */
+    private static function getConfigurationFiles(string $configPath): array
+    {
+        try {
+            $siteFiles = \iterator_to_array(
+                Finder::create()
+                    ->in($configPath . '/sites/*')
+                    ->name('config.yaml')
+            );
+        } catch (DirectoryNotFoundException $e) {
+            $siteFiles = [];
+        }
+
+        try {
+            $additionalFiles = \iterator_to_array(
+                Finder::create()
+                    ->in($configPath . '/' . Extension::ADDITIONAL_CONFIG_PATH_SEGMENT)
+                    ->name('*.yaml')
+            );
+        } catch (DirectoryNotFoundException $e) {
+            $additionalFiles = [];
+        }
+
+        return \array_merge($siteFiles, $additionalFiles);
     }
 
     /**

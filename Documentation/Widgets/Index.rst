@@ -49,6 +49,9 @@ This widget displays the number of actions per day for the last 28 days
 Matomo module
    VisitsSummary
 
+Active widgets value in :file:`config.yaml`
+   actionsPerDay
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.actionsPerDay.parameters
       - period: day
@@ -74,6 +77,9 @@ This widget displays the number of actions per month for the last 12 months
 Matomo module
    VisitsSummary
 
+Active widgets value in :file:`config.yaml`
+   actionsPerMonth
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.actionsPerMonth.parameters
       - period: month
@@ -95,6 +101,9 @@ Display a list of the recent `annotations`_ in the last 365 days:
 
 Matomo module
    Annotations
+
+Active widgets value in :file:`config.yaml`
+   annotations
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.annotations.parameters
@@ -123,6 +132,9 @@ of the browser window. If the creation of the annotation was successful, the
 
 Matomo module
    Annotations
+
+Active widgets value in :file:`config.yaml`
+   createAnnotation
 
 .. note::
    The annotation is stored in Matomo under the user configured in the
@@ -156,6 +168,9 @@ The bounce rate for the current month shows this widget:
 Matomo module
    VisitsSummary
 
+Active widgets value in :file:`config.yaml`
+   bounceRate
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.bounceRate.parameters
       - period: month
@@ -179,6 +194,9 @@ This report shows which browser plugins your visitors had enabled:
 Matomo module
    DevicePlugins
 
+Active widgets value in :file:`config.yaml`
+   browserPlugins
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.browserPlugins.parameters
       - period: month
@@ -186,7 +204,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
       - filter_limit: 50
       - filter_sort_column: nb_visits
       - filter_sort_order: desc
-
 
 
 Browsers
@@ -202,6 +219,9 @@ The browser share for the current month shows this widget:
 
 Matomo module
    DevicesDetection
+
+Active widgets value in :file:`config.yaml`
+   browsers
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.browsers.limit
@@ -226,6 +246,9 @@ Displays a report of the campaigns for the current month:
 
 Matomo module
    Referrers
+
+Active widgets value in :file:`config.yaml`
+   campaigns
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.campaigns.parameters:
@@ -252,6 +275,9 @@ interacted with.
 Matomo module
    Contents
 
+Active widgets value in :file:`config.yaml`
+   contentNames
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.campaigns.parameters:
       - period: month
@@ -277,6 +303,9 @@ interacted with.
 Matomo module
    Contents
 
+Active widgets value in :file:`config.yaml`
+   contentPieces
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.campaigns.parameters:
       - period: month
@@ -300,6 +329,9 @@ month:
 
 Matomo module
    UserCountry
+
+Active widgets value in :file:`config.yaml`
+   countries
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.country.parameters:
@@ -379,6 +411,9 @@ Clicking on the message opens a modal with details to this message:
 Matomo module
    Events
 
+Active widgets value in :file:`config.yaml`
+   javaScriptErrors
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.javaScriptErrors.parameters:
       - period: range
@@ -406,6 +441,9 @@ installation:
 
    Widget *Link to Matomo*
 
+Active widgets value in :file:`config.yaml`
+   linkMatomo
+
 
 Operating system families
 =========================
@@ -420,6 +458,9 @@ The operating system families used by the visitors for the current month:
 
 Matomo module
    DevicesDetection
+
+Active widgets value in :file:`config.yaml`
+   osFamilies
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.osFamilies.limit:
@@ -447,6 +488,9 @@ List of pages in the last 28 days which returned a status code 404 (not found):
 Matomo module
    Actions
 
+Active widgets value in :file:`config.yaml`
+   pagesNotFound
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.siteSearchKeywords.parameters:
       - period: range
@@ -471,6 +515,9 @@ search engine:
 Matomo module
    Actions
 
+Active widgets value in :file:`config.yaml`
+   siteSearchKeywords
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.siteSearchKeywords.parameters:
       - period: month
@@ -493,6 +540,9 @@ List of the site search keywords that did not return any search result:
 
 Matomo module
    Actions
+
+Active widgets value in :file:`config.yaml`
+   siteSearchNoResultKeywords
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.siteSearchNoResultKeywords.parameters:
@@ -517,6 +567,9 @@ This widget displays the number of visits per day for the last 28 days:
 Matomo module
    VisitsSummary
 
+Active widgets value in :file:`config.yaml`
+   visitsPerDay
+
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.visitsPerDay.parameters:
       - period: day
@@ -536,6 +589,9 @@ This widget displays the number of visits per month for the last 12 months:
 
 Matomo module
    VisitsSummary
+
+Active widgets value in :file:`config.yaml`
+   visitsPerMonth
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.visitsPerMonth.parameters:

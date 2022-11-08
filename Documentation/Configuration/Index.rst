@@ -97,6 +97,78 @@ Pages Not Found Template
 
    Default: *404/URL = {path}/From = {referrer}*
 
+.. _configuration-keys:
+
+Configuration keys
+==================
+
+The values from the :guilabel:`Sites` module are stored in the according YAML
+file. Following is a list of the possible keys and values.
+
+.. confval:: matomoWidgetsActiveWidgets
+
+   :type: string
+   :Default: ''
+
+   Comma-delimited list of the widget names. You can find the according widget
+   value in the :ref:`widget overview <widgets>` as "Active widgets value".
+
+.. confval:: matomoWidgetsConsiderMatomoIntegration
+
+   :type: bool
+   :Default: false
+
+   With installed :doc:`Matomo Integration <ext_matomo_integration:Index>`
+   extension the URL and the site ID are taken from the configuration of that
+   extension.
+
+.. confval:: matomoWidgetsCustomDimensions
+
+   :type: array
+   :Default: []
+
+   Configuration for custom dimensions,
+   see :ref:`configuring-custom-dimensions`.
+
+.. confval:: matomoWidgetsIdSite
+
+   :type: int
+   :Default: ''
+
+   The site ID to track into.
+
+.. confval:: matomoWidgetsPagesNotFoundTemplate
+
+   .. versionadded:: 1.3.0
+
+   :type: string
+   :Default: '404/URL = {path}/From = {referrer}'
+
+   The template for a 404 page, see `How to track error pages in Matomo`_ for
+   more information.
+
+.. confval:: matomoWidgetsTitle
+
+   :type: string
+   :Default: ''
+
+   The widgets are prefixed with this title.
+
+.. confval:: matomoWidgetsTokenAuth
+
+   :type: string
+   :Default: ''
+
+   The authorisation token pro retrieving the data via the API.
+
+.. confval:: matomoWidgetsUrl
+
+   :type: string
+   :Default: ''
+
+   The URL of the Matomo installation.
+
+
 .. _configuring-custom-dimensions:
 
 Custom dimensions
@@ -154,6 +226,26 @@ description (optional)
    You can add as many custom dimensions as you want. Configured custom
    dimensions are always active and cannot be deactivated unless they are
    removed from the configuration.
+
+
+Configuration independent from a site
+=====================================
+
+.. versionadded:: 1.7.0
+
+It is possible to add widgets for one or more Matomo site IDs independently of
+a site configuration. YAML files in the :file:`config/matomo_widgets/` folder
+are included at build time in addition to the sites. Add a YAML file for each
+Matomo site, for instance :file:`demo.yaml`. The :ref:`configuration keys
+<configuration-keys>` can be used, such as:
+
+.. code-block:: yaml
+   :caption: config/matomo_widgets/demo.yaml
+
+   matomoWidgetsActiveWidgets: 'actionsPerDay,bounceRate,visitsPerDays'
+   matomoWidgetsIdSite: 1
+   matomoWidgetsTitle: 'Demo'
+   matomoWidgetsUrl: 'https://demo.matomo.cloud/'
 
 
 Permission of widgets

@@ -11,6 +11,12 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.6.0...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+Added
+^^^^^
+
+
+* Configuration independent of a website (#41)
+
 `1.6.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.5.0...v1.6.0>`_ - 2022-09-19
 ------------------------------------------------------------------------------------------------------
 

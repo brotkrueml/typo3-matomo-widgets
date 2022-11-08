@@ -307,11 +307,90 @@ class ConfigurationFinderTest extends TestCase
         self::assertSame('The resolved pages not found template', $actual->getPagesNotFoundTemplate());
     }
 
+    /**
+     * @test
+     */
+    public function additionalConfigurationIsTakenIntoAccount(): void
+    {
+        $configuration = [
+            'matomoWidgetsIdSite' => 42,
+            'matomoWidgetsTitle' => 'Some Title',
+            'matomoWidgetsTokenAuth' => 'some token',
+            'matomoWidgetsUrl' => 'https://example.org/',
+            'matomoWidgetsActiveWidgets' => 'actionsPerDay',
+            'matomoWidgetsPagesNotFoundTemplate' => 'some 404 | {path} | {referrer}',
+        ];
+        $this->createAdditionalConfiguration('some_config.yaml', $configuration);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+
+        self::assertCount(1, $configurations);
+
+        /** @var Configuration $actualConfiguration */
+        $actualConfiguration = $configurations->getIterator()->current();
+        self::assertInstanceOf(Configuration::class, $actualConfiguration);
+        self::assertSame('__some_config', $actualConfiguration->getSiteIdentifier());
+        self::assertSame(42, $actualConfiguration->getIdSite());
+        self::assertSame('Some Title', $actualConfiguration->getSiteTitle());
+        self::assertSame('some token', $actualConfiguration->getTokenAuth());
+        self::assertSame('https://example.org/', $actualConfiguration->getUrl());
+        self::assertSame('some 404 | {path} | {referrer}', $actualConfiguration->getPagesNotFoundTemplate());
+        self::assertTrue($actualConfiguration->isWidgetActive('actionsPerDay'));
+    }
+
+    /**
+     * @test
+     */
+    public function siteConfigurationAndAdditionalConfigurationAreBothTakenIntoAccount(): void
+    {
+        $siteConfiguration = [
+            'matomoWidgetsIdSite' => 41,
+            'matomoWidgetsTitle' => 'Site Title',
+            'matomoWidgetsTokenAuth' => 'site token',
+            'matomoWidgetsUrl' => 'https://example.com/',
+            'matomoWidgetsActiveWidgets' => 'visitsPerDay',
+        ];
+        $this->createSiteConfiguration('site_config', $siteConfiguration);
+
+        $additionalConfiguration = [
+            'matomoWidgetsIdSite' => 42,
+            'matomoWidgetsTitle' => 'Additional Title',
+            'matomoWidgetsTokenAuth' => 'additional token',
+            'matomoWidgetsUrl' => 'https://example.org/',
+            'matomoWidgetsActiveWidgets' => 'actionsPerDay',
+        ];
+        $this->createAdditionalConfiguration('additional_config.yaml', $additionalConfiguration);
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+
+        self::assertCount(2, $configurations);
+
+        $configurationArray = \iterator_to_array($configurations);
+
+        self::assertInstanceOf(Configuration::class, $configurationArray[0]);
+        self::assertSame('site_config', $configurationArray[0]->getSiteIdentifier());
+        self::assertSame(41, $configurationArray[0]->getIdSite());
+        self::assertSame('Site Title', $configurationArray[0]->getSiteTitle());
+        self::assertSame('site token', $configurationArray[0]->getTokenAuth());
+        self::assertSame('https://example.com/', $configurationArray[0]->getUrl());
+        self::assertTrue($configurationArray[0]->isWidgetActive('visitsPerDay'));
+
+        self::assertInstanceOf(Configuration::class, $configurationArray[1]);
+        self::assertSame('__additional_config', $configurationArray[1]->getSiteIdentifier());
+        self::assertSame(42, $configurationArray[1]->getIdSite());
+        self::assertSame('Additional Title', $configurationArray[1]->getSiteTitle());
+        self::assertSame('additional token', $configurationArray[1]->getTokenAuth());
+        self::assertSame('https://example.org/', $configurationArray[1]->getUrl());
+        self::assertTrue($configurationArray[1]->isWidgetActive('actionsPerDay'));
+    }
+
     private function createSiteConfiguration(string $identifier, array $configuration): void
     {
         $path = self::$configPath . '/sites/' . $identifier;
         \mkdir($path, 0777, true);
+        \file_put_contents($path . '/config.yaml', $this->buildConfiguration($configuration));
+    }
 
+    private function buildConfiguration(array $configuration): string
+    {
         $yamlConfiguration = '';
         foreach ($configuration as $key => $value) {
             if (\is_bool($value)) {
@@ -320,6 +399,14 @@ class ConfigurationFinderTest extends TestCase
 
             $yamlConfiguration .= \sprintf('%s: "%s"', $key, $value) . PHP_EOL;
         }
-        \file_put_contents($path . '/config.yaml', $yamlConfiguration);
+
+        return $yamlConfiguration;
+    }
+
+    private function createAdditionalConfiguration(string $filename, array $configuration): void
+    {
+        $path = self::$configPath . '/matomo_widgets';
+        \mkdir($path, 0777, true);
+        \file_put_contents($path . '/' . $filename, $this->buildConfiguration($configuration));
     }
 }
