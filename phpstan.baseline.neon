@@ -1,14 +1,19 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Use another value object over array with string\\-keys and objects, array\\<string, ValueObject\\>$#"
+			count: 1
+			path: Classes/Configuration/ConfigurationFinder.php
+
+		-
+			message: "#^Use value object over return of values$#"
+			count: 1
+			path: Classes/Configuration/ConfigurationFinder.php
+
+		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Connection\\\\MatomoConnector\\:\\:callApi\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Connection/MatomoConnector.php
-
-		-
-			message: "#^Array with keys is not allowed\\. Use value object to pass data instead$#"
-			count: 3
-			path: Classes/DependencyInjection/Widgets/CustomDimensionsRegistration.php
 
 		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\CachingMatomoRepositoryDecorator\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"

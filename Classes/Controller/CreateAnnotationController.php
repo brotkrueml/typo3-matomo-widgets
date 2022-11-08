@@ -109,7 +109,6 @@ final class CreateAnnotationController
 
     private function buildResponse(bool $isError = false, string $message = ''): ResponseInterface
     {
-        // @phpstan-ignore-next-line Array with keys is intended
         $data = [
             'status' => $isError ? 'error' : 'success',
         ];

@@ -59,7 +59,6 @@ final class DashboardPresetsProvider
                 ? \sprintf('Matomo (%s)', $configuration->siteTitle ?: $configuration->siteIdentifier)
                 : 'Matomo';
 
-            /** @phpstan-ignore-next-line */
             $presets['matomo_' . $configuration->siteIdentifier] = [
                 'title' => $title,
                 'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':preset.description',

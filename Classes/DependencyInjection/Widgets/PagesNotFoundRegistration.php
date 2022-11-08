@@ -96,7 +96,6 @@ final class PagesNotFoundRegistration extends AbstractRegistration
 
     private function buildFilterPattern(string $template): string
     {
-        // @phpstan-ignore-next-line
         $replacements = [
             '{statusCode}' => '404',
             '{path}' => '.*?',
