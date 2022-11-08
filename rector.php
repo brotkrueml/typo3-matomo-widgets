@@ -40,7 +40,8 @@ return static function (RectorConfig $config): void {
             __DIR__ . '/Configuration/Services.php',
         ],
         FirstClassCallableRector::class => [
-                __DIR__ . '/Configuration/Services.php',
+            __DIR__ . '/Configuration/Services.php',
         ],
+        __DIR__ . '/Tests/Unit/Connection/MatomoConnectorTest.php',
     ]);
 };
