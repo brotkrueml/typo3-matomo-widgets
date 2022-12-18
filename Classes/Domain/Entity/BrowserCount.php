@@ -59,7 +59,7 @@ final class BrowserCount
 
         return \implode(
             ', ',
-            \array_map(static fn (string $version, int $count): string => "${version} (${count})", \array_keys($this->versions), \array_values($this->versions))
+            \array_map(static fn (string $version, int $count): string => "{$version} ({$count})", \array_keys($this->versions), \array_values($this->versions))
         );
     }
 }
