@@ -23,7 +23,7 @@ class MatomoRepositoryTest extends TestCase
     /**
      * @var MatomoConnector|MockObject
      */
-    private $connectorMock;
+    private MockObject $connectorMock;
     private ConnectionConfiguration $connectionConfiguration;
     private MatomoRepository $subject;
 

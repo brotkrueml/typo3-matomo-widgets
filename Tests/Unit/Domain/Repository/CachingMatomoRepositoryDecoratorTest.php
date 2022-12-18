@@ -25,11 +25,11 @@ class CachingMatomoRepositoryDecoratorTest extends TestCase
     /**
      * @var MatomoRepositoryInterface|MockObject
      */
-    private $repositoryMock;
+    private MockObject $repositoryMock;
     /**
      * @var MockObject|FrontendInterface
      */
-    private $cacheMock;
+    private MockObject $cacheMock;
     private ConnectionConfiguration $connectionConfiguration;
     private CachingMatomoRepositoryDecorator $subject;
 

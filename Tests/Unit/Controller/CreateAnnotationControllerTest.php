@@ -36,7 +36,7 @@ final class CreateAnnotationControllerTest extends TestCase
     /**
      * @var FrontendInterface|MockObject
      */
-    private $cacheMock;
+    private MockObject $cacheMock;
     /**
      * @var MatomoRepository|Stub
      */

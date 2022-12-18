@@ -27,7 +27,7 @@ class AnnotationsTableDataProviderTest extends TestCase
     /**
      * @var MockObject|MatomoRepositoryInterface
      */
-    private $repositoryMock;
+    private MockObject $repositoryMock;
 
     /**
      * @var Stub|LanguageService
