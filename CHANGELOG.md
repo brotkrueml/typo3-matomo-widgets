@@ -21,6 +21,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Compatibility with PHP 7.4 and 8.0 (#39)
 - Upgrade wizard for version 1.0 (#38)
 
+## [1.7.0] - 2023-01-07
+
+### Added
+- Configuration independent of a website (#41)
+- PSR-14 event BeforeMatomoApiRequestEvent to adjust site ID and auth token (#42)
+
 ## [1.6.0] - 2022-09-19
 
 ### Added
@@ -141,7 +147,8 @@ Initial release
 
 
 [Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.0.0...HEAD
-[2.0.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.6.0...v2.0.0
+[2.0.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.7.0...v2.0.0
+[1.7.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.3.0...v1.4.0

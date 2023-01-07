@@ -17,8 +17,9 @@ Added
 
 * Configuration independent of a website (#41)
 * PSR-14 event BeforeMatomoApiRequestEvent to adjust site ID and auth token (#42)
+* Hide sensitive parameters (auth token) in back traces for PHP >= 8.2
 
-`2.0.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.6.0...v2.0.0>`_ - 2022-10-09
+`2.0.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.7.0...v2.0.0>`_ - 2022-10-09
 ------------------------------------------------------------------------------------------------------
 
 Added
@@ -34,6 +35,16 @@ Removed
 * Compatibility with TYPO3 v10 LTS (#37)
 * Compatibility with PHP 7.4 and 8.0 (#39)
 * Upgrade wizard for version 1.0 (#38)
+
+`1.7.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.6.0...v1.7.0>`_ - 2023-01-07
+------------------------------------------------------------------------------------------------------
+
+Added
+^^^^^
+
+
+* Configuration independent of a website (#41)
+* PSR-14 event BeforeMatomoApiRequestEvent to adjust site ID and auth token (#42)
 
 `1.6.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.5.0...v1.6.0>`_ - 2022-09-19
 ------------------------------------------------------------------------------------------------------
