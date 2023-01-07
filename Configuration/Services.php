@@ -16,9 +16,7 @@ use Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController;
 use Brotkrueml\MatomoWidgets\Controller\JavaScriptErrorDetailsController;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\JavaScriptErrorsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\WidgetsRegistration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\CachingMatomoRepositoryDecorator;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
-use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Reference;
@@ -40,11 +38,8 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
         ->factory([new Reference(CacheManager::class), 'getCache'])
         ->arg('$identifier', 'matomo_widgets');
 
-    $services->set(CachingMatomoRepositoryDecorator::class)
-        ->arg('$repository', new Reference(MatomoRepository::class))
+    $services->set(MatomoRepository::class)
         ->arg('$cache', new Reference('cache.matomo_widgets'));
-
-    $services->alias(MatomoRepositoryInterface::class, CachingMatomoRepositoryDecorator::class);
 
     $services->set(Configurations::class)
         ->factory([ConfigurationFinder::class, 'buildConfigurations'])

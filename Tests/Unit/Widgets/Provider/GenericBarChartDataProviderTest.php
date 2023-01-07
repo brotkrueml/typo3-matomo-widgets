@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider;
 use PHPUnit\Framework\MockObject\Stub;
@@ -24,7 +24,7 @@ class GenericBarChartDataProviderTest extends TestCase
     private ConnectionConfiguration $connectionConfiguration;
 
     /**
-     * @var Stub|MatomoRepositoryInterface
+     * @var Stub|MatomoRepository
      */
     private $repositoryStub;
 
@@ -36,7 +36,7 @@ class GenericBarChartDataProviderTest extends TestCase
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
-        $this->repositoryStub = $this->createStub(MatomoRepositoryInterface::class);
+        $this->repositoryStub = $this->createStub(MatomoRepository::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
     }
 

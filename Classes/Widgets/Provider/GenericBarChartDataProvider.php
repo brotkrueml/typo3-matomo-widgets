@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
@@ -22,7 +22,7 @@ use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
  */
 final class GenericBarChartDataProvider implements ChartDataProviderInterface
 {
-    private MatomoRepositoryInterface $repository;
+    private MatomoRepository $repository;
     private ConnectionConfiguration $connectionConfiguration;
     private LanguageService $languageService;
     private string $method;
@@ -37,7 +37,7 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
      * @param array<string, string> $parameters
      */
     public function __construct(
-        MatomoRepositoryInterface $repository,
+        MatomoRepository $repository,
         ConnectionConfiguration $connectionConfiguration,
         LanguageService $languageService,
         string $method,

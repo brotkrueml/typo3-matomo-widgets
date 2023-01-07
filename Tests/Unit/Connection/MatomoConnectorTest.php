@@ -20,6 +20,7 @@ use donatj\MockWebServer\MockWebServer;
 use donatj\MockWebServer\Response;
 use GuzzleHttp\Client as GuzzleClient;
 use PHPUnit\Framework\TestCase;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use TYPO3\CMS\Core\Http\Client;
@@ -30,6 +31,7 @@ class MatomoConnectorTest extends TestCase
     private static MockWebServer $server;
     private RequestFactoryInterface $requestFactory;
     private ClientInterface $client;
+    private EventDispatcherInterface $eventDispatcher;
     private string $url;
 
     public static function setUpBeforeClass(): void
@@ -49,6 +51,12 @@ class MatomoConnectorTest extends TestCase
 
         $this->requestFactory = new RequestFactory();
         $this->client = $this->getClient();
+        $this->eventDispatcher = new class() implements EventDispatcherInterface {
+            public function dispatch(object $event)
+            {
+                return $event;
+            }
+        };
         $this->url = \sprintf('http://%s:%s/', self::$server->getHost(), self::$server->getPort());
     }
 
@@ -97,7 +105,7 @@ class MatomoConnectorTest extends TestCase
             $parameterBag->set($name, $value);
         }
 
-        $subject = new MatomoConnector($this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->requestFactory, $this->client, $this->eventDispatcher);
         $actual = $subject->callApi($connectionConfiguration, $method, $parameterBag);
 
         $lastRequest = self::$server->getLastRequest();
@@ -184,7 +192,7 @@ class MatomoConnectorTest extends TestCase
             )
         );
 
-        $subject = new MatomoConnector($this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->requestFactory, $this->client, $this->eventDispatcher);
         $subject->callApi($connectionConfiguration, 'some.method', new ParameterBag());
     }
 
@@ -208,7 +216,7 @@ class MatomoConnectorTest extends TestCase
             )
         );
 
-        $subject = new MatomoConnector($this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->requestFactory, $this->client, $this->eventDispatcher);
         $subject->callApi($connectionConfiguration, 'someMethod', new ParameterBag());
     }
 
@@ -232,7 +240,7 @@ class MatomoConnectorTest extends TestCase
             )
         );
 
-        $subject = new MatomoConnector($this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->requestFactory, $this->client, $this->eventDispatcher);
         $subject->callApi($connectionConfiguration, 'someMethod', new ParameterBag());
     }
 }

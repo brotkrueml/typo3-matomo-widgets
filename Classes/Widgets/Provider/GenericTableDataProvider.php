@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\LanguageParameterResolver;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
@@ -24,7 +24,7 @@ use TYPO3\CMS\Core\Localization\LanguageService;
  */
 class GenericTableDataProvider implements TableDataProviderInterface
 {
-    protected MatomoRepositoryInterface $repository;
+    protected MatomoRepository $repository;
     protected ConnectionConfiguration $connectionConfiguration;
     protected string $method;
     /**
@@ -43,7 +43,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
      * @param array<string, string|LanguageParameterResolver> $parameters
      */
     public function __construct(
-        MatomoRepositoryInterface $repository,
+        MatomoRepository $repository,
         ConnectionConfiguration $connectionConfiguration,
         LanguageService $languageService,
         string $method,

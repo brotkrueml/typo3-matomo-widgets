@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 
 /**
@@ -20,7 +20,7 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
  */
 final class GenericValueDataProvider implements ValueDataProviderInterface
 {
-    private MatomoRepositoryInterface $repository;
+    private MatomoRepository $repository;
     private ConnectionConfiguration $connectionConfiguration;
     private string $method;
     private string $columnName;
@@ -33,7 +33,7 @@ final class GenericValueDataProvider implements ValueDataProviderInterface
      * @param array<string, string> $parameters
      */
     public function __construct(
-        MatomoRepositoryInterface $repository,
+        MatomoRepository $repository,
         ConnectionConfiguration $connectionConfiguration,
         string $method,
         string $columnName,

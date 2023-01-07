@@ -163,7 +163,7 @@ final class CreateAnnotationController implements LoggerAwareInterface
         ]);
 
         /** @var array{date: string, note: string, idNote: string} $createdAnnotation */
-        $createdAnnotation = $this->repository->send($connectionConfiguration, 'Annotations.add', $parameterBag);
+        $createdAnnotation = $this->repository->send($connectionConfiguration, 'Annotations.add', $parameterBag, false);
         $this->log($createdAnnotation);
         $this->flushCache($connectionConfiguration);
     }

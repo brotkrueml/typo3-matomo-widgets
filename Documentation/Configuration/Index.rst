@@ -227,6 +227,7 @@ description (optional)
    dimensions are always active and cannot be deactivated unless they are
    removed from the configuration.
 
+.. _configuration-independent-from-site:
 
 Configuration independent from a site
 =====================================
