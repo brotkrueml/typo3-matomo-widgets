@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Cognitive complexity for \"Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:buildConfigurations\\(\\)\" is 13, keep it under 8$#"
+			count: 1
+			path: Classes/Configuration/ConfigurationFinder.php
+
+		-
 			message: "#^Use another value object over array with string\\-keys and objects, array\\<string, ValueObject\\>$#"
 			count: 1
 			path: Classes/Configuration/ConfigurationFinder.php
