@@ -15,6 +15,7 @@ final class BeforeMatomoApiRequestEvent
 {
     public function __construct(
         private int $idSite,
+        #[\SensitiveParameter]
         private string $tokenAuth
     ) {
     }

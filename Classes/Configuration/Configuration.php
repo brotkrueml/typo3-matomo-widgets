@@ -27,6 +27,7 @@ final class Configuration
         public readonly string $siteTitle,
         public readonly string $url,
         public readonly int $idSite,
+        #[\SensitiveParameter]
         public readonly string $tokenAuth,
         public readonly array $activeWidgets,
         public readonly array $customDimensions,

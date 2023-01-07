@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Configuration independent of a website (#41)
 - PSR-14 event BeforeMatomoApiRequestEvent to adjust site ID and auth token (#42)
+- Hide sensitive parameters (auth token) in back traces for PHP >= 8.2
 
 ## [2.0.0] - 2022-10-09
 

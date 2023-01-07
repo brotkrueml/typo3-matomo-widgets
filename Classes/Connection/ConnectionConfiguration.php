@@ -21,6 +21,7 @@ class ConnectionConfiguration
     public function __construct(
         public readonly string $url,
         public readonly int $idSite,
+        #[\SensitiveParameter]
         string $tokenAuth
     ) {
         $this->tokenAuth = $tokenAuth ?: 'anonymous';
