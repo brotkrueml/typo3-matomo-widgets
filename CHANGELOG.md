@@ -6,10 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2023-01-07
+
 ### Added
 - Configuration independent of a website (#41)
 - PSR-14 event BeforeMatomoApiRequestEvent to adjust site ID and auth token (#42)
 - Hide sensitive parameters (auth token) in back traces for PHP >= 8.2
+
+### Fixed
+- Deprecations in PHP 8.2
 
 ## [2.0.0] - 2022-10-09
 
@@ -146,7 +151,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.7.0...v2.0.0
 [1.7.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.5.0...v1.6.0
