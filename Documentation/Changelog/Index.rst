@@ -16,6 +16,7 @@ Added
 
 
 * Configuration independent of a website (#41)
+* PSR-14 event BeforeMatomoApiRequestEvent to adjust site ID and auth token (#42)
 
 `2.0.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.6.0...v2.0.0>`_ - 2022-10-09
 ------------------------------------------------------------------------------------------------------

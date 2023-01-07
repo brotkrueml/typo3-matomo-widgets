@@ -16,17 +16,6 @@ parameters:
 			path: Classes/Connection/MatomoConnector.php
 
 		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\CachingMatomoRepositoryDecorator\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Domain/Repository/CachingMatomoRepositoryDecorator.php
-
-		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\MatomoRepository\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Domain/Repository/MatomoRepository.php
-
-		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\MatomoRepositoryInterface\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: Classes/Domain/Repository/MatomoRepositoryInterface.php
-

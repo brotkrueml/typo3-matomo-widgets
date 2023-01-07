@@ -44,6 +44,7 @@ Dashboard widgets showing Matomo reports
    Widgets/Index
    Installation/Index
    Configuration/Index
+   Events/Index
    Translation/Index
    Migration/Index
    Changelog/Index

@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
@@ -26,7 +26,7 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
      * @param array<string, string> $parameters
      */
     public function __construct(
-        private readonly MatomoRepositoryInterface $repository,
+        private readonly MatomoRepository $repository,
         private readonly ConnectionConfiguration $connectionConfiguration,
         private readonly string $method,
         private readonly string $barLabel,

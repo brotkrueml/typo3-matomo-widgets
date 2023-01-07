@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\AnnotationsTableDataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -23,12 +23,12 @@ class AnnotationsTableDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
 
-    private MockObject|MatomoRepositoryInterface $repositoryMock;
+    private MockObject|MatomoRepository $repositoryMock;
 
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
-        $this->repositoryMock = $this->createMock(MatomoRepositoryInterface::class);
+        $this->repositoryMock = $this->createMock(MatomoRepository::class);
 
         $languageServiceStub = $this->createStub(LanguageService::class);
         $GLOBALS['LANG'] = $languageServiceStub;

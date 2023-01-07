@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use TYPO3\CMS\Core\Localization\LanguageService;
@@ -31,7 +31,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
      * @param array<string, string> $parameters
      */
     public function __construct(
-        private readonly MatomoRepositoryInterface $repository,
+        private readonly MatomoRepository $repository,
         private readonly ConnectionConfiguration $connectionConfiguration,
         private readonly string $method,
         private readonly string $labelColumn,

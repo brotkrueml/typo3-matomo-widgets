@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
-use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepositoryInterface;
+use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider;
 use PHPUnit\Framework\MockObject\Stub;
@@ -22,13 +22,13 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 class GenericBarChartDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-    private Stub|MatomoRepositoryInterface $repositoryStub;
+    private Stub|MatomoRepository $repositoryStub;
     private Stub|LanguageService $languageServiceStub;
 
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
-        $this->repositoryStub = $this->createStub(MatomoRepositoryInterface::class);
+        $this->repositoryStub = $this->createStub(MatomoRepository::class);
         $this->languageServiceStub = $this->createStub(LanguageService::class);
 
         $GLOBALS['LANG'] = $this->languageServiceStub;
