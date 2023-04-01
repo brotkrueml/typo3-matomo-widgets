@@ -49,7 +49,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
                 'filter_limit' => '50',
                 'filter_sort_column' => 'nb_visits',
                 'filter_sort_order' => 'desc',
-            ]
+            ],
         );
     }
 
@@ -86,7 +86,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
                         'decorator' => new Reference(NumberDecorator::class),
                         'classes' => 'text-right',
                     ],
-                ]
+                ],
             )
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%');
     }
@@ -108,7 +108,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
                     'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -120,7 +120,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
-                ]
+                ],
             );
     }
 
@@ -129,7 +129,7 @@ final class BrowserPluginsRegistration extends AbstractRegistration
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?category=General_Visitors&subcategory=DevicesDetection_Software',
             $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite
+            $this->matomoConfiguration->idSite,
         );
     }
 }

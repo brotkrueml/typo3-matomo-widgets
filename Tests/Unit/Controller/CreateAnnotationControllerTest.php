@@ -52,7 +52,7 @@ final class CreateAnnotationControllerTest extends TestCase
                 '',
                 [],
                 [],
-                ''
+                '',
             ),
         ]);
         $this->matomoRepositoryStub = $this->createStub(MatomoRepository::class);
@@ -64,7 +64,7 @@ final class CreateAnnotationControllerTest extends TestCase
             $configurations,
             new NullLogger(),
             $this->matomoRepositoryStub,
-            $responseFactory
+            $responseFactory,
         );
 
         $this->backendUserStub = $this->createStub(BackendUserAuthentication::class);
@@ -216,7 +216,7 @@ final class CreateAnnotationControllerTest extends TestCase
 
         self::assertJsonStringEqualsJsonString(
             '{"status":"error","message":"An error occurred, please have a look into the TYPO3 log file for details."}',
-            $actual->getBody()->getContents()
+            $actual->getBody()->getContents(),
         );
     }
 
@@ -275,7 +275,7 @@ final class CreateAnnotationControllerTest extends TestCase
 
         self::assertJsonStringEqualsJsonString(
             '{"status":"error","message":"An error occurred, please have a look into the TYPO3 log file for details."}',
-            $actual->getBody()->getContents()
+            $actual->getBody()->getContents(),
         );
     }
 

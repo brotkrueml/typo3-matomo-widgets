@@ -61,7 +61,7 @@ final class LinkMatomoRegistration extends AbstractRegistration
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                     'text' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.text',
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -71,7 +71,7 @@ final class LinkMatomoRegistration extends AbstractRegistration
                     'title' => $title,
                     'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.description',
                     'iconIdentifier' => self::ICON_IDENTIFIER,
-                ]
+                ],
             );
     }
 }

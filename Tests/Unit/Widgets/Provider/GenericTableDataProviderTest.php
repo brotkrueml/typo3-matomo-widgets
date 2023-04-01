@@ -63,7 +63,7 @@ class GenericTableDataProviderTest extends TestCase
                     'column' => 'column3',
                 ],
             ],
-            []
+            [],
         );
 
         $expected = ['class-1', 'class-2', ''];
@@ -89,7 +89,7 @@ class GenericTableDataProviderTest extends TestCase
                     'column' => 'column2',
                 ],
             ],
-            []
+            [],
         );
 
         $expected = ['column1', 'column2'];
@@ -118,7 +118,7 @@ class GenericTableDataProviderTest extends TestCase
                     'decorator' => $decoratorStub,
                 ],
             ],
-            []
+            [],
         );
 
         $expected = [null, $decoratorStub];
@@ -150,7 +150,7 @@ class GenericTableDataProviderTest extends TestCase
                     'header' => 'someHeader',
                 ],
             ],
-            []
+            [],
         );
 
         $expected = ['', 'some header'];
@@ -198,7 +198,7 @@ class GenericTableDataProviderTest extends TestCase
                     'column' => 'column2',
                 ],
             ],
-            $parameters
+            $parameters,
         );
 
         $subject->getRows();
@@ -240,7 +240,7 @@ class GenericTableDataProviderTest extends TestCase
                     'column' => 'column2',
                 ],
             ],
-            $parameters
+            $parameters,
         );
 
         $subject->addParameter('qux', 'quu');

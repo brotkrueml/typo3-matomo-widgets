@@ -30,7 +30,7 @@ final class ConfigurationTest extends TestCase
                 'actionsPerDay',
             ],
             [],
-            ''
+            '',
         );
     }
 

@@ -38,7 +38,7 @@ final class BarChartWidget implements WidgetInterface, EventDataInterface, Addit
         private readonly ChartDataProviderInterface $dataProvider,
         private readonly StandaloneView $view,
         private readonly ?ButtonProviderInterface $buttonProvider = null,
-        private readonly array $options = []
+        private readonly array $options = [],
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
     }

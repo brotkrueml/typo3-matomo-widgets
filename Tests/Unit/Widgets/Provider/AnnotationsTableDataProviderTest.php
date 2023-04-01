@@ -84,7 +84,7 @@ class AnnotationsTableDataProviderTest extends TestCase
                     'column' => 'note',
                 ],
             ],
-            $parameters
+            $parameters,
         );
 
         $actual = $subject->getRows();

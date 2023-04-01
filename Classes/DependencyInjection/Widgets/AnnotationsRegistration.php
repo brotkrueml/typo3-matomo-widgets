@@ -45,7 +45,7 @@ final class AnnotationsRegistration extends AbstractRegistration
                 'period' => 'day',
                 'date' => 'today',
                 'lastN' => 365,
-            ]
+            ],
         );
     }
 
@@ -66,7 +66,7 @@ final class AnnotationsRegistration extends AbstractRegistration
                         'column' => 'note',
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':note',
                     ],
-                ]
+                ],
             )
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%');
     }
@@ -88,7 +88,7 @@ final class AnnotationsRegistration extends AbstractRegistration
                     'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -100,7 +100,7 @@ final class AnnotationsRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
-                ]
+                ],
             );
     }
 
@@ -109,7 +109,7 @@ final class AnnotationsRegistration extends AbstractRegistration
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?period=month&date=today&segment=&category=General_Visitors&subcategory=General_Overview',
             $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite
+            $this->matomoConfiguration->idSite,
         );
     }
 }

@@ -30,7 +30,7 @@ class MatomoRepository
         private readonly FrontendInterface $cache,
         private readonly CacheIdentifierCreator $cacheIdentifierCreator,
         private readonly MatomoConnector $connector,
-        private readonly EventDispatcherInterface $eventDispatcher
+        private readonly EventDispatcherInterface $eventDispatcher,
     ) {
     }
 
@@ -57,13 +57,13 @@ class MatomoRepository
     {
         /** @var BeforeMatomoApiRequestEvent $event */
         $event = $this->eventDispatcher->dispatch(
-            new BeforeMatomoApiRequestEvent($configuration->idSite, $configuration->tokenAuth)
+            new BeforeMatomoApiRequestEvent($configuration->idSite, $configuration->tokenAuth),
         );
 
         return new ConnectionConfiguration(
             $configuration->url,
             $event->getIdSite(),
-            $event->getTokenAuth()
+            $event->getTokenAuth(),
         );
     }
 }

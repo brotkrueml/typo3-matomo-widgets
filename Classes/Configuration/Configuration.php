@@ -31,7 +31,7 @@ final class Configuration
         public readonly string $tokenAuth,
         public readonly array $activeWidgets,
         public readonly array $customDimensions,
-        public readonly string $pagesNotFoundTemplate
+        public readonly string $pagesNotFoundTemplate,
     ) {
     }
 

@@ -40,7 +40,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
         ServicesConfigurator $services,
         Configuration $matomoConfiguration,
         string $connectionConfigurationId,
-        private readonly CustomDimension $customDimension
+        private readonly CustomDimension $customDimension,
     ) {
         parent::__construct($parameters, $services, $matomoConfiguration, $connectionConfigurationId);
         $this->parametersName = \sprintf(self::PARAMETERS_PARAMETERS_TEMPLATE, $this->customDimension->idDimension);
@@ -63,7 +63,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
                 'filter_limit' => '50',
                 'filter_sort_column' => 'nb_visits',
                 'filter_sort_order' => 'desc',
-            ]
+            ],
         );
     }
 
@@ -72,7 +72,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
         $this->services
             ->set(
                 $this->buildServiceDataProviderId(),
-                GenericTableDataProvider::class
+                GenericTableDataProvider::class,
             )
             ->arg('$connectionConfiguration', new Reference($this->connectionConfigurationId))
             ->arg('$method', self::METHOD)
@@ -118,7 +118,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             self::PROVIDER_ID_TEMPLATE,
             $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix,
-            $this->customDimension->idDimension
+            $this->customDimension->idDimension,
         );
     }
 
@@ -129,7 +129,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             $title = \sprintf(
                 '%s: %s',
                 $this->matomoConfiguration->siteTitle,
-                $this->getLanguageService()->sL($title)
+                $this->getLanguageService()->sL($title),
             );
         }
 
@@ -143,7 +143,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
                     'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -155,7 +155,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
-                ]
+                ],
             );
     }
 
@@ -165,7 +165,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             self::SERVICE_ID_TEMPLATE,
             $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix,
-            $this->customDimension->idDimension
+            $this->customDimension->idDimension,
         );
     }
 
@@ -175,7 +175,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             'matomo_widgets.%s.%s.%d',
             $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix,
-            $this->customDimension->idDimension
+            $this->customDimension->idDimension,
         );
     }
 
@@ -186,7 +186,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             $this->matomoConfiguration->url,
             $this->matomoConfiguration->idSite,
             $this->customDimension->scope === 'action' ? 'General_Actions' : 'General_Visitors',
-            $this->customDimension->idDimension
+            $this->customDimension->idDimension,
         );
     }
 

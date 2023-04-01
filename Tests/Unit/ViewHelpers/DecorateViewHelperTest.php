@@ -37,7 +37,7 @@ class DecorateViewHelperTest extends TestCase
             $arguments,
             static function (): void {
             },
-            $this->renderingContextStub
+            $this->renderingContextStub,
         );
 
         self::assertSame($expected, $actual);
@@ -95,7 +95,7 @@ class DecorateViewHelperTest extends TestCase
             $arguments,
             static function (): void {
             },
-            $this->renderingContextStub
+            $this->renderingContextStub,
         );
     }
 }

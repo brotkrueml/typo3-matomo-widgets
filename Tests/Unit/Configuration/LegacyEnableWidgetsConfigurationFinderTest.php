@@ -29,7 +29,7 @@ class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
             ->willReturn([]);
 
         $subject = new LegacyEnableWidgetsConfigurationFinder(
-            $siteFinderStub
+            $siteFinderStub,
         );
 
         $actual = $subject->getEnableWidgetsIdentifier();
@@ -57,7 +57,7 @@ class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
             ->willReturn([]);
 
         $subject = new LegacyEnableWidgetsConfigurationFinder(
-            $siteFinderStub
+            $siteFinderStub,
         );
 
         self::assertCount(0, $subject);
@@ -91,7 +91,7 @@ class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
             ]);
 
         $subject = new LegacyEnableWidgetsConfigurationFinder(
-            $siteFinderStub
+            $siteFinderStub,
         );
 
         self::assertCount(2, $subject);
@@ -125,7 +125,7 @@ class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
             ]);
 
         $subject = new LegacyEnableWidgetsConfigurationFinder(
-            $siteFinderStub
+            $siteFinderStub,
         );
 
         $iterator = $subject->getIterator();

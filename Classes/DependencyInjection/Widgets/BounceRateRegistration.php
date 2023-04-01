@@ -45,11 +45,11 @@ final class BounceRateRegistration extends AbstractRegistration
             [
                 'period' => 'month',
                 'date' => 'today',
-            ]
+            ],
         );
         $this->parameters->set(
             self::PARAMETERS_SUBTITLE,
-            Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.subtitle'
+            Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.subtitle',
         );
     }
 
@@ -81,7 +81,7 @@ final class BounceRateRegistration extends AbstractRegistration
                     'title' => $localisedTitle,
                     'subtitle' => '%' . self::PARAMETERS_SUBTITLE . '%',
                     'icon' => 'content-bounce-rate',
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -91,7 +91,7 @@ final class BounceRateRegistration extends AbstractRegistration
                     'title' => $title,
                     'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.description',
                     'iconIdentifier' => self::ICON_IDENTIFIER,
-                ]
+                ],
             );
     }
 }

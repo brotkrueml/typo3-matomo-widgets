@@ -40,7 +40,7 @@ trait WidgetTitleAdaptionTrait
             $configuration->getIconIdentifier(),
             $configuration->getHeight(),
             $configuration->getWidth(),
-            \explode(' ', $configuration->getAdditionalCssClasses())
+            \explode(' ', $configuration->getAdditionalCssClasses()),
         );
     }
 

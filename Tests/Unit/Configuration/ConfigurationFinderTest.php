@@ -36,7 +36,7 @@ final class ConfigurationFinderTest extends TestCase
             '',
             '',
             '',
-            ''
+            '',
         );
 
         self::$configPath = \realpath(\sys_get_temp_dir()) . \DIRECTORY_SEPARATOR . 'matomo_widgets_configuration_finder';
@@ -52,7 +52,7 @@ final class ConfigurationFinderTest extends TestCase
     {
         $paths = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator(self::$configPath, \RecursiveDirectoryIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::CHILD_FIRST
+            \RecursiveIteratorIterator::CHILD_FIRST,
         );
 
         foreach ($paths as $path) {
@@ -398,7 +398,7 @@ final class ConfigurationFinderTest extends TestCase
                 $value = $value ? 'true' : 'false';
             }
 
-            $yamlConfiguration .= \sprintf('%s: "%s"', $key, $value) . PHP_EOL;
+            $yamlConfiguration .= \sprintf('%s: "%s"', $key, $value) . \PHP_EOL;
         }
 
         return $yamlConfiguration;

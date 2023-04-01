@@ -41,7 +41,7 @@ class MatomoRepositoryTest extends TestCase
             $this->cacheStub,
             new CacheIdentifierCreator(),
             $this->connectorMock,
-            $this->eventDispatcher
+            $this->eventDispatcher,
         );
 
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.net', 3, '');

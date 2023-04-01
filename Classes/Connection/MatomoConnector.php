@@ -25,7 +25,7 @@ class MatomoConnector
 {
     public function __construct(
         private readonly RequestFactoryInterface $requestFactory,
-        private readonly ClientInterface $client
+        private readonly ClientInterface $client,
     ) {
     }
 
@@ -64,7 +64,7 @@ class MatomoConnector
             throw new InvalidResponseException(
                 \sprintf('Content returned from Matomo Reporting API is not JSON encoded: %s', $content),
                 1595862844,
-                $e
+                $e,
             );
         }
 

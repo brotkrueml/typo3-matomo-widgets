@@ -34,7 +34,7 @@ abstract class AbstractRegistration
         protected ParametersConfigurator $parameters,
         protected ServicesConfigurator $services,
         protected Configuration $matomoConfiguration,
-        protected string $connectionConfigurationId
+        protected string $connectionConfigurationId,
     ) {
     }
 
@@ -45,7 +45,7 @@ abstract class AbstractRegistration
         return \sprintf(
             self::PROVIDER_ID_TEMPLATE,
             $this->matomoConfiguration->siteIdentifier,
-            $this->serviceIdSuffix
+            $this->serviceIdSuffix,
         );
     }
 
@@ -54,7 +54,7 @@ abstract class AbstractRegistration
         return \sprintf(
             self::SERVICE_ID_TEMPLATE,
             $this->matomoConfiguration->siteIdentifier,
-            $this->serviceIdSuffix
+            $this->serviceIdSuffix,
         );
     }
 
@@ -63,7 +63,7 @@ abstract class AbstractRegistration
         return \sprintf(
             Extension::WIDGET_IDENTIFIER_TEMPLATE,
             $this->matomoConfiguration->siteIdentifier,
-            $this->serviceIdSuffix
+            $this->serviceIdSuffix,
         );
     }
 }

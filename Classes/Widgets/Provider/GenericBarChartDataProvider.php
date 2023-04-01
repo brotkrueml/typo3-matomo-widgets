@@ -31,7 +31,7 @@ final class GenericBarChartDataProvider implements ChartDataProviderInterface
         private readonly string $method,
         private readonly string $barLabel,
         private readonly string $backgroundColour,
-        private readonly array $parameters
+        private readonly array $parameters,
     ) {
     }
 

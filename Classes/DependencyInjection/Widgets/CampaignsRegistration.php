@@ -48,7 +48,7 @@ final class CampaignsRegistration extends AbstractRegistration
                 'filter_limit' => '30',
                 'filter_sort_column' => 'nb_visits',
                 'filter_sort_order' => 'desc',
-            ]
+            ],
         );
     }
 
@@ -71,7 +71,7 @@ final class CampaignsRegistration extends AbstractRegistration
                         'decorator' => new Reference(NumberDecorator::class),
                         'classes' => 'text-right',
                     ],
-                ]
+                ],
             )
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%')
             ->call('addParameter', [
@@ -96,7 +96,7 @@ final class CampaignsRegistration extends AbstractRegistration
                     'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -108,7 +108,7 @@ final class CampaignsRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
-                ]
+                ],
             );
     }
 
@@ -117,7 +117,7 @@ final class CampaignsRegistration extends AbstractRegistration
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?segment=&category=Referrers_Referrers&subcategory=Referrers_Campaigns',
             $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite
+            $this->matomoConfiguration->idSite,
         );
     }
 }

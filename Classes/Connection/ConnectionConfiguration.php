@@ -22,7 +22,7 @@ class ConnectionConfiguration
         public readonly string $url,
         public readonly int $idSite,
         #[\SensitiveParameter]
-        string $tokenAuth
+        string $tokenAuth,
     ) {
         $this->tokenAuth = $tokenAuth ?: 'anonymous';
     }

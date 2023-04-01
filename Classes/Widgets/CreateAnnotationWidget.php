@@ -33,7 +33,7 @@ final class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInte
     public function __construct(
         WidgetConfigurationInterface $configuration,
         private readonly StandaloneView $view,
-        private readonly array $options = []
+        private readonly array $options = [],
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
     }

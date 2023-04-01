@@ -44,7 +44,7 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
             [
                 'period' => 'month',
                 'date' => 'last12',
-            ]
+            ],
         );
     }
 
@@ -56,7 +56,7 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
             ->arg('$method', self::METHOD)
             ->arg(
                 '$barLabel',
-                Extension::LANGUAGE_PATH_DASHBOARD . ':visits'
+                Extension::LANGUAGE_PATH_DASHBOARD . ':visits',
             )
             ->arg('$backgroundColour', '#1a568f')
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%');
@@ -79,7 +79,7 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
                     'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -91,7 +91,7 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
-                ]
+                ],
             );
     }
 
@@ -100,7 +100,7 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?segment=&category=General_Visitors&subcategory=General_Overview',
             $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite
+            $this->matomoConfiguration->idSite,
         );
     }
 }

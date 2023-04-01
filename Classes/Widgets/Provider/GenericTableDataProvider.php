@@ -33,7 +33,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
         protected ConnectionConfiguration $connectionConfiguration,
         protected string $method,
         private readonly array $columns,
-        protected array $parameters
+        protected array $parameters,
     ) {
     }
 

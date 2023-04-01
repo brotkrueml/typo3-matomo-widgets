@@ -44,7 +44,7 @@ final class CustomDimensionConfigurationValidator
         if (! \is_array($configuration)) {
             throw new ValidationException(
                 \sprintf('A custom dimension configuration is not an array, "%s" given', \gettype($configuration)),
-                1618591877
+                1618591877,
             );
         }
     }
@@ -54,7 +54,7 @@ final class CustomDimensionConfigurationValidator
         if (! isset($this->configuration['scope'])) {
             throw new ValidationException(
                 'A custom dimension configuration has no "scope" given',
-                1618591878
+                1618591878,
             );
         }
 
@@ -63,9 +63,9 @@ final class CustomDimensionConfigurationValidator
                 \sprintf(
                     'A custom dimension configuration has an invalid scope given: "%s", allowed: %s',
                     $this->configuration['scope'],
-                    \implode(',', self::ALLOWED_SCOPES)
+                    \implode(',', self::ALLOWED_SCOPES),
                 ),
-                1618591879
+                1618591879,
             );
         }
     }
@@ -75,7 +75,7 @@ final class CustomDimensionConfigurationValidator
         if (! isset($this->configuration['idDimension'])) {
             throw new ValidationException(
                 'A custom dimension configuration has no "idDimension" given',
-                1618591880
+                1618591880,
             );
         }
 
@@ -83,9 +83,9 @@ final class CustomDimensionConfigurationValidator
             throw new ValidationException(
                 \sprintf(
                     'A custom dimension configuration has a non-numeric "idDimension" parameter "%s"',
-                    $this->configuration['idDimension']
+                    $this->configuration['idDimension'],
                 ),
-                1618591881
+                1618591881,
             );
         }
 
@@ -94,9 +94,9 @@ final class CustomDimensionConfigurationValidator
             throw new ValidationException(
                 \sprintf(
                     'A custom dimension configuration has an invalid "idDimension" parameter "%s"',
-                    $this->configuration['idDimension']
+                    $this->configuration['idDimension'],
                 ),
-                1618591882
+                1618591882,
             );
         }
 
@@ -104,9 +104,9 @@ final class CustomDimensionConfigurationValidator
             throw new ValidationException(
                 \sprintf(
                     'The parameter "idDimension" with the value "%d" is already configured',
-                    $idDimension
+                    $idDimension,
                 ),
-                1618591883
+                1618591883,
             );
         }
 

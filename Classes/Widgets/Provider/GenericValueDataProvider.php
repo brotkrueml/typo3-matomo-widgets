@@ -28,7 +28,7 @@ final class GenericValueDataProvider implements ValueDataProviderInterface
         private readonly ConnectionConfiguration $connectionConfiguration,
         private readonly string $method,
         private readonly string $columnName,
-        private readonly array $parameters
+        private readonly array $parameters,
     ) {
     }
 

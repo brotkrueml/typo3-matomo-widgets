@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Core\Environment;
 
 $configurations = ConfigurationFinder::buildConfigurations(
     Environment::getConfigPath(),
-    (new ExtensionAvailability())->isMatomoIntegrationAvailable()
+    (new ExtensionAvailability())->isMatomoIntegrationAvailable(),
 );
 
 return (new DashboardPresetsProvider($configurations))

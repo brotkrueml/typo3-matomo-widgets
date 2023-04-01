@@ -34,7 +34,7 @@ final class DecorateViewHelper extends ViewHelper\AbstractViewHelper
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
+        RenderingContextInterface $renderingContext,
     ): string {
         $decorator = $arguments['decorator'];
         $value = (string)$arguments['value'];
@@ -44,9 +44,9 @@ final class DecorateViewHelper extends ViewHelper\AbstractViewHelper
                 \sprintf(
                     'The decorator "%s" is not an instance of "%s"',
                     \get_debug_type($decorator),
-                    DecoratorInterface::class
+                    DecoratorInterface::class,
                 ),
-                1594828163
+                1594828163,
             );
         }
 

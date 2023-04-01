@@ -44,7 +44,7 @@ final class ActionsPerDayRegistration extends AbstractRegistration
             [
                 'period' => 'day',
                 'date' => 'last28',
-            ]
+            ],
         );
     }
 
@@ -56,7 +56,7 @@ final class ActionsPerDayRegistration extends AbstractRegistration
             ->arg('$method', self::METHOD)
             ->arg(
                 '$barLabel',
-                Extension::LANGUAGE_PATH_DASHBOARD . ':actions'
+                Extension::LANGUAGE_PATH_DASHBOARD . ':actions',
             )
             ->arg('$backgroundColour', '#4c7e3a')
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%');
@@ -78,7 +78,7 @@ final class ActionsPerDayRegistration extends AbstractRegistration
                 [
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -90,7 +90,7 @@ final class ActionsPerDayRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'medium',
-                ]
+                ],
             );
     }
 }

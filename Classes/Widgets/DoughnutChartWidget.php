@@ -37,7 +37,7 @@ final class DoughnutChartWidget implements WidgetInterface, EventDataInterface, 
         private readonly ChartDataProviderInterface $dataProvider,
         private readonly StandaloneView $view,
         private readonly ?\TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface $buttonProvider = null,
-        private readonly array $options = []
+        private readonly array $options = [],
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
     }

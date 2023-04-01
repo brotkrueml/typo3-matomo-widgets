@@ -50,7 +50,7 @@ final class CountriesRegistration extends AbstractRegistration
                 'filter_limit' => '50',
                 'filter_sort_column' => 'nb_visits',
                 'filter_sort_order' => 'desc',
-            ]
+            ],
         );
     }
 
@@ -82,7 +82,7 @@ final class CountriesRegistration extends AbstractRegistration
                         'decorator' => new Reference(NumberDecorator::class),
                         'classes' => 'text-right',
                     ],
-                ]
+                ],
             )
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%')
             ->call('addParameter', ['language', new Reference(LanguageParameterResolver::class)]);
@@ -105,7 +105,7 @@ final class CountriesRegistration extends AbstractRegistration
                     'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -117,7 +117,7 @@ final class CountriesRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
-                ]
+                ],
             );
     }
 
@@ -126,7 +126,7 @@ final class CountriesRegistration extends AbstractRegistration
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?segment=&category=General_Visitors&subcategory=UserCountry_SubmenuLocations',
             $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite
+            $this->matomoConfiguration->idSite,
         );
     }
 }

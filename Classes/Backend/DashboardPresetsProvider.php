@@ -34,7 +34,7 @@ final class DashboardPresetsProvider
     ];
 
     public function __construct(
-        private readonly Configurations $configurations
+        private readonly Configurations $configurations,
     ) {
     }
 
@@ -48,7 +48,7 @@ final class DashboardPresetsProvider
             $enabledWidgets = \array_values(\array_filter(
                 self::DEFAULT_WIDGETS_TEMPLATES,
                 static fn (string $widgetConfigurationKey): bool => $configuration->isWidgetActive($widgetConfigurationKey),
-                \ARRAY_FILTER_USE_KEY
+                \ARRAY_FILTER_USE_KEY,
             ));
 
             if ($enabledWidgets === []) {
@@ -65,7 +65,7 @@ final class DashboardPresetsProvider
                 'iconIdentifier' => 'content-dashboard',
                 'defaultWidgets' => \array_map(
                     static fn (string $widget): string => \sprintf($widget, $configuration->siteIdentifier),
-                    $enabledWidgets
+                    $enabledWidgets,
                 ),
                 'showInWizard' => true,
             ];

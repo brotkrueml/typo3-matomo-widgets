@@ -36,7 +36,7 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
         private readonly TableDataProviderInterface $dataProvider,
         private readonly StandaloneView $view,
         private readonly ?ButtonProviderInterface $buttonProvider = null,
-        private readonly array $options = []
+        private readonly array $options = [],
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
     }

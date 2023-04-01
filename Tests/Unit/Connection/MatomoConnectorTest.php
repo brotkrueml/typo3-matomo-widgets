@@ -80,7 +80,7 @@ final class MatomoConnectorTest extends TestCase
         string $method,
         array $parameters,
         string $expectedQuery,
-        string $expectedResult
+        string $expectedResult,
     ): void {
         $connectionConfiguration = new ConnectionConfiguration($this->url, $configuration['idSite'], $configuration['tokenAuth']);
 
@@ -91,8 +91,8 @@ final class MatomoConnectorTest extends TestCase
                 [
                     'content-type' => 'application/json; charset=utf-8',
                 ],
-                200
-            )
+                200,
+            ),
         );
 
         $parameterBag = new ParameterBag();
@@ -183,8 +183,8 @@ final class MatomoConnectorTest extends TestCase
                 [
                     'content-type' => 'application/json; charset=utf-8',
                 ],
-                200
-            )
+                200,
+            ),
         );
 
         $subject = new MatomoConnector($this->requestFactory, $this->client);
@@ -207,8 +207,8 @@ final class MatomoConnectorTest extends TestCase
             new Response(
                 'Error: Renderer format \'json1\' not valid. Try any of the following instead: console, csv, html, json, json2, original, php, rss, tsv, xml.',
                 [],
-                200
-            )
+                200,
+            ),
         );
 
         $subject = new MatomoConnector($this->requestFactory, $this->client);
@@ -231,8 +231,8 @@ final class MatomoConnectorTest extends TestCase
             new Response(
                 '{"result":"error","message":"The method \'someMethod\' does not exist or is not available in the module"}',
                 [],
-                200
-            )
+                200,
+            ),
         );
 
         $subject = new MatomoConnector($this->requestFactory, $this->client);

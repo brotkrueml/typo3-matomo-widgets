@@ -81,7 +81,7 @@ final class ConfigurationFinder
             $activeWidgets = GeneralUtility::trimExplode(
                 ',',
                 self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsActiveWidgets'] ?? ''),
-                true
+                true,
             );
             $customDimensions = self::buildCustomDimensions($siteConfiguration['matomoWidgetsCustomDimensions'] ?? []);
 
@@ -93,7 +93,7 @@ final class ConfigurationFinder
                 $tokenAuth,
                 $activeWidgets,
                 $customDimensions,
-                $pagesNotFoundTemplate
+                $pagesNotFoundTemplate,
             );
         }
 
@@ -109,7 +109,7 @@ final class ConfigurationFinder
             $siteFiles = \iterator_to_array(
                 Finder::create()
                     ->in($configPath . '/sites/*')
-                    ->name('config.yaml')
+                    ->name('config.yaml'),
             );
         } catch (DirectoryNotFoundException) {
             $siteFiles = [];
@@ -119,7 +119,7 @@ final class ConfigurationFinder
             $additionalFiles = \iterator_to_array(
                 Finder::create()
                     ->in($configPath . '/' . Extension::ADDITIONAL_CONFIG_PATH_SEGMENT)
-                    ->name('*.yaml')
+                    ->name('*.yaml'),
             );
         } catch (DirectoryNotFoundException) {
             $additionalFiles = [];
@@ -160,7 +160,7 @@ final class ConfigurationFinder
                 $configuration['scope'],
                 (int)$configuration['idDimension'],
                 (string)($configuration['title'] ?? 'Custom Dimension ' . $configuration['idDimension']),
-                (string)($configuration['description'] ?? '')
+                (string)($configuration['description'] ?? ''),
             );
         }
 

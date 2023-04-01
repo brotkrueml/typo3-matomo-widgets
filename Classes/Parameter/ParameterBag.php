@@ -62,7 +62,7 @@ final class ParameterBag
         if (! \array_key_exists($name, $this->parameters)) {
             throw new ParameterNotFoundException(
                 \sprintf('Parameter "%s" not found', $name),
-                1594369628
+                1594369628,
             );
         }
 

@@ -20,7 +20,7 @@ final class CustomDimension
         public readonly string $scope,
         public readonly int $idDimension,
         public readonly string $title,
-        public readonly string $description
+        public readonly string $description,
     ) {
     }
 }

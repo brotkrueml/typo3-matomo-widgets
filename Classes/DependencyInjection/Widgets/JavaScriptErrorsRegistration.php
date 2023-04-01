@@ -48,7 +48,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
                 'filter_limit' => '50',
                 'filter_sort_column' => 'nb_events',
                 'filter_sort_order' => 'desc',
-            ]
+            ],
         );
     }
 
@@ -76,7 +76,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':hits',
                         'classes' => 'text-right',
                     ],
-                ]
+                ],
             )
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%')
             ->call('addParameter', [
@@ -110,7 +110,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
                     'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -122,7 +122,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'medium',
-                ]
+                ],
             );
     }
 
@@ -131,7 +131,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?period=month&date=today&segment=&category=General_Actions&subcategory=Events_Events',
             $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite
+            $this->matomoConfiguration->idSite,
         );
     }
 }

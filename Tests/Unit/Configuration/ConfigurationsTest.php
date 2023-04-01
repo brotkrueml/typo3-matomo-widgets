@@ -30,7 +30,7 @@ final class ConfigurationsTest extends TestCase
             '',
             [],
             [],
-            ''
+            '',
         );
         $configuration2 = new Configuration(
             'another_configuration',
@@ -40,7 +40,7 @@ final class ConfigurationsTest extends TestCase
             '',
             [],
             [],
-            ''
+            '',
         );
         $subject = new Configurations([$configuration1, $configuration2]);
 
@@ -61,7 +61,7 @@ final class ConfigurationsTest extends TestCase
             '',
             [],
             [],
-            ''
+            '',
         );
         $subject = new Configurations([$configuration1]);
 
@@ -81,7 +81,7 @@ final class ConfigurationsTest extends TestCase
             '',
             [],
             [],
-            ''
+            '',
         );
         $configuration2 = new Configuration(
             'another_configuration',
@@ -91,7 +91,7 @@ final class ConfigurationsTest extends TestCase
             '',
             [],
             [],
-            ''
+            '',
         );
         $subject = new Configurations([$configuration1, $configuration2]);
 
@@ -115,7 +115,7 @@ final class ConfigurationsTest extends TestCase
             '',
             [],
             [],
-            ''
+            '',
         );
         $configuration2 = new Configuration(
             'another_configuration',
@@ -125,7 +125,7 @@ final class ConfigurationsTest extends TestCase
             '',
             [],
             [],
-            ''
+            '',
         );
         $subject = new Configurations([$configuration1, $configuration2]);
 

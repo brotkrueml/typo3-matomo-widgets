@@ -30,7 +30,7 @@ final class CssViewHelper extends AbstractTagBasedViewHelper
             'path',
             'string',
             'Specify path to the asset',
-            true
+            true,
         );
     }
 

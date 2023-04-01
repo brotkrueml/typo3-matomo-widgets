@@ -72,7 +72,7 @@ class GenericBarChartDataProviderTest extends TestCase
             $method,
             $barLabel,
             $backgroundColour,
-            $parameters
+            $parameters,
         )
         )
             ->getChartData();

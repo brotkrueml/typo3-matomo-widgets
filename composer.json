@@ -28,7 +28,7 @@
 		"typo3/cms-dashboard": "^11.5 || ^12.1"
 	},
 	"require-dev": {
-		"brotkrueml/coding-standards": "~3.0.0",
+		"brotkrueml/coding-standards": "~4.0.0",
 		"brotkrueml/typo3-matomo-integration": "^1.0",
 		"donatj/mock-webserver": "^2.6",
 		"ergebnis/composer-normalize": "~2.30.2",

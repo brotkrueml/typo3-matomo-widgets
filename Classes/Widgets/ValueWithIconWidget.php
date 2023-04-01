@@ -32,7 +32,7 @@ final class ValueWithIconWidget implements WidgetInterface
         WidgetConfigurationInterface $configuration,
         private readonly ValueDataProviderInterface $dataProvider,
         private readonly StandaloneView $view,
-        private readonly array $options = []
+        private readonly array $options = [],
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
     }

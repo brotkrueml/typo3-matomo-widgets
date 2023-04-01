@@ -48,7 +48,7 @@ final class ContentNamesRegistration extends AbstractRegistration
                 'filter_limit' => '50',
                 'filter_sort_column' => 'nb_impressions',
                 'filter_sort_order' => 'desc',
-            ]
+            ],
         );
     }
 
@@ -76,7 +76,7 @@ final class ContentNamesRegistration extends AbstractRegistration
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':interactionRate',
                         'classes' => 'text-right',
                     ],
-                ]
+                ],
             )
             ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%')
             ->call('addParameter', [
@@ -101,7 +101,7 @@ final class ContentNamesRegistration extends AbstractRegistration
                     'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -113,7 +113,7 @@ final class ContentNamesRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
-                ]
+                ],
             );
     }
 
@@ -122,7 +122,7 @@ final class ContentNamesRegistration extends AbstractRegistration
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?category=General_Actions&subcategory=Contents_Contents',
             $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite
+            $this->matomoConfiguration->idSite,
         );
     }
 }

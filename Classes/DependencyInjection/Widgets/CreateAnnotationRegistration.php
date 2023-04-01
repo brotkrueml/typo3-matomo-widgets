@@ -48,7 +48,7 @@ final class CreateAnnotationRegistration extends AbstractRegistration
                     'siteIdentifier' => $this->matomoConfiguration->siteIdentifier,
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
-                ]
+                ],
             )
             ->tag(
                 'dashboard.widget',
@@ -60,7 +60,7 @@ final class CreateAnnotationRegistration extends AbstractRegistration
                     'iconIdentifier' => self::ICON_IDENTIFIER,
                     'height' => 'medium',
                     'width' => 'small',
-                ]
+                ],
             );
     }
 
@@ -69,7 +69,7 @@ final class CreateAnnotationRegistration extends AbstractRegistration
         return \sprintf(
             '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?period=month&date=today&segment=&category=General_Visitors&subcategory=General_Overview',
             $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite
+            $this->matomoConfiguration->idSite,
         );
     }
 }

@@ -17,7 +17,7 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
 final class JavaScriptErrorDecorator implements DecoratorInterface
 {
     public function __construct(
-        private readonly string $siteIdentifier
+        private readonly string $siteIdentifier,
     ) {
     }
 
@@ -30,7 +30,7 @@ final class JavaScriptErrorDecorator implements DecoratorInterface
         return \sprintf(
             '<a class="js-matomo-widgets-javascript-error-message" href="#" data-site-identifier="%s">%s</a>',
             \htmlspecialchars($this->siteIdentifier),
-            \htmlspecialchars($value)
+            \htmlspecialchars($value),
         );
     }
 

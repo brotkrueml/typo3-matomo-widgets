@@ -37,7 +37,7 @@ final class CountryFlagDecorator implements DecoratorInterface
         }
 
         $imageUrl = $this->baseUrl . $value;
-        if (! \filter_var($imageUrl, FILTER_VALIDATE_URL)) {
+        if (! \filter_var($imageUrl, \FILTER_VALIDATE_URL)) {
             return '';
         }
 

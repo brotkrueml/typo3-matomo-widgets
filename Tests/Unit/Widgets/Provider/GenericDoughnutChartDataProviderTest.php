@@ -73,7 +73,7 @@ class GenericDoughnutChartDataProviderTest extends TestCase
             $valueColumn,
             $limit,
             $backgroundColours,
-            $parameters
+            $parameters,
         ))->getChartData();
 
         self::assertSame($expected, $actual);

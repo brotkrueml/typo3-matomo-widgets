@@ -24,7 +24,7 @@ final class CacheIdentifierCreator
         return \sprintf(
             '%s_%s',
             \str_replace('.', '_', $method),
-            \md5(\serialize($configuration) . \serialize($parameterBag))
+            \md5(\serialize($configuration) . \serialize($parameterBag)),
         );
     }
 
@@ -33,7 +33,7 @@ final class CacheIdentifierCreator
         return \sprintf(
             '%s_%s',
             \str_replace('.', '_', $method),
-            \md5(\serialize($configuration))
+            \md5(\serialize($configuration)),
         );
     }
 }

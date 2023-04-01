@@ -36,7 +36,7 @@ final class CtaWidget implements WidgetInterface
         WidgetConfigurationInterface $configuration,
         private readonly StandaloneView $view,
         private readonly ?ButtonProviderInterface $buttonProvider = null,
-        array $options = []
+        array $options = [],
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
         $this->options = [...[

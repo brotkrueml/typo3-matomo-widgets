@@ -66,7 +66,7 @@ final class WidgetsRegistration
     public function register(
         ServicesConfigurator $services,
         ParametersConfigurator $parameters,
-        Configurations $configurations
+        Configurations $configurations,
     ): void {
         foreach ($configurations as $configuration) {
             $connectionConfigurationId = 'matomo_widgets.connectionConfiguration.' . $configuration->siteIdentifier;

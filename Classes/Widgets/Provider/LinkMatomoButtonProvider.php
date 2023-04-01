@@ -21,7 +21,7 @@ use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 final class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
     public function __construct(
-        private readonly string $link
+        private readonly string $link,
     ) {
     }
 

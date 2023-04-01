@@ -42,7 +42,7 @@ final class CreateAnnotationController
         private readonly Configurations $configurations,
         private readonly LoggerInterface $logger,
         private readonly MatomoRepository $repository,
-        private readonly ResponseFactoryInterface $responseFactory
+        private readonly ResponseFactoryInterface $responseFactory,
     ) {
     }
 
@@ -56,7 +56,7 @@ final class CreateAnnotationController
             $this->checkParameters(
                 (string)($parameters['siteIdentifier'] ?? ''),
                 (string)($parameters['date'] ?? ''),
-                (string)($parameters['note'] ?? '')
+                (string)($parameters['note'] ?? ''),
             );
         } catch (\InvalidArgumentException $e) {
             return $this->buildResponse(true, $e->getMessage());
@@ -103,7 +103,7 @@ final class CreateAnnotationController
     private function translate(string $key): string
     {
         return $this->getLanguageService()->sL(
-            \sprintf('%s:%s', Extension::LANGUAGE_PATH_DASHBOARD, $key)
+            \sprintf('%s:%s', Extension::LANGUAGE_PATH_DASHBOARD, $key),
         ) ?: $key;
     }
 
@@ -127,7 +127,7 @@ final class CreateAnnotationController
     {
         return $this->getBackendUser()->check(
             'available_widgets',
-            \sprintf(Extension::WIDGET_IDENTIFIER_TEMPLATE, $this->siteIdentifier, 'annotation.create')
+            \sprintf(Extension::WIDGET_IDENTIFIER_TEMPLATE, $this->siteIdentifier, 'annotation.create'),
         );
     }
 
@@ -141,7 +141,7 @@ final class CreateAnnotationController
         $connectionConfiguration = new ConnectionConfiguration(
             $siteConfiguration->url,
             $siteConfiguration->idSite,
-            $siteConfiguration->tokenAuth
+            $siteConfiguration->tokenAuth,
         );
 
         $parameterBag = new ParameterBag([
@@ -176,7 +176,7 @@ final class CreateAnnotationController
                 $createdAnnotation['note'],
                 $createdAnnotation['idNote'],
                 $this->siteIdentifier,
-            ]
+            ],
         );
     }
 

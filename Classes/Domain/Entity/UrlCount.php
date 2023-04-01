@@ -19,7 +19,7 @@ final class UrlCount
     private int $hits = 0;
 
     public function __construct(
-        private readonly string $url
+        private readonly string $url,
     ) {
     }
 

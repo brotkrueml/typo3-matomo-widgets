@@ -38,7 +38,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         private readonly string $valueColumn,
         $limit,
         private readonly array $backgroundColours,
-        private readonly array $parameters
+        private readonly array $parameters,
     ) {
         $this->limit = (int)$limit;
     }

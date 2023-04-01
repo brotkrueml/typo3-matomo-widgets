@@ -35,7 +35,7 @@ class GenericValueDataProviderTest extends TestCase
             'the_column',
             [
                 'foo' => 'bar',
-            ]
+            ],
         );
     }
 

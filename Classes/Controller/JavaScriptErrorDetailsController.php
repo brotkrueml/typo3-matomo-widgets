@@ -39,7 +39,7 @@ final class JavaScriptErrorDetailsController
         private readonly MatomoRepository $repository,
         private readonly ResponseFactoryInterface $responseFactory,
         private readonly StandaloneView $view,
-        private readonly array $parameters
+        private readonly array $parameters,
     ) {
     }
 
@@ -58,7 +58,7 @@ final class JavaScriptErrorDetailsController
         $connectionConfiguration = new ConnectionConfiguration(
             $siteConfiguration->url,
             $siteConfiguration->idSite,
-            $siteConfiguration->tokenAuth
+            $siteConfiguration->tokenAuth,
         );
 
         $parameterBag = new ParameterBag([
