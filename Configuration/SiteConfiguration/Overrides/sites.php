@@ -65,8 +65,8 @@ if (TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integrat
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
                 'items' => [[
-                    0 => '',
-                    1 => '',
+                    'label' => '',
+                    'value' => '',
                 ]],
             ],
             'onChange' => 'reload',
@@ -75,6 +75,15 @@ if (TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integrat
     $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsUrl']['displayCond'] = 'FIELD:matomoWidgetsConsiderMatomoIntegration:REQ:false';
     $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsIdSite']['displayCond'] = 'FIELD:matomoWidgetsConsiderMatomoIntegration:REQ:false';
     $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsPagesNotFoundTemplate']['displayCond'] = 'FIELD:matomoWidgetsConsiderMatomoIntegration:REQ:false';
+
+    if ((new TYPO3\CMS\Core\Information\Typo3Version())->getMajorVersion() < 12) {
+        $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsConsiderMatomoIntegration']['config']['items'][0][0]
+            = $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsConsiderMatomoIntegration']['config']['items'][0]['label'];
+        $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsConsiderMatomoIntegration']['config']['items'][0][1]
+            = $GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsConsiderMatomoIntegration']['config']['items'][0]['value'];
+        unset($GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsConsiderMatomoIntegration']['config']['items'][0]['label']);
+        unset($GLOBALS['SiteConfiguration']['site']['columns']['matomoWidgetsConsiderMatomoIntegration']['config']['items'][0]['value']);
+    }
 }
 
 $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',
@@ -90,8 +99,8 @@ $GLOBALS['SiteConfiguration']['site']['palettes'] += [
         'showitem' =>
             (
                 TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integration')
-                ? 'matomoWidgetsConsiderMatomoIntegration, --linebreak--, '
-                : ''
+                    ? 'matomoWidgetsConsiderMatomoIntegration, --linebreak--, '
+                    : ''
             ) . 'matomoWidgetsUrl, matomoWidgetsIdSite, matomoWidgetsTokenAuth',
     ],
     'matomoWidgetsActiveWidgets' => [
