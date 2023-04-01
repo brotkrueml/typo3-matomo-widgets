@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.1] - 2023-04-01
+
 ### Fixed
 - Error when opening a site configuration in TYPO3 v12.3 (#44)
 
@@ -154,7 +156,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.7.0...v2.0.0
 [1.7.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v1.6.0...v1.7.0
