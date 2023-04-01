@@ -6,11 +6,6 @@ parameters:
 			path: Classes/Configuration/ConfigurationFinder.php
 
 		-
-			message: "#^Use another value object over array with string\\-keys and objects, array\\<string, ValueObject\\>$#"
-			count: 1
-			path: Classes/Configuration/ConfigurationFinder.php
-
-		-
 			message: "#^Use value object over return of values$#"
 			count: 1
 			path: Classes/Configuration/ConfigurationFinder.php
