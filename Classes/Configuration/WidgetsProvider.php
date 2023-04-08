@@ -45,14 +45,6 @@ final class WidgetsProvider
     ];
 
     /**
-     * @return list<string>
-     */
-    public function getWidgetIdentifiers(): array
-    {
-        return \array_keys($this->availableWidgets);
-    }
-
-    /**
      * @return array<non-empty-array<0|1|'label'|'value', string>>
      */
     public function getItemsForTca(): array

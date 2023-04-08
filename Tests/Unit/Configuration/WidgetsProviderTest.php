@@ -29,31 +29,6 @@ final class WidgetsProviderTest extends TestCase
     }
 
     #[Test]
-    public function getWidgetIdentifiers(): void
-    {
-        $actual = $this->subject->getWidgetIdentifiers();
-
-        self::assertContains('actionsPerDay', $actual);
-        self::assertContains('actionsPerMonth', $actual);
-        self::assertContains('annotations', $actual);
-        self::assertContains('createAnnotation', $actual);
-        self::assertContains('bounceRate', $actual);
-        self::assertContains('browsers', $actual);
-        self::assertContains('campaigns', $actual);
-        self::assertContains('contentNames', $actual);
-        self::assertContains('contentPieces', $actual);
-        self::assertContains('countries', $actual);
-        self::assertContains('javaScriptErrors', $actual);
-        self::assertContains('linkMatomo', $actual);
-        self::assertContains('osFamilies', $actual);
-        self::assertContains('pagesNotFound', $actual);
-        self::assertContains('siteSearchKeywords', $actual);
-        self::assertContains('siteSearchNoResultKeywords', $actual);
-        self::assertContains('visitsPerDay', $actual);
-        self::assertContains('visitsPerMonth', $actual);
-    }
-
-    #[Test]
     public function getItemsForTcaInV11(): void
     {
         if ((new Typo3Version())->getMajorVersion() > 11) {
