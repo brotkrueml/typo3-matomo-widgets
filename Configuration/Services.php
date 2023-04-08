@@ -12,6 +12,7 @@ declare(strict_types=1);
 use Brotkrueml\MatomoIntegration\Extension as MatomoIntegrationExtension;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use Brotkrueml\MatomoWidgets\Configuration\Configurations;
+use Brotkrueml\MatomoWidgets\ContentSecurityPolicy\ExtendPolicyForMatomoServers;
 use Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController;
 use Brotkrueml\MatomoWidgets\Controller\JavaScriptErrorDetailsController;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\JavaScriptErrorsRegistration;
@@ -64,4 +65,9 @@ return static function (ContainerConfigurator $containerConfigurator, ContainerB
             ->public()
             ->arg('$parameters', '%' . JavaScriptErrorsRegistration::PARAMETERS_PARAMETERS . '%');
     }
+
+    $services->set(ExtendPolicyForMatomoServers::class)
+        ->tag('event.listener', [
+            'identifier' => 'matomo-widgets/extend-policy-for-matomo-servers',
+        ]);
 };
