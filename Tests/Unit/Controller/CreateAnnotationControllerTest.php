@@ -17,6 +17,7 @@ use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
+use GuzzleHttp\Exception\RequestException;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
@@ -56,7 +57,6 @@ final class CreateAnnotationControllerTest extends TestCase
             ),
         ]);
         $this->matomoRepositoryStub = $this->createStub(MatomoRepository::class);
-        $responseFactory = new ResponseFactory();
 
         $this->subject = new CreateAnnotationController(
             $this->cacheMock,
@@ -64,7 +64,7 @@ final class CreateAnnotationControllerTest extends TestCase
             $configurations,
             new NullLogger(),
             $this->matomoRepositoryStub,
-            $responseFactory,
+            new ResponseFactory(),
         );
 
         $this->backendUserStub = $this->createStub(BackendUserAuthentication::class);
@@ -202,7 +202,7 @@ final class CreateAnnotationControllerTest extends TestCase
     /**
      * @test
      */
-    public function siteConfigurationIsNotFoundReturnsResponseWithError(): void
+    public function annotationCannotBeCreatedThenReturnsResponseWithError(): void
     {
         $parameters = [
             'siteIdentifier' => 'some_identifier',
@@ -211,6 +211,10 @@ final class CreateAnnotationControllerTest extends TestCase
         ];
 
         $this->stubCheckOnBackendUser(true);
+
+        $this->matomoRepositoryStub
+            ->method('send')
+            ->willThrowException(new RequestException('error', $this->serverRequestStub));
 
         $actual = $this->invokeController($parameters);
 
@@ -279,11 +283,11 @@ final class CreateAnnotationControllerTest extends TestCase
         );
     }
 
-    private function stubCheckOnBackendUser(bool $hasPermission): void
+    private function stubCheckOnBackendUser(bool $hasPermission, string $identifier = 'some_identifier'): void
     {
         $this->backendUserStub
             ->method('check')
-            ->with('available_widgets', 'matomo_widgets.some_identifier.annotation.create')
+            ->with('available_widgets', 'matomo_widgets.' . $identifier . '.annotation.create')
             ->willReturn($hasPermission);
     }
 
