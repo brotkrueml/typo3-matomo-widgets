@@ -15,13 +15,16 @@ use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericValueDataProvider;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 
-class GenericValueDataProviderTest extends TestCase
+#[CoversClass(GenericValueDataProvider::class)]
+final class GenericValueDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-    private Stub|MatomoRepository $repositoryStub;
+    private MatomoRepository&Stub $repositoryStub;
     private GenericValueDataProvider $subject;
 
     protected function setUp(): void
@@ -39,9 +42,7 @@ class GenericValueDataProviderTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getValueForExistingColumn(): void
     {
         $this->repositoryStub
@@ -59,9 +60,7 @@ class GenericValueDataProviderTest extends TestCase
         self::assertSame('123', $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getValueForNonExistingColumn(): void
     {
         $this->repositoryStub

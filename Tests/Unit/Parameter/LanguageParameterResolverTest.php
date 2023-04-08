@@ -12,13 +12,16 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Parameter;
 
 use Brotkrueml\MatomoWidgets\Parameter\LanguageParameterResolver;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 
-class LanguageParameterResolverTest extends TestCase
+#[CoversClass(LanguageParameterResolver::class)]
+final class LanguageParameterResolverTest extends TestCase
 {
-    private Stub|BackendUserAuthentication $backendUserStub;
+    private BackendUserAuthentication&Stub $backendUserStub;
     private LanguageParameterResolver $subject;
 
     protected function setUp(): void
@@ -34,9 +37,7 @@ class LanguageParameterResolverTest extends TestCase
         unset($GLOBALS['BE_USER']);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function resolveReturnsEmptyStringIfBackendUserIsNotDefined(): void
     {
         unset($GLOBALS['BE_USER']);
@@ -44,9 +45,7 @@ class LanguageParameterResolverTest extends TestCase
         self::assertSame('', $this->subject->resolve());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function resolveReturnsLanguageOfBackendUserCorrectly(): void
     {
         $this->backendUserStub->uc = [
@@ -56,9 +55,7 @@ class LanguageParameterResolverTest extends TestCase
         self::assertSame('fr', $this->subject->resolve());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function resolveReturnsEmptyStringIfLangIsNotDefined(): void
     {
         $this->backendUserStub->uc = [];

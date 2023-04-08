@@ -12,13 +12,14 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Domain\Entity;
 
 use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class CustomDimensionTest extends TestCase
+#[CoversClass(CustomDimension::class)]
+final class CustomDimensionTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function propertiesAreSetInTheCorrectOrder(): void
     {
         $subject = new CustomDimension('action', 42, 'Some title', 'Some description');

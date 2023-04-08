@@ -15,15 +15,18 @@ use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
-class GenericBarChartDataProviderTest extends TestCase
+#[CoversClass(GenericBarChartDataProvider::class)]
+final class GenericBarChartDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-    private Stub|MatomoRepository $repositoryStub;
-    private Stub|LanguageService $languageServiceStub;
+    private MatomoRepository&Stub $repositoryStub;
+    private LanguageService&Stub $languageServiceStub;
 
     protected function setUp(): void
     {
@@ -39,9 +42,7 @@ class GenericBarChartDataProviderTest extends TestCase
         unset($GLOBALS['LANG']);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getChartData(): void
     {
         $method = 'some.method';

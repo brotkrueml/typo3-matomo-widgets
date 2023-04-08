@@ -13,10 +13,13 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
 use Brotkrueml\MatomoWidgets\Configuration\WidgetsProvider;
 use Brotkrueml\MatomoWidgets\Extension;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Information\Typo3Version;
 
-class WidgetsProviderTest extends TestCase
+#[CoversClass(WidgetsProvider::class)]
+final class WidgetsProviderTest extends TestCase
 {
     private WidgetsProvider $subject;
 
@@ -25,9 +28,7 @@ class WidgetsProviderTest extends TestCase
         $this->subject = new WidgetsProvider();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getWidgetIdentifiers(): void
     {
         $actual = $this->subject->getWidgetIdentifiers();
@@ -52,9 +53,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains('visitsPerMonth', $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getItemsForTcaInV11(): void
     {
         if ((new Typo3Version())->getMajorVersion() > 11) {
@@ -82,9 +81,7 @@ class WidgetsProviderTest extends TestCase
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.title', 'visitsPerMonth'], $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getItemsForTca(): void
     {
         if ((new Typo3Version())->getMajorVersion() < 12) {

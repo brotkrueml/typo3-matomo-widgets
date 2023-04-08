@@ -16,6 +16,8 @@ use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Connection\MatomoConnector;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
@@ -23,10 +25,11 @@ use Psr\EventDispatcher\EventDispatcherInterface;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 use TYPO3\CMS\Core\EventDispatcher\NoopEventDispatcher;
 
-class MatomoRepositoryTest extends TestCase
+#[CoversClass(MatomoRepository::class)]
+final class MatomoRepositoryTest extends TestCase
 {
-    private MatomoConnector|MockObject $connectorMock;
-    private FrontendInterface|Stub $cacheStub;
+    private MatomoConnector&MockObject $connectorMock;
+    private FrontendInterface&Stub $cacheStub;
     private EventDispatcherInterface $eventDispatcher;
     private ConnectionConfiguration $connectionConfiguration;
     private MatomoRepository $subject;
@@ -47,9 +50,7 @@ class MatomoRepositoryTest extends TestCase
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.net', 3, '');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function sendWithCacheDisabledCallsConnectorCorrectly(): void
     {
         $parameterBag = new ParameterBag();
@@ -62,9 +63,7 @@ class MatomoRepositoryTest extends TestCase
         $this->subject->send($this->connectionConfiguration, 'some.method', $parameterBag, false);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function sendWithCacheEnabledAndCacheEntryIsAvailableDoesNotCallConnector(): void
     {
         $parameterBag = new ParameterBag();
@@ -86,9 +85,7 @@ class MatomoRepositoryTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function sendWithCacheEnabledAndCacheEntryIsNotAvailableCallsConnector(): void
     {
         $parameterBag = new ParameterBag();

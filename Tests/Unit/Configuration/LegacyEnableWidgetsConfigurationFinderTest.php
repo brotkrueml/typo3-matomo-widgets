@@ -12,15 +12,16 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
 use Brotkrueml\MatomoWidgets\Configuration\LegacyEnableWidgetsConfigurationFinder;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\SiteFinder;
 
-class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
+#[CoversClass(LegacyEnableWidgetsConfigurationFinder::class)]
+final class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function getEnableWidgetsIdentifier(): void
     {
         $siteFinderStub = $this->createStub(SiteFinder::class);
@@ -46,9 +47,7 @@ class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
         self::assertContains('matomoWidgetsEnableVisitsPerMonth', $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function countReturns0WhenNoConfigurationsFound(): void
     {
         $siteFinderStub = $this->createStub(SiteFinder::class);
@@ -63,9 +62,7 @@ class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
         self::assertCount(0, $subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function countReturnsCountCorrectlyWhenConfigurationsFound(): void
     {
         $siteStub1 = $this->createStub(Site::class);
@@ -97,9 +94,7 @@ class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
         self::assertCount(2, $subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getIterator(): void
     {
         $siteStub1 = $this->createStub(Site::class);

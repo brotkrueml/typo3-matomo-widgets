@@ -13,22 +13,22 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Decorator;
 
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\BrowserPluginIconDecorator;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class BrowserPluginIconDecoratorTest extends TestCase
+#[CoversClass(BrowserPluginIconDecorator::class)]
+final class BrowserPluginIconDecoratorTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function classImplementsDecoratorInterface(): void
     {
         self::assertInstanceOf(DecoratorInterface::class, new BrowserPluginIconDecorator('https://example.org/'));
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForDecorate
-     */
+    #[Test]
+    #[DataProvider('dataProviderForDecorate')]
     public function decorate(string $url, string $value, string $expected): void
     {
         $subject = new BrowserPluginIconDecorator($url);
@@ -36,7 +36,7 @@ class BrowserPluginIconDecoratorTest extends TestCase
         self::assertSame($expected, $subject->decorate($value));
     }
 
-    public function dataProviderForDecorate(): \Generator
+    public static function dataProviderForDecorate(): iterable
     {
         yield 'Empty value returns empty result' => [
             'url' => 'https://example.org/',
@@ -69,9 +69,7 @@ class BrowserPluginIconDecoratorTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isHtmlOutputReturnsTrue(): void
     {
         $subject = new BrowserPluginIconDecorator('https://example.org/');

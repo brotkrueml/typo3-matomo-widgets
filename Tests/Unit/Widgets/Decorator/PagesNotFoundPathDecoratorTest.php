@@ -13,12 +13,13 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Decorator;
 
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\PagesNotFoundPathDecorator;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
-/**
- * @internal
- */
+#[CoversClass(PagesNotFoundPathDecorator::class)]
 final class PagesNotFoundPathDecoratorTest extends TestCase
 {
     private const DEFAULT_TEMPLATE = 'Error 404 | Path = {path} | Referrer = {referrer}';
@@ -39,10 +40,8 @@ final class PagesNotFoundPathDecoratorTest extends TestCase
         unset($GLOBALS['LANG']);
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForDecorate
-     */
+    #[Test]
+    #[DataProvider('dataProviderForDecorate')]
     public function decorate(string $template, string $value, string $expected): void
     {
         $subject = new PagesNotFoundPathDecorator($template);
@@ -50,7 +49,7 @@ final class PagesNotFoundPathDecoratorTest extends TestCase
         self::assertSame($expected, $subject->decorate($value));
     }
 
-    public function dataProviderForDecorate(): iterable
+    public static function dataProviderForDecorate(): iterable
     {
         yield 'Empty value returns empty value' => [
             'template' => self::DEFAULT_TEMPLATE,

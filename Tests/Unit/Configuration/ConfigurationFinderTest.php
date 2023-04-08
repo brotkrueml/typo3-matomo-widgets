@@ -13,14 +13,15 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Core\ApplicationContext;
 use TYPO3\CMS\Core\Core\Environment;
 
-/**
- * @runTestsInSeparateProcesses
- * @covers \Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder
- */
+#[CoversClass(ConfigurationFinder::class)]
+#[RunTestsInSeparateProcesses]
 final class ConfigurationFinderTest extends TestCase
 {
     private static string $configPath;
@@ -73,9 +74,7 @@ final class ConfigurationFinderTest extends TestCase
         self::tearDownAfterClass();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function noSiteConfigurationFoundThenNoMatomoConfigurationExists(): void
     {
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
@@ -83,9 +82,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(0, $configurations);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationWithNoMatomoConfigurationIsNotTakenIntoAccount(): void
     {
         $this->createSiteConfiguration('some_site', [
@@ -96,9 +93,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(0, $configurations);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationWithEmptyMatomoConfigurationIsNotTakenIntoAccount(): void
     {
         $configuration = [
@@ -113,9 +108,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(0, $configurations);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationWithAvailableMatomoConfigurationIsTakenIntoAccount(): void
     {
         $configuration = [
@@ -145,9 +138,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertFalse($actualConfiguration->isWidgetActive('notDefined'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationWithAvailableMatomoConfigurationButMissingIdSiteIsNotTakenIntoAccount(): void
     {
         $configuration = [
@@ -162,9 +153,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(0, $configurations);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationWithAvailableMatomoConfigurationButMissingUrlIsNotTakenIntoAccount(): void
     {
         $configuration = [
@@ -179,9 +168,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(0, $configurations);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationWithAvailableMatomoConfigurationAndUninstalledMatomoIntegrationAndConsiderMatomoIntegrationEnabled(): void
     {
         $configuration = [
@@ -204,9 +191,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationWithAvailableMatomoConfigurationAndInstalledMatomoIntegrationAndConsiderMatomoIntegrationEnabled(): void
     {
         $configuration = [
@@ -233,9 +218,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertSame('matomo integration 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationWithAvailableMatomoConfigurationAndInstalledMatomoIntegrationAndConsiderMatomoIntegrationEnabledButWithoutMatomoIntegrationConfiguration(): void
     {
         $configuration = [
@@ -251,9 +234,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(0, $configurations);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationWithAvailableMatomoConfigurationAndInstalledMatomoIntegrationAndConsiderMatomoIntegrationEnabledButWithoutMatomoTrackErrorPagesActivated(): void
     {
         $configuration = [
@@ -274,9 +255,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function environmentVariablesAreResolvedCorrectly(): void
     {
         \putenv('SOME_TITLE=The resolved title');
@@ -307,9 +286,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertSame('The resolved pages not found template', $actual->pagesNotFoundTemplate);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function additionalConfigurationIsTakenIntoAccount(): void
     {
         $configuration = [
@@ -337,9 +314,7 @@ final class ConfigurationFinderTest extends TestCase
         self::assertTrue($actualConfiguration->isWidgetActive('actionsPerDay'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function siteConfigurationAndAdditionalConfigurationAreBothTakenIntoAccount(): void
     {
         $siteConfiguration = [

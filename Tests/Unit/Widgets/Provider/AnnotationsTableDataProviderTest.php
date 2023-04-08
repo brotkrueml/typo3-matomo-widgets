@@ -15,15 +15,17 @@ use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\AnnotationsTableDataProvider;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
-class AnnotationsTableDataProviderTest extends TestCase
+#[CoversClass(AnnotationsTableDataProvider::class)]
+final class AnnotationsTableDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-
-    private MockObject|MatomoRepository $repositoryMock;
+    private MatomoRepository&MockObject $repositoryMock;
 
     protected function setUp(): void
     {
@@ -39,9 +41,7 @@ class AnnotationsTableDataProviderTest extends TestCase
         unset($GLOBALS['LANG']);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getRows(): void
     {
         $parameters = [

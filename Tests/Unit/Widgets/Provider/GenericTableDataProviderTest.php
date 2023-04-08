@@ -16,16 +16,19 @@ use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericTableDataProvider;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
-class GenericTableDataProviderTest extends TestCase
+#[CoversClass(GenericTableDataProvider::class)]
+final class GenericTableDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-    private MockObject|MatomoRepository $repositoryMock;
-    private Stub|LanguageService $languageServiceStub;
+    private MatomoRepository&MockObject $repositoryMock;
+    private LanguageService&Stub $languageServiceStub;
 
     protected function setUp(): void
     {
@@ -41,9 +44,7 @@ class GenericTableDataProviderTest extends TestCase
         unset($GLOBALS['LANG']);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getClasses(): void
     {
         $subject = new GenericTableDataProvider(
@@ -72,9 +73,7 @@ class GenericTableDataProviderTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getColumns(): void
     {
         $subject = new GenericTableDataProvider(
@@ -98,9 +97,7 @@ class GenericTableDataProviderTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getDecorators(): void
     {
         $decoratorStub = $this->createStub(DecoratorInterface::class);
@@ -127,9 +124,7 @@ class GenericTableDataProviderTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getHeaders(): void
     {
         $this->languageServiceStub
@@ -159,9 +154,7 @@ class GenericTableDataProviderTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getRows(): void
     {
         $parameters = [
@@ -204,9 +197,7 @@ class GenericTableDataProviderTest extends TestCase
         $subject->getRows();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function addParameter(): void
     {
         $parameters = [

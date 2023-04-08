@@ -12,8 +12,11 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Domain\Entity;
 
 use Brotkrueml\MatomoWidgets\Domain\Entity\UrlCount;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(UrlCount::class)]
 final class UrlCountTest extends TestCase
 {
     private UrlCount $subject;
@@ -23,25 +26,19 @@ final class UrlCountTest extends TestCase
         $this->subject = new UrlCount('https://example.com/some/page/');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getUrlReturnsScriptUrlCorrectly(): void
     {
         self::assertSame('https://example.com/some/page/', $this->subject->getUrl());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getHitsReturns0AfterInitialisation(): void
     {
         self::assertSame(0, $this->subject->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementHitsIncrementsCorrectly(): void
     {
         $this->subject->incrementHits();

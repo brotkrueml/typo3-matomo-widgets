@@ -16,15 +16,19 @@ use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericDoughnutChartDataProvider;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
-class GenericDoughnutChartDataProviderTest extends TestCase
+#[CoversClass(GenericDoughnutChartDataProvider::class)]
+final class GenericDoughnutChartDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-    private Stub|MatomoRepository $repositoryStub;
-    private Stub|LanguageService $languageServiceStub;
+    private MatomoRepository&Stub $repositoryStub;
+    private LanguageService&Stub $languageServiceStub;
 
     protected function setUp(): void
     {
@@ -40,10 +44,8 @@ class GenericDoughnutChartDataProviderTest extends TestCase
         unset($GLOBALS['LANG']);
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForGetChartData
-     */
+    #[Test]
+    #[DataProvider('dataProviderForGetChartData')]
     public function getChartData(int $limit, array $rows, array $expected): void
     {
         $method = 'some.method';
@@ -79,7 +81,7 @@ class GenericDoughnutChartDataProviderTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    public function dataProviderForGetChartData(): \Generator
+    public static function dataProviderForGetChartData(): iterable
     {
         yield 'With no rows available, no data is returned' => [
             'limit' => 5,

@@ -13,13 +13,14 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\Configurations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(Configurations::class)]
 final class ConfigurationsTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function findConfigurationBySiteIdentifierReturnsConfigurationCorrectly(): void
     {
         $configuration1 = new Configuration(
@@ -48,9 +49,7 @@ final class ConfigurationsTest extends TestCase
         self::assertSame($configuration2, $subject->findConfigurationBySiteIdentifier('another_configuration'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findConfigurationBySiteIdentifierReturnsNullWhenConfigurationNotAvailable(): void
     {
         $configuration1 = new Configuration(
@@ -68,9 +67,7 @@ final class ConfigurationsTest extends TestCase
         self::assertNull($subject->findConfigurationBySiteIdentifier('not_existing'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function iteratingOverAvailableConfigurationsIsPossible(): void
     {
         $configuration1 = new Configuration(
@@ -102,9 +99,7 @@ final class ConfigurationsTest extends TestCase
         self::assertSame($configuration2, $iterator->current());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function countingTheAvailableConfigurationsIsPossible(): void
     {
         $configuration1 = new Configuration(

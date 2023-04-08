@@ -13,13 +13,16 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\LinkMatomoButtonProvider;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
-class LinkMatomoProviderTest extends TestCase
+#[CoversClass(LinkMatomoButtonProvider::class)]
+final class LinkMatomoButtonProviderTest extends TestCase
 {
-    private Stub|LanguageService $languageServiceStub;
+    private LanguageService&Stub $languageServiceStub;
     private LinkMatomoButtonProvider $subject;
 
     protected function setUp(): void
@@ -35,9 +38,7 @@ class LinkMatomoProviderTest extends TestCase
         unset($GLOBALS['LANG']);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTitleReturnsTranslatedTitleCorrectly(): void
     {
         $this->languageServiceStub
@@ -48,17 +49,13 @@ class LinkMatomoProviderTest extends TestCase
         self::assertSame('Matomo link', $this->subject->getTitle());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getLinkReturnsConfiguredLinkCorrectly(): void
     {
         self::assertSame('https://example.net/', $this->subject->getLink());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTargetReturnsBlankTarget(): void
     {
         self::assertSame('_blank', $this->subject->getTarget());

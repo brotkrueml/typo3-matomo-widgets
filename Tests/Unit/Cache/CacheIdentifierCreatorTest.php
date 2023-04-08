@@ -14,8 +14,11 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Cache;
 use Brotkrueml\MatomoWidgets\Cache\CacheIdentifierCreator;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(CacheIdentifierCreator::class)]
 final class CacheIdentifierCreatorTest extends TestCase
 {
     private CacheIdentifierCreator $subject;
@@ -25,9 +28,7 @@ final class CacheIdentifierCreatorTest extends TestCase
         $this->subject = new CacheIdentifierCreator();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function createEntryIdentifier(): void
     {
         $configuration = new ConnectionConfiguration('https://example.org/', 1, '');
@@ -42,9 +43,7 @@ final class CacheIdentifierCreatorTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function createTag(): void
     {
         $configuration = new ConnectionConfiguration('https://example.org/', 1, '');

@@ -14,13 +14,14 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Backend;
 use Brotkrueml\MatomoWidgets\Backend\DashboardPresetsProvider;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\Configurations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class DashboardPresetsProviderTest extends TestCase
+#[CoversClass(DashboardPresetsProvider::class)]
+final class DashboardPresetsProviderTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function getPresetsReturnsEmptyArrayIfNoConfigurationIsAvailable(): void
     {
         $subject = new DashboardPresetsProvider(new Configurations([]));
@@ -28,9 +29,7 @@ class DashboardPresetsProviderTest extends TestCase
         self::assertSame([], $subject->getPresets());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getPresetsReturnsOnePresetCorrectlyIfOneConfigurationIsAvailable(): void
     {
         $configurations = new Configurations([
@@ -65,9 +64,7 @@ class DashboardPresetsProviderTest extends TestCase
         self::assertSame($expected, $subject->getPresets());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getPresetsReturnsTwoPresetsCorrectlyIfTwoConfigurationsAreAvailable(): void
     {
         $configurations = new Configurations([
@@ -125,9 +122,7 @@ class DashboardPresetsProviderTest extends TestCase
         self::assertSame($expected, $subject->getPresets());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getPresetsReturnsAllWidgetsIfAllAreEnabled(): void
     {
         $configurations = new Configurations([
@@ -182,9 +177,7 @@ class DashboardPresetsProviderTest extends TestCase
         self::assertSame($expected, $subject->getPresets());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getPresetsIgnoresPresetIfAllWidgetsAreDisabled(): void
     {
         $configurations = new Configurations([

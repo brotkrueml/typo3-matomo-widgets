@@ -15,11 +15,11 @@ use Brotkrueml\MatomoWidgets\Domain\Entity\BrowserCount;
 use Brotkrueml\MatomoWidgets\Domain\Entity\JavaScriptErrorDetails;
 use Brotkrueml\MatomoWidgets\Domain\Entity\ScriptCount;
 use Brotkrueml\MatomoWidgets\Domain\Entity\UrlCount;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Brotkrueml\MatomoWidgets\Domain\Entity\JavaScriptErrorDetails
- */
+#[CoversClass(JavaScriptErrorDetails::class)]
 final class JavaScriptErrorDetailsTest extends TestCase
 {
     private JavaScriptErrorDetails $subject;
@@ -41,17 +41,13 @@ final class JavaScriptErrorDetailsTest extends TestCase
         $this->subject = new JavaScriptErrorDetails();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getLastAppearanceReturns0AfterInstantiation(): void
     {
         self::assertSame('01-01-1970 00:00', $this->subject->getLastAppearance());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function compareAndStoreLastAppearanceForTheFirstTimeLastAppearanceIsSetCorrectly(): void
     {
         $this->subject->compareAndStoreLastAppearance(1643563126);
@@ -59,9 +55,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame('30-01-2022 17:18', $this->subject->getLastAppearance());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function compareAndStoreLastAppearanceWithALowerTimestampLastAppearanceIsNotSetToLowerTimestamp(): void
     {
         $this->subject->compareAndStoreLastAppearance(1643563126);
@@ -70,9 +64,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame('30-01-2022 17:18', $this->subject->getLastAppearance());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function compareAndStoreLastAppearanceWithAHigherTimestampLastAppearanceIsOverridden(): void
     {
         $this->subject->compareAndStoreLastAppearance(1234567890);
@@ -81,17 +73,13 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame('30-01-2022 17:18', $this->subject->getLastAppearance());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getBrowserReturnsEmptyArrayAfterInitialisation(): void
     {
         self::assertSame([], $this->subject->getBrowsers());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementBrowserCountCalledOnce(): void
     {
         $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
@@ -104,9 +92,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(1, $browser->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementBrowserCountCalledTwiceWithSameBrowser(): void
     {
         $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
@@ -120,9 +106,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(2, $browser->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementBrowserCountCalledTwiceWithDifferentBrowser(): void
     {
         $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
@@ -141,9 +125,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(1, $browser2->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementBrowserCountTakesVersionIntoAccount(): void
     {
         $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
@@ -153,9 +135,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame('42.0 (2)', $browser->getVersions());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getBrowsersReturnsTheTwoDefinedBrowsersSortedCorrectly(): void
     {
         $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
@@ -169,9 +149,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame('Firefox', $this->subject->getBrowsers()[1]->getName());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getBrowsersCountReturnsCountCorrectly(): void
     {
         $this->subject->incrementBrowserCount('Firefox', 'firefox-icon', '42.0');
@@ -181,9 +159,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(2, $this->subject->getBrowsersCount());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementUrlCountCalledOnce(): void
     {
         $this->subject->incrementUrlCount('https://example.org/');
@@ -195,9 +171,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(1, $url->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementUrlCountCalledTwiceWithSameUrl(): void
     {
         $this->subject->incrementUrlCount('https://example.org/');
@@ -210,9 +184,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(2, $url->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementUrlCountCalledTwiceWithDifferentUrls(): void
     {
         $this->subject->incrementUrlCount('https://www.example.org/');
@@ -229,9 +201,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(1, $url2->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getUrlsReturnsTheTwoDefinedUrlsSortedCorrectly(): void
     {
         $this->subject->incrementUrlCount('https://www.example.org/');
@@ -245,9 +215,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame('https://www.example.org/', $this->subject->getUrls()[1]->getUrl());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getUrlsCountReturnsCountCorrectly(): void
     {
         $this->subject->incrementUrlCount('https://www.example.org/');
@@ -257,9 +225,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(2, $this->subject->getUrlsCount());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementScriptCountCalledOnce(): void
     {
         $this->subject->incrementScriptCount('https://example.org/script.js');
@@ -271,9 +237,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(1, $script->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementScriptCalledTwiceWithSameScript(): void
     {
         $this->subject->incrementScriptCount('https://example.org/script.js');
@@ -286,9 +250,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(2, $script->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementScriptCountCalledTwiceWithDifferentUrls(): void
     {
         $this->subject->incrementScriptCount('https://example.org/some.js');
@@ -305,9 +267,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame(1, $script2->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getScriptsReturnsTheTwoDefinedScriptsSortedCorrectly(): void
     {
         $this->subject->incrementScriptCount('https://example.org/some.js');
@@ -321,9 +281,7 @@ final class JavaScriptErrorDetailsTest extends TestCase
         self::assertSame('https://example.org/some.js', $this->subject->getScripts()[1]->getScript());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getScriptsCountReturnsCountCorrectly(): void
     {
         $this->subject->incrementScriptCount('https://example.org/some.js');

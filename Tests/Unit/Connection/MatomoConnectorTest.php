@@ -18,6 +18,9 @@ use Brotkrueml\MatomoWidgets\Exception\InvalidResponseException;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use donatj\MockWebServer\MockWebServer;
 use donatj\MockWebServer\Response;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -25,6 +28,7 @@ use TYPO3\CMS\Core\Http\Client;
 use TYPO3\CMS\Core\Http\RequestFactory;
 use TYPO3\CMS\Core\Information\Typo3Version;
 
+#[CoversClass(MatomoConnector::class)]
 final class MatomoConnectorTest extends TestCase
 {
     private static MockWebServer $server;
@@ -71,10 +75,8 @@ final class MatomoConnectorTest extends TestCase
         return Client\GuzzleClientFactory::getClient();
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForCallApi
-     */
+    #[Test]
+    #[DataProvider('dataProviderForCallApi')]
     public function callApi(
         array $configuration,
         string $method,
@@ -112,7 +114,7 @@ final class MatomoConnectorTest extends TestCase
         self::assertSame($expectedResult, \json_encode($actual, \JSON_THROW_ON_ERROR));
     }
 
-    public function dataProviderForCallApi(): \Generator
+    public static function dataProviderForCallApi(): iterable
     {
         yield 'with parameters and no token' => [
             [
@@ -165,9 +167,7 @@ final class MatomoConnectorTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function callApiThrowsExceptionWhenResponseIsNotValidJson(): void
     {
         $this->expectException(InvalidResponseException::class);
@@ -191,9 +191,7 @@ final class MatomoConnectorTest extends TestCase
         $subject->callApi($connectionConfiguration, 'some.method', new ParameterBag());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function whenErrorAsStringOccursAnExceptionIsThrown(): void
     {
         $this->expectException(ConnectionException::class);
@@ -215,9 +213,7 @@ final class MatomoConnectorTest extends TestCase
         $subject->callApi($connectionConfiguration, 'someMethod', new ParameterBag());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function whenErrorAsJsonOccursAnExceptionIsThrown(): void
     {
         $this->expectException(ConnectionException::class);

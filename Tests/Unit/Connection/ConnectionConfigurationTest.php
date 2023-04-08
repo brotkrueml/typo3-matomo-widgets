@@ -12,13 +12,14 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Connection;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(ConnectionConfiguration::class)]
 final class ConnectionConfigurationTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function tokenAuthHasAnonymousValueIfGivenTokenAuthIsEmpty(): void
     {
         $subject = new ConnectionConfiguration('https://example.org/', 1, '');

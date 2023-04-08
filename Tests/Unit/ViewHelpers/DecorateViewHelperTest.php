@@ -13,24 +13,26 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\ViewHelpers;
 
 use Brotkrueml\MatomoWidgets\ViewHelpers\DecorateViewHelper;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
-class DecorateViewHelperTest extends TestCase
+#[CoversClass(DecorateViewHelper::class)]
+final class DecorateViewHelperTest extends TestCase
 {
-    private Stub|RenderingContextInterface $renderingContextStub;
+    private RenderingContextInterface&Stub $renderingContextStub;
 
     protected function setUp(): void
     {
         $this->renderingContextStub = $this->createStub(RenderingContextInterface::class);
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForRenderStatic
-     */
+    #[Test]
+    #[DataProvider('dataProviderForRenderStatic')]
     public function renderStatic(array $arguments, string $expected): void
     {
         $actual = DecorateViewHelper::renderStatic(
@@ -43,11 +45,11 @@ class DecorateViewHelperTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    public function dataProviderForRenderStatic(): \Generator
+    public static function dataProviderForRenderStatic(): iterable
     {
         yield 'Given string value is decorated' => [
             'arguments' => [
-                'decorator' => $this->getDecoratorStub(),
+                'decorator' => self::getDecoratorStub(),
                 'value' => 'bar',
             ],
             'expected' => '---bar---',
@@ -55,14 +57,14 @@ class DecorateViewHelperTest extends TestCase
 
         yield 'Given int value is decorated' => [
             'arguments' => [
-                'decorator' => $this->getDecoratorStub(),
+                'decorator' => self::getDecoratorStub(),
                 'value' => 42,
             ],
             'expected' => '---42---',
         ];
     }
 
-    protected function getDecoratorStub(): DecoratorInterface
+    private static function getDecoratorStub(): DecoratorInterface
     {
         return new class() implements DecoratorInterface {
             public function decorate(string $value): string
@@ -77,9 +79,7 @@ class DecorateViewHelperTest extends TestCase
         };
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function renderStaticThrowsExceptionWhenDecoratorImplementsNotDecoratorInterface(): void
     {
         $this->expectException(Exception::class);

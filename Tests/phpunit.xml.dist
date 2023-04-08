@@ -3,17 +3,18 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../.Build/vendor/phpunit/phpunit/phpunit.xsd"
     bootstrap="../.Build/vendor/autoload.php"
+    cacheDirectory=".phpunit.cache"
     executionOrder="random"
     testdox="true"
 >
-  <coverage>
-    <include>
-      <directory>../Classes/</directory>
-    </include>
-  </coverage>
-  <testsuites>
-    <testsuite name="Unit tests">
-      <directory>Unit/</directory>
-    </testsuite>
-  </testsuites>
+    <coverage>
+        <include>
+            <directory>../Classes/</directory>
+        </include>
+    </coverage>
+    <testsuites>
+        <testsuite name="Unit tests">
+            <directory>Unit/</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

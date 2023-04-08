@@ -14,10 +14,14 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Decorator;
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\NumberDecorator;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
-class NumberDecoratorTest extends TestCase
+#[CoversClass(NumberDecorator::class)]
+final class NumberDecoratorTest extends TestCase
 {
     private NumberDecorator $subject;
 
@@ -38,24 +42,20 @@ class NumberDecoratorTest extends TestCase
         unset($GLOBALS['LANG']);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function classImplementsDecoratorInterface(): void
     {
         self::assertInstanceOf(DecoratorInterface::class, $this->subject);
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForDecorate
-     */
+    #[Test]
+    #[DataProvider('dataProviderForDecorate')]
     public function decorate(string $value, string $expected): void
     {
         self::assertSame($expected, $this->subject->decorate($value));
     }
 
-    public function dataProviderForDecorate(): \Generator
+    public static function dataProviderForDecorate(): iterable
     {
         yield 'Value smaller than 1000 has no separator' => [
             'value' => '123',
@@ -73,9 +73,7 @@ class NumberDecoratorTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isHtmlOutputReturnsTrue(): void
     {
         self::assertFalse($this->subject->isHtmlOutput());

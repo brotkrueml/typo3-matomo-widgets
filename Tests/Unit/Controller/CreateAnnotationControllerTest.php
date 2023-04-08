@@ -18,6 +18,10 @@ use Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use GuzzleHttp\Exception\RequestException;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
@@ -29,17 +33,16 @@ use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 use TYPO3\CMS\Core\Http\ResponseFactory;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
-/**
- * @runTestInSeparateProcess
- */
+#[CoversClass(CreateAnnotationController::class)]
+#[RunTestsInSeparateProcesses]
 final class CreateAnnotationControllerTest extends TestCase
 {
-    private FrontendInterface|MockObject $cacheMock;
-    private MatomoRepository|Stub $matomoRepositoryStub;
+    private FrontendInterface&MockObject $cacheMock;
+    private MatomoRepository&Stub $matomoRepositoryStub;
     private CreateAnnotationController $subject;
-    private BackendUserAuthentication|Stub $backendUserStub;
-    private LanguageService|Stub $languageServiceStub;
-    private ServerRequestInterface|Stub $serverRequestStub;
+    private BackendUserAuthentication&Stub $backendUserStub;
+    private LanguageService&Stub $languageServiceStub;
+    private ServerRequestInterface&Stub $serverRequestStub;
 
     protected function setUp(): void
     {
@@ -85,10 +88,8 @@ final class CreateAnnotationControllerTest extends TestCase
         unset($GLOBALS['LANG']);
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForEmptyOrMissingParameterReturnsResponseWithError
-     */
+    #[Test]
+    #[DataProvider('dataProviderForEmptyOrMissingParameterReturnsResponseWithError')]
     public function emptyOrMissingParameterReturnsResponseWithError(array $parameters, array $expected): void
     {
         $actual = $this->invokeController($parameters);
@@ -96,7 +97,7 @@ final class CreateAnnotationControllerTest extends TestCase
         self::assertJsonStringEqualsJsonString(\json_encode($expected, \JSON_THROW_ON_ERROR), $actual->getBody()->getContents());
     }
 
-    public function dataProviderForEmptyOrMissingParameterReturnsResponseWithError(): iterable
+    public static function dataProviderForEmptyOrMissingParameterReturnsResponseWithError(): iterable
     {
         yield 'Site identifier is empty' => [
             'parameters' => [
@@ -181,9 +182,7 @@ final class CreateAnnotationControllerTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function useHasNoPermissionForWidgetReturnsResponseWithError(): void
     {
         $parameters = [
@@ -199,9 +198,7 @@ final class CreateAnnotationControllerTest extends TestCase
         self::assertJsonStringEqualsJsonString('{"status":"error","message":"LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:widgets.createAnnotation.error.noPermission"}', $actual->getBody()->getContents());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function annotationCannotBeCreatedThenReturnsResponseWithError(): void
     {
         $parameters = [
@@ -224,9 +221,7 @@ final class CreateAnnotationControllerTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function annotationIsCreatedReturnResponseWithSuccess(): void
     {
         $parameters = [
@@ -254,9 +249,7 @@ final class CreateAnnotationControllerTest extends TestCase
         self::assertJsonStringEqualsJsonString('{"status":"success"}', $actual->getBody()->getContents());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function errorCreatingAnnotationReturnsResponseWithError(): void
     {
         $parameters = [

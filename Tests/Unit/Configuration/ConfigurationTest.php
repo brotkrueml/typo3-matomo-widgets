@@ -12,8 +12,11 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(Configuration::class)]
 final class ConfigurationTest extends TestCase
 {
     private Configuration $subject;
@@ -34,18 +37,14 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isWidgetActiveReturnsDefinedValuesCorrectly(): void
     {
         self::assertTrue($this->subject->isWidgetActive('actionsPerDay'));
         self::assertFalse($this->subject->isWidgetActive('actionsPerMonth'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isWidgetActiveReturnsFalseIfWidgetIsUnknown(): void
     {
         self::assertFalse($this->subject->isWidgetActive('unknown'));

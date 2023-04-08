@@ -13,22 +13,22 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Decorator;
 
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\CountryFlagDecorator;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class CountryFlagDecoratorTest extends TestCase
+#[CoversClass(CountryFlagDecorator::class)]
+final class CountryFlagDecoratorTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function classImplementsDecoratorInterface(): void
     {
         self::assertInstanceOf(DecoratorInterface::class, new CountryFlagDecorator('https://example.org/'));
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForDecorate
-     */
+    #[Test]
+    #[DataProvider('dataProviderForDecorate')]
     public function decorate(string $url, string $value, string $expected): void
     {
         $subject = new CountryFlagDecorator($url);
@@ -36,7 +36,7 @@ class CountryFlagDecoratorTest extends TestCase
         self::assertSame($expected, $subject->decorate($value));
     }
 
-    public function dataProviderForDecorate(): \Generator
+    public static function dataProviderForDecorate(): iterable
     {
         yield 'Empty value returns empty result' => [
             'url' => 'https://example.org/',
@@ -69,9 +69,7 @@ class CountryFlagDecoratorTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isHtmlOutputReturnsTrue(): void
     {
         $subject = new CountryFlagDecorator('https://example.org/');

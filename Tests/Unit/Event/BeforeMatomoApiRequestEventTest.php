@@ -12,8 +12,11 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Event;
 
 use Brotkrueml\MatomoWidgets\Event\BeforeMatomoApiRequestEvent;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(BeforeMatomoApiRequestEvent::class)]
 final class BeforeMatomoApiRequestEventTest extends TestCase
 {
     private BeforeMatomoApiRequestEvent $subject;
@@ -23,25 +26,19 @@ final class BeforeMatomoApiRequestEventTest extends TestCase
         $this->subject = new BeforeMatomoApiRequestEvent(42, 'some-token');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getIdSite(): void
     {
         self::assertSame(42, $this->subject->getIdSite());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTokenAuth(): void
     {
         self::assertSame('some-token', $this->subject->getTokenAuth());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setIdSite(): void
     {
         $this->subject->setIdSite(100);
@@ -49,9 +46,7 @@ final class BeforeMatomoApiRequestEventTest extends TestCase
         self::assertSame(100, $this->subject->getIdSite());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTokenAuth(): void
     {
         $this->subject->setTokenAuth('another-token');

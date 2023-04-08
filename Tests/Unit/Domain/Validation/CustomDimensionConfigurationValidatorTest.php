@@ -13,9 +13,13 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Domain\Validation;
 
 use Brotkrueml\MatomoWidgets\Domain\Validation\CustomDimensionConfigurationValidator;
 use Brotkrueml\MatomoWidgets\Exception\ValidationException;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class CustomDimensionConfigurationValidatorTest extends TestCase
+#[CoversClass(CustomDimensionConfigurationValidator::class)]
+final class CustomDimensionConfigurationValidatorTest extends TestCase
 {
     private CustomDimensionConfigurationValidator $subject;
 
@@ -24,10 +28,8 @@ class CustomDimensionConfigurationValidatorTest extends TestCase
         $this->subject = new CustomDimensionConfigurationValidator();
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForProvokingException
-     */
+    #[Test]
+    #[DataProvider('dataProviderForProvokingException')]
     public function validateThrowsExceptionOnError($configuration, int $expectedExceptionCode, string $expectedExceptionMessage): void
     {
         $this->expectException(ValidationException::class);
@@ -37,7 +39,7 @@ class CustomDimensionConfigurationValidatorTest extends TestCase
         $this->subject->validate($configuration);
     }
 
-    public function dataProviderForProvokingException(): \Generator
+    public static function dataProviderForProvokingException(): iterable
     {
         yield 'Configuration is not an array' => [
             'configuration' => 'not an array',
@@ -86,9 +88,7 @@ class CustomDimensionConfigurationValidatorTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function validateThrowsExceptionWithDuplicateIdDimension(): void
     {
         $this->expectException(ValidationException::class);
@@ -106,16 +106,14 @@ class CustomDimensionConfigurationValidatorTest extends TestCase
         ]);
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForCorrectConfiguration
-     */
+    #[Test]
+    #[DataProvider('dataProviderForCorrectConfiguration')]
     public function validateReturnsTrueIfConfigurationIsCorrect(array $configuration): void
     {
         self::assertTrue($this->subject->validate($configuration));
     }
 
-    public function dataProviderForCorrectConfiguration(): \Generator
+    public static function dataProviderForCorrectConfiguration(): iterable
     {
         yield 'scope "action" is accepted' => [
             'configuration' => [

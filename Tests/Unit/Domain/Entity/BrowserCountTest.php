@@ -12,47 +12,40 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Domain\Entity;
 
 use Brotkrueml\MatomoWidgets\Domain\Entity\BrowserCount;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(BrowserCount::class)]
 final class BrowserCountTest extends TestCase
 {
-    /**
-     * @var BrowserCount
-     */
-    public $subject;
+    public BrowserCount $subject;
 
     protected function setUp(): void
     {
         $this->subject = new BrowserCount('some name', 'some icon');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getNameReturnsNameCorrectly(): void
     {
         self::assertSame('some name', $this->subject->getName());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getIconReturnsNameCorrectly(): void
     {
         self::assertSame('some icon', $this->subject->getIcon());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getHitsReturns0AfterInitialisation(): void
     {
         self::assertSame(0, $this->subject->getHits());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function incrementHitIncrementsCorrectly(): void
     {
         $this->subject->incrementHit('42');
@@ -64,10 +57,8 @@ final class BrowserCountTest extends TestCase
         self::assertSame(2, $this->subject->getHits());
     }
 
-    /**
-     * @test
-     * @dataProvider providerForGetVersions
-     */
+    #[Test]
+    #[DataProvider('providerForGetVersions')]
     public function getVersionsReturnsVersionInformationCorrectly(array $versions, string $expected): void
     {
         foreach ($versions as $version) {
@@ -77,7 +68,7 @@ final class BrowserCountTest extends TestCase
         self::assertSame($expected, $this->subject->getVersions());
     }
 
-    public function providerForGetVersions(): iterable
+    public static function providerForGetVersions(): iterable
     {
         yield 'With one version and one hit' => [
             'versions' => [

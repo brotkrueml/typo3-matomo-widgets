@@ -14,9 +14,12 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Parameter;
 use Brotkrueml\MatomoWidgets\Exception\ParameterNotFoundException;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterResolverInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class ParameterBagTest extends TestCase
+#[CoversClass(ParameterBag::class)]
+final class ParameterBagTest extends TestCase
 {
     private ParameterBag $subject;
 
@@ -25,9 +28,7 @@ class ParameterBagTest extends TestCase
         $this->subject = new ParameterBag();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function constructWithParametersAddsThemCorrectly(): void
     {
         $subject = new ParameterBag([
@@ -41,9 +42,7 @@ class ParameterBagTest extends TestCase
         self::assertSame('42', $subject->get('int'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function addOnceAndGetReturnsAddedValues(): void
     {
         $this->subject->add([
@@ -55,9 +54,7 @@ class ParameterBagTest extends TestCase
         self::assertSame('quu', $this->subject->get('qux'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function addTwiceAndGetReturnsLastSetValue(): void
     {
         $this->subject->add([
@@ -70,9 +67,7 @@ class ParameterBagTest extends TestCase
         self::assertSame('qux', $this->subject->get('foo'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function addReturnSameInstanceOfParameterBag(): void
     {
         $actual = $this->subject->add([
@@ -82,9 +77,7 @@ class ParameterBagTest extends TestCase
         self::assertSame($this->subject, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setOnceWithValueStringAndGetReturnsSetValue(): void
     {
         $this->subject->set('foo', 'bar');
@@ -92,9 +85,7 @@ class ParameterBagTest extends TestCase
         self::assertSame('bar', $this->subject->get('foo'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTwiceWithValueStringAndGetReturnsLastSetValue(): void
     {
         $this->subject->set('foo', 'bar');
@@ -103,9 +94,7 @@ class ParameterBagTest extends TestCase
         self::assertSame('qux', $this->subject->get('foo'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setWithParameterResolverClassResolvesValue(): void
     {
         $resolver = new class() implements ParameterResolverInterface {
@@ -120,9 +109,7 @@ class ParameterBagTest extends TestCase
         self::assertSame('resolved value', $this->subject->get('foo'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setReturnSameInstanceOfParameterBag(): void
     {
         $actual = $this->subject->set('foo', 'bar');
@@ -130,9 +117,7 @@ class ParameterBagTest extends TestCase
         self::assertSame($this->subject, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getThrowsExceptionWhenParameterIsNotFound(): void
     {
         $this->expectException(ParameterNotFoundException::class);
@@ -142,9 +127,7 @@ class ParameterBagTest extends TestCase
         $this->subject->get('invalid');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function buildQueryReturnsQueryStringFromParameters(): void
     {
         $this->subject

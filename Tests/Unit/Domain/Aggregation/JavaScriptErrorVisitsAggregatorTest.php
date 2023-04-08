@@ -12,11 +12,12 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Domain\Aggregation;
 
 use Brotkrueml\MatomoWidgets\Domain\Aggregation\JavaScriptErrorDetailsAggregator;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Brotkrueml\MatomoWidgets\Domain\Aggregation\JavaScriptErrorDetailsAggregator
- */
+#[CoversClass(JavaScriptErrorDetailsAggregator::class)]
 final class JavaScriptErrorVisitsAggregatorTest extends TestCase
 {
     private JavaScriptErrorDetailsAggregator $subject;
@@ -26,10 +27,8 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
         $this->subject = new JavaScriptErrorDetailsAggregator();
     }
 
-    /**
-     * @test
-     * @dataProvider dataProviderForAggregate
-     */
+    #[Test]
+    #[DataProvider('dataProviderForAggregate')]
     public function aggregate(array $details, int $expectedBrowserCount, int $expectedScriptCount, int $expectedUrlsCount): void
     {
         $actual = $this->subject->aggregate($details);
@@ -39,7 +38,7 @@ final class JavaScriptErrorVisitsAggregatorTest extends TestCase
         self::assertSame($expectedUrlsCount, $actual->getUrlsCount());
     }
 
-    public function dataProviderForAggregate(): iterable
+    public static function dataProviderForAggregate(): iterable
     {
         yield 'No details available' => [
             'details' => [],
