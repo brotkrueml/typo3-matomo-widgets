@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets;
 
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
 use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
 use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
@@ -95,9 +96,13 @@ final class BarChartWidget implements WidgetInterface, EventDataInterface, Addit
      */
     public function getCssFiles(): array
     {
-        return [
-            'EXT:dashboard/Resources/Public/Css/Contrib/chart.css',
-        ];
+        if ((new Typo3Version())->getMajorVersion() < 12) {
+            return [
+                'EXT:dashboard/Resources/Public/Css/Contrib/chart.css',
+            ];
+        }
+
+        return [];
     }
 
     /**
@@ -105,9 +110,16 @@ final class BarChartWidget implements WidgetInterface, EventDataInterface, Addit
      */
     public function getJavaScriptModuleInstructions(): array
     {
+        if ((new Typo3Version())->getMajorVersion() < 12) {
+            return [
+                JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Dashboard/Contrib/chartjs'),
+                JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Dashboard/ChartInitializer'),
+            ];
+        }
+
         return [
-            JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Dashboard/Contrib/chartjs'),
-            JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Dashboard/ChartInitializer'),
+            JavaScriptModuleInstruction::create('@typo3/dashboard/contrib/chartjs.js'),
+            JavaScriptModuleInstruction::create('@typo3/dashboard/chart-initializer.js'),
         ];
     }
 

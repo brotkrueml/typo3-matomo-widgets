@@ -11,8 +11,10 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets;
 
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
 use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
+use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\EventDataInterface;
 use TYPO3\CMS\Dashboard\Widgets\JavaScriptInterface;
@@ -36,7 +38,7 @@ final class DoughnutChartWidget implements WidgetInterface, EventDataInterface, 
         WidgetConfigurationInterface $configuration,
         private readonly ChartDataProviderInterface $dataProvider,
         private readonly StandaloneView $view,
-        private readonly ?\TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface $buttonProvider = null,
+        private readonly ?ButtonProviderInterface $buttonProvider = null,
         private readonly array $options = [],
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
@@ -80,7 +82,13 @@ final class DoughnutChartWidget implements WidgetInterface, EventDataInterface, 
      */
     public function getCssFiles(): array
     {
-        return ['EXT:dashboard/Resources/Public/Css/Contrib/chart.css'];
+        if ((new Typo3Version())->getMajorVersion() < 12) {
+            return [
+                'EXT:dashboard/Resources/Public/Css/Contrib/chart.css',
+            ];
+        }
+
+        return [];
     }
 
     /**
@@ -88,9 +96,16 @@ final class DoughnutChartWidget implements WidgetInterface, EventDataInterface, 
      */
     public function getJavaScriptModuleInstructions(): array
     {
+        if ((new Typo3Version())->getMajorVersion() < 12) {
+            return [
+                JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Dashboard/Contrib/chartjs'),
+                JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Dashboard/ChartInitializer'),
+            ];
+        }
+
         return [
-            JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Dashboard/Contrib/chartjs'),
-            JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Dashboard/ChartInitializer'),
+            JavaScriptModuleInstruction::create('@typo3/dashboard/contrib/chartjs.js'),
+            JavaScriptModuleInstruction::create('@typo3/dashboard/chart-initializer.js'),
         ];
     }
 
