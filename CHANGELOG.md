@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Superfluous chart.css file is not embedded anymore in TYPO3 v12
 - ESM modules instead of RequireJS is used in TYPO3 v12
+- Deprecations using action and visit widgets in TYPO3 v12
 
 ## [2.1.1] - 2023-04-01
 

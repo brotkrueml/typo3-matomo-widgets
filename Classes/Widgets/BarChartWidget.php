@@ -61,7 +61,7 @@ final class BarChartWidget implements WidgetInterface, EventDataInterface, Addit
      */
     public function getEventData(): array
     {
-        return [
+        $data = [
             'graphConfig' => [
                 'type' => 'bar',
                 'options' => [
@@ -70,14 +70,14 @@ final class BarChartWidget implements WidgetInterface, EventDataInterface, Addit
                         'display' => false,
                     ],
                     'scales' => [
-                        'yAxes' => [
+                        'y' => [
                             [
                                 'ticks' => [
                                     'beginAtZero' => true,
                                 ],
                             ],
                         ],
-                        'xAxes' => [
+                        'x' => [
                             [
                                 'ticks' => [
                                     'maxTicksLimit' => 15,
@@ -89,6 +89,15 @@ final class BarChartWidget implements WidgetInterface, EventDataInterface, Addit
                 'data' => $this->dataProvider->getChartData(),
             ],
         ];
+
+        if ((new Typo3Version())->getMajorVersion() < 12) {
+            $data['graphConfig']['options']['scales']['xAxes'] = $data['graphConfig']['options']['scales']['x'];
+            $data['graphConfig']['options']['scales']['yAxes'] = $data['graphConfig']['options']['scales']['y'];
+            unset($data['graphConfig']['options']['scales']['x']);
+            unset($data['graphConfig']['options']['scales']['y']);
+        }
+
+        return $data;
     }
 
     /**
