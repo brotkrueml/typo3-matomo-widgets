@@ -17,14 +17,6 @@ Added
 
 * Content Security Policy for configured Matomo servers in backend for TYPO3 v12 (#45)
 
-Fixed
-^^^^^
-
-
-* Superfluous chart.css file is not embedded anymore in TYPO3 v12
-* ESM modules instead of RequireJS is used in TYPO3 v12
-* Deprecations using action and visit widgets in TYPO3 v12
-
 `2.1.1 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.1.0...v2.1.1>`_ - 2023-04-01
 ------------------------------------------------------------------------------------------------------
 

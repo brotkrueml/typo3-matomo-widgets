@@ -12,9 +12,11 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\DependencyInjection\Widgets;
 
 use Brotkrueml\MatomoWidgets\Extension;
-use Brotkrueml\MatomoWidgets\Widgets\BarChartWidget;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericBarChartDataProvider;
 use Symfony\Component\DependencyInjection\Reference;
+use TYPO3\CMS\Backend\View\BackendViewFactory;
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Dashboard\Widgets\BarChartWidget;
 
 /**
  * @internal
@@ -69,7 +71,7 @@ final class ActionsPerMonthRegistration extends AbstractRegistration
             ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'Actions per month')
             : $localisedTitle;
 
-        $this->services
+        $configuration = $this->services
             ->set($this->buildServiceWidgetId(), BarChartWidget::class)
             ->arg('$dataProvider', new Reference($this->buildServiceDataProviderId()))
             ->arg('$view', new Reference('dashboard.views.widget'))
@@ -92,5 +94,11 @@ final class ActionsPerMonthRegistration extends AbstractRegistration
                     'width' => 'small',
                 ],
             );
+
+        if ((new Typo3Version())->getMajorVersion() < 12) {
+            $configuration->arg('$view', new Reference('dashboard.views.widget'));
+        } else {
+            $configuration->arg('$backendViewFactory', new Reference(BackendViewFactory::class));
+        }
     }
 }
