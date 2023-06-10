@@ -43,6 +43,7 @@ return static function (RectorConfig $config): void {
         FirstClassCallableRector::class => [
             __DIR__ . '/Configuration/Services.php',
         ],
+        __DIR__ . '/Classes/Adapter/GuzzleClientFactory.php',
         __DIR__ . '/Tests/Unit/Connection/MatomoConnectorTest.php',
     ]);
 };

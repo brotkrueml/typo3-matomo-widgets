@@ -11,10 +11,10 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Connection;
 
+use Brotkrueml\MatomoWidgets\Adapter\GuzzleClientFactory;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidResponseException;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
-use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use TYPO3\CMS\Core\Http\Stream;
 
@@ -25,7 +25,7 @@ class MatomoConnector
 {
     public function __construct(
         private readonly RequestFactoryInterface $requestFactory,
-        private readonly ClientInterface $client,
+        private readonly GuzzleClientFactory $guzzleClientFactory,
     ) {
     }
 
@@ -44,7 +44,8 @@ class MatomoConnector
         $request = $this->requestFactory->createRequest('POST', $configuration->url)
             ->withHeader('content-type', 'application/x-www-form-urlencoded')
             ->withBody($body);
-        $response = $this->client->sendRequest($request);
+
+        $response = $this->guzzleClientFactory->getClient()->send($request);
 
         return $this->checkResponse($response->getBody()->getContents());
     }

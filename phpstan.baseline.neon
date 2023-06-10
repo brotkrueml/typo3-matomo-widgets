@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Static call to instance method TYPO3\\\\CMS\\\\Core\\\\Http\\\\Client\\\\GuzzleClientFactory\\:\\:getClient\\(\\)\\.$#"
+			count: 1
+			path: Classes/Adapter/GuzzleClientFactory.php
+
+		-
 			message: "#^Cognitive complexity for \"Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:buildConfigurations\\(\\)\" is 13, keep it under 8$#"
 			count: 1
 			path: Classes/Configuration/ConfigurationFinder.php

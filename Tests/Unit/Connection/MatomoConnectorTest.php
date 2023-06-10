@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Connection;
 
+use Brotkrueml\MatomoWidgets\Adapter\GuzzleClientFactory;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Connection\MatomoConnector;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
@@ -57,22 +58,20 @@ final class MatomoConnectorTest extends TestCase
         } else {
             $this->requestFactory = new RequestFactory();
         }
-        $this->client = $this->getClient($isTypo3Version12);
+
+        $this->client = (new GuzzleClientFactory())->getClient();
+
+        $this->guzzleClientFactoryStub = $this->createStub(GuzzleClientFactory::class);
+        $this->guzzleClientFactoryStub
+            ->method('getClient')
+            ->willReturn($this->client);
+
         $this->url = \sprintf('http://%s:%s/', self::$server->getHost(), self::$server->getPort());
     }
 
     protected function tearDown(): void
     {
         unset($GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']);
-    }
-
-    private function getClient(bool $isTypo3Version12): ClientInterface
-    {
-        if ($isTypo3Version12) {
-            return (new Client\GuzzleClientFactory())->getClient();
-        }
-
-        return Client\GuzzleClientFactory::getClient();
     }
 
     #[Test]
@@ -102,7 +101,7 @@ final class MatomoConnectorTest extends TestCase
             $parameterBag->set($name, $value);
         }
 
-        $subject = new MatomoConnector($this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->requestFactory, new GuzzleClientFactory());
         $actual = $subject->callApi($connectionConfiguration, $method, $parameterBag);
 
         $lastRequest = self::$server->getLastRequest();
@@ -187,7 +186,7 @@ final class MatomoConnectorTest extends TestCase
             ),
         );
 
-        $subject = new MatomoConnector($this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->requestFactory, new GuzzleClientFactory());
         $subject->callApi($connectionConfiguration, 'some.method', new ParameterBag());
     }
 
@@ -209,7 +208,7 @@ final class MatomoConnectorTest extends TestCase
             ),
         );
 
-        $subject = new MatomoConnector($this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->requestFactory, new GuzzleClientFactory());
         $subject->callApi($connectionConfiguration, 'someMethod', new ParameterBag());
     }
 
@@ -231,7 +230,7 @@ final class MatomoConnectorTest extends TestCase
             ),
         );
 
-        $subject = new MatomoConnector($this->requestFactory, $this->client);
+        $subject = new MatomoConnector($this->requestFactory, new GuzzleClientFactory());
         $subject->callApi($connectionConfiguration, 'someMethod', new ParameterBag());
     }
 }
