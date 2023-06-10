@@ -9,4 +9,5 @@
 /ecs.php export-ignore
 /Makefile export-ignore
 /phpstan*.neon export-ignore
+/rector.php export-ignore
 *.xsd export-ignore
