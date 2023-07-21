@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.1] - 2023-07-21
+
 ### Fixed
 - Proxy configuration is not taken into account (#46)
 
@@ -164,7 +166,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.2.1...HEAD
+[2.2.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.1.1...v2.2.0
 [2.1.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.0.0...v2.1.0
