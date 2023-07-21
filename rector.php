@@ -7,6 +7,7 @@ use Rector\Config\RectorConfig;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\Php74\Rector\LNumber\AddLiteralSeparatorToNumberRector;
 use Rector\Php81\Rector\Array_\FirstClassCallableRector;
+use Rector\PHPUnit\CodeQuality\Rector\Class_\PreferPHPUnitThisCallRector;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\LevelSetList;
@@ -22,9 +23,6 @@ return static function (RectorConfig $config): void {
         SetList::EARLY_RETURN,
         PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
-        PHPUnitSetList::PHPUNIT_EXCEPTION,
-        PHPUnitSetList::PHPUNIT_SPECIFIC_METHOD,
-        PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER,
     ]);
 
     $config->autoloadPaths([
@@ -43,6 +41,7 @@ return static function (RectorConfig $config): void {
         FirstClassCallableRector::class => [
             __DIR__ . '/Configuration/Services.php',
         ],
+        PreferPHPUnitThisCallRector::class,
         __DIR__ . '/Classes/Adapter/GuzzleClientFactory.php',
         __DIR__ . '/Tests/Unit/Connection/MatomoConnectorTest.php',
     ]);
