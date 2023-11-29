@@ -78,7 +78,7 @@ final class PagesNotFoundRegistration extends AbstractRegistration
                     [
                         'column' => 'nb_hits',
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':hits',
-                        'classes' => 'text-right',
+                        'classes' => 'matomo-widgets__text-end',
                     ],
                 ],
             )

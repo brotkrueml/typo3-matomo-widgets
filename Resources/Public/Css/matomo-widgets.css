@@ -14,6 +14,11 @@
     word-break: break-all;
 }
 
+/* For compatibility with TYPO3 v11 (uses text-right) and v12 (uses text-end) */
+.matomo-widgets__text-end {
+    text-align: end;
+}
+
 .matomo-widgets__table {
     width: 100%;
 }

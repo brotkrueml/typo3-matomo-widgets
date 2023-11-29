@@ -69,12 +69,12 @@ final class ContentNamesRegistration extends AbstractRegistration
                         'column' => 'nb_impressions',
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':impressions',
                         'decorator' => new Reference(NumberDecorator::class),
-                        'classes' => 'text-right',
+                        'classes' => 'matomo-widgets__text-end',
                     ],
                     [
                         'column' => 'interaction_rate',
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':interactionRate',
-                        'classes' => 'text-right',
+                        'classes' => 'matomo-widgets__text-end',
                     ],
                 ],
             )

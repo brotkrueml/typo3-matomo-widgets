@@ -74,7 +74,7 @@ final class JavaScriptErrorsRegistration extends AbstractRegistration
                     [
                         'column' => 'nb_events',
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':hits',
-                        'classes' => 'text-right',
+                        'classes' => 'matomo-widgets__text-end',
                     ],
                 ],
             )

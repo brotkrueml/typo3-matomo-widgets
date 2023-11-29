@@ -11,6 +11,12 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.2.1...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+Fixed
+^^^^^
+
+
+* Table content with numbers is right-aligned again in TYPO3 v12
+
 `2.2.1 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.2.0...v2.2.1>`_ - 2023-07-21
 ------------------------------------------------------------------------------------------------------
 

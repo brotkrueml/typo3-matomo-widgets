@@ -69,7 +69,7 @@ final class SiteSearchKeywordsRegistration extends AbstractRegistration
                         'column' => 'nb_visits',
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':searches',
                         'decorator' => new Reference(NumberDecorator::class),
-                        'classes' => 'text-right',
+                        'classes' => 'matomo-widgets__text-end',
                     ],
                 ],
             )

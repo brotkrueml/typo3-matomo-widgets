@@ -98,7 +98,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
                 'column' => 'nb_visits',
                 'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':visits',
                 'decorator' => new Reference(NumberDecorator::class),
-                'classes' => 'text-right',
+                'classes' => 'matomo-widgets__text-end',
             ];
         }
 
@@ -106,7 +106,7 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             'column' => $this->customDimension->scope === 'visit' ? 'nb_actions' : 'nb_hits',
             'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':actions',
             'decorator' => new Reference(NumberDecorator::class),
-            'classes' => 'text-right',
+            'classes' => 'matomo-widgets__text-end',
         ];
 
         return $columns;

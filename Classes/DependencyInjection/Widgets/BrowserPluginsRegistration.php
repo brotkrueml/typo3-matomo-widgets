@@ -78,13 +78,13 @@ final class BrowserPluginsRegistration extends AbstractRegistration
                     [
                         'column' => 'nb_visits_percentage',
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':visitsPercentage',
-                        'classes' => 'text-right',
+                        'classes' => 'matomo-widgets__text-end',
                     ],
                     [
                         'column' => 'nb_visits',
                         'header' => Extension::LANGUAGE_PATH_DASHBOARD . ':visits',
                         'decorator' => new Reference(NumberDecorator::class),
-                        'classes' => 'text-right',
+                        'classes' => 'matomo-widgets__text-end',
                     ],
                 ],
             )
