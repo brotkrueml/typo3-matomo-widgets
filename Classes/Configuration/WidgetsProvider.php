@@ -36,6 +36,7 @@ final class WidgetsProvider
         'countries' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title',
         'javaScriptErrors' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.events.javaScriptErrors.title',
         'linkMatomo' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title',
+        'mostViewedPages' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.mostViewedPages.title',
         'osFamilies' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title',
         'pagesNotFound' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.pagesNotFound.title',
         'siteSearchKeywords' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchKeywords.title',

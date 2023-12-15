@@ -54,6 +54,7 @@ final class WidgetsProviderTest extends TestCase
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchNoResultKeywords.title', 'siteSearchNoResultKeywords'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title', 'visitsPerDay'], $actual);
         self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.title', 'visitsPerMonth'], $actual);
+        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.mostViewedPages.title', 'mostViewedPages'], $actual);
     }
 
     #[Test]
@@ -132,6 +133,10 @@ final class WidgetsProviderTest extends TestCase
         self::assertContains([
             'label' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.title',
             'value' => 'visitsPerMonth',
+        ], $actual);
+        self::assertContains([
+            'label' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.mostViewedPages.title',
+            'value' => 'mostViewedPages',
         ], $actual);
     }
 }

@@ -27,6 +27,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CreateAnnotationRegistr
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CustomDimensionsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\JavaScriptErrorsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\LinkMatomoRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\MostViewedPagesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\OsFamiliesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\PagesNotFoundRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\SiteSearchKeywordsRegistration;
@@ -55,6 +56,7 @@ final class WidgetsRegistration
         CountriesRegistration::class,
         JavaScriptErrorsRegistration::class,
         LinkMatomoRegistration::class,
+        MostViewedPagesRegistration::class,
         OsFamiliesRegistration::class,
         PagesNotFoundRegistration::class,
         SiteSearchKeywordsRegistration::class,

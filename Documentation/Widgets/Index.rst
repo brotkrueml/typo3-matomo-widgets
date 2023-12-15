@@ -445,6 +445,38 @@ Active widgets value in :file:`config.yaml`
    linkMatomo
 
 
+Most viewed pages
+=================
+
+.. versionadded:: 2.3.0
+
+Show the most viewed pages of a site for the current month:
+
+.. figure:: /Images/WidgetMostViewedPages.png
+   :alt: Widget Most viewed pages
+   :class: with-border
+
+   Widget *Most viewed pages*
+
+Matomo module
+   Actions
+
+Active widgets value in :file:`config.yaml`
+   mostViewedPages
+
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
+   matomo_widgets.mostViewedPages.parameters:
+      - period: month
+      - date: today
+      - filter_sort_column: nb_hits
+      - filter_sort_order: desc
+
+.. tip::
+   When you see URLs with the addition "- Others" then Matomo groups pages
+   automatically after a given limit: You can `increase the limit`_. Maybe you
+   want then `invalidate the historical reports`_ to adopt the change.
+
+
 Operating system families
 =========================
 
@@ -605,3 +637,5 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 .. _custom dimensions: https://matomo.org/docs/custom-dimensions/
 .. _enableJSErrorTracking: https://matomo.org/faq/how-to/how-do-i-enable-basic-javascript-error-tracking-and-reporting-in-matomo-browser-console-error-messages/
 .. _feature request: https://github.com/brotkrueml/typo3-matomo-widgets/issues
+.. _increase the limit: https://matomo.org/faq/how-to/faq_54/
+.. _invalidate the historical reports: https://matomo.org/faq/how-to/faq_155/

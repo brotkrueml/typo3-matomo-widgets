@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Widget "Most viewed pages" (#47)
+
 ### Fixed
 - Table content with numbers is right-aligned again in TYPO3 v12
 

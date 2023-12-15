@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2022-07-20T17:31:48Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2023-11-12T15:02:27Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
@@ -112,6 +112,12 @@
 			</trans-unit>
 			<trans-unit id="visitsPercentage" resname="visitsPercentage">
 				<source><![CDATA[% Visits]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.actions.mostViewedPages.description" resname="widgets.actions.mostViewedPages.description">
+				<source><![CDATA[List of the most viewed page URLs.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.actions.mostViewedPages.title" resname="widgets.actions.mostViewedPages.title">
+				<source><![CDATA[Most viewed pages]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.actions.pagesNotFound.description" resname="widgets.actions.pagesNotFound.description">
 				<source><![CDATA[A list of the pages which cannot be found (404).]]></source>
