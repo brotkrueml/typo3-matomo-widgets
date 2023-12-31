@@ -22,10 +22,8 @@ The default parameters of the widgets can be adjusted to your needs, e.g. in the
 *Visits per month* widget display 24 month instead of 12 months.
 
 .. tip::
-   If you use Matomo, the
-   :ref:`Matomo Integration <ext_matomo_integration:introduction>` and
-   :ref:`Matomo Opt-Out <ext_matomo_optout:introduction>`
-   extensions might be of interest to you.
+   The :ref:`Matomo Integration <ext_matomo_integration:introduction>` extension
+   provides an easy way to integrate Matomo into TYPO3.
 
 .. _screenshots:
 
