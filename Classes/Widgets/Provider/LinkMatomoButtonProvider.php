@@ -22,8 +22,7 @@ final class LinkMatomoButtonProvider implements ButtonProviderInterface
 {
     public function __construct(
         private readonly string $link,
-    ) {
-    }
+    ) {}
 
     public function getTitle(): string
     {

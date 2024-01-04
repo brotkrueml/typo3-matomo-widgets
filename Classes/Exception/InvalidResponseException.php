@@ -11,6 +11,4 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Exception;
 
-final class InvalidResponseException extends \RuntimeException
-{
-}
+final class InvalidResponseException extends \RuntimeException {}

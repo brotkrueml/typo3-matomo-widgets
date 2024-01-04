@@ -29,8 +29,7 @@ final class GenericValueDataProvider implements ValueDataProviderInterface
         private readonly string $method,
         private readonly string $columnName,
         private readonly array $parameters,
-    ) {
-    }
+    ) {}
 
     public function getValue(): string
     {

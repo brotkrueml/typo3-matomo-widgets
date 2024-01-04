@@ -21,7 +21,7 @@ final class AnnotationsTableDataProvider extends GenericTableDataProvider
     public function getRows(): array
     {
         $rows = $this->repository->send($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters))[0] ?? [];
-        \usort($rows, static fn (array $a, array $b): int => -($a['date'] <=> $b['date']));
+        \usort($rows, static fn(array $a, array $b): int => -($a['date'] <=> $b['date']));
 
         return $rows;
     }

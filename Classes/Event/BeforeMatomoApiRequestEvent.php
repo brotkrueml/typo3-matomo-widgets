@@ -17,8 +17,7 @@ final class BeforeMatomoApiRequestEvent
         private int $idSite,
         #[\SensitiveParameter]
         private string $tokenAuth,
-    ) {
-    }
+    ) {}
 
     public function getIdSite(): int
     {

@@ -31,8 +31,7 @@ class MatomoRepository
         private readonly CacheIdentifierCreator $cacheIdentifierCreator,
         private readonly MatomoConnector $connector,
         private readonly EventDispatcherInterface $eventDispatcher,
-    ) {
-    }
+    ) {}
 
     public function send(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag, bool $useCache = true): array
     {

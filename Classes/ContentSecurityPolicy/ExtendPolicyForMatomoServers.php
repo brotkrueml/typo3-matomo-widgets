@@ -32,8 +32,7 @@ final class ExtendPolicyForMatomoServers
 
     public function __construct(
         private readonly Configurations $configurations,
-    ) {
-    }
+    ) {}
 
     public function __invoke(PolicyMutatedEvent $event): void
     {

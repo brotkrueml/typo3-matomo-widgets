@@ -32,8 +32,7 @@ final class Configuration
         public readonly array $activeWidgets,
         public readonly array $customDimensions,
         public readonly string $pagesNotFoundTemplate,
-    ) {
-    }
+    ) {}
 
     public function isWidgetActive(string $widgetIdentifier): bool
     {

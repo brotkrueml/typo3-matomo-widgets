@@ -76,7 +76,7 @@ final class CreateAnnotationControllerTest extends TestCase
         $this->languageServiceStub = $this->createStub(LanguageService::class);
         $this->languageServiceStub
             ->method('sL')
-            ->willReturnCallback(static fn (string $key): string => $key);
+            ->willReturnCallback(static fn(string $key): string => $key);
         $GLOBALS['LANG'] = $this->languageServiceStub;
 
         $this->serverRequestStub = $this->createStub(ServerRequestInterface::class);

@@ -74,7 +74,7 @@ final class JavaScriptErrorDetails
     public function getBrowsers(): array
     {
         $browsers = \array_values($this->browsers);
-        \usort($browsers, static fn (BrowserCount $a, BrowserCount $b): int => $b->getHits() <=> $a->getHits());
+        \usort($browsers, static fn(BrowserCount $a, BrowserCount $b): int => $b->getHits() <=> $a->getHits());
 
         return \array_values($browsers);
     }
@@ -90,7 +90,7 @@ final class JavaScriptErrorDetails
     public function getUrls(): array
     {
         $urls = \array_values($this->urls);
-        \usort($urls, static fn (UrlCount $a, UrlCount $b): int => $b->getHits() <=> $a->getHits());
+        \usort($urls, static fn(UrlCount $a, UrlCount $b): int => $b->getHits() <=> $a->getHits());
 
         return \array_values($urls);
     }
@@ -106,7 +106,7 @@ final class JavaScriptErrorDetails
     public function getScripts(): array
     {
         $scripts = \array_values($this->scripts);
-        \usort($scripts, static fn (ScriptCount $a, ScriptCount $b): int => $b->getHits() <=> $a->getHits());
+        \usort($scripts, static fn(ScriptCount $a, ScriptCount $b): int => $b->getHits() <=> $a->getHits());
 
         return \array_values($scripts);
     }

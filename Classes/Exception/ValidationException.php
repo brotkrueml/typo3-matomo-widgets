@@ -11,6 +11,4 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Exception;
 
-final class ValidationException extends \InvalidArgumentException
-{
-}
+final class ValidationException extends \InvalidArgumentException {}

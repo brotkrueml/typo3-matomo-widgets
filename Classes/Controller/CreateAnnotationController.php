@@ -43,8 +43,7 @@ final class CreateAnnotationController
         private readonly LoggerInterface $logger,
         private readonly MatomoRepository $repository,
         private readonly ResponseFactoryInterface $responseFactory,
-    ) {
-    }
+    ) {}
 
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {

@@ -21,6 +21,5 @@ final class CustomDimension
         public readonly int $idDimension,
         public readonly string $title,
         public readonly string $description,
-    ) {
-    }
+    ) {}
 }

@@ -25,8 +25,7 @@ final class BrowserCount
     public function __construct(
         private readonly string $name,
         private readonly string $icon,
-    ) {
-    }
+    ) {}
 
     public function incrementHit(string $version): void
     {
@@ -59,7 +58,7 @@ final class BrowserCount
 
         return \implode(
             ', ',
-            \array_map(static fn (string $version, int $count): string => "{$version} ({$count})", \array_keys($this->versions), \array_values($this->versions)),
+            \array_map(static fn(string $version, int $count): string => "{$version} ({$count})", \array_keys($this->versions), \array_values($this->versions)),
         );
     }
 }

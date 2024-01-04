@@ -34,8 +34,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
         protected string $method,
         private readonly array $columns,
         protected array $parameters,
-    ) {
-    }
+    ) {}
 
     public function addParameter(string $name, string|LanguageParameterResolver $value): void
     {

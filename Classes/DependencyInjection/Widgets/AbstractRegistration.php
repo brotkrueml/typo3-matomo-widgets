@@ -35,8 +35,7 @@ abstract class AbstractRegistration
         protected ServicesConfigurator $services,
         protected Configuration $matomoConfiguration,
         protected string $connectionConfigurationId,
-    ) {
-    }
+    ) {}
 
     abstract public function register(): void;
 

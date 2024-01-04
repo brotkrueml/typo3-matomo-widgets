@@ -26,8 +26,7 @@ class MatomoConnector
     public function __construct(
         private readonly RequestFactoryInterface $requestFactory,
         private readonly GuzzleClientFactory $guzzleClientFactory,
-    ) {
-    }
+    ) {}
 
     public function callApi(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array
     {

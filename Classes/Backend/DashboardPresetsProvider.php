@@ -35,8 +35,7 @@ final class DashboardPresetsProvider
 
     public function __construct(
         private readonly Configurations $configurations,
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, array<string, list<string>|string|true>>
@@ -47,7 +46,7 @@ final class DashboardPresetsProvider
         foreach ($this->configurations as $configuration) {
             $enabledWidgets = \array_values(\array_filter(
                 self::DEFAULT_WIDGETS_TEMPLATES,
-                static fn (string $widgetConfigurationKey): bool => $configuration->isWidgetActive($widgetConfigurationKey),
+                static fn(string $widgetConfigurationKey): bool => $configuration->isWidgetActive($widgetConfigurationKey),
                 \ARRAY_FILTER_USE_KEY,
             ));
 
@@ -64,7 +63,7 @@ final class DashboardPresetsProvider
                 'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':preset.description',
                 'iconIdentifier' => 'content-dashboard',
                 'defaultWidgets' => \array_map(
-                    static fn (string $widget): string => \sprintf($widget, $configuration->siteIdentifier),
+                    static fn(string $widget): string => \sprintf($widget, $configuration->siteIdentifier),
                     $enabledWidgets,
                 ),
                 'showInWizard' => true,

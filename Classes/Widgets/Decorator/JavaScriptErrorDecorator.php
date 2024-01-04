@@ -18,8 +18,7 @@ final class JavaScriptErrorDecorator implements DecoratorInterface
 {
     public function __construct(
         private readonly string $siteIdentifier,
-    ) {
-    }
+    ) {}
 
     public function decorate(string $value): string
     {

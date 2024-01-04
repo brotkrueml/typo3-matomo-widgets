@@ -11,6 +11,4 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Exception;
 
-final class ConnectionException extends \RuntimeException
-{
-}
+final class ConnectionException extends \RuntimeException {}

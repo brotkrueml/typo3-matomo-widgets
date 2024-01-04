@@ -40,8 +40,7 @@ final class JavaScriptErrorDetailsController
         private readonly ResponseFactoryInterface $responseFactory,
         private readonly StandaloneView $view,
         private readonly array $parameters,
-    ) {
-    }
+    ) {}
 
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {

@@ -20,8 +20,7 @@ final class UrlCount
 
     public function __construct(
         private readonly string $url,
-    ) {
-    }
+    ) {}
 
     public function incrementHits(): void
     {

@@ -11,6 +11,4 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Exception;
 
-final class ParameterNotFoundException extends \InvalidArgumentException
-{
-}
+final class ParameterNotFoundException extends \InvalidArgumentException {}
