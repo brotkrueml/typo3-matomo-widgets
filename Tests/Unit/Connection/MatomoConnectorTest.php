@@ -22,6 +22,7 @@ use donatj\MockWebServer\Response;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -34,6 +35,7 @@ final class MatomoConnectorTest extends TestCase
 {
     private static MockWebServer $server;
     private RequestFactoryInterface $requestFactory;
+    private GuzzleClientFactory&Stub $guzzleClientFactoryStub;
     private ClientInterface $client;
     private string $url;
 
