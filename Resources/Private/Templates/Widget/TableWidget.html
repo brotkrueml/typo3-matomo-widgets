@@ -3,6 +3,23 @@
 <f:layout name="Widget/Widget" />
 
 <f:section name="main">
+    <f:if condition="{dateRange}">
+        <p class="matomo_widgets__date-range">
+            <f:variable name="dateFormat"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:format.date"/></f:variable>
+            <f:if condition="{dateRange.startDate.timestamp} == {dateRange.endDate.timestamp}">
+                <f:then>
+                    <f:format.case mode="capital"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:on"/></f:format.case>
+                    <f:format.date format="{dateFormat}">{dateRange.startDate}</f:format.date>
+                </f:then>
+                <f:else>
+                    <f:format.case mode="capital"><f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:between"/></f:format.case>
+                    <f:format.date format="{dateFormat}">{dateRange.startDate}</f:format.date>
+                    <f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:and"/>
+                    <f:format.date format="{dateFormat}">{dateRange.endDate}</f:format.date>
+                </f:else>
+            </f:if>
+        </p>
+    </f:if>
     <f:if condition="{table.rows}">
         <f:then>
             <div class="widget-table-wrapper">

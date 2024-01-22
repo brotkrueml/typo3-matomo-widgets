@@ -18,6 +18,9 @@ use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
  */
 interface TableDataProviderInterface
 {
+    // @todo Enforce the method with version 3.0.0
+    //public function getDateRange(): string;
+
     /**
      * @return list<string>
      */

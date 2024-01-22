@@ -12,6 +12,8 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
+use Brotkrueml\MatomoWidgets\DateTime\DateRange;
+use Brotkrueml\MatomoWidgets\DateTime\MatomoPeriodResolver;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\LanguageParameterResolver;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
@@ -29,8 +31,9 @@ class GenericTableDataProvider implements TableDataProviderInterface
      * @param array<string, string|LanguageParameterResolver> $parameters
      */
     public function __construct(
-        protected MatomoRepository $repository,
-        protected ConnectionConfiguration $connectionConfiguration,
+        protected readonly MatomoPeriodResolver $periodResolver,
+        protected readonly MatomoRepository $repository,
+        protected readonly ConnectionConfiguration $connectionConfiguration,
         protected string $method,
         private readonly array $columns,
         protected array $parameters,
@@ -41,9 +44,23 @@ class GenericTableDataProvider implements TableDataProviderInterface
         $this->parameters[$name] ??= $value;
     }
 
+    public function getDateRange(): ?DateRange
+    {
+        if (! \is_string($this->parameters['period'] ?? false)) {
+            return null;
+        }
+        if (! \is_string($this->parameters['date'] ?? false)) {
+            return null;
+        }
+
+        return $this->periodResolver->toDateRange($this->parameters['period'], $this->parameters['date']);
+    }
+
+    /**
+     * @return list<string>
+     */
     public function getClasses(): array
     {
-        /** @var string[] $classes */
         $classes = [];
         foreach ($this->columns as $column) {
             $classes[] = (string)($column['classes'] ?? '');
@@ -52,6 +69,9 @@ class GenericTableDataProvider implements TableDataProviderInterface
         return $classes;
     }
 
+    /**
+     * @return list<string>
+     */
     public function getColumns(): array
     {
         $columns = [];
@@ -62,6 +82,9 @@ class GenericTableDataProvider implements TableDataProviderInterface
         return $columns;
     }
 
+    /**
+     * @return list<DecoratorInterface|null>
+     */
     public function getDecorators(): array
     {
         $decorators = [];
@@ -72,9 +95,11 @@ class GenericTableDataProvider implements TableDataProviderInterface
         return $decorators;
     }
 
+    /**
+     * @return list<string>
+     */
     public function getHeaders(): array
     {
-        /** @var string[] $headers */
         $headers = [];
         foreach ($this->columns as $column) {
             $headers[] = isset($column['header']) ? $this->getLanguageService()->sL($column['header']) : '';
@@ -83,6 +108,9 @@ class GenericTableDataProvider implements TableDataProviderInterface
         return $headers;
     }
 
+    /**
+     * @return list<array<string, mixed>>
+     */
     public function getRows(): array
     {
         return $this->repository->send($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));

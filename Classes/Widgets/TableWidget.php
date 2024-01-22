@@ -45,6 +45,9 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface
     {
         $this->view->setTemplate('Widget/TableWidget.html');
         $this->view->assignMultiple([
+            // @todo Remove method_exists check with version 3.0.0
+            // @see TableDataProviderInterface
+            'dateRange' => \method_exists($this->dataProvider, 'getDateRange') ? $this->dataProvider->getDateRange() : '',
             'table' => [
                 'classes' => $this->dataProvider->getClasses(),
                 'columns' => $this->dataProvider->getColumns(),

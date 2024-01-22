@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2023-11-12T15:02:27Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2024-01-22T12:10:03Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
+			</trans-unit>
+			<trans-unit id="and" resname="and">
+				<source><![CDATA[and]]></source>
+			</trans-unit>
+			<trans-unit id="between" resname="between">
+				<source><![CDATA[between]]></source>
 			</trans-unit>
 			<trans-unit id="browser" resname="browser">
 				<source><![CDATA[Browser]]></source>
@@ -38,6 +44,9 @@
 			<trans-unit id="errorMessage" resname="errorMessage">
 				<source><![CDATA[Error message]]></source>
 			</trans-unit>
+			<trans-unit id="format.date" resname="format.date">
+				<source><![CDATA[Y-m-d]]></source>
+			</trans-unit>
 			<trans-unit id="hits" resname="hits">
 				<source><![CDATA[Hits]]></source>
 			</trans-unit>
@@ -61,6 +70,10 @@
 			</trans-unit>
 			<trans-unit id="note" resname="note">
 				<source><![CDATA[Note]]></source>
+			</trans-unit>
+			<trans-unit id="on" resname="on">
+				<note><![CDATA[Used for dates, for example: "on 2024-01-22"]]></note>
+				<source><![CDATA[on]]></source>
 			</trans-unit>
 			<trans-unit id="openReport" resname="openReport">
 				<source><![CDATA[Open report in Matomo]]></source>
