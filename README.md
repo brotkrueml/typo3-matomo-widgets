@@ -10,7 +10,7 @@
 
 | Latest release | TYPO3       | PHP   | Updates will contain                                 |
 |----------------|-------------|-------|------------------------------------------------------|
-| 3.x            | 12.4        | ≥ 8.1 | Features, security and bug fixes                     |
+| 3.x            | 12.4 - 13.4 | ≥ 8.1 | Features, security and bug fixes                     |
 | 2.x            | 11.5 - 12.4 | ≥ 8.1 | Security and bug fixes, end of life expected: Oct 24 |
 | 1.x            | 10.4 - 11.5 | ≥ 7.4 | Security fixes, end of life expected: Oct 24         |
 | 0.x            | 10.4 - 11.5 | ≥ 7.2 | End of life                                          |
