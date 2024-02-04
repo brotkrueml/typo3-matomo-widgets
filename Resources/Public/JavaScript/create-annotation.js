@@ -1,15 +1,21 @@
-require([
-  'TYPO3/CMS/Core/DocumentService',
-  'TYPO3/CMS/Core/Event/RegularEvent',
-  'TYPO3/CMS/Core/Ajax/AjaxRequest',
-  'TYPO3/CMS/Backend/Notification'
-], (DocumentService, RegularEvent, AjaxRequest, Notification) => {
-  'use strict';
+import AjaxRequest from "@typo3/core/ajax/ajax-request.js";
+import RegularEvent from '@typo3/core/event/regular-event.js';
+import Notification from '@typo3/backend/notification.js';
 
-  const FORM_SELECTOR = 'form[data-matomowidgets-createannotation]';
-  const ROUTE_KEY = 'matomo_widgets_create_annotation';
+class CreateAnnotation {
+  constructor() {
+    this.formSelector = 'form[data-matomowidgets-createannotation]';
+    this.routeKey = 'matomo_widgets_create_annotation';
+  }
 
-  const sendRequest = (formElement) => {
+  initialize() {
+    new RegularEvent('submit', event => {
+      event.preventDefault();
+      this.sendRequest(event.target);
+    }).delegateTo(document, this.formSelector);
+  }
+
+  sendRequest(formElement) {
     const dateElement = formElement.querySelector('input[name=date]');
     const noteElement = formElement.querySelector('input[name=note]');
     const siteIdentifierElement = formElement.querySelector('input[name=site_identifier]');
@@ -21,7 +27,7 @@ require([
     };
     const notificationTitle = formElement.dataset.notificationTitle;
 
-    new AjaxRequest(TYPO3.settings.ajaxUrls[ROUTE_KEY]).post(parameters).then(
+    new AjaxRequest(TYPO3.settings.ajaxUrls[this.routeKey]).post(parameters).then(
       async response => {
         submitElement.disabled = true;
         const data = await response.resolve();
@@ -40,11 +46,6 @@ require([
       }
     );
   }
+}
 
-  DocumentService.ready().then(() => {
-    new RegularEvent('submit', function (event) {
-      event.preventDefault();
-      sendRequest(event.target);
-    }).delegateTo(document, FORM_SELECTOR);
-  });
-});
+export default new CreateAnnotation;

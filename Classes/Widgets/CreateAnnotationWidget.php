@@ -14,8 +14,9 @@ namespace Brotkrueml\MatomoWidgets\Widgets;
 use Brotkrueml\MatomoWidgets\Extension;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\View\BackendViewFactory;
+use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
 use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
-use TYPO3\CMS\Dashboard\Widgets\AdditionalJavaScriptInterface;
+use TYPO3\CMS\Dashboard\Widgets\JavaScriptInterface;
 use TYPO3\CMS\Dashboard\Widgets\RequestAwareWidgetInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
@@ -23,7 +24,7 @@ use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
 /**
  * @internal
  */
-final class CreateAnnotationWidget implements WidgetInterface, RequestAwareWidgetInterface, AdditionalCssInterface, AdditionalJavaScriptInterface
+final class CreateAnnotationWidget implements WidgetInterface, RequestAwareWidgetInterface, AdditionalCssInterface, JavaScriptInterface
 {
     use WidgetTitleAdaptionTrait;
 
@@ -77,12 +78,14 @@ final class CreateAnnotationWidget implements WidgetInterface, RequestAwareWidge
     }
 
     /**
-     * @return list<string>
+     * @return list<JavaScriptModuleInstruction>
      */
-    public function getJsFiles(): array
+    public function getJavaScriptModuleInstructions(): array
     {
         return [
-            'EXT:' . Extension::KEY . '/Resources/Public/JavaScript/CreateAnnotation.js',
+            JavaScriptModuleInstruction::create(
+                Extension::JS_IMPORT_PREFIX . '/create-annotation.js',
+            )->invoke('initialize'),
         ];
     }
 }
