@@ -89,7 +89,6 @@ final class SiteSearchKeywordsRegistration extends AbstractRegistration
         $this->services
             ->set($this->buildServiceWidgetId(), TableWidget::class)
             ->arg('$dataProvider', new Reference($this->buildServiceDataProviderId()))
-            ->arg('$view', new Reference('dashboard.views.widget'))
             ->arg(
                 '$options',
                 [

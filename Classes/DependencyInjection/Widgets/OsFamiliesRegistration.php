@@ -76,7 +76,6 @@ final class OsFamiliesRegistration extends AbstractRegistration
         $configuration = $this->services
             ->set($this->buildServiceWidgetId(), DoughnutChartWidget::class)
             ->arg('$dataProvider', new Reference($this->buildServiceDataProviderId()))
-            ->arg('$view', new Reference('dashboard.views.widget'))
             ->arg(
                 '$options',
                 [

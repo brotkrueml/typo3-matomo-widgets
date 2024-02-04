@@ -13,7 +13,6 @@ namespace Brotkrueml\MatomoWidgets\DependencyInjection\Widgets;
 
 use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\CreateAnnotationWidget;
-use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * @internal
@@ -40,7 +39,6 @@ final class CreateAnnotationRegistration extends AbstractRegistration
 
         $this->services
             ->set($this->buildServiceWidgetId(), CreateAnnotationWidget::class)
-            ->arg('$view', new Reference('dashboard.views.widget'))
             ->arg(
                 '$options',
                 [

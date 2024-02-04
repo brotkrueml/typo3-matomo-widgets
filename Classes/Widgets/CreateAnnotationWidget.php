@@ -12,42 +12,50 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets;
 
 use Brotkrueml\MatomoWidgets\Extension;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\View\BackendViewFactory;
 use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
 use TYPO3\CMS\Dashboard\Widgets\AdditionalJavaScriptInterface;
+use TYPO3\CMS\Dashboard\Widgets\RequestAwareWidgetInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 
 /**
  * @internal
  */
-final class CreateAnnotationWidget implements WidgetInterface, AdditionalCssInterface, AdditionalJavaScriptInterface
+final class CreateAnnotationWidget implements WidgetInterface, RequestAwareWidgetInterface, AdditionalCssInterface, AdditionalJavaScriptInterface
 {
     use WidgetTitleAdaptionTrait;
 
     private readonly WidgetConfigurationInterface $configuration;
+    private ServerRequestInterface $request;
 
     /**
      * @param array<string, string> $options
      */
     public function __construct(
         WidgetConfigurationInterface $configuration,
-        private readonly StandaloneView $view,
+        private readonly BackendViewFactory $backendViewFactory,
         private readonly array $options = [],
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
     }
 
+    public function setRequest(ServerRequestInterface $request): void
+    {
+        $this->request = $request;
+    }
+
     public function renderWidgetContent(): string
     {
-        $this->view->setTemplate('Widget/CreateAnnotationWidget.html');
-        $this->view->assignMultiple([
+        $view = $this->backendViewFactory->create($this->request, ['typo3/cms-dashboard', 'brotkrueml/typo3-matomo-widgets']);
+        $view->assignMultiple([
             'configuration' => $this->configuration,
             'reportLink' => $this->options['reportLink'] ?? '',
             'siteIdentifier' => $this->options['siteIdentifier'] ?? '',
         ]);
 
-        return $this->view->render();
+        return $view->render('Widget/CreateAnnotationWidget.html');
     }
 
     /**

@@ -73,7 +73,6 @@ final class VisitsPerMonthRegistration extends AbstractRegistration
         $configuration = $this->services
             ->set($this->buildServiceWidgetId(), BarChartWidget::class)
             ->arg('$dataProvider', new Reference($this->buildServiceDataProviderId()))
-            ->arg('$view', new Reference('dashboard.views.widget'))
             ->arg(
                 '$options',
                 [
