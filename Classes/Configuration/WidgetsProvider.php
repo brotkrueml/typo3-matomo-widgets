@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Configuration;
 
 use Brotkrueml\MatomoWidgets\Extension;
-use TYPO3\CMS\Core\Information\Typo3Version;
 
 /**
  * @internal
@@ -50,18 +49,11 @@ final class WidgetsProvider
      */
     public function getItemsForTca(): array
     {
-        $labelKey = 'label';
-        $valueKey = 'value';
-        if ((new Typo3Version())->getMajorVersion() < 12) {
-            $labelKey = 0;
-            $valueKey = 1;
-        }
-
         $items = [];
         foreach ($this->availableWidgets as $identifier => $languageKey) {
             $items[] = [
-                $labelKey => $languageKey,
-                $valueKey => $identifier,
+                'label' => $languageKey,
+                'value' => $identifier,
             ];
         }
 

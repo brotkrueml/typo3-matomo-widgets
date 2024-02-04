@@ -15,7 +15,6 @@ use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericDoughnutChartDataProvider;
 use Symfony\Component\DependencyInjection\Reference;
 use TYPO3\CMS\Backend\View\BackendViewFactory;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget;
 
 /**
@@ -99,11 +98,7 @@ final class OsFamiliesRegistration extends AbstractRegistration
                 ],
             );
 
-        if ((new Typo3Version())->getMajorVersion() < 12) {
-            $configuration->arg('$view', new Reference('dashboard.views.widget'));
-        } else {
-            $configuration->arg('$backendViewFactory', new Reference(BackendViewFactory::class));
-        }
+        $configuration->arg('$backendViewFactory', new Reference(BackendViewFactory::class));
     }
 
     private function buildReportLink(): string

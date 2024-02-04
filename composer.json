@@ -23,9 +23,9 @@
 	},
 	"require": {
 		"php": ">=8.1",
-		"symfony/finder": "^5.4 || ^6.4 || ^7.0",
-		"typo3/cms-core": "^11.5 || ^12.4",
-		"typo3/cms-dashboard": "^11.5 || ^12.4"
+		"symfony/finder": "^6.4 || ^7.0",
+		"typo3/cms-core": "^12.4",
+		"typo3/cms-dashboard": "^12.4"
 	},
 	"require-dev": {
 		"brotkrueml/coding-standards": "~5.1.0",
@@ -38,7 +38,7 @@
 		"phpunit/phpunit": "^10.5",
 		"rector/rector": "0.19.5",
 		"saschaegerer/phpstan-typo3": "^1.9",
-		"symfony/yaml": "^5.4 || ^6.4 || ^7.0",
+		"symfony/yaml": "^6.4 || ^7.0",
 		"symplify/phpstan-rules": "^12.4",
 		"tomasvotruba/cognitive-complexity": "^0.2.3"
 	},
@@ -71,7 +71,6 @@
 			"dev-main": "3.0.x-dev"
 		},
 		"typo3/cms": {
-			"app-dir": ".Build",
 			"extension-key": "matomo_widgets",
 			"web-dir": ".Build/web"
 		}

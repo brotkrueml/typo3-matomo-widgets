@@ -16,7 +16,6 @@ use Brotkrueml\MatomoWidgets\Extension;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use TYPO3\CMS\Core\Information\Typo3Version;
 
 #[CoversClass(WidgetsProvider::class)]
 final class WidgetsProviderTest extends TestCase
@@ -29,41 +28,8 @@ final class WidgetsProviderTest extends TestCase
     }
 
     #[Test]
-    public function getItemsForTcaInV11(): void
-    {
-        if ((new Typo3Version())->getMajorVersion() > 11) {
-            self::markTestSkipped('Only relevant for TYPO3 v11');
-        }
-
-        $actual = $this->subject->getItemsForTca();
-
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title', 'actionsPerDay'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title', 'actionsPerMonth'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.annotations.title', 'annotations'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.createAnnotation.title', 'createAnnotation'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.title', 'bounceRate'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.campaigns.title', 'campaigns'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentNames.title', 'contentNames'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.contents.contentPieces.title', 'contentPieces'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title', 'countries'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.events.javaScriptErrors.title', 'javaScriptErrors'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title', 'linkMatomo'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title', 'osFamilies'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.pagesNotFound.title', 'pagesNotFound'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchKeywords.title', 'siteSearchKeywords'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.siteSearchNoResultKeywords.title', 'siteSearchNoResultKeywords'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerDay.title', 'visitsPerDay'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.visitsPerMonth.title', 'visitsPerMonth'], $actual);
-        self::assertContains([Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.mostViewedPages.title', 'mostViewedPages'], $actual);
-    }
-
-    #[Test]
     public function getItemsForTca(): void
     {
-        if ((new Typo3Version())->getMajorVersion() < 12) {
-            self::markTestSkipped('Only relevant for TYPO3 v12+');
-        }
-
         $actual = $this->subject->getItemsForTca();
 
         self::assertContains([

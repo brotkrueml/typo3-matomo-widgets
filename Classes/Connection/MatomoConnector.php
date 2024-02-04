@@ -11,11 +11,11 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Connection;
 
-use Brotkrueml\MatomoWidgets\Adapter\GuzzleClientFactory;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidResponseException;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Psr\Http\Message\RequestFactoryInterface;
+use TYPO3\CMS\Core\Http\Client\GuzzleClientFactory;
 use TYPO3\CMS\Core\Http\Stream;
 
 /**
