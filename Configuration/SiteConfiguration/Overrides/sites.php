@@ -7,47 +7,51 @@
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use Brotkrueml\MatomoWidgets\Configuration\WidgetsProvider;
+use Brotkrueml\MatomoWidgets\Extension;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 $GLOBALS['SiteConfiguration']['site']['columns'] += [
     'matomoWidgetsTitle' => [
-        'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':title',
-        'description' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':title.description',
+        'label' => Extension::LANGUAGE_PATH_SITECONF . ':title',
+        'description' => Extension::LANGUAGE_PATH_SITECONF . ':title.description',
         'config' => [
             'type' => 'input',
             'eval' => 'trim',
         ],
     ],
     'matomoWidgetsUrl' => [
-        'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':url',
+        'label' => Extension::LANGUAGE_PATH_SITECONF . ':url',
         'config' => [
             'type' => 'input',
             'eval' => 'trim',
         ],
     ],
     'matomoWidgetsIdSite' => [
-        'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':idSite',
+        'label' => Extension::LANGUAGE_PATH_SITECONF . ':idSite',
         'config' => [
             'type' => 'input',
             'eval' => 'int',
         ],
     ],
     'matomoWidgetsTokenAuth' => [
-        'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':tokenAuth',
+        'label' => Extension::LANGUAGE_PATH_SITECONF . ':tokenAuth',
         'config' => [
             'type' => 'input',
             'eval' => 'trim',
         ],
     ],
     'matomoWidgetsActiveWidgets' => [
-        'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':activeWidgets',
+        'label' => Extension::LANGUAGE_PATH_SITECONF . ':activeWidgets',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectCheckBox',
-            'items' => (new Brotkrueml\MatomoWidgets\Configuration\WidgetsProvider())->getItemsForTca(),
+            'items' => (new WidgetsProvider())->getItemsForTca(),
         ],
     ],
     'matomoWidgetsPagesNotFoundTemplate' => [
-        'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':pagesNotFoundTemplate',
-        'description' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':pagesNotFoundTemplate.description',
+        'label' => Extension::LANGUAGE_PATH_SITECONF . ':pagesNotFoundTemplate',
+        'description' => Extension::LANGUAGE_PATH_SITECONF . ':pagesNotFoundTemplate.description',
         'config' => [
             'type' => 'input',
             'eval' => 'trim',
@@ -56,11 +60,11 @@ $GLOBALS['SiteConfiguration']['site']['columns'] += [
     ],
 ];
 
-if (TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integration')) {
+if (ExtensionManagementUtility::isLoaded('matomo_integration')) {
     $GLOBALS['SiteConfiguration']['site']['columns'] += [
         'matomoWidgetsConsiderMatomoIntegration' => [
-            'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':considerMatomoIntegration',
-            'description' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':considerMatomoIntegration.description',
+            'label' => Extension::LANGUAGE_PATH_SITECONF . ':considerMatomoIntegration',
+            'description' => Extension::LANGUAGE_PATH_SITECONF . ':considerMatomoIntegration.description',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -78,7 +82,7 @@ if (TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integrat
 }
 
 $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',
-    --div--;' . Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':matomoWidgets,
+    --div--;' . Extension::LANGUAGE_PATH_SITECONF . ':matomoWidgets,
     matomoWidgetsTitle,
     --palette--;;matomoWidgetsInstallation,
     --palette--;;matomoWidgetsActiveWidgets,
@@ -86,16 +90,16 @@ $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',
 
 $GLOBALS['SiteConfiguration']['site']['palettes'] += [
     'matomoWidgetsInstallation' => [
-        'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':matomoInstallation',
+        'label' => Extension::LANGUAGE_PATH_SITECONF . ':matomoInstallation',
         'showitem' =>
             (
-                TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('matomo_integration')
+                ExtensionManagementUtility::isLoaded('matomo_integration')
                     ? 'matomoWidgetsConsiderMatomoIntegration, --linebreak--, '
                     : ''
             ) . 'matomoWidgetsUrl, matomoWidgetsIdSite, matomoWidgetsTokenAuth',
     ],
     'matomoWidgetsActiveWidgets' => [
-        'label' => Brotkrueml\MatomoWidgets\Extension::LANGUAGE_PATH_SITECONF . ':dashboardWidgets',
+        'label' => Extension::LANGUAGE_PATH_SITECONF . ':dashboardWidgets',
         'showitem' => 'matomoWidgetsActiveWidgets, --linebreak--, matomoWidgetsPagesNotFoundTemplate,',
     ],
 ];

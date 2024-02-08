@@ -13,12 +13,13 @@ namespace Brotkrueml\MatomoWidgets\ViewHelpers;
 
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
-use TYPO3Fluid\Fluid\Core\ViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 /**
  * @internal
  */
-final class DecorateViewHelper extends ViewHelper\AbstractViewHelper
+final class DecorateViewHelper extends AbstractViewHelper
 {
     public function initializeArguments(): void
     {
@@ -40,7 +41,7 @@ final class DecorateViewHelper extends ViewHelper\AbstractViewHelper
         $value = (string)$arguments['value'];
 
         if (! $decorator instanceof DecoratorInterface) {
-            throw new ViewHelper\Exception(
+            throw new Exception(
                 \sprintf(
                     'The decorator "%s" is not an instance of "%s"',
                     \get_debug_type($decorator),

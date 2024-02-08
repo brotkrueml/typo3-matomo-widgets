@@ -27,9 +27,9 @@ final class CustomDimensionConfigurationValidator
     private array $alreadyDefinedIdDimensions = [];
 
     /**
-     * @param array<string, string|int> $configuration It is intended to have no type hint "array" as a speaking error should be returned
+     * @param array<string, string|int> $configuration It is intended to have no type declaration "array" as a speaking error should be returned
      */
-    public function validate($configuration): bool
+    public function validate(mixed $configuration): bool
     {
         $this->checkConfigurationIsArray($configuration);
         $this->configuration = $configuration;

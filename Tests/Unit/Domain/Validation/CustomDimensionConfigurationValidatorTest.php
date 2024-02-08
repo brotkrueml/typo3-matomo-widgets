@@ -30,7 +30,7 @@ final class CustomDimensionConfigurationValidatorTest extends TestCase
 
     #[Test]
     #[DataProvider('dataProviderForProvokingException')]
-    public function validateThrowsExceptionOnError($configuration, int $expectedExceptionCode, string $expectedExceptionMessage): void
+    public function validateThrowsExceptionOnError(string|array $configuration, int $expectedExceptionCode, string $expectedExceptionMessage): void
     {
         $this->expectException(ValidationException::class);
         $this->expectExceptionCode($expectedExceptionCode);

@@ -36,7 +36,7 @@ final class ParameterBag
      */
     public function add(array $parameters): self
     {
-        \array_walk($parameters, function ($value, string $name) {
+        \array_walk($parameters, function ($value, string $name): void {
             $this->set($name, $value);
         });
 

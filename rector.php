@@ -8,31 +8,33 @@ use Rector\Php74\Rector\LNumber\AddLiteralSeparatorToNumberRector;
 use Rector\Php81\Rector\Array_\FirstClassCallableRector;
 use Rector\PHPUnit\CodeQuality\Rector\Class_\PreferPHPUnitThisCallRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
-use Rector\Set\ValueObject\LevelSetList;
-use Rector\Set\ValueObject\SetList;
-use Rector\ValueObject\PhpVersion;
 
-return static function (RectorConfig $config): void {
-    $config->phpVersion(PhpVersion::PHP_81);
-
-    $config->sets([
-        LevelSetList::UP_TO_PHP_81,
-        PHPUnitSetList::PHPUNIT_100,
-        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
-        SetList::CODE_QUALITY,
-        SetList::DEAD_CODE,
-        SetList::EARLY_RETURN,
-    ]);
-
-    $config->autoloadPaths([
-        __DIR__ . '/.Build/vendor/autoload.php'
-    ]);
-    $config->paths([
+return RectorConfig::configure()
+    ->withPaths([
         __DIR__ . '/Classes',
         __DIR__ . '/Configuration',
         __DIR__ . '/Tests',
-    ]);
-    $config->skip([
+    ])
+    ->withPhpSets()
+    ->withAutoloadPaths([
+        __DIR__ . '/.Build/vendor/autoload.php',
+    ])
+    ->withImportNames(
+        importShortClasses: false,
+        removeUnusedImports: true,
+    )
+    ->withPreparedSets(
+        deadCode: true,
+        codeQuality: true,
+        typeDeclarations: true,
+        earlyReturn: true,
+    )
+    ->withSets([
+        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
+        PHPUnitSetList::PHPUNIT_100,
+    ])
+    ->withRootFiles()
+    ->withSkip([
         AddLiteralSeparatorToNumberRector::class,
         CallableThisArrayToAnonymousFunctionRector::class => [
             __DIR__ . '/Configuration/Services.php',
@@ -41,7 +43,5 @@ return static function (RectorConfig $config): void {
             __DIR__ . '/Configuration/Services.php',
         ],
         PreferPHPUnitThisCallRector::class,
-        __DIR__ . '/Classes/Adapter/GuzzleClientFactory.php',
         __DIR__ . '/Tests/Unit/Connection/MatomoConnectorTest.php',
     ]);
-};
