@@ -87,8 +87,6 @@ Active Widgets
    site. Deactivated widgets cannot be selected in the dashboard.
 
 Pages Not Found Template
-   .. versionadded:: 1.3.0
-
    Enter the template to specify the page title for pages which are not found.
    See `How to track error pages in Matomo`_ for more information. Please use
    the placeholders `{path}` for the path/URL and `{referrer}` for the referrer.
@@ -138,8 +136,6 @@ file. Following is a list of the possible keys and values.
    The site ID to track into.
 
 .. confval:: matomoWidgetsPagesNotFoundTemplate
-
-   .. versionadded:: 1.3.0
 
    :type: string
    :Default: '404/URL = {path}/From = {referrer}'
@@ -231,8 +227,6 @@ description (optional)
 
 Configuration independent from a site
 =====================================
-
-.. versionadded:: 1.7.0/2.1.0
 
 It is possible to add widgets for one or more Matomo site IDs independently of
 a site configuration. YAML files in the :file:`config/matomo_widgets/` folder
