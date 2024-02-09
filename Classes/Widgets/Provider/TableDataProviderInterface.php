@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Widgets\Provider;
 
+use Brotkrueml\MatomoWidgets\DateTime\DateRange;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 
 /**
@@ -18,8 +19,7 @@ use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
  */
 interface TableDataProviderInterface
 {
-    // @todo Enforce the method with version 3.0.0
-    //public function getDateRange(): string;
+    public function getDateRange(): ?DateRange;
 
     /**
      * @return list<string>
