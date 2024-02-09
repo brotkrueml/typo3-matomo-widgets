@@ -12,12 +12,12 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\ViewHelpers;
 
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
-use TYPO3Fluid\Fluid\Core\ViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * @internal
  */
-final class UniqidViewHelper extends ViewHelper\AbstractViewHelper
+final class UniqidViewHelper extends AbstractViewHelper
 {
     /**
      * @param array{} $arguments

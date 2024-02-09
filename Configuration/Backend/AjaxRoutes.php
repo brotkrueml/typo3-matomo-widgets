@@ -9,15 +9,18 @@ declare(strict_types=1);
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController;
+use Brotkrueml\MatomoWidgets\Controller\JavaScriptErrorDetailsController;
+
 return [
     'matomo_widgets_create_annotation' => [
         'path' => '/matomo-widgets/create-annotation',
         'methods' => ['POST'],
-        'target' => Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController::class,
+        'target' => CreateAnnotationController::class,
     ],
     'matomo_widgets_javascript_error_details' => [
         'path' => '/matomo-widgets/javascript-error-details',
         'methods' => ['GET'],
-        'target' => Brotkrueml\MatomoWidgets\Controller\JavaScriptErrorDetailsController::class,
+        'target' => JavaScriptErrorDetailsController::class,
     ],
 ];

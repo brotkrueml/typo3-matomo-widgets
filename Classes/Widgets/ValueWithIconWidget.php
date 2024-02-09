@@ -12,18 +12,21 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets;
 
 use Brotkrueml\MatomoWidgets\Widgets\Provider\ValueDataProviderInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\View\BackendViewFactory;
+use TYPO3\CMS\Dashboard\Widgets\RequestAwareWidgetInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 
 /**
  * @internal
  */
-final class ValueWithIconWidget implements WidgetInterface
+final class ValueWithIconWidget implements WidgetInterface, RequestAwareWidgetInterface
 {
     use WidgetTitleAdaptionTrait;
 
     private readonly WidgetConfigurationInterface $configuration;
+    private ServerRequestInterface $request;
 
     /**
      * @param array<string, string> $options
@@ -31,16 +34,21 @@ final class ValueWithIconWidget implements WidgetInterface
     public function __construct(
         WidgetConfigurationInterface $configuration,
         private readonly ValueDataProviderInterface $dataProvider,
-        private readonly StandaloneView $view,
+        private readonly BackendViewFactory $backendViewFactory,
         private readonly array $options = [],
     ) {
         $this->configuration = $this->prefixWithSiteTitle($configuration, $options);
     }
 
+    public function setRequest(ServerRequestInterface $request): void
+    {
+        $this->request = $request;
+    }
+
     public function renderWidgetContent(): string
     {
-        $this->view->setTemplate('Widget/ValueWithIconWidget');
-        $this->view->assignMultiple([
+        $view = $this->backendViewFactory->create($this->request, ['typo3/cms-dashboard', 'brotkrueml/typo3-matomo-widgets']);
+        $view->assignMultiple([
             'icon' => $this->options['icon'],
             'title' => $this->options['title'],
             'subtitle' => $this->options['subtitle'],
@@ -49,7 +57,7 @@ final class ValueWithIconWidget implements WidgetInterface
             'configuration' => $this->configuration,
         ]);
 
-        return $this->view->render();
+        return $view->render('Widget/ValueWithIconWidget');
     }
 
     /**

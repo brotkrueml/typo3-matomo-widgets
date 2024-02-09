@@ -17,7 +17,6 @@ use Brotkrueml\MatomoWidgets\ContentSecurityPolicy\ExtendPolicyForMatomoServers;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\PolicyMutatedEvent;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy;
@@ -28,13 +27,6 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
 #[CoversClass(ExtendPolicyForMatomoServers::class)]
 final class ExtendPolicyForMatomoServersTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        if ((new Typo3Version())->getMajorVersion() < 12) {
-            self::markTestSkipped('Feature is only available in TYPO3 v12+');
-        }
-    }
-
     #[Test]
     public function whenNotInFrontendScopeThePolicyIsNotChanged(): void
     {

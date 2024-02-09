@@ -9,13 +9,16 @@ declare(strict_types=1);
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use Brotkrueml\MatomoWidgets\Extension;
+use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
+
 return [
     'content-bounce-rate' => [
-        'provider' => TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        'source' => 'EXT:' . Brotkrueml\MatomoWidgets\Extension::KEY . '/Resources/Public/Icons/content-bounce-rate.svg',
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:' . Extension::KEY . '/Resources/Public/Icons/content-bounce-rate.svg',
     ],
     'content-widget-matomo' => [
-        'provider' => TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        'source' => 'EXT:' . Brotkrueml\MatomoWidgets\Extension::KEY . '/Resources/Public/Icons/content-widget-matomo.svg',
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:' . Extension::KEY . '/Resources/Public/Icons/content-widget-matomo.svg',
     ],
 ];

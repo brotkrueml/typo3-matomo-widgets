@@ -22,7 +22,7 @@ use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
-use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3\CMS\Backend\View\BackendViewFactory;
 
 /**
  * @internal
@@ -38,7 +38,7 @@ final class JavaScriptErrorDetailsController
         private readonly LoggerInterface $logger,
         private readonly MatomoRepository $repository,
         private readonly ResponseFactoryInterface $responseFactory,
-        private readonly StandaloneView $view,
+        private readonly BackendViewFactory $backendViewFactory,
         private readonly array $parameters,
     ) {}
 
@@ -79,15 +79,15 @@ final class JavaScriptErrorDetailsController
         }
         $details = $this->aggregator->aggregate($visits);
 
-        $this->view->setTemplatePathAndFilename('EXT:matomo_widgets/Resources/Private/Templates/JavaScriptErrorDetails.html');
-        $this->view->assignMultiple([
+        $view = $this->backendViewFactory->create($request);
+        $view->assignMultiple([
             'matomoBaseUrl' => $siteConfiguration->url,
             'details' => $details,
         ]);
 
         $response = $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'text/html; charset=utf-8');
-        $response->getBody()->write($this->view->render());
+        $response->getBody()->write($view->render('JavaScriptErrorDetails'));
 
         return $response;
     }

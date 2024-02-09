@@ -53,7 +53,6 @@ final class LinkMatomoRegistration extends AbstractRegistration
 
         $this->services
             ->set($this->buildServiceWidgetId(), CtaWidget::class)
-            ->arg('$view', new Reference('dashboard.views.widget'))
             ->arg('$buttonProvider', new Reference($this->buildServiceDataProviderId()))
             ->arg(
                 '$options',

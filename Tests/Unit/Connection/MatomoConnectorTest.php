@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Connection;
 
-use Brotkrueml\MatomoWidgets\Adapter\GuzzleClientFactory;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Connection\MatomoConnector;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
@@ -27,8 +26,8 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use TYPO3\CMS\Core\Http\Client;
+use TYPO3\CMS\Core\Http\Client\GuzzleClientFactory;
 use TYPO3\CMS\Core\Http\RequestFactory;
-use TYPO3\CMS\Core\Information\Typo3Version;
 
 #[CoversClass(MatomoConnector::class)]
 final class MatomoConnectorTest extends TestCase
@@ -54,13 +53,7 @@ final class MatomoConnectorTest extends TestCase
     {
         $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify'] = false;
 
-        $isTypo3Version12 = (new Typo3Version())->getMajorVersion() === 12;
-        if ($isTypo3Version12) {
-            $this->requestFactory = new RequestFactory(new Client\GuzzleClientFactory());
-        } else {
-            $this->requestFactory = new RequestFactory();
-        }
-
+        $this->requestFactory = new RequestFactory(new Client\GuzzleClientFactory());
         $this->client = (new GuzzleClientFactory())->getClient();
 
         $this->guzzleClientFactoryStub = $this->createStub(GuzzleClientFactory::class);

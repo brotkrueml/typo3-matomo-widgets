@@ -12,20 +12,23 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Widgets;
 
 use Brotkrueml\MatomoWidgets\Extension;
-use TYPO3\CMS\Dashboard\Widgets\AdditionalJavaScriptInterface;
+use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
+use TYPO3\CMS\Dashboard\Widgets\JavaScriptInterface;
 
 /**
  * @internal
  */
-final class JavaScriptErrorsWidget extends TableWidget implements AdditionalJavaScriptInterface
+final class JavaScriptErrorsWidget extends TableWidget implements JavaScriptInterface
 {
     /**
-     * @return string[]
+     * @return list<JavaScriptModuleInstruction>
      */
-    public function getJsFiles(): array
+    public function getJavaScriptModuleInstructions(): array
     {
         return [
-            'EXT:' . Extension::KEY . '/Resources/Public/JavaScript/JavaScriptErrors.js',
+            JavaScriptModuleInstruction::create(
+                Extension::JS_IMPORT_PREFIX . '/javascript-errors.js',
+            )->invoke('initialize'),
         ];
     }
 }

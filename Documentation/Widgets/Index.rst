@@ -89,8 +89,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Annotations
 ===========
 
-.. versionadded:: 1.2.0
-
 Display a list of the recent `annotations`_ in the last 365 days:
 
 .. figure:: /Images/WidgetAnnotations.png
@@ -114,8 +112,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 
 Create annotation
 =================
-
-.. versionadded:: 1.3.0
 
 This widget provides a form to create an `annotation`_ conveniently from the
 TYPO3 backend:
@@ -389,8 +385,6 @@ Scope "visit"
 JavaScript errors
 =================
 
-.. versionadded:: 1.3.0
-
 Displays a list of JavaScript errors that occurred in the last 14 days:
 
 .. figure:: /Images/WidgetJavaScriptErrors.png
@@ -448,8 +442,6 @@ Active widgets value in :file:`config.yaml`
 Most viewed pages
 =================
 
-.. versionadded:: 2.3.0
-
 Show the most viewed pages of a site for the current month:
 
 .. figure:: /Images/WidgetMostViewedPages.png
@@ -506,8 +498,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 
 Pages not found
 ===============
-
-.. versionadded:: 1.3.0
 
 List of pages in the last 28 days which returned a status code 404 (not found):
 

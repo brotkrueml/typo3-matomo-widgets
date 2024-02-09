@@ -73,7 +73,6 @@ final class BounceRateRegistration extends AbstractRegistration
         $this->services
             ->set($this->buildServiceWidgetId(), ValueWithIconWidget::class)
             ->arg('$dataProvider', new Reference($this->buildServiceDataProviderId()))
-            ->arg('$view', new Reference('dashboard.views.widget'))
             ->arg(
                 '$options',
                 [
