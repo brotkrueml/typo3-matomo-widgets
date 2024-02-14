@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2023-11-12T15:02:27Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2024-02-14T18:57:48Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
@@ -248,10 +248,14 @@
 			<trans-unit id="widgets.visitsSummary.actionsPerMonth.title" resname="widgets.visitsSummary.actionsPerMonth.title">
 				<source><![CDATA[Actions per month]]></source>
 			</trans-unit>
+			<trans-unit id="widgets.visitsSummary.bounceRate.dateRange" resname="widgets.visitsSummary.bounceRate.dateRange">
+				<source><![CDATA[in the last 28 days]]></source>
+			</trans-unit>
 			<trans-unit id="widgets.visitsSummary.bounceRate.description" resname="widgets.visitsSummary.bounceRate.description">
-				<source><![CDATA[Display the bounce rate in the current month.]]></source>
+				<source><![CDATA[Display the bounce rate.]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.visitsSummary.bounceRate.subtitle" resname="widgets.visitsSummary.bounceRate.subtitle">
+				<!-- @todo: Can be removed once support for v2 is dropped! -->
 				<source><![CDATA[in the current month]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.visitsSummary.bounceRate.title" resname="widgets.visitsSummary.bounceRate.title">

@@ -43,8 +43,8 @@ final class CampaignsRegistration extends AbstractRegistration
         $this->parameters->set(
             self::PARAMETERS_PARAMETERS,
             [
-                'period' => 'month',
-                'date' => 'today',
+                'period' => 'range',
+                'date' => 'last28',
                 'filter_limit' => '30',
                 'filter_sort_column' => 'nb_visits',
                 'filter_sort_order' => 'desc',

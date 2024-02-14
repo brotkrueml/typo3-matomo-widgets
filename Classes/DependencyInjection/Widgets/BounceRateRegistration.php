@@ -43,13 +43,13 @@ final class BounceRateRegistration extends AbstractRegistration
         $this->parameters->set(
             self::PARAMETERS_PARAMETERS,
             [
-                'period' => 'month',
-                'date' => 'today',
+                'period' => 'range',
+                'date' => 'last28',
             ],
         );
         $this->parameters->set(
             self::PARAMETERS_SUBTITLE,
-            Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.subtitle',
+            Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.bounceRate.dateRange',
         );
     }
 

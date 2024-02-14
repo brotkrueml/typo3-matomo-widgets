@@ -150,10 +150,16 @@ Active widgets value in :file:`config.yaml`
    `view` permission.
 
 
+.. _widgets-bounce-rate:
+
 Bounce rate
 ===========
 
-The bounce rate for the current month shows this widget:
+.. versionchanged:: 4.0
+   The bounce rate for the last 28 days is displayed. In older versions the
+   rate for the current month has been shown.
+
+The bounce rate for the last 28 days shows this widget:
 
 .. figure:: /Images/WidgetBounceRate.png
    :alt: Widget Bounce Rate
@@ -169,17 +175,23 @@ Active widgets value in :file:`config.yaml`
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.bounceRate.parameters
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
    matomo_widgets.bounceRate.subtitle
-      in the current month
+      in the last 28 days (incl. today)
 
 
+.. _widgets-browser-plugins:
 
 Browser plugins
 ===============
 
-This report shows which browser plugins your visitors had enabled:
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
+
+This report shows which browser plugins your visitors had enabled in the last
+28 days:
 
 .. figure:: /Images/WidgetBrowserPlugins.png
    :alt: Widget Browser Plugins
@@ -195,17 +207,23 @@ Active widgets value in :file:`config.yaml`
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.browserPlugins.parameters
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_limit: 50
       - filter_sort_column: nb_visits
       - filter_sort_order: desc
 
 
+.. _widgets-browsers:
+
 Browsers
 ========
 
-The browser share for the current month shows this widget:
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
+
+The browser share for the last 28 days shows this widget:
 
 .. figure:: /Images/WidgetBrowsers.png
    :alt: Widget Browsers
@@ -223,16 +241,22 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.browsers.limit
       5
    matomo_widgets.browsers.parameters
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_sort_column: nb_visits
       - filter_sort_order: desc
 
 
+.. _widgets-campaigns:
+
 Campaigns
 =========
 
-Displays a report of the campaigns for the current month:
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
+
+Displays a report of the campaigns for the last 28 days:
 
 .. figure:: /Images/WidgetCampaigns.png
    :alt: Widget Campaigns
@@ -248,15 +272,21 @@ Active widgets value in :file:`config.yaml`
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.campaigns.parameters:
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_limit: 30
       - filter_sort_column: nb_visits
       - filter_sort_order: desc
 
 
+.. _widgets-content-names:
+
 Content names
 =============
+
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
 
 The content name report is part of `content tracking`_. The widget displays the
 names, impressions and interaction rate of the content the visitors viewed and
@@ -276,15 +306,21 @@ Active widgets value in :file:`config.yaml`
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.campaigns.parameters:
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_limit: 50
       - filter_sort_column: nb_impressions
       - filter_sort_order: desc
 
 
+.. _widgets-content-pieces:
+
 Content pieces
 ==============
+
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
 
 The content piece report is part of `content tracking`_. The widget displays the
 pieces, impressions and interaction rate of the content the visitors viewed and
@@ -304,18 +340,24 @@ Active widgets value in :file:`config.yaml`
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.campaigns.parameters:
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_limit: 50
       - filter_sort_column: nb_impressions
       - filter_sort_order: desc
 
 
+.. _widgets-countries:
+
 Countries
 =========
 
-Shows a list of countries from which the website was visited in the current
-month:
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
+
+Shows a list of countries from which the website was visited in the last 28
+days:
 
 .. figure:: /Images/WidgetCountries.png
    :alt: Widget Countries
@@ -331,15 +373,21 @@ Active widgets value in :file:`config.yaml`
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.country.parameters:
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_limit: 50
       - filter_sort_column: nb_visits
       - filter_sort_order: desc
 
 
+.. _widgets-custom-dimensions:
+
 Custom dimensions
 =================
+
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
 
 With `custom dimensions`_ any custom data can be assigned to visitors or
 actions. Before a custom dimension can be used as a dashboard widget it has to
@@ -353,13 +401,13 @@ Matomo module
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.customDimension<idDimension>.parameters:
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_limit: 50
       - filter_sort_column: nb_visits
       - filter_sort_order: desc
 
-The ``<idDimension>`` is the id of the custom dimension as available in the
+The ``<idDimension>`` is the ID of the custom dimension as available in the
 `Matomo configuration <https://matomo.org/docs/custom-dimensions/#creating-custom-dimensions>`_.
 
 
@@ -439,10 +487,16 @@ Active widgets value in :file:`config.yaml`
    linkMatomo
 
 
+.. _widgets-most-views-pages:
+
 Most viewed pages
 =================
 
-Show the most viewed pages of a site for the current month:
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
+
+Show the most viewed pages of a site for the last 28 days:
 
 .. figure:: /Images/WidgetMostViewedPages.png
    :alt: Widget Most viewed pages
@@ -458,8 +512,8 @@ Active widgets value in :file:`config.yaml`
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.mostViewedPages.parameters:
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_sort_column: nb_hits
       - filter_sort_order: desc
 
@@ -469,10 +523,16 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
    want then `invalidate the historical reports`_ to adopt the change.
 
 
+.. _widgets-operating-system-families:
+
 Operating system families
 =========================
 
-The operating system families used by the visitors for the current month:
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
+
+The operating system families used by the visitors for the last 28 days:
 
 .. figure:: /Images/WidgetOsFamilies.png
    :alt: Widget Operating system families
@@ -490,8 +550,8 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.osFamilies.limit:
       5
    matomo_widgets.osFamilies.parameters:
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_sort_column: nb_visits
       - filter_sort_order: desc
 
@@ -522,8 +582,14 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
       - filter_sort_order: desc
 
 
+.. _widgets-operating-site-search-keywords:
+
 Site search keywords
 ====================
+
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
 
 Overview of the search keywords that visitors searched for on the internal
 search engine:
@@ -542,15 +608,21 @@ Active widgets value in :file:`config.yaml`
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.siteSearchKeywords.parameters:
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_limit: 50
       - filter_sort_column: nb_visits
       - filter_sort_order: desc
 
 
+.. _widgets-operating-site-search-keywords-no-result:
+
 Site search keywords with no result
 ===================================
+
+.. versionchanged:: 4.0
+   The numbers for the last 28 days are displayed. In older versions the numbers
+   for the current month have been shown.
 
 List of the site search keywords that did not return any search result:
 
@@ -568,8 +640,8 @@ Active widgets value in :file:`config.yaml`
 
 Default configuration parameters in the :file:`Configuration/Services.yaml` file
    matomo_widgets.siteSearchNoResultKeywords.parameters:
-      - period: month
-      - date: today
+      - period: range
+      - date: last28
       - filter_limit: 50
       - filter_sort_column: nb_visits
       - filter_sort_order: desc

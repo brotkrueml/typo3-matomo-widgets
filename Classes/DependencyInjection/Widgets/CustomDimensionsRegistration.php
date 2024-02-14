@@ -58,8 +58,8 @@ final class CustomDimensionsRegistration extends AbstractRegistration
         $this->parameters->set(
             $this->parametersName,
             [
-                'period' => 'month',
-                'date' => 'today',
+                'period' => 'range',
+                'date' => 'last28',
                 'filter_limit' => '50',
                 'filter_sort_column' => 'nb_visits',
                 'filter_sort_order' => 'desc',

@@ -43,8 +43,8 @@ final class ContentNamesRegistration extends AbstractRegistration
         $this->parameters->set(
             self::PARAMETERS_PARAMETERS,
             [
-                'period' => 'month',
-                'date' => 'today',
+                'period' => 'range',
+                'date' => 'last28',
                 'filter_limit' => '50',
                 'filter_sort_column' => 'nb_impressions',
                 'filter_sort_order' => 'desc',

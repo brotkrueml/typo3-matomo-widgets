@@ -17,6 +17,12 @@ Added
 
 * Compatibility with TYPO3 v13
 
+Changed
+^^^^^^^
+
+
+* Date ranges of various widgets from current month to last 28 days
+
 Removed
 ^^^^^^^
 

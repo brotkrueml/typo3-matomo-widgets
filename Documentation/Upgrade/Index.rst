@@ -1,20 +1,51 @@
 .. include:: /Includes.rst.txt
 
-.. _migration:
+.. _upgrade:
 
-=========
-Migration
-=========
+=======
+Upgrade
+=======
 
 .. important::
-   Before updating from a version before 0.3 to 1.x or 2.x you should update to
-   version 0.3.2 first and execute the upgrade wizards. Then update to the
-   newest 1.x version and run the next upgrade wizards. Then you can upgrade to
-   version 2.x.
+   Before updating from a version before 0.3 to 1.x, 2.x or 3.x you should
+   update to version 0.3.2 first and execute the upgrade wizards. Then update to
+   the newest 1.x version and run the next upgrade wizards. Then you can upgrade
+   to version 2.x or 3.x.
 
 .. contents::
    :depth: 2
    :local:
+
+From version 2.x to 3.0
+=======================
+
+No migration necessary.
+
+The date ranges for the following widgets have been changed:
+
+*  :ref:`widgets-bounce-rate`
+*  :ref:`widgets-browser-plugins`
+*  :ref:`widgets-browsers`
+*  :ref:`widgets-campaigns`
+*  :ref:`widgets-content-names`
+*  :ref:`widgets-content-pieces`
+*  :ref:`widgets-countries`
+*  :ref:`widgets-custom-dimensions`
+*  :ref:`widgets-most-views-pages`
+*  :ref:`widgets-operating-system-families`
+*  :ref:`widgets-operating-site-search-keywords`
+*  :ref:`widgets-operating-site-search-keywords-no-result`
+
+| **Old configuration**: current month
+| period: month
+date: today
+
+| **New configuration**: last 28 days
+| period: range
+date: last28
+
+You can define your custom date ranges as described in the
+:ref:`widget configuration <widget-configuration>`.
 
 From version 1.x to 2.0
 =======================

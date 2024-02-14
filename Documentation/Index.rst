@@ -46,7 +46,7 @@ Dashboard widgets showing Matomo reports
    Configuration/Index
    Events/Index
    Translation/Index
-   Migration/Index
+   Upgrade/Index
    Changelog/Index
 
 .. Meta Menu
