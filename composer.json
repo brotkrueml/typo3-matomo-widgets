@@ -45,8 +45,6 @@
 	"suggest": {
 		"brotkrueml/typo3-matomo-integration": "Matomo integration for TYPO3"
 	},
-	"minimum-stability": "RC",
-	"prefer-stable": true,
 	"autoload": {
 		"psr-4": {
 			"Brotkrueml\\MatomoWidgets\\": "Classes"
