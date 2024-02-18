@@ -16,7 +16,6 @@ use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use TYPO3\CMS\Core\Http\Uri;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\PolicyMutatedEvent;
-use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
 
 /**
@@ -36,7 +35,7 @@ final class ExtendPolicyForMatomoServers
 
     public function __invoke(PolicyMutatedEvent $event): void
     {
-        if ($event->scope !== Scope::backend()) {
+        if ($event->scope->type->isFrontend()) {
             return;
         }
 
