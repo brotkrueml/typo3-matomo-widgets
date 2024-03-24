@@ -155,7 +155,7 @@ Active widgets value in :file:`config.yaml`
 Bounce rate
 ===========
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The bounce rate for the last 28 days is displayed. In older versions the
    rate for the current month has been shown.
 
@@ -186,7 +186,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Browser plugins
 ===============
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -219,7 +219,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Browsers
 ========
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -252,7 +252,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Campaigns
 =========
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -284,7 +284,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Content names
 =============
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -318,7 +318,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Content pieces
 ==============
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -352,7 +352,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Countries
 =========
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -385,7 +385,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Custom dimensions
 =================
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -492,7 +492,7 @@ Active widgets value in :file:`config.yaml`
 Most viewed pages
 =================
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -528,7 +528,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Operating system families
 =========================
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -587,7 +587,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Site search keywords
 ====================
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
@@ -620,7 +620,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Site search keywords with no result
 ===================================
 
-.. versionchanged:: 4.0
+.. versionchanged:: 3.0
    The numbers for the last 28 days are displayed. In older versions the numbers
    for the current month have been shown.
 
