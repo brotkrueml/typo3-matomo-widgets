@@ -15,6 +15,7 @@ use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\LanguageParameterResolver;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
+use Brotkrueml\MatomoWidgets\Parameter\PeriodResolverInterface;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use TYPO3\CMS\Core\Localization\LanguageService;
 
@@ -31,6 +32,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
     public function __construct(
         protected MatomoRepository $repository,
         protected ConnectionConfiguration $connectionConfiguration,
+        private readonly PeriodResolverInterface $periodResolver,
         protected string $method,
         private readonly array $columns,
         protected array $parameters,
@@ -86,6 +88,11 @@ class GenericTableDataProvider implements TableDataProviderInterface
     public function getRows(): array
     {
         return $this->repository->send($this->connectionConfiguration, $this->method, new ParameterBag($this->parameters));
+    }
+
+    public function getDatePeriod(): string
+    {
+        return $this->periodResolver->resolve($this->parameters['period'] ?? '', $this->parameters['date'] ?? '');
     }
 
     private function getLanguageService(): LanguageService

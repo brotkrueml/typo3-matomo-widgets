@@ -25,4 +25,10 @@ final class AnnotationsTableDataProvider extends GenericTableDataProvider
 
         return $rows;
     }
+
+    public function getDatePeriod(): string
+    {
+        // Display no period for annotations
+        return '';
+    }
 }

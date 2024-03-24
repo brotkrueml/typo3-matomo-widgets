@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2024-02-14T18:57:48Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2024-03-24T15:33:29Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions" resname="actions">
 				<source><![CDATA[Actions]]></source>
@@ -70,6 +70,15 @@
 			</trans-unit>
 			<trans-unit id="path" resname="path">
 				<source><![CDATA[Path]]></source>
+			</trans-unit>
+			<trans-unit id="period.range.last" resname="period.range.last">
+				<source><![CDATA[Last %d days (today included)]]></source>
+			</trans-unit>
+			<trans-unit id="period.range.previous" resname="period.range.previous">
+				<source><![CDATA[Last %d days (today excluded)]]></source>
+			</trans-unit>
+			<trans-unit id="period.range.range" resname="period.range.range">
+				<source><![CDATA[Between %1$s and %2$s]]></source>
 			</trans-unit>
 			<trans-unit id="plusMoreBrowsers" resname="plusMoreBrowsers">
 				<source><![CDATA[... plus %d more browsers]]></source>

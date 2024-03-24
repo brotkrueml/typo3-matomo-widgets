@@ -56,3 +56,9 @@
 .matomo_widgets__text-right {
     text-align: right;
 }
+
+.matomo_widgets__date-range {
+    color: #666;
+    font-size: 12px;
+    font-weight: normal;
+}

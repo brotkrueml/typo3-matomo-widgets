@@ -19,3 +19,13 @@ parameters:
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\MatomoRepository\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Domain/Repository/MatomoRepository.php
+
+		-
+			message: "#^Parameter \\#1 \\$period of method Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\PeriodResolverInterface\\:\\:resolve\\(\\) expects string, Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\LanguageParameterResolver\\|string given\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: "#^Parameter \\#2 \\$date of method Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\PeriodResolverInterface\\:\\:resolve\\(\\) expects string, Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\LanguageParameterResolver\\|string given\\.$#"
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php

@@ -14,6 +14,7 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
+use Brotkrueml\MatomoWidgets\Parameter\PeriodResolver;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\AnnotationsTableDataProvider;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
@@ -24,13 +25,15 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 #[CoversClass(AnnotationsTableDataProvider::class)]
 final class AnnotationsTableDataProviderTest extends TestCase
 {
-    private ConnectionConfiguration $connectionConfiguration;
-    private MatomoRepository&MockObject $repositoryMock;
+    private readonly ConnectionConfiguration $connectionConfiguration;
+    private readonly MatomoRepository&MockObject $repositoryMock;
+    private readonly PeriodResolver $periodResolver;
 
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryMock = $this->createMock(MatomoRepository::class);
+        $this->periodResolver = new PeriodResolver();
 
         $languageServiceStub = $this->createStub(LanguageService::class);
         $GLOBALS['LANG'] = $languageServiceStub;
@@ -75,6 +78,7 @@ final class AnnotationsTableDataProviderTest extends TestCase
         $subject = new AnnotationsTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
+            $this->periodResolver,
             'some.method',
             [
                 [

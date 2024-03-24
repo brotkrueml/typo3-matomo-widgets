@@ -14,6 +14,7 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Widgets\Provider;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
+use Brotkrueml\MatomoWidgets\Parameter\PeriodResolverInterface;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericTableDataProvider;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -29,11 +30,18 @@ final class GenericTableDataProviderTest extends TestCase
     private ConnectionConfiguration $connectionConfiguration;
     private MatomoRepository&MockObject $repositoryMock;
     private LanguageService&Stub $languageServiceStub;
+    private PeriodResolverInterface $periodResolverStub;
 
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryMock = $this->createMock(MatomoRepository::class);
+        $this->periodResolverStub = new class() implements PeriodResolverInterface {
+            public function resolve(string $period, string $date): string
+            {
+                return $period . ' / ' . $date;
+            }
+        };
 
         $this->languageServiceStub = $this->createStub(LanguageService::class);
         $GLOBALS['LANG'] = $this->languageServiceStub;
@@ -50,6 +58,7 @@ final class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
+            $this->periodResolverStub,
             'some.method',
             [
                 [
@@ -79,6 +88,7 @@ final class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
+            $this->periodResolverStub,
             'some.method',
             [
                 [
@@ -105,6 +115,7 @@ final class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
+            $this->periodResolverStub,
             'some.method',
             [
                 [
@@ -135,6 +146,7 @@ final class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
+            $this->periodResolverStub,
             'some.method',
             [
                 [
@@ -182,6 +194,7 @@ final class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
+            $this->periodResolverStub,
             'some.method',
             [
                 [
@@ -222,6 +235,7 @@ final class GenericTableDataProviderTest extends TestCase
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,
             $this->connectionConfiguration,
+            $this->periodResolverStub,
             'some.method',
             [
                 [
@@ -236,5 +250,27 @@ final class GenericTableDataProviderTest extends TestCase
 
         $subject->addParameter('qux', 'quu');
         $subject->getRows();
+    }
+
+    #[Test]
+    public function getPeriod(): void
+    {
+        $parameters = [
+            'period' => 'range',
+            'date' => 'last10',
+        ];
+
+        $subject = new GenericTableDataProvider(
+            $this->repositoryMock,
+            $this->connectionConfiguration,
+            $this->periodResolverStub,
+            'some.method',
+            [],
+            $parameters,
+        );
+
+        $actual = $subject->getDatePeriod();
+
+        self::assertSame('range / last10', $actual);
     }
 }

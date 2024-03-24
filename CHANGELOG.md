@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Display of date range in table widgets (#50)
+
 ## [3.0.0] - 2024-02-19
 
 ### Added
