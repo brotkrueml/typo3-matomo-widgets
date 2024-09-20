@@ -10,12 +10,9 @@ use YourVendor\YourExtension\Mapping\MatomoSiteMapper;
 
 final class BeforeMatomoApiRequestEventListener
 {
-    private MatomoSiteMapper $matomoSiteMapper;
-
-    public function __construct(MatomoSiteMapper $matomoSiteMapper)
-    {
-        $this->matomoSiteMapper = $matomoSiteMapper;
-    }
+    public function __construct(
+        private readonly MatomoSiteMapper $matomoSiteMapper,
+    ) {}
 
     public function __invoke(BeforeMatomoApiRequestEvent $event): void
     {
