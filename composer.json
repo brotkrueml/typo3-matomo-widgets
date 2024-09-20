@@ -24,8 +24,8 @@
 	"require": {
 		"php": ">=8.1",
 		"symfony/finder": "^6.4 || ^7.0",
-		"typo3/cms-core": "^12.4 || ^13.0",
-		"typo3/cms-dashboard": "^12.4 || ^13.0"
+		"typo3/cms-core": "^12.4 || ^13.3",
+		"typo3/cms-dashboard": "^12.4 || ^13.3"
 	},
 	"require-dev": {
 		"brotkrueml/coding-standards": "~6.0.0",
