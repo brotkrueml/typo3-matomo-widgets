@@ -88,6 +88,7 @@ jobs:
       - name: Check coding standards
         run: |
           .Build/bin/ecs check --no-progress-bar
+          .Build/bin/ecs check --config=ecs.docs.php
       - name: Run phpstan
         run: |
           make phpstan

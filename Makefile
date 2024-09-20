@@ -18,6 +18,7 @@ code-coverage: vendor
 .PHONY: cs
 cs: vendor
 	.Build/bin/ecs check --fix
+	.Build/bin/ecs check --fix --config=ecs.docs.php
 
 .PHONY: docs
 docs:

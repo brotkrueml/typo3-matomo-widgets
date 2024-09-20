@@ -44,44 +44,12 @@ Example
 Dependent on the host name the current backend user is using we change the
 site ID:
 
-.. code-block:: php
+.. literalinclude:: _BeforeMatomoApiRequestEventListener.php
    :caption: EXT:your_extension/Classes/EventListener/BeforeMatomoApiRequestEventListener.php
-
-   namespace YourVendor\YourExtension\EventListener;
-
-   use Psr\Http\Message\ServerRequestInterface;
-   use YourVendor\YourExtension\Mapping\MatomoSiteMapper;
-
-   final class BeforeMatomoApiRequestEventListener
-   {
-      private MatomoSiteMapper $matomoSiteMapper;
-
-      public function __construct(MatomoSiteMapper $matomoSiteMapper)
-      {
-         $this->matomoSiteMapper = $matomoSiteMapper;
-      }
-
-      public function __invoke(BeforeMatomoApiRequestEvent $event): void
-      {
-         $hostName = $this->request->getServerParams()['REMOTE_HOST'];
-         if ($idSiteFromHostName = $this->matomoSiteMapper->getIdSiteFromHostName($hostName)) {
-            $event->setIdSite($idSiteFromHostName);
-         }
-      }
-
-      private function getRequest(): ServerRequestInterface
-      {
-         return $GLOBALS['TYPO3_REQUEST'];
-      }
-   }
 
 Registration of the event listener:
 
-.. code-block:: yaml
+.. literalinclude:: _Services.yaml
    :caption: EXT:your_extension/Configuration/Services.yaml
 
-   services:
-      YourVendor\YourExtension\EventListener\BeforeMatomoApiRequestEventListener:
-         tags:
-            - name: event.listener
-              identifier: 'myMatomoApiRequestListener'
+Read :ref:`how to configure dependency injection in extensions <t3coreapi:dependency-injection-in-extensions>`.
