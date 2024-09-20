@@ -17,6 +17,7 @@ use Brotkrueml\MatomoWidgets\ContentSecurityPolicy\ExtendPolicyForMatomoServers;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\PolicyMutatedEvent;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy;
@@ -33,7 +34,12 @@ final class ExtendPolicyForMatomoServersTest extends TestCase
         $subject = new ExtendPolicyForMatomoServers($this->getDefaultConfigurations());
 
         $defaultPolicy = $this->getDefaultPolicy();
-        $event = new PolicyMutatedEvent(Scope::frontend(), $defaultPolicy, $defaultPolicy);
+        $event = new PolicyMutatedEvent(
+            Scope::frontend(),
+            $this->createStub(ServerRequestInterface::class),
+            $defaultPolicy,
+            $defaultPolicy,
+        );
 
         $subject->__invoke($event);
 
@@ -46,7 +52,12 @@ final class ExtendPolicyForMatomoServersTest extends TestCase
         $subject = new ExtendPolicyForMatomoServers($this->getDefaultConfigurations());
 
         $defaultPolicy = $this->getDefaultPolicy();
-        $event = new PolicyMutatedEvent(Scope::backend(), $defaultPolicy, $defaultPolicy);
+        $event = new PolicyMutatedEvent(
+            Scope::backend(),
+            $this->createStub(ServerRequestInterface::class),
+            $defaultPolicy,
+            $defaultPolicy,
+        );
 
         $subject->__invoke($event);
 
@@ -72,7 +83,12 @@ final class ExtendPolicyForMatomoServersTest extends TestCase
         ]));
 
         $defaultPolicy = $this->getDefaultPolicy();
-        $event = new PolicyMutatedEvent(Scope::backend(), $defaultPolicy, $defaultPolicy);
+        $event = new PolicyMutatedEvent(
+            Scope::backend(),
+            $this->createStub(ServerRequestInterface::class),
+            $defaultPolicy,
+            $defaultPolicy,
+        );
 
         $subject->__invoke($event);
 
