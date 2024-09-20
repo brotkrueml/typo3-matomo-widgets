@@ -248,7 +248,7 @@ Permission of widgets
 
 You have to grant access for editors to use some or all of the Matomo widgets.
 You can find more information in the :ref:`Dashboard manual
-<t3dashboard:permission-handling-of-widgets>`.
+<typo3/cms-dashboard:permission-handling-of-widgets>`.
 
 .. note::
    Only activated widgets for a site are available. The widget titles are always

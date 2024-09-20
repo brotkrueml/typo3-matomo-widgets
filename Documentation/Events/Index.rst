@@ -10,7 +10,7 @@ PSR-14 events
 
 Target group: **Developers**
 
-Have a look into the :ref:`event dispatcher documentation <EventDispatcher>` if
+Have a look into the :ref:`event dispatcher documentation <t3coreapi:EventDispatcher>` if
 you are not familiar with PSR-14 events.
 
 BeforeMatomoApiRequestEvent
