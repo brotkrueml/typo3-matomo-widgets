@@ -37,7 +37,7 @@ Widgets` tab:
 .. important::
    If you adjust settings for the Matomo widgets in the site configuration you
    have to flush the cache via :guilabel:`Admin Tools` > :guilabel:`Maintenance`
-   or in TYPO3 v11+ on console with :bash:`vendor/bin/typo3 cache:flush`.
+   or on console with :bash:`vendor/bin/typo3 cache:flush`.
 
 .. note::
    A Matomo instance is only connected to a site if a base URL and a site ID
@@ -103,66 +103,77 @@ Configuration keys
 The values from the :guilabel:`Sites` module are stored in the according YAML
 file. Following is a list of the possible keys and values.
 
-.. confval:: matomoWidgetsActiveWidgets
+.. confval-menu::
+   :name: configuration-keys
 
-   :type: string
-   :Default: ''
+   .. confval:: matomoWidgetsActiveWidgets
+      :name: configuration-activewidgets
 
-   Comma-delimited list of the widget names. You can find the according widget
-   value in the :ref:`widget overview <widgets>` as "Active widgets value".
+      :type: string
+      :Default: ''
 
-.. confval:: matomoWidgetsConsiderMatomoIntegration
+      Comma-delimited list of the widget names. You can find the according widget
+      value in the :ref:`widget overview <widgets>` as "Active widgets value".
 
-   :type: bool
-   :Default: false
+   .. confval:: matomoWidgetsConsiderMatomoIntegration
+      :name: configuration-considermatomointegration
 
-   With installed :doc:`Matomo Integration <ext_matomo_integration:Index>`
-   extension the URL and the site ID are taken from the configuration of that
-   extension.
+      :type: bool
+      :Default: false
 
-.. confval:: matomoWidgetsCustomDimensions
+      With installed :doc:`Matomo Integration <ext_matomo_integration:Index>`
+      extension the URL and the site ID are taken from the configuration of that
+      extension.
 
-   :type: array
-   :Default: []
+   .. confval:: matomoWidgetsCustomDimensions
+      :name: configuration-customdimensions
 
-   Configuration for custom dimensions,
-   see :ref:`configuring-custom-dimensions`.
+      :type: array
+      :Default: []
 
-.. confval:: matomoWidgetsIdSite
+      Configuration for custom dimensions,
+      see :ref:`configuring-custom-dimensions`.
 
-   :type: int
-   :Default: ''
+   .. confval:: matomoWidgetsIdSite
+      :name: configuration-idsite
 
-   The site ID to track into.
+      :type: int
+      :Default: ''
 
-.. confval:: matomoWidgetsPagesNotFoundTemplate
+      The site ID to track into.
 
-   :type: string
-   :Default: '404/URL = {path}/From = {referrer}'
+   .. confval:: matomoWidgetsPagesNotFoundTemplate
+      :name: configuration-pagesnotfoundtemplate
 
-   The template for a 404 page, see `How to track error pages in Matomo`_ for
-   more information.
+      :type: string
+      :Default: '404/URL = {path}/From = {referrer}'
 
-.. confval:: matomoWidgetsTitle
+      The template for a 404 page, see `How to track error pages in Matomo`_ for
+      more information.
 
-   :type: string
-   :Default: ''
+   .. confval:: matomoWidgetsTitle
+      :name: configuration-title
 
-   The widgets are prefixed with this title.
+      :type: string
+      :Default: ''
 
-.. confval:: matomoWidgetsTokenAuth
+      The widgets are prefixed with this title.
 
-   :type: string
-   :Default: ''
+   .. confval:: matomoWidgetsTokenAuth
+      :name: configuration-tokenauth
 
-   The authorisation token pro retrieving the data via the API.
+      :type: string
+      :Default: ''
 
-.. confval:: matomoWidgetsUrl
+      The authorisation token pro retrieving the data via the API.
 
-   :type: string
-   :Default: ''
+   .. confval:: matomoWidgetsUrl
+      :name: configuration-url
 
-   The URL of the Matomo installation.
+      :type: string
+      :Default: ''
+
+      The URL of the Matomo installation.
 
 
 .. _configuring-custom-dimensions:

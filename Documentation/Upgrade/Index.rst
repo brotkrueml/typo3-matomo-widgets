@@ -69,7 +69,6 @@ The migration can be started in the TYPO3 backend via :guilabel:`Admin Tools` >
 
 .. figure:: /Images/EnableWidgetsMigrationBackend.png
    :alt: Migrate configuration in backend
-   :class: with-border
 
    Migrate configuration in backend
 
@@ -77,7 +76,6 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
 
 .. figure:: /Images/EnableWidgetsMigrationConsole.png
    :alt: Migrate configuration on console
-   :class: with-border
 
    Migrate configuration on console
 
@@ -87,7 +85,7 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
 
 The migration wizard updates:
 
-* File :file:`config/<site_identifier>/config.yaml`
+*  File :file:`config/<site_identifier>/config.yaml`
 
 
 From version 0.2 to 0.3
@@ -116,7 +114,6 @@ The migration can be started in the TYPO3 backend via :guilabel:`Admin Tools` >
 
 .. figure:: /Images/SiteConfigurationMigrationBackend.png
    :alt: Migrate configuration in backend
-   :class: with-border
 
    Migrate configuration in backend
 
@@ -124,7 +121,6 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
 
 .. figure:: /Images/SiteConfigurationMigrationConsole.png
    :alt: Migrate configuration on console
-   :class: with-border
 
    Migrate configuration on console
 
@@ -134,8 +130,8 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
 
 The migration wizard updates:
 
-* File :file:`typo3conf/LocalConfiguration.php`
-* File :file:`config/<site_identifier>/config.yaml`
+*  File :file:`typo3conf/LocalConfiguration.php`
+*  File :file:`config/<site_identifier>/config.yaml`
 
 .. hint::
    If you use Git for versioning your site configuration you should consider
@@ -156,7 +152,6 @@ The migration can be started in the TYPO3 backend via :guilabel:`Admin Tools` >
 
 .. figure:: /Images/WidgetMigrationBackend.png
    :alt: Migrate dashboard widgets in backend
-   :class: with-border
 
    Migrate dashboard widgets in backend
 
@@ -164,7 +159,6 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
 
 .. figure:: /Images/WidgetMigrationConsole.png
    :alt: Migrate dashboard widgets on console
-   :class: with-border
 
    Migrate dashboard widgets on console
 
@@ -174,7 +168,7 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
 
 The migration wizard updates:
 
-* Table "be_dashboards"
+*  Table "be_dashboards"
 
 
 Migrating the backend user group configuration
@@ -186,7 +180,6 @@ manually to the backend user groups again.
 
 .. figure:: /Images/WidgetBackendUserGroupMigrationBackend.png
    :alt: Migrate widgets identifiers of backend user groups in backend
-   :class: with-border
 
    Migrate widgets identifiers of backend user groups in backend
 
@@ -194,10 +187,9 @@ Alternatively, you can also execute the migration wizard on a TYPO3 console:
 
 .. figure:: /Images/WidgetBackendUserGroupMigrationConsole.png
    :alt: Migrate widgets identifiers of backend user groups on console
-   :class: with-border
 
    Migrate widgets identifiers of backend user groups on console
 
 The migration wizard updates:
 
-* Table "be_groups"
+*  Table "be_groups"

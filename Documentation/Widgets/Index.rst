@@ -42,7 +42,6 @@ This widget displays the number of actions per day for the last 28 days
 
 .. figure:: /Images/WidgetActionsPerDay.png
    :alt: Widget Actions per day
-   :class: with-border
 
    Widget *Actions per day*
 
@@ -70,7 +69,6 @@ This widget displays the number of actions per month for the last 12 months
 
 .. figure:: /Images/WidgetActionsPerMonth.png
    :alt: Widget Actions per month
-   :class: with-border
 
    Widget *Actions per month*
 
@@ -93,7 +91,6 @@ Display a list of the recent `annotations`_ in the last 365 days:
 
 .. figure:: /Images/WidgetAnnotations.png
    :alt: Widget Annotations
-   :class: with-border
 
    Widget *Annotations*
 
@@ -118,7 +115,6 @@ TYPO3 backend:
 
 .. figure:: /Images/WidgetCreateAnnotation.png
    :alt: Widget Create annotation
-   :class: with-border
 
    Widget *Create annotation*
 
@@ -141,7 +137,6 @@ Active widgets value in :file:`config.yaml`
 
    .. figure:: /Images/AdministrationLogEntry.png
       :alt: Entry in the administration log
-      :class: with-border
 
       Entry in the administration log
 
@@ -163,7 +158,6 @@ The bounce rate for the last 28 days shows this widget:
 
 .. figure:: /Images/WidgetBounceRate.png
    :alt: Widget Bounce Rate
-   :class: with-border
 
    Widget *Bounce rate*
 
@@ -195,7 +189,6 @@ This report shows which browser plugins your visitors had enabled in the last
 
 .. figure:: /Images/WidgetBrowserPlugins.png
    :alt: Widget Browser Plugins
-   :class: with-border
 
    Widget *Browser Plugins*
 
@@ -227,7 +220,6 @@ The browser share for the last 28 days shows this widget:
 
 .. figure:: /Images/WidgetBrowsers.png
    :alt: Widget Browsers
-   :class: with-border
 
    Widget *Browsers*
 
@@ -260,7 +252,6 @@ Displays a report of the campaigns for the last 28 days:
 
 .. figure:: /Images/WidgetCampaigns.png
    :alt: Widget Campaigns
-   :class: with-border
 
    Widget *Campaigns*
 
@@ -294,7 +285,6 @@ interacted with.
 
 .. figure:: /Images/WidgetContentNames.png
    :alt: Widget Content Names
-   :class: with-border
 
    Widget *Content Names*
 
@@ -328,7 +318,6 @@ interacted with.
 
 .. figure:: /Images/WidgetContentPieces.png
    :alt: Widget Content Pieces
-   :class: with-border
 
    Widget *Content Pieces*
 
@@ -361,7 +350,6 @@ days:
 
 .. figure:: /Images/WidgetCountries.png
    :alt: Widget Countries
-   :class: with-border
 
    Widget *Countries*
 
@@ -416,7 +404,6 @@ Scope "action"
 
 .. figure:: /Images/WidgetCustomDimensionAction.png
    :alt: Example widget for a custom dimension with scope "action"
-   :class: with-border
 
    Example widget for a custom dimension with scope "action"
 
@@ -425,7 +412,6 @@ Scope "visit"
 
 .. figure:: /Images/WidgetCustomDimensionVisit.png
    :alt: Example widget for a custom dimension with scope "visit"
-   :class: with-border
 
    Example widget for a custom dimension with scope "visit"
 
@@ -437,7 +423,6 @@ Displays a list of JavaScript errors that occurred in the last 14 days:
 
 .. figure:: /Images/WidgetJavaScriptErrors.png
    :alt: Widget JavaScript errors
-   :class: with-border
 
    Widget *JavaScript errors*
 
@@ -445,7 +430,6 @@ Clicking on the message opens a modal with details to this message:
 
 .. figure:: /Images/WidgetJavaScriptErrorsDetailsModal.png
    :alt: Modal with details for a specific error
-   :class: with-border
 
    Modal with details for a specific error
 
@@ -479,7 +463,6 @@ installation:
 
 .. figure:: /Images/WidgetLinkToMatomo.png
    :alt: Widget Link to Matomo
-   :class: with-border
 
    Widget *Link to Matomo*
 
@@ -500,7 +483,6 @@ Show the most viewed pages of a site for the last 28 days:
 
 .. figure:: /Images/WidgetMostViewedPages.png
    :alt: Widget Most viewed pages
-   :class: with-border
 
    Widget *Most viewed pages*
 
@@ -536,7 +518,6 @@ The operating system families used by the visitors for the last 28 days:
 
 .. figure:: /Images/WidgetOsFamilies.png
    :alt: Widget Operating system families
-   :class: with-border
 
    Widget *Operating system families*
 
@@ -563,7 +544,6 @@ List of pages in the last 28 days which returned a status code 404 (not found):
 
 .. figure:: /Images/WidgetPagesNotFound.png
    :alt: Widget Pages not found
-   :class: with-border
 
    Widget *Pages not found*
 
@@ -596,7 +576,6 @@ search engine:
 
 .. figure:: /Images/WidgetSiteSearchKeywords.png
    :alt: Widget Site search keywords
-   :class: with-border
 
    Widget *Site search keywords*
 
@@ -628,7 +607,6 @@ List of the site search keywords that did not return any search result:
 
 .. figure:: /Images/WidgetSiteSearchNoResultKeywords.png
    :alt: Widget Site search keywords with no result
-   :class: with-border
 
    Widget *Site search keywords with no result*
 
@@ -654,7 +632,6 @@ This widget displays the number of visits per day for the last 28 days:
 
 .. figure:: /Images/WidgetVisitsPerDay.png
    :alt: Widget Visits per day
-   :class: with-border
 
    Widget *Visits per day*
 
@@ -677,7 +654,6 @@ This widget displays the number of visits per month for the last 12 months:
 
 .. figure:: /Images/WidgetVisitsPerMonth.png
    :alt: Widget Visits per month
-   :class: with-border
 
    Widget *Visits per month*
 

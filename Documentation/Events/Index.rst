@@ -23,7 +23,7 @@ token just before making the request to the Matomo API. This may be helpful
 in a big multi-site installation where you added a :ref:`configuration
 independent from a site <configuration-independent-from-site>`.
 
-The event :php:`Brotkrueml\MatomoWidgets\Event\BeforeMatomoApiRequestEvent`
+The event :php:`\Brotkrueml\MatomoWidgets\Event\BeforeMatomoApiRequestEvent`
 provides the following methods:
 
 :php:`->getIdSite()`
