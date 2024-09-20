@@ -6,11 +6,6 @@ parameters:
 			path: Classes/Configuration/ConfigurationFinder.php
 
 		-
-			message: "#^Use value object over return of values$#"
-			count: 1
-			path: Classes/Configuration/ConfigurationFinder.php
-
-		-
 			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Connection\\\\MatomoConnector\\:\\:callApi\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: Classes/Connection/MatomoConnector.php
