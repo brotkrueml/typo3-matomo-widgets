@@ -16,8 +16,6 @@ you are not familiar with PSR-14 events.
 BeforeMatomoApiRequestEvent
 ===========================
 
-.. versionadded:: 1.7.0/2.1.0
-
 This event provides a possibility to adjust the site ID and the authentication
 token just before making the request to the Matomo API. This may be helpful
 in a big multi-site installation where you added a :ref:`configuration
