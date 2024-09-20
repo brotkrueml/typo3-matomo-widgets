@@ -38,7 +38,7 @@ final class DecorateViewHelper extends AbstractViewHelper
         RenderingContextInterface $renderingContext,
     ): string {
         $decorator = $arguments['decorator'];
-        $value = (string)$arguments['value'];
+        $value = (string) $arguments['value'];
 
         if (! $decorator instanceof DecoratorInterface) {
             throw new Exception(

@@ -22,7 +22,7 @@ final class NumberDecorator implements DecoratorInterface
     public function decorate(string $value): string
     {
         return \number_format(
-            (int)$value,
+            (int) $value,
             0,
             '',
             $this->getLanguageService()->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':thousandsSeparator'),

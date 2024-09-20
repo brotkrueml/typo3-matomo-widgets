@@ -32,7 +32,7 @@ class MatomoConnector
     {
         $parameterBag
             ->set('module', 'API')
-            ->set('idSite', (string)$configuration->idSite)
+            ->set('idSite', (string) $configuration->idSite)
             ->set('method', $method)
             ->set('token_auth', $configuration->tokenAuth)
             ->set('format', 'json');

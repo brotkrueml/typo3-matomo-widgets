@@ -36,7 +36,7 @@ final class GenericTableDataProviderTest extends TestCase
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
         $this->repositoryMock = $this->createMock(MatomoRepository::class);
-        $this->periodResolverStub = new class() implements PeriodResolverInterface {
+        $this->periodResolverStub = new class implements PeriodResolverInterface {
             public function resolve(string $period, string $date): string
             {
                 return $period . ' / ' . $date;

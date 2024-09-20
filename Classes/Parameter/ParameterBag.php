@@ -52,7 +52,7 @@ final class ParameterBag
             $value = $value->resolve();
         }
 
-        $this->parameters[$name] = (string)$value;
+        $this->parameters[$name] = (string) $value;
 
         return $this;
     }

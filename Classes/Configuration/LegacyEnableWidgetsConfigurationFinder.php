@@ -41,7 +41,7 @@ class LegacyEnableWidgetsConfigurationFinder implements \IteratorAggregate, \Cou
      */
     private array $configurations = [];
 
-    public function __construct(SiteFinder $siteFinder = null)
+    public function __construct(?SiteFinder $siteFinder = null)
     {
         $siteFinder ??= GeneralUtility::makeInstance(SiteFinder::class);
 
@@ -54,7 +54,7 @@ class LegacyEnableWidgetsConfigurationFinder implements \IteratorAggregate, \Cou
                     continue;
                 }
 
-                $this->configurations[$siteIdentifier][$widgetIdentifier] = (bool)$site->getConfiguration()[$widgetIdentifier];
+                $this->configurations[$siteIdentifier][$widgetIdentifier] = (bool) $site->getConfiguration()[$widgetIdentifier];
             }
         }
     }

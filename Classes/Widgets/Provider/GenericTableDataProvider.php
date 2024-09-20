@@ -48,7 +48,7 @@ class GenericTableDataProvider implements TableDataProviderInterface
         /** @var string[] $classes */
         $classes = [];
         foreach ($this->columns as $column) {
-            $classes[] = (string)($column['classes'] ?? '');
+            $classes[] = (string) ($column['classes'] ?? '');
         }
 
         return $classes;

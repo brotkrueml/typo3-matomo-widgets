@@ -46,13 +46,13 @@ final class ConfigurationFinder
 
             if ($considerMatomoIntegration) {
                 $url = $siteConfiguration['matomoIntegrationUrl'] ?? '';
-                $idSite = (string)($siteConfiguration['matomoIntegrationSiteId'] ?? 0);
+                $idSite = (string) ($siteConfiguration['matomoIntegrationSiteId'] ?? 0);
             } else {
                 $url = $siteConfiguration['matomoWidgetsUrl'] ?? '';
-                $idSite = (string)($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
+                $idSite = (string) ($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
             }
             $url = self::resolveEnvironmentVariable($url);
-            $idSite = (int)self::resolveEnvironmentVariable($idSite);
+            $idSite = (int) self::resolveEnvironmentVariable($idSite);
             if ($url === '') {
                 continue;
             }
@@ -158,9 +158,9 @@ final class ConfigurationFinder
             $validator->validate($configuration);
             $customDimensions[] = new CustomDimension(
                 $configuration['scope'],
-                (int)$configuration['idDimension'],
-                (string)($configuration['title'] ?? 'Custom Dimension ' . $configuration['idDimension']),
-                (string)($configuration['description'] ?? ''),
+                (int) $configuration['idDimension'],
+                (string) ($configuration['title'] ?? 'Custom Dimension ' . $configuration['idDimension']),
+                (string) ($configuration['description'] ?? ''),
             );
         }
 

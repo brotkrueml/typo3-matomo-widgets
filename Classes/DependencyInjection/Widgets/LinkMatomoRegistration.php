@@ -36,7 +36,7 @@ final class LinkMatomoRegistration extends AbstractRegistration
 
     private function registerDataProvider(): void
     {
-        $link = (string)(new Uri($this->matomoConfiguration->url))
+        $link = (string) (new Uri($this->matomoConfiguration->url))
             ->withQuery('idSite=' . $this->matomoConfiguration->idSite);
 
         $this->services

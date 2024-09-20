@@ -97,7 +97,7 @@ final class ParameterBagTest extends TestCase
     #[Test]
     public function setWithParameterResolverClassResolvesValue(): void
     {
-        $resolver = new class() implements ParameterResolverInterface {
+        $resolver = new class implements ParameterResolverInterface {
             public function resolve(): string
             {
                 return 'resolved value';

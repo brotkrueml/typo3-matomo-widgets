@@ -53,9 +53,9 @@ final class CreateAnnotationController
         }
         try {
             $this->checkParameters(
-                (string)($parameters['siteIdentifier'] ?? ''),
-                (string)($parameters['date'] ?? ''),
-                (string)($parameters['note'] ?? ''),
+                (string) ($parameters['siteIdentifier'] ?? ''),
+                (string) ($parameters['date'] ?? ''),
+                (string) ($parameters['note'] ?? ''),
             );
         } catch (\InvalidArgumentException $e) {
             return $this->buildResponse(true, $e->getMessage());

@@ -40,7 +40,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         private readonly array $backgroundColours,
         private readonly array $parameters,
     ) {
-        $this->limit = (int)$limit;
+        $this->limit = (int) $limit;
     }
 
     /**
@@ -71,7 +71,7 @@ final class GenericDoughnutChartDataProvider implements ChartDataProviderInterfa
         $data = [];
         $valueOther = 0;
         foreach ($rows as $row) {
-            $value = (int)$row[$this->valueColumn];
+            $value = (int) $row[$this->valueColumn];
             if (\count($data) < $this->limit) {
                 $data[$row[$this->labelColumn]] = $value;
                 continue;

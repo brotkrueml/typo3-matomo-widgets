@@ -89,7 +89,7 @@ final class CustomDimensionConfigurationValidator
             );
         }
 
-        $idDimension = (int)$this->configuration['idDimension'];
+        $idDimension = (int) $this->configuration['idDimension'];
         if ($idDimension <= 0) {
             throw new ValidationException(
                 \sprintf(

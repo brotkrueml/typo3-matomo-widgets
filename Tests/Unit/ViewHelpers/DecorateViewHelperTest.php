@@ -65,7 +65,7 @@ final class DecorateViewHelperTest extends TestCase
 
     private static function getDecoratorStub(): DecoratorInterface
     {
-        return new class() implements DecoratorInterface {
+        return new class implements DecoratorInterface {
             public function decorate(string $value): string
             {
                 return \sprintf('---%s---', $value);
@@ -83,7 +83,7 @@ final class DecorateViewHelperTest extends TestCase
     {
         $this->expectException(Exception::class);
         $this->expectExceptionCode(1594828163);
-        $this->expectExceptionMessage('The decorator "stdClass" is not an instance of "Brotkrueml\\MatomoWidgets\\Widgets\\Decorator\\DecoratorInterface"');
+        $this->expectExceptionMessage('The decorator "stdClass" is not an instance of "Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface"');
 
         $arguments = [
             'decorator' => new \stdClass(),
