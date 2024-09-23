@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.1] - 2024-09-23
+
 ### Fixed
 - Table widgets lost styling with TYPO3 v13.3
 
@@ -198,7 +200,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.0...HEAD
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.1...HEAD
+[3.1.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.4.0...v3.0.0
 [2.4.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v2.3.0...v2.4.0
