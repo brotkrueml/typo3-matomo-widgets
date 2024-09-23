@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Table widgets lost styling with TYPO3 v13.3
+
 ## [3.1.0] - 2024-04-09
 
 ### Added

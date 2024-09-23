@@ -5,8 +5,17 @@
 <f:section name="main">
     <f:if condition="{table.rows}">
         <f:then>
-            <div class="widget-table-wrapper">
-                <table class="widget-table">
+            <f:comment><!--
+                This is a workaround to remove space between widget header and table (only in TYPO3 v12)
+                @todo Remove when compatibility with TYPO3 v12 is dropped
+            --></f:comment>
+            <f:variable name="additionalTableWrapperClass" value=""/>
+            <f:if condition="{isTypo3V12}">
+                <f:variable name="additionalTableWrapperClass" value=" matomo-widgets__widget-table-wrapper-v12"/>
+            </f:if>
+
+            <div class="widget-table-wrapper{additionalTableWrapperClass}">
+                <table class="widget-table table table-striped table-hover">
                     <tr>
                         <f:for each="{table.headers}" as="header" key="index">
                             <th class="{table.classes.{index}}">{header}</th>
