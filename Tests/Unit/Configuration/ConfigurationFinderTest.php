@@ -17,14 +17,34 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use TYPO3\CMS\Core\Configuration\ConfigurationManager;
+use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Core\ApplicationContext;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Log\Logger;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 #[CoversClass(ConfigurationFinder::class)]
 #[RunTestsInSeparateProcesses]
 final class ConfigurationFinderTest extends TestCase
 {
     private static string $configPath;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $configurationManager = new ConfigurationManager();
+        $GLOBALS['TYPO3_CONF_VARS'] = $configurationManager->getDefaultConfiguration();
+
+        GeneralUtility::addInstance(
+            YamlFileLoader::class,
+            GeneralUtility::makeInstance(
+                YamlFileLoader::class,
+                $this->createMock(Logger::class),
+            ),
+        );
+    }
 
     public static function setUpBeforeClass(): void
     {
