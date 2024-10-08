@@ -14,17 +14,30 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use TYPO3\CMS\Core\Configuration\Processor\Placeholder\EnvVariableProcessor;
+use TYPO3\CMS\Core\Configuration\Processor\Placeholder\ValueFromReferenceArrayProcessor;
 use TYPO3\CMS\Core\Core\ApplicationContext;
 use TYPO3\CMS\Core\Core\Environment;
 
 #[CoversClass(ConfigurationFinder::class)]
-#[RunTestsInSeparateProcesses]
 final class ConfigurationFinderTest extends TestCase
 {
     private static string $configPath;
+
+    protected function setUp(): void
+    {
+        // Configuration from EXT:core/Configuration/DefaultConfiguration.php
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors'] = [
+            EnvVariableProcessor::class => [],
+            ValueFromReferenceArrayProcessor::class => [
+                'after' => [
+                    EnvVariableProcessor::class,
+                ],
+            ],
+        ];
+    }
 
     public static function setUpBeforeClass(): void
     {
@@ -71,6 +84,7 @@ final class ConfigurationFinderTest extends TestCase
 
     protected function tearDown(): void
     {
+        unset($GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors']);
         self::tearDownAfterClass();
     }
 
