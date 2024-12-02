@@ -358,6 +358,22 @@ final class ConfigurationFinderTest extends TestCase
         self::assertTrue($configurationArray[1]->isWidgetActive('actionsPerDay'));
     }
 
+    #[Test]
+    public function siteConfigurationWithRelativeUrlFromMatomoIntegrationUsesSchemeFromBase(): void
+    {
+        $this->createSiteConfiguration('some_site', [
+            'base' => 'https://example.com/',
+            'matomoWidgetsConsiderMatomoIntegration' => true,
+            'matomoIntegrationSiteId' => 1,
+            'matomoIntegrationUrl' => '//matomo.example.com/',
+        ]);
+
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
+        $actualConfiguration = $configurations->getIterator()->current();
+
+        self::assertSame('https://matomo.example.com/', $actualConfiguration->url);
+    }
+
     private function createSiteConfiguration(string $identifier, array $configuration): void
     {
         $path = self::$configPath . '/sites/' . $identifier;

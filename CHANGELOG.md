@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Using configuration from EXT:matomo_integration with relative URLs throws error
+
 ## [3.1.1] - 2024-09-23
 
 ### Fixed

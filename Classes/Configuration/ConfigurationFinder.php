@@ -52,6 +52,10 @@ final class ConfigurationFinder
                 $idSite = (string) ($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
             }
             $url = self::resolveEnvironmentVariable($url);
+            if (\str_starts_with($url, '//')) {
+                // We have a relative URL: prepend the scheme from the base URL of the site configuration
+                $url = \parse_url((string) $siteConfiguration['base'], \PHP_URL_SCHEME) . ':' . $url;
+            }
             $idSite = (int) self::resolveEnvironmentVariable($idSite);
             if ($url === '') {
                 continue;
