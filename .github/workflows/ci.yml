@@ -105,11 +105,9 @@ jobs:
       - name: Run rector
         run: |
           make rector-check
-#      - name: Run unit tests
-#        run: |
-#          XDEBUG_MODE=coverage .Build/bin/phpunit -c Tests/phpunit.xml.dist --log-junit .Build/logs/phpunit.xml --coverage-text --coverage-clover .Build/logs/clover.xml
-#      - name: Send code coverage report to coveralls.io
-#        run: .Build/bin/php-coveralls -v
-#        env:
-#          COVERALLS_RUN_LOCALLY: 1
-#          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      - name: Run tests and collect coverage
+        run: .Build/bin/phpunit --configuration Tests/phpunit.xml.dist --coverage-clover coverage.xml .
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
