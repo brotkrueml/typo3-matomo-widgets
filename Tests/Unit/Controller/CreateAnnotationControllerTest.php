@@ -41,7 +41,6 @@ final class CreateAnnotationControllerTest extends TestCase
     private MatomoRepository&Stub $matomoRepositoryStub;
     private CreateAnnotationController $subject;
     private BackendUserAuthentication&Stub $backendUserStub;
-    private LanguageService&Stub $languageServiceStub;
     private ServerRequestInterface&Stub $serverRequestStub;
 
     protected function setUp(): void
@@ -73,11 +72,11 @@ final class CreateAnnotationControllerTest extends TestCase
         $this->backendUserStub = $this->createStub(BackendUserAuthentication::class);
         $GLOBALS['BE_USER'] = $this->backendUserStub;
 
-        $this->languageServiceStub = $this->createStub(LanguageService::class);
-        $this->languageServiceStub
+        $languageServiceStub = $this->createStub(LanguageService::class);
+        $languageServiceStub
             ->method('sL')
             ->willReturnCallback(static fn(string $key): string => $key);
-        $GLOBALS['LANG'] = $this->languageServiceStub;
+        $GLOBALS['LANG'] = $languageServiceStub;
 
         $this->serverRequestStub = $this->createStub(ServerRequestInterface::class);
     }

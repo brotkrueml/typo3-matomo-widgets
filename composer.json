@@ -24,20 +24,20 @@
 	"require": {
 		"php": ">=8.1",
 		"symfony/finder": "^6.4 || ^7.0",
-		"typo3/cms-core": "^12.4 || ^13.3",
-		"typo3/cms-dashboard": "^12.4 || ^13.3"
+		"typo3/cms-core": "^12.4 || ^13.4",
+		"typo3/cms-dashboard": "^12.4 || ^13.4"
 	},
 	"require-dev": {
-		"brotkrueml/coding-standards": "~6.0.0",
+		"brotkrueml/coding-standards": "~6.1.0",
 		"brotkrueml/typo3-matomo-integration": "^1.0 || ^2.0",
 		"donatj/mock-webserver": "^2.7",
-		"ergebnis/composer-normalize": "~2.43.0",
+		"ergebnis/composer-normalize": "~2.44.0",
 		"phpstan/extension-installer": "^1.4",
-		"phpstan/phpstan": "1.12.4",
-		"phpunit/phpunit": "^10.5 || ^11.3",
-		"rector/rector": "1.2.5",
+		"phpstan/phpstan": "1.12.12",
+		"phpunit/phpunit": "^10.5 || ^11.4",
+		"rector/rector": "1.2.10",
 		"saschaegerer/phpstan-typo3": "^1.10",
-		"symfony/yaml": "^6.4 || ^7.0",
+		"symfony/yaml": "^6.4 || ^7.2",
 		"symplify/phpstan-rules": "^13.0",
 		"tomasvotruba/cognitive-complexity": "^0.2.3"
 	},
@@ -67,7 +67,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-main": "3.1.x-dev"
+			"dev-main": "3.2.x-dev"
 		},
 		"typo3/cms": {
 			"extension-key": "matomo_widgets",

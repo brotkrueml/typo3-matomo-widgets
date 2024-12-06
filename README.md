@@ -1,21 +1,20 @@
 # TYPO3 Matomo Widgets
 
-[![CI Status](https://github.com/brotkrueml/typo3-matomo-widgets/workflows/CI/badge.svg?branch=main)](https://github.com/brotkrueml/typo3-matomo-widgets/actions?query=workflow%3ACI)
-<!--
-[![Coverage Status](https://coveralls.io/repos/github/brotkrueml/typo3-matomo-widgets/badge.svg?branch=main)](https://coveralls.io/github/brotkrueml/typo3-matomo-widgets?branch=main)
--->
+[![CI](https://github.com/brotkrueml/typo3-matomo-widgets/actions/workflows/ci.yml/badge.svg)](https://github.com/brotkrueml/typo3-matomo-widgets/actions/workflows/ci.yml)
+[![Documentation](https://github.com/brotkrueml/typo3-matomo-widgets/actions/workflows/docs.yml/badge.svg)](https://github.com/brotkrueml/typo3-matomo-widgets/actions/workflows/docs.yml)
+[![codecov](https://codecov.io/github/brotkrueml/typo3-matomo-widgets/graph/badge.svg?token=2ECAIAYXMS)](https://codecov.io/github/brotkrueml/typo3-matomo-widgets)
 [![Crowdin](https://badges.crowdin.net/typo3-extension-matomowidgets/localized.svg)](https://crowdin.com/project/typo3-extension-matomowidgets)
 [![Latest Stable Version](https://img.shields.io/packagist/v/brotkrueml/typo3-matomo-widgets.svg?label=stable)](https://packagist.org/packages/brotkrueml/typo3-matomo-widgets)
 [![Total Downloads](https://img.shields.io/packagist/dt/brotkrueml/typo3-matomo-widgets.svg)](https://packagist.org/packages/brotkrueml/typo3-matomo-widgets)
 
 ## Versions and support
 
-| Latest release | TYPO3       | PHP   | Updates will contain                                 |
-|----------------|-------------|-------|------------------------------------------------------|
-| 3.x            | 12.4 - 13.4 | ≥ 8.1 | Features, security and bug fixes                     |
-| 2.x            | 11.5 - 12.4 | ≥ 8.1 | Security and bug fixes, end of life expected: Oct 24 |
-| 1.x            | 10.4 - 11.5 | ≥ 7.4 | Security fixes, end of life expected: Oct 24         |
-| 0.x            | 10.4 - 11.5 | ≥ 7.2 | End of life                                          |
+| Latest release | TYPO3       | PHP   | Updates will contain             |
+|----------------|-------------|-------|----------------------------------|
+| 3.x            | 12.4 / 13.4 | ≥ 8.1 | Features, security and bug fixes |
+| 2.x            | 11.5 / 12.4 | ≥ 8.1 | End of life (since Nov 2024)     |
+| 1.x            | 10.4 / 11.5 | ≥ 7.4 | End of life (since Nov 2024)     |
+| 0.x            | 10.4 / 11.5 | ≥ 7.2 | End of life (since May 2021)     |
 
 [Documentation](https://docs.typo3.org/p/brotkrueml/typo3-matomo-widgets/main/en-us/) |
 [Translation](https://crowdin.com/project/typo3-extension-matomowidgets) |

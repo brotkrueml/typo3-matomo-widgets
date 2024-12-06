@@ -8,8 +8,17 @@ All notable changes to this project will be documented in this file.
 The format is based on `Keep a Changelog <https://keepachangelog.com/en/1.0.0/>`_\ ,
 and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0.html>`_.
 
-`Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.1...HEAD>`_
+`Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.2...HEAD>`_
 --------------------------------------------------------------------------------------------
+
+`3.1.2 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.1...v3.1.2>`_ - 2024-12-02
+------------------------------------------------------------------------------------------------------
+
+Fixed
+^^^^^
+
+
+* Using configuration from EXT:matomo_integration with relative URLs throws error
 
 `3.1.1 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.0...v3.1.1>`_ - 2024-09-23
 ------------------------------------------------------------------------------------------------------

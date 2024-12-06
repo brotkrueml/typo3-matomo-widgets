@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cognitive complexity for \"Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:buildConfigurations\\(\\)\" is 13, keep it under 8$#"
+			message: "#^Cognitive complexity for \"Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:buildConfigurations\\(\\)\" is 14, keep it under 8$#"
 			count: 1
 			path: Classes/Configuration/ConfigurationFinder.php
 

@@ -21,7 +21,6 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
-use Psr\EventDispatcher\EventDispatcherInterface;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 use TYPO3\CMS\Core\EventDispatcher\NoopEventDispatcher;
 
@@ -30,7 +29,6 @@ final class MatomoRepositoryTest extends TestCase
 {
     private MatomoConnector&MockObject $connectorMock;
     private FrontendInterface&Stub $cacheStub;
-    private EventDispatcherInterface $eventDispatcher;
     private ConnectionConfiguration $connectionConfiguration;
     private MatomoRepository $subject;
 
@@ -38,13 +36,13 @@ final class MatomoRepositoryTest extends TestCase
     {
         $this->connectorMock = $this->createMock(MatomoConnector::class);
         $this->cacheStub = $this->createStub(FrontendInterface::class);
-        $this->eventDispatcher = new NoopEventDispatcher();
+        $eventDispatcher = new NoopEventDispatcher();
 
         $this->subject = new MatomoRepository(
             $this->cacheStub,
             new CacheIdentifierCreator(),
             $this->connectorMock,
-            $this->eventDispatcher,
+            $eventDispatcher,
         );
 
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.net', 3, '');
