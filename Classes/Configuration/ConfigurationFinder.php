@@ -11,13 +11,12 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Configuration;
 
+use Brotkrueml\MatomoWidgets\Adapter\YamlFileLoader;
 use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
 use Brotkrueml\MatomoWidgets\Domain\Validation\CustomDimensionConfigurationValidator;
 use Brotkrueml\MatomoWidgets\Extension;
-use Psr\Log\NullLogger;
 use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
 use Symfony\Component\Finder\Finder;
-use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -27,7 +26,7 @@ final class ConfigurationFinder
 {
     public static function buildConfigurations(string $configPath, bool $isMatomoIntegrationAvailable): Configurations
     {
-        $yamlFileLoader = new YamlFileLoader(new NullLogger());
+        $yamlFileLoader = YamlFileLoader::get();
         $configurationsArray = [];
         foreach (self::getConfigurationFiles($configPath) as $file) {
             $realFile = $file->getRealPath();
