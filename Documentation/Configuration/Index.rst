@@ -29,11 +29,6 @@ Widgets` tab:
 
    Options in the site management
 
-.. attention::
-   Due to technical restrictions it is not possible to import the Matomo
-   Widgets configuration from another file. It has to be stored in the site
-   configuration's :file:`config.yaml`.
-
 .. important::
    If you adjust settings for the Matomo widgets in the site configuration you
    have to flush the cache via :guilabel:`Admin Tools` > :guilabel:`Maintenance`
@@ -94,6 +89,20 @@ Pages Not Found Template
    Matomo Integration extension` is deactivated.
 
    Default: *404/URL = {path}/From = {referrer}*
+
+.. versionadded:: 3.2.0
+   You can import the Matomo Widgets configuration from another file:
+
+   .. code-block:: yaml
+      :caption: config/sites/<site-identifier>/config.yaml
+
+      imports:
+        - resource: matomo_widgets.yaml
+
+   Please also note, that if you use the :abbr:`GUI (Graphical User Interface)`
+   to modify the configuration changes are saved in :file:`config.yaml` again -
+   not in the import file. You have to take care of moving them back into the
+   import file yourself.
 
 .. _configuration-keys:
 
