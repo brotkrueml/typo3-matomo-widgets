@@ -1,285 +1,285 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2024-03-24T15:33:29Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2024-12-13T17:19:18Z" product-name="matomo_widgets">
 		<body>
-			<trans-unit id="actions" resname="actions">
+			<trans-unit id="actions">
 				<source><![CDATA[Actions]]></source>
 			</trans-unit>
-			<trans-unit id="browser" resname="browser">
+			<trans-unit id="browser">
 				<source><![CDATA[Browser]]></source>
 			</trans-unit>
-			<trans-unit id="browsers" resname="browsers">
+			<trans-unit id="browsers">
 				<source><![CDATA[Browsers]]></source>
 			</trans-unit>
-			<trans-unit id="column" resname="column">
+			<trans-unit id="column">
 				<source><![CDATA[Column]]></source>
 			</trans-unit>
-			<trans-unit id="create" resname="create">
+			<trans-unit id="create">
 				<source><![CDATA[Create]]></source>
 			</trans-unit>
-			<trans-unit id="date" resname="date">
+			<trans-unit id="date">
 				<source><![CDATA[Date]]></source>
 			</trans-unit>
-			<trans-unit id="error.emptyDate" resname="error.emptyDate">
+			<trans-unit id="error.emptyDate">
 				<source><![CDATA[Date is empty!]]></source>
 			</trans-unit>
-			<trans-unit id="error.emptyNote" resname="error.emptyNote">
+			<trans-unit id="error.emptyNote">
 				<source><![CDATA[Note is empty!]]></source>
 			</trans-unit>
-			<trans-unit id="error.emptySiteIdentifier" resname="error.emptySiteIdentifier">
+			<trans-unit id="error.emptySiteIdentifier">
 				<source><![CDATA[Site identifier is empty!]]></source>
 			</trans-unit>
-			<trans-unit id="error.invalidDate" resname="error.invalidDate">
+			<trans-unit id="error.invalidDate">
 				<source><![CDATA[Date is invalid, please use format "YYYY-MM-DD"!]]></source>
 			</trans-unit>
-			<trans-unit id="error.noDetailsAvailable" resname="error.noDetailsAvailable">
+			<trans-unit id="error.noDetailsAvailable">
 				<source><![CDATA[No details available.]]></source>
 			</trans-unit>
-			<trans-unit id="errorMessage" resname="errorMessage">
+			<trans-unit id="errorMessage">
 				<source><![CDATA[Error message]]></source>
 			</trans-unit>
-			<trans-unit id="hits" resname="hits">
+			<trans-unit id="hits">
 				<source><![CDATA[Hits]]></source>
 			</trans-unit>
-			<trans-unit id="impressions" resname="impressions">
+			<trans-unit id="impressions">
 				<source><![CDATA[Impressions]]></source>
 			</trans-unit>
-			<trans-unit id="interactionRate" resname="interactionRate">
+			<trans-unit id="interactionRate">
 				<source><![CDATA[Interaction rate]]></source>
 			</trans-unit>
-			<trans-unit id="keyword" resname="keyword">
+			<trans-unit id="keyword">
 				<source><![CDATA[Keyword]]></source>
 			</trans-unit>
-			<trans-unit id="lastAppearance" resname="lastAppearance">
+			<trans-unit id="lastAppearance">
 				<source><![CDATA[Last appearance]]></source>
 			</trans-unit>
-			<trans-unit id="line" resname="line">
+			<trans-unit id="line">
 				<source><![CDATA[Line]]></source>
 			</trans-unit>
-			<trans-unit id="noResultsAvailable" resname="noResultsAvailable">
+			<trans-unit id="noResultsAvailable">
 				<source><![CDATA[No results available.]]></source>
 			</trans-unit>
-			<trans-unit id="note" resname="note">
+			<trans-unit id="note">
 				<source><![CDATA[Note]]></source>
 			</trans-unit>
-			<trans-unit id="openReport" resname="openReport">
+			<trans-unit id="openReport">
 				<source><![CDATA[Open report in Matomo]]></source>
 			</trans-unit>
-			<trans-unit id="other" resname="other">
+			<trans-unit id="other">
 				<source><![CDATA[Other]]></source>
 			</trans-unit>
-			<trans-unit id="path" resname="path">
+			<trans-unit id="path">
 				<source><![CDATA[Path]]></source>
 			</trans-unit>
-			<trans-unit id="period.range.last" resname="period.range.last">
+			<trans-unit id="period.range.last">
 				<source><![CDATA[Last %d days (today included)]]></source>
 			</trans-unit>
-			<trans-unit id="period.range.previous" resname="period.range.previous">
+			<trans-unit id="period.range.previous">
 				<source><![CDATA[Last %d days (today excluded)]]></source>
 			</trans-unit>
-			<trans-unit id="period.range.range" resname="period.range.range">
+			<trans-unit id="period.range.range">
 				<source><![CDATA[Between %1$s and %2$s]]></source>
 			</trans-unit>
-			<trans-unit id="plusMoreBrowsers" resname="plusMoreBrowsers">
+			<trans-unit id="plusMoreBrowsers">
 				<source><![CDATA[... plus %d more browsers]]></source>
 			</trans-unit>
-			<trans-unit id="plusMoreScripts" resname="plusMoreScripts">
+			<trans-unit id="plusMoreScripts">
 				<source><![CDATA[... plus %d more scripts]]></source>
 			</trans-unit>
-			<trans-unit id="plusMoreUrls" resname="plusMoreUrls">
+			<trans-unit id="plusMoreUrls">
 				<source><![CDATA[... plus %d more URLs]]></source>
 			</trans-unit>
-			<trans-unit id="preset.description" resname="preset.description">
+			<trans-unit id="preset.description">
 				<source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
 			</trans-unit>
-			<trans-unit id="referrer" resname="referrer">
+			<trans-unit id="referrer">
 				<source><![CDATA[Referrer]]></source>
 			</trans-unit>
-			<trans-unit id="script" resname="script">
+			<trans-unit id="script">
 				<source><![CDATA[Script]]></source>
 			</trans-unit>
-			<trans-unit id="scripts" resname="scripts">
+			<trans-unit id="scripts">
 				<source><![CDATA[Scripts]]></source>
 			</trans-unit>
-			<trans-unit id="searches" resname="searches">
+			<trans-unit id="searches">
 				<source><![CDATA[Searches]]></source>
 			</trans-unit>
-			<trans-unit id="thousandsSeparator" resname="thousandsSeparator">
+			<trans-unit id="thousandsSeparator">
 				<source><![CDATA[,]]></source>
 			</trans-unit>
-			<trans-unit id="url" resname="url">
+			<trans-unit id="url">
 				<source><![CDATA[URL]]></source>
 			</trans-unit>
-			<trans-unit id="urls" resname="urls">
+			<trans-unit id="urls">
 				<source><![CDATA[URLs]]></source>
 			</trans-unit>
-			<trans-unit id="versions" resname="versions">
+			<trans-unit id="versions">
 				<source><![CDATA[Versions]]></source>
 			</trans-unit>
-			<trans-unit id="visits" resname="visits">
+			<trans-unit id="visits">
 				<source><![CDATA[Visits]]></source>
 			</trans-unit>
-			<trans-unit id="visitsPercentage" resname="visitsPercentage">
+			<trans-unit id="visitsPercentage">
 				<source><![CDATA[% Visits]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.actions.mostViewedPages.description" resname="widgets.actions.mostViewedPages.description">
+			<trans-unit id="widgets.actions.mostViewedPages.description">
 				<source><![CDATA[List of the most viewed page URLs.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.actions.mostViewedPages.title" resname="widgets.actions.mostViewedPages.title">
+			<trans-unit id="widgets.actions.mostViewedPages.title">
 				<source><![CDATA[Most viewed pages]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.actions.pagesNotFound.description" resname="widgets.actions.pagesNotFound.description">
+			<trans-unit id="widgets.actions.pagesNotFound.description">
 				<source><![CDATA[A list of the pages which cannot be found (404).]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.actions.pagesNotFound.title" resname="widgets.actions.pagesNotFound.title">
+			<trans-unit id="widgets.actions.pagesNotFound.title">
 				<source><![CDATA[Pages not found]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.actions.siteSearchKeywords.description" resname="widgets.actions.siteSearchKeywords.description">
+			<trans-unit id="widgets.actions.siteSearchKeywords.description">
 				<source><![CDATA[Overview of the search keywords that visitors searched for on the internal search engine.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.actions.siteSearchKeywords.title" resname="widgets.actions.siteSearchKeywords.title">
+			<trans-unit id="widgets.actions.siteSearchKeywords.title">
 				<source><![CDATA[Site search keywords]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.actions.siteSearchNoResultKeywords.description" resname="widgets.actions.siteSearchNoResultKeywords.description">
+			<trans-unit id="widgets.actions.siteSearchNoResultKeywords.description">
 				<source><![CDATA[List of the site search keywords that did not return any search result.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.actions.siteSearchNoResultKeywords.title" resname="widgets.actions.siteSearchNoResultKeywords.title">
+			<trans-unit id="widgets.actions.siteSearchNoResultKeywords.title">
 				<source><![CDATA[Search keywords with no results]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.createAnnotation.description" resname="widgets.createAnnotation.description">
+			<trans-unit id="widgets.createAnnotation.description">
 				<source><![CDATA[Create a new annotation for a website and date]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.createAnnotation.error.noPermission" resname="widgets.createAnnotation.error.noPermission">
+			<trans-unit id="widgets.createAnnotation.error.noPermission">
 				<source><![CDATA[User has not the permission to create annotations!]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.createAnnotation.notification.httpError" resname="widgets.createAnnotation.notification.httpError">
+			<trans-unit id="widgets.createAnnotation.notification.httpError">
 				<source><![CDATA[HTTP error when creating annotation!]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.createAnnotation.notification.success" resname="widgets.createAnnotation.notification.success">
+			<trans-unit id="widgets.createAnnotation.notification.success">
 				<source><![CDATA[Annotation created successfully]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.createAnnotation.notification.unknownError" resname="widgets.createAnnotation.notification.unknownError">
+			<trans-unit id="widgets.createAnnotation.notification.unknownError">
 				<source><![CDATA[Unknown error when creating annotation!]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.createAnnotation.title" resname="widgets.createAnnotation.title">
+			<trans-unit id="widgets.createAnnotation.title">
 				<source><![CDATA[Create annotation]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.annotations.description" resname="widgets.annotations.description">
+			<trans-unit id="widgets.annotations.description">
 				<source><![CDATA[List of annotations]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.annotations.title" resname="widgets.annotations.title">
+			<trans-unit id="widgets.annotations.title">
 				<source><![CDATA[Annotations]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.contents.contentNames.column.name" resname="widgets.contents.contentNames.column.name">
+			<trans-unit id="widgets.contents.contentNames.column.name">
 				<source><![CDATA[Content name]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.contents.contentNames.description" resname="widgets.contents.contentNames.description">
+			<trans-unit id="widgets.contents.contentNames.description">
 				<source><![CDATA[Overview of the names of the content the visitors viewed and interacted with.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.contents.contentNames.title" resname="widgets.contents.contentNames.title">
+			<trans-unit id="widgets.contents.contentNames.title">
 				<source><![CDATA[Content names]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.contents.contentPieces.column.name" resname="widgets.contents.contentPieces.column.name">
+			<trans-unit id="widgets.contents.contentPieces.column.name">
 				<source><![CDATA[Content piece]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.contents.contentPieces.description" resname="widgets.contents.contentPieces.description">
+			<trans-unit id="widgets.contents.contentPieces.description">
 				<source><![CDATA[Overview of the pieces of the content the visitors viewed and interacted with.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.contents.contentPieces.title" resname="widgets.contents.contentPieces.title">
+			<trans-unit id="widgets.contents.contentPieces.title">
 				<source><![CDATA[Content pieces]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.devicesDetection.browsers.description" resname="widgets.devicesDetection.browsers.description">
+			<trans-unit id="widgets.devicesDetection.browsers.description">
 				<source><![CDATA[Overview of the used browsers in the current month.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.devicesDetection.browsers.title" resname="widgets.devicesDetection.browsers.title">
+			<trans-unit id="widgets.devicesDetection.browsers.title">
 				<source><![CDATA[Browsers]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.devicesDetection.osFamilies.description" resname="widgets.devicesDetection.osFamilies.description">
+			<trans-unit id="widgets.devicesDetection.osFamilies.description">
 				<source><![CDATA[Overview of the used operating system families in the current month.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.devicesDetection.osFamilies.title" resname="widgets.devicesDetection.osFamilies.title">
+			<trans-unit id="widgets.devicesDetection.osFamilies.title">
 				<source><![CDATA[Operating system families]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.devicePlugins.plugin.column.name" resname="widgets.devicePlugins.plugin.column.name">
+			<trans-unit id="widgets.devicePlugins.plugin.column.name">
 				<source><![CDATA[Plugin]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.devicePlugins.plugin.description" resname="widgets.devicePlugins.plugin.description">
+			<trans-unit id="widgets.devicePlugins.plugin.description">
 				<source><![CDATA[The report shows which browser plugins your visitors had enabled.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.devicePlugins.plugin.title" resname="widgets.devicePlugins.plugin.title">
+			<trans-unit id="widgets.devicePlugins.plugin.title">
 				<source><![CDATA[Browser plugins]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.events.javaScriptErrors.description" resname="widgets.events.javaScriptErrors.description">
+			<trans-unit id="widgets.events.javaScriptErrors.description">
 				<source><![CDATA[Display JavaScript errors occurred on the website.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.events.javaScriptErrors.title" resname="widgets.events.javaScriptErrors.title">
+			<trans-unit id="widgets.events.javaScriptErrors.title">
 				<source><![CDATA[JavaScript errors]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.linkMatomo.buttonText" resname="widgets.linkMatomo.buttonText">
+			<trans-unit id="widgets.linkMatomo.buttonText">
 				<source><![CDATA[To the Matomo installation]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.linkMatomo.description" resname="widgets.linkMatomo.description">
+			<trans-unit id="widgets.linkMatomo.description">
 				<source><![CDATA[Add a shortcut to the Matomo installation.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.linkMatomo.text" resname="widgets.linkMatomo.text">
+			<trans-unit id="widgets.linkMatomo.text">
 				<source><![CDATA[The link leads you to the Matomo installation for further analytics.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.linkMatomo.title" resname="widgets.linkMatomo.title">
+			<trans-unit id="widgets.linkMatomo.title">
 				<source><![CDATA[Link to Matomo]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.referrers.campaigns.description" resname="widgets.referrers.campaigns.description">
+			<trans-unit id="widgets.referrers.campaigns.description">
 				<source><![CDATA[Displays a report of the campaigns for the current month.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.referrers.campaigns.column.name" resname="widgets.referrers.campaigns.column.name">
+			<trans-unit id="widgets.referrers.campaigns.column.name">
 				<source><![CDATA[Campaign name]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.referrers.campaigns.title" resname="widgets.referrers.campaigns.title">
+			<trans-unit id="widgets.referrers.campaigns.title">
 				<source><![CDATA[Campaigns]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.userCountry.country.description" resname="widgets.userCountry.country.description">
+			<trans-unit id="widgets.userCountry.country.description">
 				<source><![CDATA[Shows a list of countries from which the website was visited in the current month.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.userCountry.country.column.name" resname="widgets.userCountry.country.column.name">
+			<trans-unit id="widgets.userCountry.country.column.name">
 				<source><![CDATA[Country]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.userCountry.country.title" resname="widgets.userCountry.country.title">
+			<trans-unit id="widgets.userCountry.country.title">
 				<source><![CDATA[Countries]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.actionsPerDay.description" resname="widgets.visitsSummary.actionsPerDay.description">
+			<trans-unit id="widgets.visitsSummary.actionsPerDay.description">
 				<source><![CDATA[Gives you an overview of the number of actions (page views, downloads, clicks on outlinks) of the last couple of days.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.actionsPerDay.title" resname="widgets.visitsSummary.actionsPerDay.title">
+			<trans-unit id="widgets.visitsSummary.actionsPerDay.title">
 				<source><![CDATA[Actions per day]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.actionsPerMonth.description" resname="widgets.visitsSummary.actionsPerMonth.description">
+			<trans-unit id="widgets.visitsSummary.actionsPerMonth.description">
 				<source><![CDATA[Gives you an overview of the number of actions (page views, downloads, clicks on outlinks) in the last months.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.actionsPerMonth.title" resname="widgets.visitsSummary.actionsPerMonth.title">
+			<trans-unit id="widgets.visitsSummary.actionsPerMonth.title">
 				<source><![CDATA[Actions per month]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.bounceRate.dateRange" resname="widgets.visitsSummary.bounceRate.dateRange">
+			<trans-unit id="widgets.visitsSummary.bounceRate.dateRange">
 				<source><![CDATA[in the last 28 days]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.bounceRate.description" resname="widgets.visitsSummary.bounceRate.description">
+			<trans-unit id="widgets.visitsSummary.bounceRate.description">
 				<source><![CDATA[Display the bounce rate.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.bounceRate.subtitle" resname="widgets.visitsSummary.bounceRate.subtitle">
+			<trans-unit id="widgets.visitsSummary.bounceRate.subtitle">
 				<!-- @todo: Can be removed once support for v2 is dropped! -->
 				<source><![CDATA[in the current month]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.bounceRate.title" resname="widgets.visitsSummary.bounceRate.title">
+			<trans-unit id="widgets.visitsSummary.bounceRate.title">
 				<source><![CDATA[Bounce rate]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.visitsPerDay.description" resname="widgets.visitsSummary.visitsPerDay.description">
+			<trans-unit id="widgets.visitsSummary.visitsPerDay.description">
 				<source><![CDATA[Gives you an overview of the number of visits in the last couple of days.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.visitsPerDay.title" resname="widgets.visitsSummary.visitsPerDay.title">
+			<trans-unit id="widgets.visitsSummary.visitsPerDay.title">
 				<source><![CDATA[Visits per day]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.visitsPerMonth.description" resname="widgets.visitsSummary.visitsPerMonth.description">
+			<trans-unit id="widgets.visitsSummary.visitsPerMonth.description">
 				<source><![CDATA[Gives you an overview of the number of visits in the last months.]]></source>
 			</trans-unit>
-			<trans-unit id="widgets.visitsSummary.visitsPerMonth.title" resname="widgets.visitsSummary.visitsPerMonth.title">
+			<trans-unit id="widgets.visitsSummary.visitsPerMonth.title">
 				<source><![CDATA[Visits per month]]></source>
 			</trans-unit>
 		</body>

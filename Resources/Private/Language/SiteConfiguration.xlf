@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2022-02-14T08:26:40Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2024-12-13T17:19:18Z" product-name="matomo_widgets">
 		<body>
-			<trans-unit id="activeWidgets" resname="activeWidgets">
+			<trans-unit id="activeWidgets">
 				<source><![CDATA[Active Widgets]]></source>
 			</trans-unit>
-			<trans-unit id="dashboardWidgets" resname="dashboardWidgets">
+			<trans-unit id="dashboardWidgets">
 				<source><![CDATA[Dashboard Widgets]]></source>
 			</trans-unit>
-			<trans-unit id="idSite" resname="idSite">
+			<trans-unit id="idSite">
 				<source><![CDATA[Site ID]]></source>
 			</trans-unit>
-			<trans-unit id="matomoInstallation" resname="matomoInstallation">
+			<trans-unit id="matomoInstallation">
 				<source><![CDATA[Matomo Instance]]></source>
 			</trans-unit>
-			<trans-unit id="matomoWidgets" resname="matomoWidgets">
+			<trans-unit id="matomoWidgets">
 				<source><![CDATA[Matomo Widgets]]></source>
 			</trans-unit>
-			<trans-unit id="tokenAuth" resname="tokenAuth">
+			<trans-unit id="tokenAuth">
 				<source><![CDATA[Authentication token]]></source>
 			</trans-unit>
-			<trans-unit id="pagesNotFoundTemplate" resname="pagesNotFoundTemplate">
+			<trans-unit id="pagesNotFoundTemplate">
 				<source><![CDATA[Pages Not Found Template]]></source>
 			</trans-unit>
-			<trans-unit id="pagesNotFoundTemplate.description" resname="pagesNotFoundTemplate.description">
+			<trans-unit id="pagesNotFoundTemplate.description">
 				<source><![CDATA[The template for a 404 page title to distinguish between URL and referrer. Use the placeholders {path} and {referrer}.]]></source>
 			</trans-unit>
-			<trans-unit id="title" resname="title">
+			<trans-unit id="title">
 				<source><![CDATA[Title]]></source>
 			</trans-unit>
-			<trans-unit id="title.description" resname="title.description">
+			<trans-unit id="title.description">
 				<source><![CDATA[The title will prefix the widget title. Leave empty if you have only one site.
 ATTENTION: If you change one of the values in this tab you have to flush the cache via "Admin Tools > Maintenance"!]]></source>
 			</trans-unit>
-			<trans-unit id="url" resname="url">
+			<trans-unit id="url">
 				<source><![CDATA[Base URL]]></source>
 			</trans-unit>
-			<trans-unit id="considerMatomoIntegration" resname="considerMatomoIntegration">
+			<trans-unit id="considerMatomoIntegration">
 				<source><![CDATA[Consider configuration from Matomo Integration extension]]></source>
 			</trans-unit>
 		</body>
