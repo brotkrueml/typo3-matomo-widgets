@@ -30,7 +30,7 @@ final class GenericValueDataProviderTest extends TestCase
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
-        $this->repositoryStub = $this->createStub(MatomoRepository::class);
+        $this->repositoryStub = self::createStub(MatomoRepository::class);
         $this->subject = new GenericValueDataProvider(
             $this->repositoryStub,
             $this->connectionConfiguration,

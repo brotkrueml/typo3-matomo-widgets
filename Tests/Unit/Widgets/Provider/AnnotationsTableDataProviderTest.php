@@ -35,7 +35,7 @@ final class AnnotationsTableDataProviderTest extends TestCase
         $this->repositoryMock = $this->createMock(MatomoRepository::class);
         $this->periodResolver = new PeriodResolver();
 
-        $languageServiceStub = $this->createStub(LanguageService::class);
+        $languageServiceStub = self::createStub(LanguageService::class);
         $GLOBALS['LANG'] = $languageServiceStub;
     }
 

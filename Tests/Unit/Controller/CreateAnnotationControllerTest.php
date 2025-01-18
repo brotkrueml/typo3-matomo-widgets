@@ -58,7 +58,7 @@ final class CreateAnnotationControllerTest extends TestCase
                 '',
             ),
         ]);
-        $this->matomoRepositoryStub = $this->createStub(MatomoRepository::class);
+        $this->matomoRepositoryStub = self::createStub(MatomoRepository::class);
 
         $this->subject = new CreateAnnotationController(
             $this->cacheMock,
@@ -69,16 +69,16 @@ final class CreateAnnotationControllerTest extends TestCase
             new ResponseFactory(),
         );
 
-        $this->backendUserStub = $this->createStub(BackendUserAuthentication::class);
+        $this->backendUserStub = self::createStub(BackendUserAuthentication::class);
         $GLOBALS['BE_USER'] = $this->backendUserStub;
 
-        $languageServiceStub = $this->createStub(LanguageService::class);
+        $languageServiceStub = self::createStub(LanguageService::class);
         $languageServiceStub
             ->method('sL')
             ->willReturnCallback(static fn(string $key): string => $key);
         $GLOBALS['LANG'] = $languageServiceStub;
 
-        $this->serverRequestStub = $this->createStub(ServerRequestInterface::class);
+        $this->serverRequestStub = self::createStub(ServerRequestInterface::class);
     }
 
     protected function tearDown(): void

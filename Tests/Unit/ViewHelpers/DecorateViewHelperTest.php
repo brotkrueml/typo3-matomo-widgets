@@ -28,7 +28,7 @@ final class DecorateViewHelperTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->renderingContextStub = $this->createStub(RenderingContextInterface::class);
+        $this->renderingContextStub = self::createStub(RenderingContextInterface::class);
     }
 
     #[Test]

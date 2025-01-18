@@ -43,7 +43,7 @@ final class GenericTableDataProviderTest extends TestCase
             }
         };
 
-        $this->languageServiceStub = $this->createStub(LanguageService::class);
+        $this->languageServiceStub = self::createStub(LanguageService::class);
         $GLOBALS['LANG'] = $this->languageServiceStub;
     }
 
@@ -110,7 +110,7 @@ final class GenericTableDataProviderTest extends TestCase
     #[Test]
     public function getDecorators(): void
     {
-        $decoratorStub = $this->createStub(DecoratorInterface::class);
+        $decoratorStub = self::createStub(DecoratorInterface::class);
 
         $subject = new GenericTableDataProvider(
             $this->repositoryMock,

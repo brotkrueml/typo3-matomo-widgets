@@ -31,8 +31,8 @@ final class GenericBarChartDataProviderTest extends TestCase
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
-        $this->repositoryStub = $this->createStub(MatomoRepository::class);
-        $this->languageServiceStub = $this->createStub(LanguageService::class);
+        $this->repositoryStub = self::createStub(MatomoRepository::class);
+        $this->languageServiceStub = self::createStub(LanguageService::class);
 
         $GLOBALS['LANG'] = $this->languageServiceStub;
     }

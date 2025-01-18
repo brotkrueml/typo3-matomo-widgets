@@ -27,7 +27,7 @@ final class LinkMatomoButtonProviderTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->languageServiceStub = $this->createStub(LanguageService::class);
+        $this->languageServiceStub = self::createStub(LanguageService::class);
         $GLOBALS['LANG'] = $this->languageServiceStub;
 
         $this->subject = new LinkMatomoButtonProvider('https://example.net/');

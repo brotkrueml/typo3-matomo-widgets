@@ -26,7 +26,7 @@ final class PagesNotFoundPathDecoratorTest extends TestCase
 
     protected function setUp(): void
     {
-        $languageServiceStub = $this->createStub(LanguageService::class);
+        $languageServiceStub = self::createStub(LanguageService::class);
         $languageServiceStub
             ->method('sL')
             ->with(Extension::LANGUAGE_PATH_DASHBOARD . ':referrer')

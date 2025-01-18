@@ -35,7 +35,7 @@ final class MatomoRepositoryTest extends TestCase
     protected function setUp(): void
     {
         $this->connectorMock = $this->createMock(MatomoConnector::class);
-        $this->cacheStub = $this->createStub(FrontendInterface::class);
+        $this->cacheStub = self::createStub(FrontendInterface::class);
         $eventDispatcher = new NoopEventDispatcher();
 
         $this->subject = new MatomoRepository(

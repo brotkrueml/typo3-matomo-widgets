@@ -56,7 +56,7 @@ final class MatomoConnectorTest extends TestCase
         $this->requestFactory = new RequestFactory(new Client\GuzzleClientFactory());
         $this->client = (new GuzzleClientFactory())->getClient();
 
-        $this->guzzleClientFactoryStub = $this->createStub(GuzzleClientFactory::class);
+        $this->guzzleClientFactoryStub = self::createStub(GuzzleClientFactory::class);
         $this->guzzleClientFactoryStub
             ->method('getClient')
             ->willReturn($this->client);

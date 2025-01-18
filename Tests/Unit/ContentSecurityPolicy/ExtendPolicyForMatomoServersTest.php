@@ -36,7 +36,7 @@ final class ExtendPolicyForMatomoServersTest extends TestCase
         $defaultPolicy = $this->getDefaultPolicy();
         $event = new PolicyMutatedEvent(
             Scope::frontend(),
-            $this->createStub(ServerRequestInterface::class),
+            self::createStub(ServerRequestInterface::class),
             $defaultPolicy,
             $defaultPolicy,
         );
@@ -54,7 +54,7 @@ final class ExtendPolicyForMatomoServersTest extends TestCase
         $defaultPolicy = $this->getDefaultPolicy();
         $event = new PolicyMutatedEvent(
             Scope::backend(),
-            $this->createStub(ServerRequestInterface::class),
+            self::createStub(ServerRequestInterface::class),
             $defaultPolicy,
             $defaultPolicy,
         );
@@ -85,7 +85,7 @@ final class ExtendPolicyForMatomoServersTest extends TestCase
         $defaultPolicy = $this->getDefaultPolicy();
         $event = new PolicyMutatedEvent(
             Scope::backend(),
-            $this->createStub(ServerRequestInterface::class),
+            self::createStub(ServerRequestInterface::class),
             $defaultPolicy,
             $defaultPolicy,
         );

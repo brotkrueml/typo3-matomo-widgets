@@ -24,7 +24,7 @@ final class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
     #[Test]
     public function getEnableWidgetsIdentifier(): void
     {
-        $siteFinderStub = $this->createStub(SiteFinder::class);
+        $siteFinderStub = self::createStub(SiteFinder::class);
         $siteFinderStub
             ->method('getAllSites')
             ->willReturn([]);
@@ -50,7 +50,7 @@ final class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
     #[Test]
     public function countReturns0WhenNoConfigurationsFound(): void
     {
-        $siteFinderStub = $this->createStub(SiteFinder::class);
+        $siteFinderStub = self::createStub(SiteFinder::class);
         $siteFinderStub
             ->method('getAllSites')
             ->willReturn([]);
@@ -65,21 +65,21 @@ final class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
     #[Test]
     public function countReturnsCountCorrectlyWhenConfigurationsFound(): void
     {
-        $siteStub1 = $this->createStub(Site::class);
+        $siteStub1 = self::createStub(Site::class);
         $siteStub1
             ->method('getConfiguration')
             ->willReturn([
                 'matomoWidgetsEnableActionsPerDay' => true,
             ]);
 
-        $siteStub2 = $this->createStub(Site::class);
+        $siteStub2 = self::createStub(Site::class);
         $siteStub2
             ->method('getConfiguration')
             ->willReturn([
                 'matomoWidgetsEnableBounceRate' => false,
             ]);
 
-        $siteFinderStub = $this->createStub(SiteFinder::class);
+        $siteFinderStub = self::createStub(SiteFinder::class);
         $siteFinderStub
             ->method('getAllSites')
             ->willReturn([
@@ -97,21 +97,21 @@ final class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
     #[Test]
     public function getIterator(): void
     {
-        $siteStub1 = $this->createStub(Site::class);
+        $siteStub1 = self::createStub(Site::class);
         $siteStub1
             ->method('getConfiguration')
             ->willReturn([
                 'matomoWidgetsEnableActionsPerDay' => true,
             ]);
 
-        $siteStub2 = $this->createStub(Site::class);
+        $siteStub2 = self::createStub(Site::class);
         $siteStub2
             ->method('getConfiguration')
             ->willReturn([
                 'matomoWidgetsEnableBounceRate' => false,
             ]);
 
-        $siteFinderStub = $this->createStub(SiteFinder::class);
+        $siteFinderStub = self::createStub(SiteFinder::class);
         $siteFinderStub
             ->method('getAllSites')
             ->willReturn([

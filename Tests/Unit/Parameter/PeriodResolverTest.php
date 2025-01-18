@@ -30,7 +30,7 @@ final class PeriodResolverTest extends TestCase
     {
         $this->subject = new PeriodResolver();
 
-        $this->languageServiceStub = $this->createStub(LanguageService::class);
+        $this->languageServiceStub = self::createStub(LanguageService::class);
         $GLOBALS['LANG'] = $this->languageServiceStub;
     }
 

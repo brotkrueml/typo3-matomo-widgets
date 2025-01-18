@@ -28,7 +28,7 @@ final class LanguageParameterResolverTest extends TestCase
     {
         $this->subject = new LanguageParameterResolver();
 
-        $this->backendUserStub = $this->createStub(BackendUserAuthentication::class);
+        $this->backendUserStub = self::createStub(BackendUserAuthentication::class);
         $GLOBALS['BE_USER'] = $this->backendUserStub;
     }
 
