@@ -11,6 +11,12 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.2...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+Removed
+^^^^^^^
+
+
+* Compatibility with EXT:matomo_integration version 1
+
 `3.1.2 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.1...v3.1.2>`_ - 2024-12-02
 ------------------------------------------------------------------------------------------------------
 

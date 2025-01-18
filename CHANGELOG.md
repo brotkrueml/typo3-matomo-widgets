@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+- Compatibility with EXT:matomo_integration version 1
+
 ## [3.1.2] - 2024-12-02
 
 ### Fixed

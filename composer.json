@@ -29,7 +29,7 @@
 	},
 	"require-dev": {
 		"brotkrueml/coding-standards": "~6.1.0",
-		"brotkrueml/typo3-matomo-integration": "^1.0 || ^2.0",
+		"brotkrueml/typo3-matomo-integration": "^2.0",
 		"donatj/mock-webserver": "^2.7",
 		"ergebnis/composer-normalize": "~2.44.0",
 		"phpstan/extension-installer": "^1.4",
