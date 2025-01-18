@@ -1,26 +1,67 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cognitive complexity for \"Brotkrueml\\\\MatomoWidgets\\\\Configuration\\\\ConfigurationFinder\\:\\:buildConfigurations\\(\\)\" is 14, keep it under 8$#"
+			message: '#^Cognitive complexity for "Brotkrueml\\MatomoWidgets\\Configuration\\ConfigurationFinder\:\:buildConfigurations\(\)" is 14, keep it under 8$#'
+			identifier: complexity.functionLike
 			count: 1
 			path: Classes/Configuration/ConfigurationFinder.php
 
 		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Connection\\\\MatomoConnector\\:\\:callApi\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Brotkrueml\\MatomoWidgets\\Connection\\MatomoConnector\:\:callApi\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: Classes/Connection/MatomoConnector.php
 
 		-
-			message: "#^Method Brotkrueml\\\\MatomoWidgets\\\\Domain\\\\Repository\\\\MatomoRepository\\:\\:send\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Parameter \#1 \$details of method Brotkrueml\\MatomoWidgets\\Domain\\Aggregation\\JavaScriptErrorDetailsAggregator\:\:aggregate\(\) expects list\<array\{browserName\: string, browserIcon\: string, browserVersion\: string, actionDetails\: list\<array\{type\: string, eventCategory\: string, eventAction\: string, url\: string, timestamp\: int\}\>\}\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Classes/Controller/JavaScriptErrorDetailsController.php
+
+		-
+			message: '#^Parameter \#1 \$array \(list\<mixed\>\) of array_values is already a list, call has no effect\.$#'
+			identifier: arrayValues.list
+			count: 3
+			path: Classes/Domain/Entity/JavaScriptErrorDetails.php
+
+		-
+			message: '#^Method Brotkrueml\\MatomoWidgets\\Domain\\Repository\\MatomoRepository\:\:send\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: Classes/Domain/Repository/MatomoRepository.php
 
 		-
-			message: "#^Parameter \\#1 \\$period of method Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\PeriodResolverInterface\\:\\:resolve\\(\\) expects string, Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\LanguageParameterResolver\\|string given\\.$#"
+			message: '#^Call to function is_array\(\) with array will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: Classes/Parameter/LanguageParameterResolver.php
+
+		-
+			message: '#^Method Brotkrueml\\MatomoWidgets\\Widgets\\Provider\\GenericTableDataProvider\:\:getClasses\(\) should return list\<string\> but returns array\<string\>\.$#'
+			identifier: return.type
 			count: 1
 			path: Classes/Widgets/Provider/GenericTableDataProvider.php
 
 		-
-			message: "#^Parameter \\#2 \\$date of method Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\PeriodResolverInterface\\:\\:resolve\\(\\) expects string, Brotkrueml\\\\MatomoWidgets\\\\Parameter\\\\LanguageParameterResolver\\|string given\\.$#"
+			message: '#^Method Brotkrueml\\MatomoWidgets\\Widgets\\Provider\\GenericTableDataProvider\:\:getHeaders\(\) should return list\<string\> but returns array\<string\>\.$#'
+			identifier: return.type
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: '#^Method Brotkrueml\\MatomoWidgets\\Widgets\\Provider\\GenericTableDataProvider\:\:getRows\(\) should return list\<array\<string, mixed\>\> but returns array\.$#'
+			identifier: return.type
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: '#^Parameter \#1 \$period of method Brotkrueml\\MatomoWidgets\\Parameter\\PeriodResolverInterface\:\:resolve\(\) expects string, Brotkrueml\\MatomoWidgets\\Parameter\\LanguageParameterResolver\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Classes/Widgets/Provider/GenericTableDataProvider.php
+
+		-
+			message: '#^Parameter \#2 \$date of method Brotkrueml\\MatomoWidgets\\Parameter\\PeriodResolverInterface\:\:resolve\(\) expects string, Brotkrueml\\MatomoWidgets\\Parameter\\LanguageParameterResolver\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: Classes/Widgets/Provider/GenericTableDataProvider.php
