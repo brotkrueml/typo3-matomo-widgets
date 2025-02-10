@@ -79,7 +79,7 @@ final class ConfigurationFinderTest extends TestCase
     {
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $configurations);
+        self::assertEmpty($configurations);
     }
 
     #[Test]
@@ -90,7 +90,7 @@ final class ConfigurationFinderTest extends TestCase
         ]);
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $configurations);
+        self::assertEmpty($configurations);
     }
 
     #[Test]
@@ -105,7 +105,7 @@ final class ConfigurationFinderTest extends TestCase
         $this->createSiteConfiguration('some_site', $configuration);
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $configurations);
+        self::assertEmpty($configurations);
     }
 
     #[Test]
@@ -150,7 +150,7 @@ final class ConfigurationFinderTest extends TestCase
         $this->createSiteConfiguration('some_site', $configuration);
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $configurations);
+        self::assertEmpty($configurations);
     }
 
     #[Test]
@@ -165,7 +165,7 @@ final class ConfigurationFinderTest extends TestCase
         $this->createSiteConfiguration('some_site', $configuration);
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        self::assertCount(0, $configurations);
+        self::assertEmpty($configurations);
     }
 
     #[Test]
@@ -231,7 +231,7 @@ final class ConfigurationFinderTest extends TestCase
         $this->createSiteConfiguration('some_site', $configuration);
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
 
-        self::assertCount(0, $configurations);
+        self::assertEmpty($configurations);
     }
 
     #[Test]

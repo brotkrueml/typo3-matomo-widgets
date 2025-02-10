@@ -59,7 +59,7 @@ final class LegacyEnableWidgetsConfigurationFinderTest extends TestCase
             $siteFinderStub,
         );
 
-        self::assertCount(0, $subject);
+        self::assertEmpty($subject);
     }
 
     #[Test]
