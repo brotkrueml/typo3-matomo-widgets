@@ -4,7 +4,7 @@ help:
 	@printf "\033[33mUsage:\033[0m\n  make [target] [arg=\"val\"...]\n\n\033[33mTargets:\033[0m\n"
 	@grep -E '^[-a-zA-Z0-9_\.\/]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[32m%-15s\033[0m %s\n", $$1, $$2}'
 
-qa: comp stan rector-check tests cs lint ## Run all relevant code checks
+qa: composer lint tests cs stan rector-check ## Run all relevant code checks
 
 # See: https://github.com/crossnox/m2r2
 changelog: ## Generate changelog file in documentation
@@ -15,12 +15,12 @@ changelog: ## Generate changelog file in documentation
 	mv /tmp/CHANGELOG.rst Documentation/Changelog/Index.rst && \
 	rm CHANGELOG.rst
 
-comp: comp-check comp-norm ## Validate and normalize composer.json
+composer: composer-check composer-norm ## Validate and normalize composer.json
 
-comp-check: ## Validate composer.json
+composer-check: ## Validate composer.json
 	composer validate
 
-comp-norm: vendor ## Normalize composer.json
+composer-norm: vendor ## Normalize composer.json
 	composer normalize
 
 cs: cs-php ## Check and fix coding standards
