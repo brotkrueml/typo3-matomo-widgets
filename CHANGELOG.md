@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Allow import of Matomo Widget configuration in site configuration (#54)
 
+### Fixed
+- Call to undefined method `WidgetConfiguration::getAdditionalCssClasses()` (#56)
+
 ### Removed
 - Compatibility with EXT:matomo_integration version 1
 

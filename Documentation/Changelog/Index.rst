@@ -17,6 +17,12 @@ Added
 
 * Allow import of Matomo Widget configuration in site configuration (#54)
 
+Fixed
+^^^^^
+
+
+* Call to undefined method ``WidgetConfiguration::getAdditionalCssClasses()`` (#56)
+
 Removed
 ^^^^^^^
 

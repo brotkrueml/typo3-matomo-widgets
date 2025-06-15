@@ -40,7 +40,8 @@ trait WidgetTitleAdaptionTrait
             $configuration->getIconIdentifier(),
             $configuration->getHeight(),
             $configuration->getWidth(),
-            \explode(' ', $configuration->getAdditionalCssClasses()),
+            // @todo Remove 9th argument when compatibility with TYPO3 v12 is dropped
+            [],
         );
     }
 
