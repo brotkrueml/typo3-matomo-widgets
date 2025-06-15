@@ -11,6 +11,9 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.1.2...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+[3.2.0] - 2025-06-15
+--------------------
+
 Added
 ^^^^^
 
@@ -21,7 +24,7 @@ Fixed
 ^^^^^
 
 
-* Call to undefined method ``WidgetConfiguration::getAdditionalCssClasses()`` (#56)
+* Call to undefined method ``WidgetConfiguration::getAdditionalCssClasses()`` in TYPO3 v13.4.14 (#56)
 
 Removed
 ^^^^^^^

@@ -6,11 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.2.0] - 2025-06-15
+
 ### Added
 - Allow import of Matomo Widget configuration in site configuration (#54)
 
 ### Fixed
-- Call to undefined method `WidgetConfiguration::getAdditionalCssClasses()` (#56)
+- Call to undefined method `WidgetConfiguration::getAdditionalCssClasses()` in TYPO3 v13.4.14 (#56)
 
 ### Removed
 - Compatibility with EXT:matomo_integration version 1
