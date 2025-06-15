@@ -31,13 +31,13 @@
 		"brotkrueml/coding-standards": "~6.1.0",
 		"brotkrueml/typo3-matomo-integration": "^2.0",
 		"donatj/mock-webserver": "^2.7",
-		"ergebnis/composer-normalize": "~2.45.0",
+		"ergebnis/composer-normalize": "~2.47.0",
 		"phpstan/extension-installer": "^1.4",
 		"phpstan/phpstan": "2.1.17",
-		"phpunit/phpunit": "^10.5 || ^11.5 || ^12.0",
+		"phpunit/phpunit": "^10.5 || ^11.5 || ^12.2",
 		"rector/rector": "2.0.18",
-		"symfony/yaml": "^6.4 || ^7.2",
-		"symplify/phpstan-rules": "^14.2",
+		"symfony/yaml": "^6.4 || ^7.3",
+		"symplify/phpstan-rules": "^14.6",
 		"tomasvotruba/cognitive-complexity": "^1.0"
 	},
 	"suggest": {
