@@ -31,6 +31,7 @@ trait WidgetTitleAdaptionTrait
             $title = \sprintf('%s: %s', $siteTitle, $title);
         }
 
+        // @phpstan-ignore-next-line Class TYPO3\CMS\Dashboard\Widgets\WidgetConfiguration constructor invoked with 9 parameters, 8 required.
         return new WidgetConfiguration(
             $configuration->getIdentifier(),
             $configuration->getServiceName(),

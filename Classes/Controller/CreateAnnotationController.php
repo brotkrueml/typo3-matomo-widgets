@@ -168,7 +168,7 @@ final class CreateAnnotationController
             4, // EXTENSION
             0,
             0,
-            0,
+            null,
             'Matomo Widgets: Annotation "%s / %s" (%d) was created on Matomo installation for site "%s"',
             [
                 $createdAnnotation['date'],
