@@ -327,6 +327,7 @@ SITE_CONFIGURATION;
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
         $actual = $configurations->findConfigurationBySiteIdentifier('some_site');
 
+        self::assertInstanceOf(Configuration::class, $actual);
         self::assertSame('The resolved title', $actual->siteTitle);
         self::assertSame('The resolved URL', $actual->url);
         self::assertSame(42, $actual->idSite);
