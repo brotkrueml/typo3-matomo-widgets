@@ -29,12 +29,12 @@ final class ConfigurationFinder
         $yamlFileLoader = YamlFileLoader::get();
         $configurationsArray = [];
         foreach (self::getConfigurationFiles($configPath) as $file) {
-            $realFile = $file->getRealPath();
-            if ($realFile === false) {
+            $filePath = $file->getPathname();
+            if (! \is_file($filePath)) {
                 continue;
             }
-            $realFile = GeneralUtility::fixWindowsFilePath($realFile);
-            $siteConfiguration = $yamlFileLoader->load($realFile);
+            $filePath = GeneralUtility::fixWindowsFilePath($filePath);
+            $siteConfiguration = $yamlFileLoader->load($filePath);
 
             $considerMatomoIntegration = $isMatomoIntegrationAvailable
                 && ($siteConfiguration['matomoWidgetsConsiderMatomoIntegration'] ?? false);
