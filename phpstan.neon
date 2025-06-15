@@ -6,6 +6,8 @@ parameters:
     level: 8
     paths:
         - Classes
+    excludePaths:
+        - Classes/Adapter/YamlFileLoader.php
     treatPhpDocTypesAsCertain: false
     cognitive_complexity:
         class: 20

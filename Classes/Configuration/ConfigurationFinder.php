@@ -11,12 +11,12 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Configuration;
 
+use Brotkrueml\MatomoWidgets\Adapter\YamlFileLoader;
 use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
 use Brotkrueml\MatomoWidgets\Domain\Validation\CustomDimensionConfigurationValidator;
 use Brotkrueml\MatomoWidgets\Extension;
 use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Yaml\Yaml;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -24,39 +24,32 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 final class ConfigurationFinder
 {
-    /**
-     * Regex pattern for allowed characters in environment variables
-     * @see https://regex101.com/r/hIXvef/1
-     * @see https://stackoverflow.com/questions/2821043/allowed-characters-in-linux-environment-variable-names
-     */
-    private const ENV_VAR_REGEX = '/^%env\(([a-zA-Z_]\w*)\)%$/';
-
     public static function buildConfigurations(string $configPath, bool $isMatomoIntegrationAvailable): Configurations
     {
+        $yamlFileLoader = YamlFileLoader::get();
         $configurationsArray = [];
         foreach (self::getConfigurationFiles($configPath) as $file) {
             $realFile = $file->getRealPath();
             if ($realFile === false) {
                 continue;
             }
-            $siteConfiguration = Yaml::parseFile($realFile);
+            $realFile = GeneralUtility::fixWindowsFilePath($realFile);
+            $siteConfiguration = $yamlFileLoader->load($realFile);
 
             $considerMatomoIntegration = $isMatomoIntegrationAvailable
                 && ($siteConfiguration['matomoWidgetsConsiderMatomoIntegration'] ?? false);
 
             if ($considerMatomoIntegration) {
                 $url = $siteConfiguration['matomoIntegrationUrl'] ?? '';
-                $idSite = (string) ($siteConfiguration['matomoIntegrationSiteId'] ?? 0);
+                $idSite = (int) ($siteConfiguration['matomoIntegrationSiteId'] ?? 0);
             } else {
                 $url = $siteConfiguration['matomoWidgetsUrl'] ?? '';
-                $idSite = (string) ($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
+                $idSite = (int) ($siteConfiguration['matomoWidgetsIdSite'] ?? 0);
             }
-            $url = self::resolveEnvironmentVariable($url);
-            if (\str_starts_with($url, '//')) {
+            if (\str_starts_with((string) $url, '//')) {
                 // We have a relative URL: prepend the scheme from the base URL of the site configuration
                 $url = \parse_url((string) $siteConfiguration['base'], \PHP_URL_SCHEME) . ':' . $url;
             }
-            $idSite = (int) self::resolveEnvironmentVariable($idSite);
             if ($url === '') {
                 continue;
             }
@@ -69,10 +62,9 @@ final class ConfigurationFinder
             } else {
                 $pagesNotFoundTemplate = $siteConfiguration['matomoWidgetsPagesNotFoundTemplate'] ?? '';
             }
-            $pagesNotFoundTemplate = self::resolveEnvironmentVariable($pagesNotFoundTemplate);
 
-            $siteTitle = self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsTitle'] ?? '');
-            $tokenAuth = self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsTokenAuth'] ?? '');
+            $siteTitle = $siteConfiguration['matomoWidgetsTitle'] ?? '';
+            $tokenAuth = $siteConfiguration['matomoWidgetsTokenAuth'] ?? '';
 
             $pathSegments = \explode('/', $file->getPath());
             $identifier = \end($pathSegments);
@@ -84,7 +76,7 @@ final class ConfigurationFinder
 
             $activeWidgets = GeneralUtility::trimExplode(
                 ',',
-                self::resolveEnvironmentVariable($siteConfiguration['matomoWidgetsActiveWidgets'] ?? ''),
+                $siteConfiguration['matomoWidgetsActiveWidgets'] ?? '',
                 true,
             );
             $customDimensions = self::buildCustomDimensions($siteConfiguration['matomoWidgetsCustomDimensions'] ?? []);
@@ -130,24 +122,6 @@ final class ConfigurationFinder
         }
 
         return [...$siteFiles, ...$additionalFiles];
-    }
-
-    /**
-     * This method is necessary as environment variables are not resolved when configuration
-     * is available in controllers.
-     */
-    private static function resolveEnvironmentVariable(string $value): string
-    {
-        if (\preg_match(self::ENV_VAR_REGEX, $value, $matches) !== 1) {
-            return $value;
-        }
-
-        $resolvedValue = \getenv($matches[1]);
-        if ($resolvedValue === false) {
-            return '';
-        }
-
-        return $resolvedValue;
     }
 
     /**

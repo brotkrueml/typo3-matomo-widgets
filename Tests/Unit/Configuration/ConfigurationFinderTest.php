@@ -14,17 +14,40 @@ namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\ConfigurationFinder;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use Psr\Log\NullLogger;
+use TYPO3\CMS\Core\Configuration\Processor\Placeholder\EnvVariableProcessor;
+use TYPO3\CMS\Core\Configuration\Processor\Placeholder\ValueFromReferenceArrayProcessor;
 use TYPO3\CMS\Core\Core\ApplicationContext;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Log\LogManager;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 #[CoversClass(ConfigurationFinder::class)]
-#[RunTestsInSeparateProcesses]
 final class ConfigurationFinderTest extends TestCase
 {
     private static string $configPath;
+
+    protected function setUp(): void
+    {
+        // Configuration from EXT:core/Configuration/DefaultConfiguration.php
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors'] = [
+            EnvVariableProcessor::class => [],
+            ValueFromReferenceArrayProcessor::class => [
+                'after' => [
+                    EnvVariableProcessor::class,
+                ],
+            ],
+        ];
+
+        $logManagerDummy = self::createStub(LogManager::class);
+        $logManagerDummy
+            ->method('getLogger')
+            ->willReturn(new NullLogger());
+
+        GeneralUtility::setSingletonInstance(LogManager::class, $logManagerDummy);
+    }
 
     public static function setUpBeforeClass(): void
     {
@@ -71,6 +94,8 @@ final class ConfigurationFinderTest extends TestCase
 
     protected function tearDown(): void
     {
+        unset($GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors']);
+        GeneralUtility::purgeInstances();
         self::tearDownAfterClass();
     }
 
@@ -166,6 +191,31 @@ final class ConfigurationFinderTest extends TestCase
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
         self::assertEmpty($configurations);
+    }
+
+    #[Test]
+    public function siteConfigurationWhichImportsMatomoConfiguration(): void
+    {
+        $path = self::$configPath . '/sites/some_site/imports';
+        \mkdir($path, 0777, true);
+
+        $siteConfiguration = <<< SITE_CONFIGURATION
+imports:
+  - resource: "imports/widgets.yaml"
+SITE_CONFIGURATION;
+        \file_put_contents(\dirname($path) . '/config.yaml', $siteConfiguration);
+
+        $widgetsConfiguration = [
+            'matomoWidgetsIdSite' => 42,
+            'matomoWidgetsUrl' => 'https://example.org/',
+        ];
+        \file_put_contents($path . '/widgets.yaml', $this->buildConfiguration($widgetsConfiguration));
+
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+        $actualConfiguration = $configurations->getIterator()->current();
+
+        self::assertSame(42, $actualConfiguration->idSite);
+        self::assertSame('https://example.org/', $actualConfiguration->url);
     }
 
     #[Test]
