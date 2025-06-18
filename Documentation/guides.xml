@@ -15,7 +15,7 @@
     />
     <project
         title="Matomo Widgets"
-        release="3.2.0"
+        release="3.2.1-dev"
         version="3.2"
         copyright="since 2020 by Chris Müller"
     />
