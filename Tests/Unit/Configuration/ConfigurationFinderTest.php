@@ -66,13 +66,13 @@ final class ConfigurationFinderTest extends TestCase
         self::$configPath = \realpath(\sys_get_temp_dir()) . \DIRECTORY_SEPARATOR . 'matomo_widgets_configuration_finder';
 
         if (\is_dir(self::$configPath)) {
-            self::tearDownAfterClass();
+            self::cleanUpDirectories();
         } else {
             \mkdir(self::$configPath);
         }
     }
 
-    public static function tearDownAfterClass(): void
+    private static function cleanUpDirectories(): void
     {
         $paths = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator(self::$configPath, \RecursiveDirectoryIterator::SKIP_DOTS),
@@ -96,7 +96,7 @@ final class ConfigurationFinderTest extends TestCase
     {
         unset($GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors']);
         GeneralUtility::purgeInstances();
-        self::tearDownAfterClass();
+        self::cleanUpDirectories();
     }
 
     #[Test]
@@ -216,6 +216,37 @@ SITE_CONFIGURATION;
 
         self::assertSame(42, $actualConfiguration->idSite);
         self::assertSame('https://example.org/', $actualConfiguration->url);
+    }
+
+    #[Test]
+    public function siteConfigurationFileIsSymlinked(): void
+    {
+        $configuration = [
+            'matomoWidgetsIdSite' => 42,
+            'matomoWidgetsTitle' => 'Some Title',
+            'matomoWidgetsTokenAuth' => 'some token',
+            'matomoWidgetsUrl' => 'https://example.org/',
+            'matomoWidgetsActiveWidgets' => 'actionsPerDay',
+        ];
+
+        $path = self::$configPath . '/sites/some_site';
+        \mkdir($path, 0777, true);
+        \file_put_contents($path . '/config_file.yaml', $this->buildConfiguration($configuration));
+        \symlink($path . '/config_file.yaml', $path . '/config.yaml');
+
+        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
+
+        self::assertCount(1, $configurations);
+
+        /** @var Configuration $actualConfiguration */
+        $actualConfiguration = $configurations->getIterator()->current();
+        self::assertInstanceOf(Configuration::class, $actualConfiguration);
+        self::assertSame('some_site', $actualConfiguration->siteIdentifier);
+        self::assertSame(42, $actualConfiguration->idSite);
+        self::assertSame('Some Title', $actualConfiguration->siteTitle);
+        self::assertSame('some token', $actualConfiguration->tokenAuth);
+        self::assertSame('https://example.org/', $actualConfiguration->url);
+        self::assertTrue($actualConfiguration->isWidgetActive('actionsPerDay'));
     }
 
     #[Test]
