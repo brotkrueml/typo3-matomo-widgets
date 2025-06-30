@@ -8,14 +8,17 @@ All notable changes to this project will be documented in this file.
 The format is based on `Keep a Changelog <https://keepachangelog.com/en/1.0.0/>`_\ ,
 and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0.html>`_.
 
-`Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.1...HEAD>`_
+`Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.2...HEAD>`_
 --------------------------------------------------------------------------------------------
+
+`3.2.2 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.1...v3.2.2>`_ - 2025-06-30
+------------------------------------------------------------------------------------------------------
 
 Removed
 ^^^^^^^
 
 
-* Import of Matomo Widget configuration in site configuration (#58)
+* Import of Matomo Widget configuration in site configuration (introduced with v3.2.0) (#58)
 
 `3.2.1 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.0...v3.2.1>`_ - 2025-06-18
 ------------------------------------------------------------------------------------------------------
