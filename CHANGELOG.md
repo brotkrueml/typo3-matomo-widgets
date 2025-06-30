@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+- Import of Matomo Widget configuration in site configuration (introduced with v3.2.0) (#58)
+
 ## [3.2.1] - 2025-06-18
 
 ### Fixed

@@ -194,31 +194,6 @@ final class ConfigurationFinderTest extends TestCase
     }
 
     #[Test]
-    public function siteConfigurationWhichImportsMatomoConfiguration(): void
-    {
-        $path = self::$configPath . '/sites/some_site/imports';
-        \mkdir($path, 0777, true);
-
-        $siteConfiguration = <<< SITE_CONFIGURATION
-imports:
-  - resource: "imports/widgets.yaml"
-SITE_CONFIGURATION;
-        \file_put_contents(\dirname($path) . '/config.yaml', $siteConfiguration);
-
-        $widgetsConfiguration = [
-            'matomoWidgetsIdSite' => 42,
-            'matomoWidgetsUrl' => 'https://example.org/',
-        ];
-        \file_put_contents($path . '/widgets.yaml', $this->buildConfiguration($widgetsConfiguration));
-
-        $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
-        $actualConfiguration = $configurations->getIterator()->current();
-
-        self::assertSame(42, $actualConfiguration->idSite);
-        self::assertSame('https://example.org/', $actualConfiguration->url);
-    }
-
-    #[Test]
     public function siteConfigurationFileIsSymlinked(): void
     {
         $configuration = [
