@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Double title in some widget types with TYPO3 >= 13.4.6
+
 ## [3.2.2] - 2025-06-30
 
 ### Removed

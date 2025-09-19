@@ -15,7 +15,6 @@ use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\TableDataProviderInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\View\BackendViewFactory;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
 use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
 use TYPO3\CMS\Dashboard\Widgets\RequestAwareWidgetInterface;
@@ -64,8 +63,6 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface, RequestAwa
             'button' => $this->buttonProvider,
             'configuration' => $this->configuration,
             'reportLink' => $this->options['reportLink'] ?? '',
-            // @todo Remove when compatibility with TYPO3 v12 is dropped
-            'isTypo3V12' => (new Typo3Version())->getMajorVersion() === 12,
             // @todo Remove check when TableDataProviderInterface->getDatePeriod() is mandatory
             'datePeriod' => \method_exists($this->dataProvider, 'getDatePeriod') ? $this->dataProvider->getDatePeriod() : null,
         ]);

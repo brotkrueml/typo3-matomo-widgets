@@ -11,6 +11,12 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.2...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+Fixed
+^^^^^
+
+
+* Double title in some widget types with TYPO3 >= 13.4.6
+
 `3.2.2 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.1...v3.2.2>`_ - 2025-06-30
 ------------------------------------------------------------------------------------------------------
 

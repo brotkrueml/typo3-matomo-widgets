@@ -61,9 +61,10 @@
     color: #666;
     font-size: 12px;
     font-weight: normal;
+    margin-top: -10px;
+    margin-bottom: 10px;
 }
 
-/* @todo Remove when compatibility with TYPO3 v12 is dropped */
-.widget-content-main .matomo-widgets__widget-table-wrapper-v12 {
-    margin-top: -20px;
+.matomo_widgets__date-range ~ .widget-table-wrapper {
+    margin-top: 0;
 }
