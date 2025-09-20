@@ -24,7 +24,8 @@
 				<source><![CDATA[Pages Not Found Template]]></source>
 			</trans-unit>
 			<trans-unit id="pagesNotFoundTemplate.description">
-				<source><![CDATA[The template for a 404 page title to distinguish between URL and referrer. Use the placeholders {path} and {referrer}.]]></source>
+				<source><![CDATA[The template for a 404 page title to distinguish between URL and referrer. Use the placeholders {path} and {referrer}.
+Make sure, this template is in sync with the configuration of "setDocumentTitle()" on the 404 page. See the documentation, chapter "Configuration", for more details.]]></source>
 			</trans-unit>
 			<trans-unit id="title">
 				<source><![CDATA[Title]]></source>

@@ -95,6 +95,20 @@ Pages Not Found Template
 
    Default: *404/URL = {path}/From = {referrer}*
 
+   .. note::
+      Please ensure that the template has the same structure as the
+      configuration of the 404 page title. For example, for the default template
+      specified above:
+
+      .. code-block:: javascript
+
+         _paq.push([
+            'setDocumentTitle',
+            '404/URL = ' + encodeURIComponent(document.location.pathname+document.location.search) + ' /From = ' + encodeURIComponent(document.referrer)
+         ]);
+
+      Pay attention to whitespaces!
+
 .. _configuration-keys:
 
 Configuration keys
