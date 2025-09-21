@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Widget "Conversions per month" (#52)
+- Widget "Movers and shakers" (#48)
 
 ### Fixed
 - Countries are not localized in countries widget

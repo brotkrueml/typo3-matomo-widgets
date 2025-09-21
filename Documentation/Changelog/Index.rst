@@ -16,6 +16,7 @@ Added
 
 
 * Widget "Conversions per month" (#52)
+* Widget "Movers and shakers" (#48)
 
 Fixed
 ^^^^^

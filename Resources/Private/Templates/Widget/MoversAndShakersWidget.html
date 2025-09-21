@@ -1,0 +1,82 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    lang="en"
+>
+
+<f:layout name="Widget/Widget" />
+
+<f:section name="main">
+    <f:if condition="{datePeriod}">
+        <p class="matomo_widgets__date-range">{datePeriod}</p>
+    </f:if>
+
+    <f:if condition="{isDataAvailable}">
+        <f:then>
+            <div class="widget-table-wrapper">
+                <table class="widget-table table table-striped table-hover">
+                    <f:for each="{rows}" key="area" as="areaRows">
+                        <f:if condition="{areaRows}">
+                            <thead>
+                                <tr>
+                                    <th class="matomo_widgets__movers-shakers__column-label">
+                                        {area}
+                                    </th>
+                                    <th class="matomo_widgets__movers-shakers__column-pageviews matomo-widgets__text-end">
+                                        <f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:uniquePageviews"/>
+                                    </th>
+                                    <th class="matomo_widgets__movers-shakers__column-evolution matomo-widgets__text-end">
+                                        <f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:evolution"/>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <f:for each="{areaRows}" as="row">
+                                    <tr>
+                                        <td>
+                                            {row.label}
+                                        </td>
+                                        <td class="matomo-widgets__text-end">
+                                            {row.difference}
+                                        </td>
+                                        <f:variable name="evolutionClass" value=""/>
+                                        <f:if condition="{row.growth_percent_numeric} < 0">
+                                            <f:then>
+                                                <f:variable name="evolutionClass" value=" matomo-widgets__evolution--decrease"/>
+                                            </f:then>
+                                            <f:else if="{row.growth_percent_numeric} > 0">
+                                                <f:variable name="evolutionClass" value=" matomo-widgets__evolution--increase"/>
+                                            </f:else>
+                                        </f:if>
+                                        <td class="matomo-widgets__text-end">
+                                            <span class="{evolutionClass}">
+                                                <f:if condition="{row.growth_percent_numeric} > 0">+</f:if><f:format.number
+                                                    decimals="1"
+                                                    decimalSeparator="{f:translate(key: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:decimalSeparator')}"
+                                                    thousandsSeparator="{f:translate(key: 'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:thousandsSeparator')}"
+                                                >
+                                                    {row.growth_percent_numeric}
+                                                </f:format.number>%
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </f:for>
+                            </tbody>
+                        </f:if>
+                    </f:for>
+                </table>
+            </div>
+        </f:then>
+        <f:else>
+            <f:translate key="LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:noResultsAvailable"/>
+        </f:else>
+    </f:if>
+</f:section>
+
+<f:section name="footer">
+    <f:if condition="{button}">
+        <a href="{button.link}" target="{button.target}" class="widget-cta">{f:translate(id: button.title, default: button.title)}</a>
+    </f:if>
+</f:section>
+
+</html>
