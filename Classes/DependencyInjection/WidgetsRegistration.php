@@ -22,6 +22,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BrowsersRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CampaignsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ContentNamesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ContentPiecesRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ConversionsPerMonthRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CountriesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CreateAnnotationRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CustomDimensionsRegistration;
@@ -45,6 +46,7 @@ final class WidgetsRegistration
     private const REGISTRATION_CLASSES = [
         ActionsPerDayRegistration::class,
         ActionsPerMonthRegistration::class,
+        ConversionsPerMonthRegistration::class,
         CreateAnnotationRegistration::class,
         AnnotationsRegistration::class,
         BounceRateRegistration::class,

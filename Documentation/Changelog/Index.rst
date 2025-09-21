@@ -11,6 +11,12 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.3...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+Added
+^^^^^
+
+
+* Widget "Conversions per month" (#52)
+
 `3.2.3 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.2...v3.2.3>`_ - 2025-09-20
 ------------------------------------------------------------------------------------------------------
 

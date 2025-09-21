@@ -65,6 +65,10 @@ final class WidgetsProviderTest extends TestCase
             'value' => 'contentPieces',
         ], $actual);
         self::assertContains([
+            'label' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.goals.conversionsPerMonth.title',
+            'value' => 'conversionsPerMonth',
+        ], $actual);
+        self::assertContains([
             'label' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title',
             'value' => 'countries',
         ], $actual);

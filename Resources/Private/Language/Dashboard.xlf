@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2024-12-13T17:19:18Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2025-09-21T13:56:48Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions">
 				<source><![CDATA[Actions]]></source>
@@ -13,6 +13,9 @@
 			</trans-unit>
 			<trans-unit id="column">
 				<source><![CDATA[Column]]></source>
+			</trans-unit>
+			<trans-unit id="conversions">
+				<source><![CDATA[Conversions]]></source>
 			</trans-unit>
 			<trans-unit id="create">
 				<source><![CDATA[Create]]></source>
@@ -217,6 +220,12 @@
 			</trans-unit>
 			<trans-unit id="widgets.linkMatomo.buttonText">
 				<source><![CDATA[To the Matomo installation]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.goals.conversionsPerMonth.description">
+				<source><![CDATA[Display the number of conversions per month as a chart.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.goals.conversionsPerMonth.title">
+				<source><![CDATA[Conversions per month]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.linkMatomo.description">
 				<source><![CDATA[Add a shortcut to the Matomo installation.]]></source>

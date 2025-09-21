@@ -107,6 +107,32 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
       - lastN: 365
 
 
+Conversions per month
+=====================
+
+.. versionadded:: 3.3.0
+
+This widget displays the number of conversions per month for the last 12 months
+(including the current month). For this, you have to define at least one
+`goal`_.
+
+.. figure:: /Images/WidgetConversionsPerMonth.png
+   :alt: Widget Conversions per month
+
+   Widget *Conversions per month*
+
+Matomo module
+   Goals
+
+Active widgets value in :file:`config.yaml`
+   conversionsPerMonth
+
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
+   matomo_widgets.conversionsPerMonth.parameters
+      - period: month
+      - date: last12
+
+
 Create annotation
 =================
 
@@ -675,5 +701,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 .. _custom dimensions: https://matomo.org/docs/custom-dimensions/
 .. _enableJSErrorTracking: https://matomo.org/faq/how-to/how-do-i-enable-basic-javascript-error-tracking-and-reporting-in-matomo-browser-console-error-messages/
 .. _feature request: https://github.com/brotkrueml/typo3-matomo-widgets/issues
+.. _goal: https://matomo.org/guide/reports/goals-and-conversions/
 .. _increase the limit: https://matomo.org/faq/how-to/faq_54/
 .. _invalidate the historical reports: https://matomo.org/faq/how-to/faq_155/
