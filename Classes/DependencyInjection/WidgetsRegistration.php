@@ -30,6 +30,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\CustomDimensionsRegistr
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\JavaScriptErrorsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\LinkMatomoRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\MostViewedPagesRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\MoversAndShakersRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\OsFamiliesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\PagesNotFoundRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\SiteSearchKeywordsRegistration;
@@ -61,6 +62,7 @@ final class WidgetsRegistration
         JavaScriptErrorsRegistration::class,
         LinkMatomoRegistration::class,
         MostViewedPagesRegistration::class,
+        MoversAndShakersRegistration::class,
         OsFamiliesRegistration::class,
         PagesNotFoundRegistration::class,
         SiteSearchKeywordsRegistration::class,

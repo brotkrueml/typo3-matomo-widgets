@@ -23,6 +23,9 @@
 			<trans-unit id="date">
 				<source><![CDATA[Date]]></source>
 			</trans-unit>
+			<trans-unit id="decimalSeparator">
+				<source><![CDATA[.]]></source>
+			</trans-unit>
 			<trans-unit id="error.emptyDate">
 				<source><![CDATA[Date is empty!]]></source>
 			</trans-unit>
@@ -40,6 +43,9 @@
 			</trans-unit>
 			<trans-unit id="errorMessage">
 				<source><![CDATA[Error message]]></source>
+			</trans-unit>
+			<trans-unit id="evolution">
+				<source><![CDATA[Evolution]]></source>
 			</trans-unit>
 			<trans-unit id="hits">
 				<source><![CDATA[Hits]]></source>
@@ -109,6 +115,9 @@
 			</trans-unit>
 			<trans-unit id="thousandsSeparator">
 				<source><![CDATA[,]]></source>
+			</trans-unit>
+			<trans-unit id="uniquePageviews">
+				<source><![CDATA[Unique pageviews]]></source>
 			</trans-unit>
 			<trans-unit id="url">
 				<source><![CDATA[URL]]></source>
@@ -217,6 +226,12 @@
 			</trans-unit>
 			<trans-unit id="widgets.events.javaScriptErrors.title">
 				<source><![CDATA[JavaScript errors]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.insights.moversAndShakers.description">
+				<source><![CDATA[Shows the elements that have increased or decreased the most in terms of unique pageviews.]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.insights.moversAndShakers.title">
+				<source><![CDATA[Movers and shakers]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.linkMatomo.buttonText">
 				<source><![CDATA[To the Matomo installation]]></source>

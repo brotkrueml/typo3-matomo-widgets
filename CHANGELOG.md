@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Widget "Movers and shakers" (#48)
+
 ## [3.4.0] - 2025-10-09
 
 ### Added

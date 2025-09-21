@@ -11,6 +11,12 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.4.0...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+Added
+^^^^^
+
+
+* Widget "Movers and shakers" (#48)
+
 `3.4.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.3.0...v3.4.0>`_ - 2025-10-09
 ------------------------------------------------------------------------------------------------------
 

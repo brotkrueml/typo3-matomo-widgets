@@ -85,6 +85,10 @@ final class WidgetsProviderTest extends TestCase
             'value' => 'linkMatomo',
         ], $actual);
         self::assertContains([
+            'label' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.insights.moversAndShakers.title',
+            'value' => 'moversAndShakers',
+        ], $actual);
+        self::assertContains([
             'label' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title',
             'value' => 'osFamilies',
         ], $actual);

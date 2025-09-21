@@ -68,3 +68,23 @@
 .matomo_widgets__date-range ~ .widget-table-wrapper {
     margin-top: 0;
 }
+
+.matomo-widgets__evolution--decrease {
+    color: light-dark(red, orangered);
+}
+
+.matomo-widgets__evolution--increase {
+    color: light-dark(green, limegreen);
+}
+
+.matomo_widgets__movers-shakers__column-label {
+    width: 60%;
+}
+
+.matomo_widgets__movers-shakers__column-pageviews {
+    width: 20%;
+}
+
+.matomo_widgets__movers-shakers__column-evolution {
+    width: 20%;
+}

@@ -37,6 +37,7 @@ final class WidgetsProvider
         'countries' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.userCountry.country.title',
         'javaScriptErrors' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.events.javaScriptErrors.title',
         'linkMatomo' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.title',
+        'moversAndShakers' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.insights.moversAndShakers.title',
         'mostViewedPages' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.mostViewedPages.title',
         'osFamilies' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.devicesDetection.osFamilies.title',
         'pagesNotFound' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.actions.pagesNotFound.title',
@@ -47,7 +48,7 @@ final class WidgetsProvider
     ];
 
     /**
-     * @return array<non-empty-array<0|1|'label'|'value', string>>
+     * @return array<non-empty-array<'label'|'value', string>>
      */
     public function getItemsForTca(): array
     {
