@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Widget "Conversions per month" (#52)
 
+### Fixed
+- Countries are not localized in countries widget
+
 ## [3.2.3] - 2025-09-20
 
 ### Fixed

@@ -15,7 +15,7 @@ use Brotkrueml\MatomoWidgets\Extension;
 use Brotkrueml\MatomoWidgets\Parameter\LanguageParameterResolver;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\CountryFlagDecorator;
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\NumberDecorator;
-use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericTableDataProvider;
+use Brotkrueml\MatomoWidgets\Widgets\Provider\CountriesDataProvider;
 use Brotkrueml\MatomoWidgets\Widgets\TableWidget;
 use Symfony\Component\DependencyInjection\Reference;
 
@@ -61,7 +61,7 @@ final class CountriesRegistration extends AbstractRegistration
             ->arg('$url', $this->matomoConfiguration->url);
 
         $this->services
-            ->set($this->buildServiceDataProviderId(), GenericTableDataProvider::class)
+            ->set($this->buildServiceDataProviderId(), CountriesDataProvider::class)
             ->arg('$connectionConfiguration', new Reference($this->connectionConfigurationId))
             ->arg('$method', self::METHOD)
             ->arg(

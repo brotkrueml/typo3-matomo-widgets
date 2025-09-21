@@ -37,6 +37,12 @@ parameters:
 			path: Classes/Parameter/LanguageParameterResolver.php
 
 		-
+			message: '#^Method Brotkrueml\\MatomoWidgets\\Widgets\\Provider\\CountriesDataProvider\:\:getRows\(\) should return list\<array\<string, mixed\>\> but returns array\.$#'
+			identifier: return.type
+			count: 1
+			path: Classes/Widgets/Provider/CountriesDataProvider.php
+
+		-
 			message: '#^Method Brotkrueml\\MatomoWidgets\\Widgets\\Provider\\GenericTableDataProvider\:\:getClasses\(\) should return list\<string\> but returns array\<string\>\.$#'
 			identifier: return.type
 			count: 1
