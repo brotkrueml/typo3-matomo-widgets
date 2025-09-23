@@ -93,7 +93,7 @@ Pages Not Found Template
    This field is only available when :guilabel:`Consider configuration from
    Matomo Integration extension` is deactivated.
 
-   Default: *404/URL = {path}/From = {referrer}*
+   Default: *404/URL = {path} /From = {referrer}*
 
    .. note::
       Please ensure that the template has the same structure as the

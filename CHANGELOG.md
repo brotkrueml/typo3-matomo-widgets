@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Countries are not localized in countries widget
+- Default "Pages Not Found" template does not match with recommended template from Matomo FAQ (#61)
 
 ## [3.2.3] - 2025-09-20
 

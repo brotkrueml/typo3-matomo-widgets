@@ -22,6 +22,7 @@ Fixed
 
 
 * Countries are not localized in countries widget
+* Default "Pages Not Found" template does not match with recommended template from Matomo FAQ (#61)
 
 `3.2.3 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.2...v3.2.3>`_ - 2025-09-20
 ------------------------------------------------------------------------------------------------------

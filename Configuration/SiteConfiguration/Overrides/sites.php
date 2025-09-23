@@ -55,7 +55,7 @@ $GLOBALS['SiteConfiguration']['site']['columns'] += [
         'config' => [
             'type' => 'input',
             'eval' => 'trim',
-            'default' => '404/URL = {path}/From = {referrer}',
+            'default' => '404/URL = {path} /From = {referrer}',
         ],
     ],
 ];
