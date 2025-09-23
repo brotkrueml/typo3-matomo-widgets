@@ -6,12 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.3.0] - 2025-09-23
+
 ### Added
 - Widget "Conversions per month" (#52)
 
 ### Fixed
 - Countries are not localized in countries widget
-- Default "Pages Not Found" template does not match with recommended template from Matomo FAQ (#61)
+- Default "Pages Not Found" template does not match with recommended template from Matomo FAQ (#61, only relevant for new installations)
 
 ## [3.2.3] - 2025-09-20
 
@@ -238,7 +240,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.3...HEAD
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.3.0...HEAD
+[3.3.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.3...v3.3.0
 [3.2.3]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.2...v3.2.3
 [3.2.2]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.1...v3.2.2
 [3.2.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.0...v3.2.1
