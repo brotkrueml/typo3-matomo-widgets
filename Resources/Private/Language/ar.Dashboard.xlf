@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2025-10-09T17:06:03Z" product-name="matomo_widgets" target-language="ar">
+    <body>
+      <trans-unit id="actions" approved="yes">
+        <source><![CDATA[Actions]]></source>
+        <target state="final"><![CDATA[الإجراءات]]></target>
+      </trans-unit>
+      <trans-unit id="create" approved="yes">
+        <source><![CDATA[Create]]></source>
+        <target state="final"><![CDATA[إنشاء]]></target>
+      </trans-unit>
+      <trans-unit id="date" approved="yes">
+        <source><![CDATA[Date]]></source>
+        <target state="final"><![CDATA[التاريخ]]></target>
+      </trans-unit>
+      <trans-unit id="error.emptyDate" approved="yes">
+        <source><![CDATA[Date is empty!]]></source>
+        <target state="final"><![CDATA[التاريخ فارغ!]]></target>
+      </trans-unit>
+      <trans-unit id="error.emptyNote" approved="yes">
+        <source><![CDATA[Note is empty!]]></source>
+        <target state="final"><![CDATA[الملاحظة فارغة!]]></target>
+      </trans-unit>
+      <trans-unit id="error.emptySiteIdentifier" approved="yes">
+        <source><![CDATA[Site identifier is empty!]]></source>
+        <target state="final"><![CDATA[معرف الموقع فارغ!]]></target>
+      </trans-unit>
+      <trans-unit id="error.invalidDate" approved="yes">
+        <source><![CDATA[Date is invalid, please use format "YYYY-MM-DD"!]]></source>
+        <target state="final"><![CDATA[التاريخ غير صالح، يرجى استخدام صيغة "YYYY-MM-DD"!]]></target>
+      </trans-unit>
+      <trans-unit id="note" approved="yes">
+        <source><![CDATA[Note]]></source>
+        <target state="final"><![CDATA[ملاحظة]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.annotations.title" approved="yes">
+        <source><![CDATA[Annotations]]></source>
+        <target state="final"><![CDATA[التوضيحات]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
