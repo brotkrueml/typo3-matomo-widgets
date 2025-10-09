@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Siteonfiguration.xlf" date="2024-12-13T17:19:18Z" product-name="matomo_widgets" target-language="ja">
+    <body>
+      <trans-unit id="activeWidgets" approved="yes">
+        <source><![CDATA[Active Widgets]]></source>
+        <target state="final"><![CDATA[ウィジェットの有効化]]></target>
+      </trans-unit>
+      <trans-unit id="dashboardWidgets" approved="yes">
+        <source><![CDATA[Dashboard Widgets]]></source>
+        <target state="final"><![CDATA[ダッシュボードウィジェット]]></target>
+      </trans-unit>
+      <trans-unit id="idSite" approved="yes">
+        <source><![CDATA[Site ID]]></source>
+        <target state="final"><![CDATA[サイトID]]></target>
+      </trans-unit>
+      <trans-unit id="matomoInstallation" approved="yes">
+        <source><![CDATA[Matomo Instance]]></source>
+        <target state="final"><![CDATA[Matomoインスタンス]]></target>
+      </trans-unit>
+      <trans-unit id="matomoWidgets" approved="yes">
+        <source><![CDATA[Matomo Widgets]]></source>
+        <target state="final"><![CDATA[Matomoウィジェット]]></target>
+      </trans-unit>
+      <trans-unit id="tokenAuth" approved="yes">
+        <source><![CDATA[Authentication token]]></source>
+        <target state="final"><![CDATA[認証トークン]]></target>
+      </trans-unit>
+      <trans-unit id="title" approved="yes">
+        <source><![CDATA[Title]]></source>
+        <target state="final"><![CDATA[タイトル]]></target>
+      </trans-unit>
+      <trans-unit id="url" approved="yes">
+        <source><![CDATA[Base URL]]></source>
+        <target state="final"><![CDATA[ベースURL]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
