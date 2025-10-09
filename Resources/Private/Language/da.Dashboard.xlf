@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2025-10-09T17:06:03Z" product-name="matomo_widgets" target-language="da">
+    <body>
+      <trans-unit id="actions" approved="yes">
+        <source><![CDATA[Actions]]></source>
+        <target state="final"><![CDATA[Handlinger]]></target>
+      </trans-unit>
+      <trans-unit id="browser" approved="yes">
+        <source><![CDATA[Browser]]></source>
+        <target state="final"><![CDATA[Browser]]></target>
+      </trans-unit>
+      <trans-unit id="browsers" approved="yes">
+        <source><![CDATA[Browsers]]></source>
+        <target state="final"><![CDATA[Browsere]]></target>
+      </trans-unit>
+      <trans-unit id="column" approved="yes">
+        <source><![CDATA[Column]]></source>
+        <target state="final"><![CDATA[Kolonne]]></target>
+      </trans-unit>
+      <trans-unit id="conversions" approved="yes">
+        <source><![CDATA[Conversions]]></source>
+        <target state="final"><![CDATA[Konverteringer]]></target>
+      </trans-unit>
+      <trans-unit id="create" approved="yes">
+        <source><![CDATA[Create]]></source>
+        <target state="final"><![CDATA[Opret]]></target>
+      </trans-unit>
+      <trans-unit id="date" approved="yes">
+        <source><![CDATA[Date]]></source>
+        <target state="final"><![CDATA[Dato]]></target>
+      </trans-unit>
+      <trans-unit id="error.emptyDate" approved="yes">
+        <source><![CDATA[Date is empty!]]></source>
+        <target state="final"><![CDATA[Dato er tom!]]></target>
+      </trans-unit>
+      <trans-unit id="error.emptyNote" approved="yes">
+        <source><![CDATA[Note is empty!]]></source>
+        <target state="final"><![CDATA[Note er tom!]]></target>
+      </trans-unit>
+      <trans-unit id="error.emptySiteIdentifier" approved="yes">
+        <source><![CDATA[Site identifier is empty!]]></source>
+        <target state="final"><![CDATA[Webstedsidentifikator er tom!]]></target>
+      </trans-unit>
+      <trans-unit id="error.invalidDate" approved="yes">
+        <source><![CDATA[Date is invalid, please use format "YYYY-MM-DD"!]]></source>
+        <target state="final"><![CDATA[Dato er ugyldig, benyt venligst formatet "ÅÅÅÅ-MM-DD"!]]></target>
+      </trans-unit>
+      <trans-unit id="error.noDetailsAvailable" approved="yes">
+        <source><![CDATA[No details available.]]></source>
+        <target state="final"><![CDATA[Ingen detaljer tilgængelige.]]></target>
+      </trans-unit>
+      <trans-unit id="errorMessage" approved="yes">
+        <source><![CDATA[Error message]]></source>
+        <target state="final"><![CDATA[Fejlmeddelelse]]></target>
+      </trans-unit>
+      <trans-unit id="hits" approved="yes">
+        <source><![CDATA[Hits]]></source>
+        <target state="final"><![CDATA[Hits]]></target>
+      </trans-unit>
+      <trans-unit id="impressions" approved="yes">
+        <source><![CDATA[Impressions]]></source>
+        <target state="final"><![CDATA[Visninger]]></target>
+      </trans-unit>
+      <trans-unit id="interactionRate" approved="yes">
+        <source><![CDATA[Interaction rate]]></source>
+        <target state="final"><![CDATA[Interaktions-rate]]></target>
+      </trans-unit>
+      <trans-unit id="keyword" approved="yes">
+        <source><![CDATA[Keyword]]></source>
+        <target state="final"><![CDATA[Søgeord]]></target>
+      </trans-unit>
+      <trans-unit id="lastAppearance" approved="yes">
+        <source><![CDATA[Last appearance]]></source>
+        <target state="final"><![CDATA[Sidst set]]></target>
+      </trans-unit>
+      <trans-unit id="line" approved="yes">
+        <source><![CDATA[Line]]></source>
+        <target state="final"><![CDATA[Linje]]></target>
+      </trans-unit>
+      <trans-unit id="noResultsAvailable" approved="yes">
+        <source><![CDATA[No results available.]]></source>
+        <target state="final"><![CDATA[Ingen tilgængelige resultater.]]></target>
+      </trans-unit>
+      <trans-unit id="note" approved="yes">
+        <source><![CDATA[Note]]></source>
+        <target state="final"><![CDATA[Note]]></target>
+      </trans-unit>
+      <trans-unit id="openReport" approved="yes">
+        <source><![CDATA[Open report in Matomo]]></source>
+        <target state="final"><![CDATA[Åbn rapport i Matomo]]></target>
+      </trans-unit>
+      <trans-unit id="other" approved="yes">
+        <source><![CDATA[Other]]></source>
+        <target state="final"><![CDATA[Andet]]></target>
+      </trans-unit>
+      <trans-unit id="path" approved="yes">
+        <source><![CDATA[Path]]></source>
+        <target state="final"><![CDATA[Sti]]></target>
+      </trans-unit>
+      <trans-unit id="period.range.last" approved="yes">
+        <source><![CDATA[Last %d days (today included)]]></source>
+        <target state="final"><![CDATA[Sidste %d dage (i dag inkluderet)]]></target>
+      </trans-unit>
+      <trans-unit id="period.range.previous" approved="yes">
+        <source><![CDATA[Last %d days (today excluded)]]></source>
+        <target state="final"><![CDATA[Sidste %d dage (i dag udelukket)]]></target>
+      </trans-unit>
+      <trans-unit id="period.range.range" approved="yes">
+        <source><![CDATA[Between %1$s and %2$s]]></source>
+        <target state="final"><![CDATA[Mellem %1$s og %2$s]]></target>
+      </trans-unit>
+      <trans-unit id="plusMoreBrowsers" approved="yes">
+        <source><![CDATA[... plus %d more browsers]]></source>
+        <target state="final"><![CDATA[... plus %d flere browsere]]></target>
+      </trans-unit>
+      <trans-unit id="plusMoreScripts" approved="yes">
+        <source><![CDATA[... plus %d more scripts]]></source>
+        <target state="final"><![CDATA[... plus %d flere scripts]]></target>
+      </trans-unit>
+      <trans-unit id="plusMoreUrls" approved="yes">
+        <source><![CDATA[... plus %d more URLs]]></source>
+        <target state="final"><![CDATA[... plus %d flere URL'er]]></target>
+      </trans-unit>
+      <trans-unit id="preset.description" approved="yes">
+        <source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
+        <target state="final"><![CDATA[Denne forudindstilling vil give dig et betjeningspanel, der indeholder de mest almindelige Matomo-widgets.]]></target>
+      </trans-unit>
+      <trans-unit id="referrer" approved="yes">
+        <source><![CDATA[Referrer]]></source>
+        <target state="final"><![CDATA[Referrer]]></target>
+      </trans-unit>
+      <trans-unit id="script" approved="yes">
+        <source><![CDATA[Script]]></source>
+        <target state="final"><![CDATA[Script]]></target>
+      </trans-unit>
+      <trans-unit id="scripts" approved="yes">
+        <source><![CDATA[Scripts]]></source>
+        <target state="final"><![CDATA[Scripts]]></target>
+      </trans-unit>
+      <trans-unit id="searches" approved="yes">
+        <source><![CDATA[Searches]]></source>
+        <target state="final"><![CDATA[Søgninger]]></target>
+      </trans-unit>
+      <trans-unit id="thousandsSeparator" approved="yes">
+        <source><![CDATA[,]]></source>
+        <target state="final"><![CDATA[,]]></target>
+      </trans-unit>
+      <trans-unit id="url" approved="yes">
+        <source><![CDATA[URL]]></source>
+        <target state="final"><![CDATA[URL]]></target>
+      </trans-unit>
+      <trans-unit id="urls" approved="yes">
+        <source><![CDATA[URLs]]></source>
+        <target state="final"><![CDATA[URLer]]></target>
+      </trans-unit>
+      <trans-unit id="versions" approved="yes">
+        <source><![CDATA[Versions]]></source>
+        <target state="final"><![CDATA[Versioner]]></target>
+      </trans-unit>
+      <trans-unit id="visits" approved="yes">
+        <source><![CDATA[Visits]]></source>
+        <target state="final"><![CDATA[Besøg]]></target>
+      </trans-unit>
+      <trans-unit id="visitsPercentage" approved="yes">
+        <source><![CDATA[% Visits]]></source>
+        <target state="final"><![CDATA[% Besøg]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.mostViewedPages.description" approved="yes">
+        <source><![CDATA[List of the most viewed page URLs.]]></source>
+        <target state="final"><![CDATA[Liste over de mest viste webadresser.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.mostViewedPages.title" approved="yes">
+        <source><![CDATA[Most viewed pages]]></source>
+        <target state="final"><![CDATA[Mest viste sider]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.pagesNotFound.description" approved="yes">
+        <source><![CDATA[A list of the pages which cannot be found (404).]]></source>
+        <target state="final"><![CDATA[En liste over de sider, der ikke kan findes (404).]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.pagesNotFound.title" approved="yes">
+        <source><![CDATA[Pages not found]]></source>
+        <target state="final"><![CDATA[Sider ikke fundet]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchKeywords.description" approved="yes">
+        <source><![CDATA[Overview of the search keywords that visitors searched for on the internal search engine.]]></source>
+        <target state="final"><![CDATA[Oversigt over søgeord som besøgende søgte efter på den interne søgemaskine.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchKeywords.title" approved="yes">
+        <source><![CDATA[Site search keywords]]></source>
+        <target state="final"><![CDATA[Websteds-søgeord]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchNoResultKeywords.description" approved="yes">
+        <source><![CDATA[List of the site search keywords that did not return any search result.]]></source>
+        <target state="final"><![CDATA[Liste over webstedets søgeord som ikke returnerede noget søgeresultat.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchNoResultKeywords.title" approved="yes">
+        <source><![CDATA[Search keywords with no results]]></source>
+        <target state="final"><![CDATA[Søgeord uden nogen resultater]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.createAnnotation.description" approved="yes">
+        <source><![CDATA[Create a new annotation for a website and date]]></source>
+        <target state="final"><![CDATA[Opret en ny annotation til en hjemmeside og dato]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.createAnnotation.error.noPermission" approved="yes">
+        <source><![CDATA[User has not the permission to create annotations!]]></source>
+        <target state="final"><![CDATA[Brugeren har ikke tilladelse til at oprette annotationer!]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.createAnnotation.notification.httpError" approved="yes">
+        <source><![CDATA[HTTP error when creating annotation!]]></source>
+        <target state="final"><![CDATA[HTTP fejl ved oprettelse af annotation!]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.createAnnotation.notification.success" approved="yes">
+        <source><![CDATA[Annotation created successfully]]></source>
+        <target state="final"><![CDATA[Annotation oprettet med succes]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.createAnnotation.notification.unknownError" approved="yes">
+        <source><![CDATA[Unknown error when creating annotation!]]></source>
+        <target state="final"><![CDATA[Ukendt fejl ved oprettelse af annotation!]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.createAnnotation.title" approved="yes">
+        <source><![CDATA[Create annotation]]></source>
+        <target state="final"><![CDATA[Opret annotation]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.annotations.description" approved="yes">
+        <source><![CDATA[List of annotations]]></source>
+        <target state="final"><![CDATA[Liste over anmærkninger]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.annotations.title" approved="yes">
+        <source><![CDATA[Annotations]]></source>
+        <target state="final"><![CDATA[Anmærkninger]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentNames.column.name" approved="yes">
+        <source><![CDATA[Content name]]></source>
+        <target state="final"><![CDATA[Indholds-navn]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentNames.description" approved="yes">
+        <source><![CDATA[Overview of the names of the content the visitors viewed and interacted with.]]></source>
+        <target state="final"><![CDATA[Oversigt over navnene på det indhold, som de besøgende så og interagerede med.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentNames.title" approved="yes">
+        <source><![CDATA[Content names]]></source>
+        <target state="final"><![CDATA[Indholds-navne]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentPieces.column.name" approved="yes">
+        <source><![CDATA[Content piece]]></source>
+        <target state="final"><![CDATA[Indholdselement]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentPieces.description" approved="yes">
+        <source><![CDATA[Overview of the pieces of the content the visitors viewed and interacted with.]]></source>
+        <target state="final"><![CDATA[Oversigt over navnene på det indhold, som de besøgende så og interagerede med.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentPieces.title" approved="yes">
+        <source><![CDATA[Content pieces]]></source>
+        <target state="final"><![CDATA[Indholdselement]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.browsers.description" approved="yes">
+        <source><![CDATA[Overview of the used browsers in the current month.]]></source>
+        <target state="final"><![CDATA[Oversigt over brugte browsere i den aktuelle måned.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.browsers.title" approved="yes">
+        <source><![CDATA[Browsers]]></source>
+        <target state="final"><![CDATA[Browsere]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.osFamilies.description" approved="yes">
+        <source><![CDATA[Overview of the used operating system families in the current month.]]></source>
+        <target state="final"><![CDATA[Oversigt over de brugte operativsystemer i den aktuelle måned.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.osFamilies.title" approved="yes">
+        <source><![CDATA[Operating system families]]></source>
+        <target state="final"><![CDATA[Anvendt operativer]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicePlugins.plugin.column.name" approved="yes">
+        <source><![CDATA[Plugin]]></source>
+        <target state="final"><![CDATA[Plugin]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicePlugins.plugin.description" approved="yes">
+        <source><![CDATA[The report shows which browser plugins your visitors had enabled.]]></source>
+        <target state="final"><![CDATA[Rapporten viser, hvilke browser plugins dine besøgende havde aktiveret.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicePlugins.plugin.title" approved="yes">
+        <source><![CDATA[Browser plugins]]></source>
+        <target state="final"><![CDATA[Browser-plugins]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.events.javaScriptErrors.description" approved="yes">
+        <source><![CDATA[Display JavaScript errors occurred on the website.]]></source>
+        <target state="final"><![CDATA[Vis JavaScript-fejl opstod på hjemmesiden.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.events.javaScriptErrors.title" approved="yes">
+        <source><![CDATA[JavaScript errors]]></source>
+        <target state="final"><![CDATA[JavaScript fejl]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.buttonText" approved="yes">
+        <source><![CDATA[To the Matomo installation]]></source>
+        <target state="final"><![CDATA[Til Matomo-installationen]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.goals.conversionsPerMonth.description" approved="yes">
+        <source><![CDATA[Display the number of conversions per month as a chart.]]></source>
+        <target state="final"><![CDATA[Vis antallet af konverteringer pr. måned som et diagram.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.goals.conversionsPerMonth.title" approved="yes">
+        <source><![CDATA[Conversions per month]]></source>
+        <target state="final"><![CDATA[Konverteringer pr. måned]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.description" approved="yes">
+        <source><![CDATA[Add a shortcut to the Matomo installation.]]></source>
+        <target state="final"><![CDATA[Tilføj en genvej til Matomo-installationen.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.text" approved="yes">
+        <source><![CDATA[The link leads you to the Matomo installation for further analytics.]]></source>
+        <target state="final"><![CDATA[Linket fører dig til Matomo-installationen for yderligere analyse.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.title" approved="yes">
+        <source><![CDATA[Link to Matomo]]></source>
+        <target state="final"><![CDATA[Link til Matomo]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.referrers.campaigns.description" approved="yes">
+        <source><![CDATA[Displays a report of the campaigns for the current month.]]></source>
+        <target state="final"><![CDATA[Viser en rapport over kampagnerne for denne måned.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.referrers.campaigns.column.name" approved="yes">
+        <source><![CDATA[Campaign name]]></source>
+        <target state="final"><![CDATA[Kampagnenavn]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.referrers.campaigns.title" approved="yes">
+        <source><![CDATA[Campaigns]]></source>
+        <target state="final"><![CDATA[Kampagner]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.description" approved="yes">
+        <source><![CDATA[Shows a list of countries from which the website was visited in the current month.]]></source>
+        <target state="final"><![CDATA[Viser en liste over lande, hvorfra hjemmesiden blev besøgt i indeværende måned.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.column.name" approved="yes">
+        <source><![CDATA[Country]]></source>
+        <target state="final"><![CDATA[Land]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.title" approved="yes">
+        <source><![CDATA[Countries]]></source>
+        <target state="final"><![CDATA[Lande]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerDay.description" approved="yes">
+        <source><![CDATA[Gives you an overview of the number of actions (page views, downloads, clicks on outlinks) of the last couple of days.]]></source>
+        <target state="final"><![CDATA[Giver dig et overblik over antallet af handlinger (sidevisninger, downloads, klik på outlinks) de sidste par dage.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerDay.title" approved="yes">
+        <source><![CDATA[Actions per day]]></source>
+        <target state="final"><![CDATA[Handlinger pr. dag]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerMonth.description" approved="yes">
+        <source><![CDATA[Gives you an overview of the number of actions (page views, downloads, clicks on outlinks) in the last months.]]></source>
+        <target state="final"><![CDATA[Giver dig et overblik over antallet af handlinger (sidevisninger, downloads, klik på outlinks) i de seneste måneder.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerMonth.title" approved="yes">
+        <source><![CDATA[Actions per month]]></source>
+        <target state="final"><![CDATA[Handlinger pr. måned]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.dateRange" approved="yes">
+        <source><![CDATA[in the last 28 days]]></source>
+        <target state="final"><![CDATA[inden for de sidste 28 dage]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.description" approved="yes">
+        <source><![CDATA[Display the bounce rate.]]></source>
+        <target state="final"><![CDATA[Vis afvisningsprocent.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.subtitle" approved="yes">
+        <!-- @todo: Can be removed once support for v2 is dropped! -->
+        <source><![CDATA[in the current month]]></source>
+        <target state="final"><![CDATA[i den aktuelle måned]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.title" approved="yes">
+        <source><![CDATA[Bounce rate]]></source>
+        <target state="final"><![CDATA[Bounce-rate]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerDay.description" approved="yes">
+        <source><![CDATA[Gives you an overview of the number of visits in the last couple of days.]]></source>
+        <target state="final"><![CDATA[Giver dig overblik over antallet af besøg de sidste par dage.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerDay.title" approved="yes">
+        <source><![CDATA[Visits per day]]></source>
+        <target state="final"><![CDATA[Besøgende pr. dag]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerMonth.description" approved="yes">
+        <source><![CDATA[Gives you an overview of the number of visits in the last months.]]></source>
+        <target state="final"><![CDATA[Giver dig et overblik over antallet af besøg i de seneste måneder.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerMonth.title" approved="yes">
+        <source><![CDATA[Visits per month]]></source>
+        <target state="final"><![CDATA[Besøg pr. måned]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
