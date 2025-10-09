@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2025-10-09T17:06:03Z" product-name="matomo_widgets" target-language="fr">
+    <body>
+      <trans-unit id="actions" approved="yes">
+        <source><![CDATA[Actions]]></source>
+        <target state="final"><![CDATA[Actions]]></target>
+      </trans-unit>
+      <trans-unit id="browser" approved="yes">
+        <source><![CDATA[Browser]]></source>
+        <target state="final"><![CDATA[Navigateur]]></target>
+      </trans-unit>
+      <trans-unit id="browsers" approved="yes">
+        <source><![CDATA[Browsers]]></source>
+        <target state="final"><![CDATA[Navigateurs]]></target>
+      </trans-unit>
+      <trans-unit id="column" approved="yes">
+        <source><![CDATA[Column]]></source>
+        <target state="final"><![CDATA[Colonne]]></target>
+      </trans-unit>
+      <trans-unit id="create" approved="yes">
+        <source><![CDATA[Create]]></source>
+        <target state="final"><![CDATA[Créer]]></target>
+      </trans-unit>
+      <trans-unit id="date" approved="yes">
+        <source><![CDATA[Date]]></source>
+        <target state="final"><![CDATA[Date]]></target>
+      </trans-unit>
+      <trans-unit id="error.emptyDate" approved="yes">
+        <source><![CDATA[Date is empty!]]></source>
+        <target state="final"><![CDATA[La date est vide!]]></target>
+      </trans-unit>
+      <trans-unit id="error.emptyNote" approved="yes">
+        <source><![CDATA[Note is empty!]]></source>
+        <target state="final"><![CDATA[La note est vide!]]></target>
+      </trans-unit>
+      <trans-unit id="error.emptySiteIdentifier" approved="yes">
+        <source><![CDATA[Site identifier is empty!]]></source>
+        <target state="final"><![CDATA[L'identifiant du site est vide!]]></target>
+      </trans-unit>
+      <trans-unit id="error.invalidDate" approved="yes">
+        <source><![CDATA[Date is invalid, please use format "YYYY-MM-DD"!]]></source>
+        <target state="final"><![CDATA[La date n'est pas valide, veuillez utiliser le format "AAAA-MM-JJ" !]]></target>
+      </trans-unit>
+      <trans-unit id="error.noDetailsAvailable" approved="yes">
+        <source><![CDATA[No details available.]]></source>
+        <target state="final"><![CDATA[Pas de détails disponibles.]]></target>
+      </trans-unit>
+      <trans-unit id="errorMessage" approved="yes">
+        <source><![CDATA[Error message]]></source>
+        <target state="final"><![CDATA[Message d’erreur]]></target>
+      </trans-unit>
+      <trans-unit id="hits" approved="yes">
+        <source><![CDATA[Hits]]></source>
+        <target state="final"><![CDATA[Hits]]></target>
+      </trans-unit>
+      <trans-unit id="impressions" approved="yes">
+        <source><![CDATA[Impressions]]></source>
+        <target state="final"><![CDATA[Impressions]]></target>
+      </trans-unit>
+      <trans-unit id="interactionRate" approved="yes">
+        <source><![CDATA[Interaction rate]]></source>
+        <target state="final"><![CDATA[Taux d'interaction]]></target>
+      </trans-unit>
+      <trans-unit id="keyword" approved="yes">
+        <source><![CDATA[Keyword]]></source>
+        <target state="final"><![CDATA[Mot clef]]></target>
+      </trans-unit>
+      <trans-unit id="lastAppearance" approved="yes">
+        <source><![CDATA[Last appearance]]></source>
+        <target state="final"><![CDATA[Dernière apparition]]></target>
+      </trans-unit>
+      <trans-unit id="line" approved="yes">
+        <source><![CDATA[Line]]></source>
+        <target state="final"><![CDATA[Ligne]]></target>
+      </trans-unit>
+      <trans-unit id="noResultsAvailable" approved="yes">
+        <source><![CDATA[No results available.]]></source>
+        <target state="final"><![CDATA[Pas de résultat disponible.]]></target>
+      </trans-unit>
+      <trans-unit id="note" approved="yes">
+        <source><![CDATA[Note]]></source>
+        <target state="final"><![CDATA[Note]]></target>
+      </trans-unit>
+      <trans-unit id="openReport" approved="yes">
+        <source><![CDATA[Open report in Matomo]]></source>
+        <target state="final"><![CDATA[Ouvrir le rapport dans Matomo]]></target>
+      </trans-unit>
+      <trans-unit id="other" approved="yes">
+        <source><![CDATA[Other]]></source>
+        <target state="final"><![CDATA[Autre]]></target>
+      </trans-unit>
+      <trans-unit id="path" approved="yes">
+        <source><![CDATA[Path]]></source>
+        <target state="final"><![CDATA[Chemin d'accès]]></target>
+      </trans-unit>
+      <trans-unit id="period.range.last" approved="yes">
+        <source><![CDATA[Last %d days (today included)]]></source>
+        <target state="final"><![CDATA[Derniers %d jours (aujourd'hui inclus)]]></target>
+      </trans-unit>
+      <trans-unit id="period.range.previous" approved="yes">
+        <source><![CDATA[Last %d days (today excluded)]]></source>
+        <target state="final"><![CDATA[Derniers %d jours (aujourd'hui exclu)]]></target>
+      </trans-unit>
+      <trans-unit id="period.range.range" approved="yes">
+        <source><![CDATA[Between %1$s and %2$s]]></source>
+        <target state="final"><![CDATA[Entre %1$s et %2$s]]></target>
+      </trans-unit>
+      <trans-unit id="plusMoreBrowsers" approved="yes">
+        <source><![CDATA[... plus %d more browsers]]></source>
+        <target state="final"><![CDATA[... plus %d navigateurs supplémentaires]]></target>
+      </trans-unit>
+      <trans-unit id="plusMoreScripts" approved="yes">
+        <source><![CDATA[... plus %d more scripts]]></source>
+        <target state="final"><![CDATA[... plus %d scripts supplémentaires]]></target>
+      </trans-unit>
+      <trans-unit id="plusMoreUrls" approved="yes">
+        <source><![CDATA[... plus %d more URLs]]></source>
+        <target state="final"><![CDATA[... plus %d URL supplémentaires]]></target>
+      </trans-unit>
+      <trans-unit id="preset.description" approved="yes">
+        <source><![CDATA[This preset will give you a dashboard containing the most common Matomo widgets.]]></source>
+        <target state="final"><![CDATA[Ce préréglage vous donnera un tableau de bord contenant les widgets Matomo les plus courants.]]></target>
+      </trans-unit>
+      <trans-unit id="referrer" approved="yes">
+        <source><![CDATA[Referrer]]></source>
+        <target state="final"><![CDATA[Referrer]]></target>
+      </trans-unit>
+      <trans-unit id="script" approved="yes">
+        <source><![CDATA[Script]]></source>
+        <target state="final"><![CDATA[Script]]></target>
+      </trans-unit>
+      <trans-unit id="scripts" approved="yes">
+        <source><![CDATA[Scripts]]></source>
+        <target state="final"><![CDATA[Scripts]]></target>
+      </trans-unit>
+      <trans-unit id="searches" approved="yes">
+        <source><![CDATA[Searches]]></source>
+        <target state="final"><![CDATA[Recherches]]></target>
+      </trans-unit>
+      <trans-unit id="thousandsSeparator" approved="yes">
+        <source><![CDATA[,]]></source>
+        <target state="final"><![CDATA[.]]></target>
+      </trans-unit>
+      <trans-unit id="url" approved="yes">
+        <source><![CDATA[URL]]></source>
+        <target state="final"><![CDATA[URL]]></target>
+      </trans-unit>
+      <trans-unit id="urls" approved="yes">
+        <source><![CDATA[URLs]]></source>
+        <target state="final"><![CDATA[URLs]]></target>
+      </trans-unit>
+      <trans-unit id="versions" approved="yes">
+        <source><![CDATA[Versions]]></source>
+        <target state="final"><![CDATA[Versions]]></target>
+      </trans-unit>
+      <trans-unit id="visits" approved="yes">
+        <source><![CDATA[Visits]]></source>
+        <target state="final"><![CDATA[Visites]]></target>
+      </trans-unit>
+      <trans-unit id="visitsPercentage" approved="yes">
+        <source><![CDATA[% Visits]]></source>
+        <target state="final"><![CDATA[% Visites]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.mostViewedPages.description" approved="yes">
+        <source><![CDATA[List of the most viewed page URLs.]]></source>
+        <target state="final"><![CDATA[Liste des URL de la page la plus affichée.]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchKeywords.title" approved="yes">
+        <source><![CDATA[Site search keywords]]></source>
+        <target state="final"><![CDATA[Mot-clés recherchés sur le site]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchNoResultKeywords.title" approved="yes">
+        <source><![CDATA[Search keywords with no results]]></source>
+        <target state="final"><![CDATA[Mots-clés sans résultats]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.createAnnotation.title" approved="yes">
+        <source><![CDATA[Create annotation]]></source>
+        <target state="final"><![CDATA[Créer une annotation]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.annotations.description" approved="yes">
+        <source><![CDATA[List of annotations]]></source>
+        <target state="final"><![CDATA[Liste des annotations]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.annotations.title" approved="yes">
+        <source><![CDATA[Annotations]]></source>
+        <target state="final"><![CDATA[Annotations]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentNames.column.name" approved="yes">
+        <source><![CDATA[Content name]]></source>
+        <target state="final"><![CDATA[Nom du contenu]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentNames.title" approved="yes">
+        <source><![CDATA[Content names]]></source>
+        <target state="final"><![CDATA[Noms de contenu]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentPieces.column.name" approved="yes">
+        <source><![CDATA[Content piece]]></source>
+        <target state="final"><![CDATA[Partie du contenu]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.contents.contentPieces.title" approved="yes">
+        <source><![CDATA[Content pieces]]></source>
+        <target state="final"><![CDATA[Partie du contenu]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicesDetection.browsers.title" approved="yes">
+        <source><![CDATA[Browsers]]></source>
+        <target state="final"><![CDATA[Navigateurs]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.devicePlugins.plugin.column.name" approved="yes">
+        <source><![CDATA[Plugin]]></source>
+        <target state="final"><![CDATA[Plugin]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.events.javaScriptErrors.title" approved="yes">
+        <source><![CDATA[JavaScript errors]]></source>
+        <target state="final"><![CDATA[Erreurs JavaScript]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.linkMatomo.title" approved="yes">
+        <source><![CDATA[Link to Matomo]]></source>
+        <target state="final"><![CDATA[Lien vers Matomo]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.referrers.campaigns.title" approved="yes">
+        <source><![CDATA[Campaigns]]></source>
+        <target state="final"><![CDATA[Campagnes]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.column.name" approved="yes">
+        <source><![CDATA[Country]]></source>
+        <target state="final"><![CDATA[Pays]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.title" approved="yes">
+        <source><![CDATA[Countries]]></source>
+        <target state="final"><![CDATA[Pays]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerDay.title" approved="yes">
+        <source><![CDATA[Actions per day]]></source>
+        <target state="final"><![CDATA[Actions par jour]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.actionsPerMonth.title" approved="yes">
+        <source><![CDATA[Actions per month]]></source>
+        <target state="final"><![CDATA[Actions par mois]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.subtitle" approved="yes">
+        <!-- @todo: Can be removed once support for v2 is dropped! -->
+        <source><![CDATA[in the current month]]></source>
+        <target state="final"><![CDATA[dans le mois en cours]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.title" approved="yes">
+        <source><![CDATA[Bounce rate]]></source>
+        <target state="final"><![CDATA[Taux de rebond]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerDay.title" approved="yes">
+        <source><![CDATA[Visits per day]]></source>
+        <target state="final"><![CDATA[Visites par jour]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerMonth.title" approved="yes">
+        <source><![CDATA[Visits per month]]></source>
+        <target state="final"><![CDATA[Visites par mois]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
