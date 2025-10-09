@@ -15,8 +15,8 @@
     />
     <project
         title="Matomo Widgets"
-        release="3.4.0-dev"
-        version="3.3"
+        release="3.4.0"
+        version="3.4"
         copyright="since 2020 by Chris Müller"
     />
     <inventory
