@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2025-10-09T17:06:03Z" product-name="matomo_widgets" target-language="hr">
+    <body>
+      <trans-unit id="actions" approved="yes">
+        <source><![CDATA[Actions]]></source>
+        <target state="final"><![CDATA[Akcije]]></target>
+      </trans-unit>
+      <trans-unit id="keyword" approved="yes">
+        <source><![CDATA[Keyword]]></source>
+        <target state="final"><![CDATA[Ključna riječ]]></target>
+      </trans-unit>
+      <trans-unit id="other" approved="yes">
+        <source><![CDATA[Other]]></source>
+        <target state="final"><![CDATA[Drugo]]></target>
+      </trans-unit>
+      <trans-unit id="searches" approved="yes">
+        <source><![CDATA[Searches]]></source>
+        <target state="final"><![CDATA[Pretrage]]></target>
+      </trans-unit>
+      <trans-unit id="thousandsSeparator" approved="yes">
+        <source><![CDATA[,]]></source>
+        <target state="final"><![CDATA[,]]></target>
+      </trans-unit>
+      <trans-unit id="visits" approved="yes">
+        <source><![CDATA[Visits]]></source>
+        <target state="final"><![CDATA[Posjeta]]></target>
+      </trans-unit>
+      <trans-unit id="visitsPercentage" approved="yes">
+        <source><![CDATA[% Visits]]></source>
+        <target state="final"><![CDATA[% Posjeta]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.actions.siteSearchKeywords.title" approved="yes">
+        <source><![CDATA[Site search keywords]]></source>
+        <target state="final"><![CDATA[Ključne riječi pretraživanja]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.column.name" approved="yes">
+        <source><![CDATA[Country]]></source>
+        <target state="final"><![CDATA[Država]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.userCountry.country.title" approved="yes">
+        <source><![CDATA[Countries]]></source>
+        <target state="final"><![CDATA[Države]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.bounceRate.title" approved="yes">
+        <source><![CDATA[Bounce rate]]></source>
+        <target state="final"><![CDATA[Stupanj napuštanja stranice]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerDay.title" approved="yes">
+        <source><![CDATA[Visits per day]]></source>
+        <target state="final"><![CDATA[Posjeta dnevno]]></target>
+      </trans-unit>
+      <trans-unit id="widgets.visitsSummary.visitsPerMonth.title" approved="yes">
+        <source><![CDATA[Visits per month]]></source>
+        <target state="final"><![CDATA[Posjeta mjesečno]]></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
