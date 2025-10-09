@@ -91,8 +91,8 @@ $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',
 $GLOBALS['SiteConfiguration']['site']['palettes'] += [
     'matomoWidgetsInstallation' => [
         'label' => Extension::LANGUAGE_PATH_SITECONF . ':matomoInstallation',
-        'showitem' =>
-            (
+        'showitem'
+            => (
                 ExtensionManagementUtility::isLoaded('matomo_integration')
                     ? 'matomoWidgetsConsiderMatomoIntegration, --linebreak--, '
                     : ''

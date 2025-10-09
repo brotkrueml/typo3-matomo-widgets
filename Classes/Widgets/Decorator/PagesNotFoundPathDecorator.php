@@ -35,8 +35,8 @@ final class PagesNotFoundPathDecorator implements DecoratorInterface
             '\{path\}' => '(.*?)',
             '\{referrer\}' => '(.*?)',
         ];
-        $regex =
-            '`^' . \str_replace(\array_keys($replacements), \array_values($replacements), \preg_quote($template)) . '$`';
+        $regex
+            = '`^' . \str_replace(\array_keys($replacements), \array_values($replacements), \preg_quote($template)) . '$`';
 
         // The following replacement necessary to avoid not matching when the regex expects
         // an empty space (for example, when the referrer is empty using this template:
