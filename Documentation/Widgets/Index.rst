@@ -84,6 +84,35 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
       - date: last12
 
 
+AI assistants
+=============
+
+.. versionadded:: 3.4
+   Please ensure that you use at least Matomo in version 5.5.
+
+The AI assistants for the last 28 days shows this widget:
+
+.. figure:: /Images/WidgetAiAssistants.png
+   :alt: Widget AI Assistants
+
+   Widget *AI Assistants*
+
+Matomo module
+   Referrers
+
+Active widgets value in :file:`config.yaml`
+   aiAssistants
+
+Default configuration parameters in the :file:`Configuration/Services.yaml` file
+   matomo_widgets.aiAssistants.limit
+      5
+   matomo_widgets.aiAssistants.parameters
+      - period: range
+      - date: last28
+      - filter_sort_column: nb_visits
+      - filter_sort_order: desc
+
+
 Annotations
 ===========
 

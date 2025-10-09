@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2025-09-21T13:56:48Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2025-10-09T17:06:03Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions">
 				<source><![CDATA[Actions]]></source>
@@ -235,6 +235,12 @@
 			</trans-unit>
 			<trans-unit id="widgets.linkMatomo.title">
 				<source><![CDATA[Link to Matomo]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.referrers.aiAssistants.title">
+				<source><![CDATA[AI assistants]]></source>
+			</trans-unit>
+			<trans-unit id="widgets.referrers.aiAssistants.description">
+				<source><![CDATA[Overview of the used AI assistants in the current month.]]></source>
 			</trans-unit>
 			<trans-unit id="widgets.referrers.campaigns.description">
 				<source><![CDATA[Displays a report of the campaigns for the current month.]]></source>

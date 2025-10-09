@@ -15,6 +15,7 @@ use Brotkrueml\MatomoWidgets\Configuration\Configurations;
 use Brotkrueml\MatomoWidgets\Connection\ConnectionConfiguration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ActionsPerDayRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ActionsPerMonthRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\AiAssistantsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\AnnotationsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BounceRateRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\BrowserPluginsRegistration;
@@ -46,6 +47,7 @@ final class WidgetsRegistration
     private const REGISTRATION_CLASSES = [
         ActionsPerDayRegistration::class,
         ActionsPerMonthRegistration::class,
+        AiAssistantsRegistration::class,
         ConversionsPerMonthRegistration::class,
         CreateAnnotationRegistration::class,
         AnnotationsRegistration::class,

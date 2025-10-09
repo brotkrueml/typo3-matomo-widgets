@@ -24,6 +24,7 @@ final class WidgetsProvider
     private array $availableWidgets = [
         'actionsPerDay' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerDay.title',
         'actionsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.visitsSummary.actionsPerMonth.title',
+        'aiAssistants' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.aiAssistants.title',
         'annotations' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.annotations.title',
         'conversionsPerMonth' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.goals.conversionsPerMonth.title',
         'createAnnotation' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.createAnnotation.title',

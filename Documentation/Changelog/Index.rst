@@ -11,6 +11,12 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.3.0...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+Added
+^^^^^
+
+
+* Widget "AI assistants" - requires Matomo 5.5+ (#64)
+
 `3.3.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.3...v3.3.0>`_ - 2025-09-23
 ------------------------------------------------------------------------------------------------------
 

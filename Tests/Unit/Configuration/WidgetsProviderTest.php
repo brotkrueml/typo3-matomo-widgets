@@ -41,6 +41,10 @@ final class WidgetsProviderTest extends TestCase
             'value' => 'actionsPerMonth',
         ], $actual);
         self::assertContains([
+            'label' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.aiAssistants.title',
+            'value' => 'aiAssistants',
+        ], $actual);
+        self::assertContains([
             'label' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.annotations.title',
             'value' => 'annotations',
         ], $actual);

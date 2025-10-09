@@ -1,0 +1,111 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * This file is part of the "matomo_widgets" extension for TYPO3 CMS.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ */
+
+namespace Brotkrueml\MatomoWidgets\DependencyInjection\Widgets;
+
+use Brotkrueml\MatomoWidgets\Extension;
+use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericDoughnutChartDataProvider;
+use Symfony\Component\DependencyInjection\Reference;
+use TYPO3\CMS\Backend\View\BackendViewFactory;
+use TYPO3\CMS\Dashboard\Widgets\DoughnutChartWidget;
+
+/**
+ * @internal
+ */
+final class AiAssistantsRegistration extends AbstractRegistration
+{
+    private const METHOD = 'Referrers.getAIAssistants';
+    private const PARAMETERS_LIMIT = 'matomo_widgets.aiAssistants.limit';
+    private const PARAMETERS_PARAMETERS = 'matomo_widgets.aiAssistants.parameters';
+
+    protected $serviceIdSuffix = 'referrers.aiAssistants';
+
+    public function register(): void
+    {
+        if (! $this->matomoConfiguration->isWidgetActive('aiAssistants')) {
+            return;
+        }
+
+        $this->defineParameters();
+        $this->registerDataProvider();
+        $this->registerWidget();
+    }
+
+    private function defineParameters(): void
+    {
+        $this->parameters->set(
+            self::PARAMETERS_PARAMETERS,
+            [
+                'period' => 'range',
+                'date' => 'last28',
+                'filter_sort_column' => 'nb_visits',
+                'filter_sort_order' => 'desc',
+            ],
+        );
+        $this->parameters->set(self::PARAMETERS_LIMIT, '5');
+    }
+
+    private function registerDataProvider(): void
+    {
+        $this->services
+            ->set($this->buildServiceDataProviderId(), GenericDoughnutChartDataProvider::class)
+            ->arg('$connectionConfiguration', new Reference($this->connectionConfigurationId))
+            ->arg('$method', self::METHOD)
+            ->arg('$labelColumn', 'label')
+            ->arg('$valueColumn', 'nb_visits')
+            ->arg('$limit', '%' . self::PARAMETERS_LIMIT . '%')
+            ->arg('$backgroundColours', ['#ff8700', '#a4276a', '#1a568f', '#4c7e3a', '#69bbb5', '#76949f'])
+            ->arg('$parameters', '%' . self::PARAMETERS_PARAMETERS . '%');
+    }
+
+    private function registerWidget(): void
+    {
+        $localisedTitle = Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.aiAssistants.title';
+        $title = $this->matomoConfiguration->siteTitle !== ''
+            ? \sprintf('%s: %s', $this->matomoConfiguration->siteTitle, 'AI assistants')
+            : $localisedTitle;
+
+        $configuration = $this->services
+            ->set($this->buildServiceWidgetId(), DoughnutChartWidget::class)
+            ->arg('$dataProvider', new Reference($this->buildServiceDataProviderId()))
+            ->arg(
+                '$options',
+                [
+                    'reportLink' => $this->buildReportLink(),
+                    'siteTitle' => $this->matomoConfiguration->siteTitle,
+                    'title' => $localisedTitle,
+                ],
+            )
+            ->tag(
+                'dashboard.widget',
+                [
+                    'identifier' => $this->buildWidgetIdentifier(),
+                    'groupNames' => 'matomo',
+                    'title' => $title,
+                    'description' => Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.referrers.aiAssistants.description',
+                    'iconIdentifier' => self::ICON_IDENTIFIER,
+                    'height' => 'medium',
+                    'width' => 'small',
+                ],
+            );
+
+        $configuration->arg('$backendViewFactory', new Reference(BackendViewFactory::class));
+    }
+
+    private function buildReportLink(): string
+    {
+        return \sprintf(
+            '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?category=Referrers_Referrers&subcategory=Referrers_AIAssistants',
+            $this->matomoConfiguration->url,
+            $this->matomoConfiguration->idSite,
+        );
+    }
+}
