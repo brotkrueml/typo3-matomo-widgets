@@ -43,6 +43,5 @@ interface TableDataProviderInterface
      */
     public function getRows(): array;
 
-    // @todo Require method with 4.0.0
-    // public function getDatePeriod(): string;
+    public function getDatePeriod(): string;
 }

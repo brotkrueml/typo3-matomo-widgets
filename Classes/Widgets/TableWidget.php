@@ -63,8 +63,7 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface, RequestAwa
             'button' => $this->buttonProvider,
             'configuration' => $this->configuration,
             'reportLink' => $this->options['reportLink'] ?? '',
-            // @todo Remove check when TableDataProviderInterface->getDatePeriod() is mandatory
-            'datePeriod' => \method_exists($this->dataProvider, 'getDatePeriod') ? $this->dataProvider->getDatePeriod() : null,
+            'datePeriod' => $this->dataProvider->getDatePeriod(),
         ]);
 
         return $view->render('Widget/TableWidget.html');
