@@ -15,21 +15,23 @@ namespace Brotkrueml\MatomoWidgets\Configuration;
  * @implements \IteratorAggregate<Configuration>
  * @internal
  */
-final class Configurations implements \IteratorAggregate, \Countable
+final readonly class Configurations implements \IteratorAggregate, \Countable
 {
     /**
-     * @var Configuration[]
+     * @var array<string, Configuration>
      */
-    private array $configurations = [];
+    private array $configurations;
 
     /**
-     * @param Configuration[] $configurations
+     * @param list<Configuration> $configurations
      */
     public function __construct(array $configurations)
     {
+        $configurationsWithKeys = [];
         foreach ($configurations as $configuration) {
-            $this->configurations[$configuration->siteIdentifier] = $configuration;
+            $configurationsWithKeys[$configuration->siteIdentifier] = $configuration;
         }
+        $this->configurations = $configurationsWithKeys;
     }
 
     public function findConfigurationBySiteIdentifier(string $siteIdentifier): ?Configuration
