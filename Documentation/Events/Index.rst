@@ -44,10 +44,3 @@ site ID:
 
 .. literalinclude:: _BeforeMatomoApiRequestEventListener.php
    :caption: EXT:your_extension/Classes/EventListener/BeforeMatomoApiRequestEventListener.php
-
-Registration of the event listener:
-
-.. literalinclude:: _Services.yaml
-   :caption: EXT:your_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <t3coreapi:dependency-injection-in-extensions>`.

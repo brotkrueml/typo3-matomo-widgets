@@ -1,7 +1,0 @@
-services:
-  # Place here the default dependency injection configuration
-
-  YourVendor\YourExtension\EventListener\BeforeMatomoApiRequestEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'your-extension/before-matomo-api-request'

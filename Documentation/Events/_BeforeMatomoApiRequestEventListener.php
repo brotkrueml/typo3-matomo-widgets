@@ -6,12 +6,16 @@ namespace YourVendor\YourExtension\EventListener;
 
 use Brotkrueml\MatomoWidgets\Event\BeforeMatomoApiRequestEvent;
 use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use YourVendor\YourExtension\Mapping\MatomoSiteMapper;
 
-final class BeforeMatomoApiRequestEventListener
+#[AsEventListener(
+    identifier: 'your-extension/before-matomo-api-request',
+)]
+final readonly class BeforeMatomoApiRequestEventListener
 {
     public function __construct(
-        private readonly MatomoSiteMapper $matomoSiteMapper,
+        private MatomoSiteMapper $matomoSiteMapper,
     ) {}
 
     public function __invoke(BeforeMatomoApiRequestEvent $event): void
