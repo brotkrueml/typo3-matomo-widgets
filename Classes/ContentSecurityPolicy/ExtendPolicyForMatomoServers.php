@@ -13,6 +13,7 @@ namespace Brotkrueml\MatomoWidgets\ContentSecurityPolicy;
 
 use Brotkrueml\MatomoWidgets\Configuration\Configuration;
 use Brotkrueml\MatomoWidgets\Configuration\Configurations;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Http\Uri;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\PolicyMutatedEvent;
@@ -22,6 +23,9 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
  * Event listener which extends the Content Security Policy for the configured Matomo servers
  * @internal
  */
+#[AsEventListener(
+    identifier: 'matomo-widgets/extend-policy-for-matomo-servers',
+)]
 final readonly class ExtendPolicyForMatomoServers
 {
     private const WIDGETS_TO_CONSIDER = [
