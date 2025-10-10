@@ -38,7 +38,7 @@ final class CacheIdentifierCreatorTest extends TestCase
         ]);
 
         $actual = $this->subject->createEntryIdentifier($configuration, $method, $parameterBag);
-        $expected = 'some-module_some-method_' . \md5(\serialize($configuration) . \serialize($parameterBag));
+        $expected = 'some-module_some-method_4e54617b72367f9c';
 
         self::assertSame($expected, $actual);
     }
@@ -50,7 +50,7 @@ final class CacheIdentifierCreatorTest extends TestCase
         $method = 'some-module.some-method';
 
         $actual = $this->subject->createTag($configuration, $method);
-        $expected = 'some-module_some-method_' . \md5(\serialize($configuration));
+        $expected = 'some-module_some-method_7b7b081c9df7a792';
 
         self::assertSame($expected, $actual);
     }

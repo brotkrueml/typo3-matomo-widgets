@@ -17,14 +17,14 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 /**
  * @internal
  */
-final class CacheIdentifierCreator
+final readonly class CacheIdentifierCreator
 {
     public function createEntryIdentifier(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): string
     {
         return \sprintf(
             '%s_%s',
             \str_replace('.', '_', $method),
-            \md5(\serialize($configuration) . \serialize($parameterBag)),
+            \hash('xxh3', \serialize($configuration) . \serialize($parameterBag)),
         );
     }
 
@@ -33,7 +33,7 @@ final class CacheIdentifierCreator
         return \sprintf(
             '%s_%s',
             \str_replace('.', '_', $method),
-            \md5(\serialize($configuration)),
+            \hash('xxh3', \serialize($configuration)),
         );
     }
 }
