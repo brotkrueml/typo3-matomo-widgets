@@ -103,6 +103,7 @@ final class MatomoConnectorTest extends TestCase
         self::assertSame('application/x-www-form-urlencoded', $lastRequest->getHeaders()['content-type']);
         self::assertSame('POST', $lastRequest->getRequestMethod());
         self::assertSame('/', $lastRequest->getRequestUri());
+        self::assertSame('Bearer ' . $connectionConfiguration->tokenAuth, $lastRequest->getHeaders()['authorization']);
         $body = \http_build_query($lastRequest->getPost());
         self::assertSame($expectedQuery, $body);
         self::assertSame($expectedResult, \json_encode($actual, \JSON_THROW_ON_ERROR));
@@ -120,7 +121,7 @@ final class MatomoConnectorTest extends TestCase
                 'period' => 'day',
                 'date' => 'today',
             ],
-            'period=day&date=today&module=API&idSite=62&method=VisitsSummary.get&token_auth=anonymous&format=json',
+            'period=day&date=today&module=API&idSite=62&method=VisitsSummary.get&format=json',
             '{"nb_uniq_visitors":1518,"nb_users":0,"nb_visits":1579,"nb_actions":3102,"nb_visits_converted":126,"bounce_count":1063,"sum_visit_length":259992,"max_actions":44,"bounce_rate":"67%","nb_actions_per_visit":2,"avg_time_on_site":165}',
         ];
 
@@ -131,7 +132,7 @@ final class MatomoConnectorTest extends TestCase
             ],
             'API.getMatomoVersion',
             [],
-            'module=API&idSite=62&method=API.getMatomoVersion&token_auth=anonymous&format=json',
+            'module=API&idSite=62&method=API.getMatomoVersion&format=json',
             '{"value":"3.13.6"}',
         ];
 
@@ -142,7 +143,7 @@ final class MatomoConnectorTest extends TestCase
             ],
             'API.getMatomoVersion',
             [],
-            'module=API&idSite=62&method=API.getMatomoVersion&token_auth=thesecrettoken&format=json',
+            'module=API&idSite=62&method=API.getMatomoVersion&format=json',
             '{"value":"3.13.6"}',
         ];
 
@@ -156,7 +157,7 @@ final class MatomoConnectorTest extends TestCase
                 'fo&o' => 'ba+r',
                 'qu x' => 'qo"o',
             ],
-            'fo%26o=ba%2Br&qu_x=qo%22o&module=API&idSite=62&method=VisitsSummary.get&token_auth=thesecrettoken&format=json',
+            'fo%26o=ba%2Br&qu_x=qo%22o&module=API&idSite=62&method=VisitsSummary.get&format=json',
             '{"nb_uniq_visitors":1518,"nb_users":0,"nb_visits":1579,"nb_actions":3102,"nb_visits_converted":126,"bounce_count":1063,"sum_visit_length":259992,"max_actions":44,"bounce_rate":"67%","nb_actions_per_visit":2,"avg_time_on_site":165}',
         ];
     }

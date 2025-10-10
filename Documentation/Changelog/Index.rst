@@ -11,6 +11,12 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 `Unreleased <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.4.0...HEAD>`_
 --------------------------------------------------------------------------------------------
 
+Changed
+^^^^^^^
+
+
+* Matomo 5.4+ is required (#60)
+
 Removed
 ^^^^^^^
 
