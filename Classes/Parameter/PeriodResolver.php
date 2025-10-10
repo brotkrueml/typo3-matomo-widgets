@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 /**
  * @internal
  */
-final class PeriodResolver implements PeriodResolverInterface
+final readonly class PeriodResolver implements PeriodResolverInterface
 {
     /**
      * @see https://regex101.com/r/RnHVMW/1

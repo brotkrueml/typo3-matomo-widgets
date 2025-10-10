@@ -14,7 +14,7 @@ namespace Brotkrueml\MatomoWidgets;
 /**
  * @internal
  */
-final class Extension
+final readonly class Extension
 {
     public const KEY = 'matomo_widgets';
 

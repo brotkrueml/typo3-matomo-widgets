@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 /**
  * @internal
  */
-final class LanguageParameterResolver implements ParameterResolverInterface
+final readonly class LanguageParameterResolver implements ParameterResolverInterface
 {
     public function resolve(): string
     {

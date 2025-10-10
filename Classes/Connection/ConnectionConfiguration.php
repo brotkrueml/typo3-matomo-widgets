@@ -14,13 +14,13 @@ namespace Brotkrueml\MatomoWidgets\Connection;
 /**
  * @internal
  */
-class ConnectionConfiguration
+readonly class ConnectionConfiguration
 {
-    public readonly string $tokenAuth;
+    public string $tokenAuth;
 
     public function __construct(
-        public readonly string $url,
-        public readonly int $idSite,
+        public string $url,
+        public int $idSite,
         #[\SensitiveParameter]
         string $tokenAuth,
     ) {

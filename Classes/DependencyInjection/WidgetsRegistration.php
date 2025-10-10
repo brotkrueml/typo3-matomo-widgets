@@ -42,7 +42,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurat
 /**
  * @internal
  */
-final class WidgetsRegistration
+final readonly class WidgetsRegistration
 {
     private const REGISTRATION_CLASSES = [
         ActionsPerDayRegistration::class,

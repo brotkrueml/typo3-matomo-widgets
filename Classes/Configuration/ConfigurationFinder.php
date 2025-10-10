@@ -22,7 +22,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * @internal
  */
-final class ConfigurationFinder
+final readonly class ConfigurationFinder
 {
     /**
      * Regex pattern for allowed characters in environment variables
