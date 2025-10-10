@@ -16,35 +16,25 @@ use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 #[CoversClass(DecorateViewHelper::class)]
 final class DecorateViewHelperTest extends TestCase
 {
-    private RenderingContextInterface&Stub $renderingContextStub;
-
-    protected function setUp(): void
-    {
-        $this->renderingContextStub = self::createStub(RenderingContextInterface::class);
-    }
-
     #[Test]
-    #[DataProvider('dataProviderForRenderStatic')]
-    public function renderStatic(array $arguments, string $expected): void
+    #[DataProvider('dataProviderForRender')]
+    public function render(array $arguments, string $expected): void
     {
-        $actual = DecorateViewHelper::renderStatic(
-            $arguments,
-            static function (): void {},
-            $this->renderingContextStub,
-        );
+        $subject = new DecorateViewHelper();
+        $subject->setArguments($arguments);
+
+        $actual = $subject->render();
 
         self::assertSame($expected, $actual);
     }
 
-    public static function dataProviderForRenderStatic(): iterable
+    public static function dataProviderForRender(): iterable
     {
         yield 'Given string value is decorated' => [
             'arguments' => [
@@ -79,7 +69,7 @@ final class DecorateViewHelperTest extends TestCase
     }
 
     #[Test]
-    public function renderStaticThrowsExceptionWhenDecoratorImplementsNotDecoratorInterface(): void
+    public function renderThrowsExceptionWhenDecoratorImplementsNotDecoratorInterface(): void
     {
         $this->expectException(Exception::class);
         $this->expectExceptionCode(1594828163);
@@ -90,10 +80,9 @@ final class DecorateViewHelperTest extends TestCase
             'value' => 'foo',
         ];
 
-        DecorateViewHelper::renderStatic(
-            $arguments,
-            static function (): void {},
-            $this->renderingContextStub,
-        );
+        $subject = new DecorateViewHelper();
+        $subject->setArguments($arguments);
+
+        $subject->render();
     }
 }

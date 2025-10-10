@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\ViewHelpers;
 
 use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
@@ -29,16 +28,11 @@ final class DecorateViewHelper extends AbstractViewHelper
         $this->registerArgument('value', 'string', 'The value to decorate', true);
     }
 
-    /**
-     * @param array{decorator: DecoratorInterface|null, value: string|null} $arguments
-     */
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext,
-    ): string {
-        $decorator = $arguments['decorator'];
-        $value = (string) $arguments['value'];
+    public function render(): string
+    {
+        /** @var DecoratorInterface|null $decorator */
+        $decorator = $this->arguments['decorator'];
+        $value = (string) $this->arguments['value'];
 
         if (! $decorator instanceof DecoratorInterface) {
             throw new Exception(
