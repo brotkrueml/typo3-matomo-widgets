@@ -10,11 +10,17 @@ Upgrade
    Before updating from a version before 0.3 to 1.x, 2.x or 3.x you should
    update to version 0.3.2 first and execute the upgrade wizards. Then update to
    the newest 1.x version and run the next upgrade wizards. Then you can upgrade
-   to version 2.x or 3.x.
+   to version 2.x, 3.x or 4.x.
 
 .. contents::
    :depth: 2
    :local:
+
+From version 3.x to 4.0
+=======================
+
+No migration necessary.
+
 
 From version 2.x to 3.0
 =======================
