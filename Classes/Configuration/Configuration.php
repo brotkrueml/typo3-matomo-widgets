@@ -16,22 +16,22 @@ use Brotkrueml\MatomoWidgets\Domain\Entity\CustomDimension;
 /**
  * @internal
  */
-final class Configuration
+final readonly class Configuration
 {
     /**
      * @param string[] $activeWidgets
      * @param CustomDimension[] $customDimensions
      */
     public function __construct(
-        public readonly string $siteIdentifier,
-        public readonly string $siteTitle,
-        public readonly string $url,
-        public readonly int $idSite,
+        public string $siteIdentifier,
+        public string $siteTitle,
+        public string $url,
+        public int $idSite,
         #[\SensitiveParameter]
-        public readonly string $tokenAuth,
-        public readonly array $activeWidgets,
-        public readonly array $customDimensions,
-        public readonly string $pagesNotFoundTemplate,
+        public string $tokenAuth,
+        public array $activeWidgets,
+        public array $customDimensions,
+        public string $pagesNotFoundTemplate,
     ) {}
 
     public function isWidgetActive(string $widgetIdentifier): bool

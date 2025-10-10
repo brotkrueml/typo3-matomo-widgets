@@ -17,12 +17,12 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 /**
  * @internal
  */
-final class PagesNotFoundPathDecorator implements DecoratorInterface
+final readonly class PagesNotFoundPathDecorator implements DecoratorInterface
 {
     private const LLL_REFERRER = Extension::LANGUAGE_PATH_DASHBOARD . ':referrer';
 
-    private readonly string $regex;
-    private readonly bool $isPathBeforeReferrer;
+    private string $regex;
+    private bool $isPathBeforeReferrer;
 
     public function __construct(string $template)
     {

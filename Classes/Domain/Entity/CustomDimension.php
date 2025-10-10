@@ -14,12 +14,12 @@ namespace Brotkrueml\MatomoWidgets\Domain\Entity;
 /**
  * @internal
  */
-final class CustomDimension
+final readonly class CustomDimension
 {
     public function __construct(
-        public readonly string $scope,
-        public readonly int $idDimension,
-        public readonly string $title,
-        public readonly string $description,
+        public string $scope,
+        public int $idDimension,
+        public string $title,
+        public string $description,
     ) {}
 }

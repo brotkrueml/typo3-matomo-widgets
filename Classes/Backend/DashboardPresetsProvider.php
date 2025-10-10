@@ -17,7 +17,7 @@ use Brotkrueml\MatomoWidgets\Extension;
 /**
  * @internal
  */
-final class DashboardPresetsProvider
+final readonly class DashboardPresetsProvider
 {
     private const DEFAULT_WIDGETS_TEMPLATES = [
         'visitsPerDay' => 'matomo_widgets.%s.visitsSummary.visitsPerDay',
@@ -34,7 +34,7 @@ final class DashboardPresetsProvider
     ];
 
     public function __construct(
-        private readonly Configurations $configurations,
+        private Configurations $configurations,
     ) {}
 
     /**

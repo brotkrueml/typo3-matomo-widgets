@@ -14,10 +14,10 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
 /**
  * @internal
  */
-final class JavaScriptErrorDecorator implements DecoratorInterface
+final readonly class JavaScriptErrorDecorator implements DecoratorInterface
 {
     public function __construct(
-        private readonly string $siteIdentifier,
+        private string $siteIdentifier,
     ) {}
 
     public function decorate(string $value): string

@@ -27,19 +27,19 @@ use TYPO3\CMS\Backend\View\BackendViewFactory;
 /**
  * @internal
  */
-final class JavaScriptErrorDetailsController
+final readonly class JavaScriptErrorDetailsController
 {
     /**
      * @param array{period: string, date: string} $parameters
      */
     public function __construct(
-        private readonly Configurations $configurations,
-        private readonly JavaScriptErrorDetailsAggregator $aggregator,
-        private readonly LoggerInterface $logger,
-        private readonly MatomoRepository $repository,
-        private readonly ResponseFactoryInterface $responseFactory,
-        private readonly BackendViewFactory $backendViewFactory,
-        private readonly array $parameters,
+        private Configurations $configurations,
+        private JavaScriptErrorDetailsAggregator $aggregator,
+        private LoggerInterface $logger,
+        private MatomoRepository $repository,
+        private ResponseFactoryInterface $responseFactory,
+        private BackendViewFactory $backendViewFactory,
+        private array $parameters,
     ) {}
 
     public function __invoke(ServerRequestInterface $request): ResponseInterface

@@ -18,17 +18,17 @@ use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 /**
  * @internal
  */
-final class GenericValueDataProvider implements ValueDataProviderInterface
+final readonly class GenericValueDataProvider implements ValueDataProviderInterface
 {
     /**
      * @param array<string, string> $parameters
      */
     public function __construct(
-        private readonly MatomoRepository $repository,
-        private readonly ConnectionConfiguration $connectionConfiguration,
-        private readonly string $method,
-        private readonly string $columnName,
-        private readonly array $parameters,
+        private MatomoRepository $repository,
+        private ConnectionConfiguration $connectionConfiguration,
+        private string $method,
+        private string $columnName,
+        private array $parameters,
     ) {}
 
     public function getValue(): string

@@ -20,8 +20,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - php-versions: '8.1'
-            typo3-versions: '^12'
           - php-versions: '8.2'
             typo3-versions: '^12'
           - php-versions: '8.2'

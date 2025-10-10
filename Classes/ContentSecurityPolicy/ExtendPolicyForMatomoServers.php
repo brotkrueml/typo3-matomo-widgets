@@ -22,7 +22,7 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
  * Event listener which extends the Content Security Policy for the configured Matomo servers
  * @internal
  */
-final class ExtendPolicyForMatomoServers
+final readonly class ExtendPolicyForMatomoServers
 {
     private const WIDGETS_TO_CONSIDER = [
         'browserPlugins',
@@ -30,7 +30,7 @@ final class ExtendPolicyForMatomoServers
     ];
 
     public function __construct(
-        private readonly Configurations $configurations,
+        private Configurations $configurations,
     ) {}
 
     public function __invoke(PolicyMutatedEvent $event): void

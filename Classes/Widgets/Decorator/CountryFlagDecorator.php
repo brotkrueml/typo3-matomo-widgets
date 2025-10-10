@@ -14,9 +14,9 @@ namespace Brotkrueml\MatomoWidgets\Widgets\Decorator;
 /**
  * @internal
  */
-final class CountryFlagDecorator implements DecoratorInterface
+final readonly class CountryFlagDecorator implements DecoratorInterface
 {
-    private readonly string $baseUrl;
+    private string $baseUrl;
 
     public function __construct(string $url)
     {
