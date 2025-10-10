@@ -24,13 +24,13 @@ use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
  * @see https://developer.matomo.org/api-reference/reporting-api
  * @internal
  */
-class MatomoRepository
+readonly class MatomoRepository
 {
     public function __construct(
-        private readonly FrontendInterface $cache,
-        private readonly CacheIdentifierCreator $cacheIdentifierCreator,
-        private readonly MatomoConnector $connector,
-        private readonly EventDispatcherInterface $eventDispatcher,
+        private FrontendInterface $cache,
+        private CacheIdentifierCreator $cacheIdentifierCreator,
+        private MatomoConnector $connector,
+        private EventDispatcherInterface $eventDispatcher,
     ) {}
 
     public function send(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag, bool $useCache = true): array
