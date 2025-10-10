@@ -4,20 +4,6 @@
     lang="en"
 >
 
-<f:if condition="{matomoWidgets:typo3Version()} === 12">
-    <div class="widget-content-title">
-        <span>
-            {f:translate(id: configuration.title, default: configuration.title)}
-            <f:comment>
-                <!-- @todo decide: keep report link? Then, where to show in the widget? -->
-                <f:if condition="{reportLink}">
-                    <a href="{reportLink}" target="_blank" rel="noreferrer" title="{f:translate(key:'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:openReport')}"><f:image src="EXT:matomo_widgets/Resources/Public/Icons/actions-external-link.svg" width="16" alt="{f:translate(key:'LLL:EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf:openReport')}"/></a>
-                </f:if>
-            </f:comment>
-        </span>
-    </div>
-</f:if>
-
 <div class="widget-content-main">
     <f:render section="main" optional="true"/>
 </div>
