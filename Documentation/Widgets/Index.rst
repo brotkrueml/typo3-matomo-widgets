@@ -87,7 +87,7 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 AI assistants
 =============
 
-.. versionadded:: 3.4
+.. note::
    Please ensure that you use at least Matomo in version 5.5.
 
 The AI assistants for the last 28 days shows this widget:
@@ -138,8 +138,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 
 Conversions per month
 =====================
-
-.. versionadded:: 3.3.0
 
 This widget displays the number of conversions per month for the last 12 months
 (including the current month). For this, you have to define at least one
@@ -205,10 +203,6 @@ Active widgets value in :file:`config.yaml`
 Bounce rate
 ===========
 
-.. versionchanged:: 3.0
-   The bounce rate for the last 28 days is displayed. In older versions the
-   rate for the current month has been shown.
-
 The bounce rate for the last 28 days shows this widget:
 
 .. figure:: /Images/WidgetBounceRate.png
@@ -234,10 +228,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 
 Browser plugins
 ===============
-
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
 
 This report shows which browser plugins your visitors had enabled in the last
 28 days:
@@ -267,10 +257,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Browsers
 ========
 
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
-
 The browser share for the last 28 days shows this widget:
 
 .. figure:: /Images/WidgetBrowsers.png
@@ -299,10 +285,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Campaigns
 =========
 
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
-
 Displays a report of the campaigns for the last 28 days:
 
 .. figure:: /Images/WidgetCampaigns.png
@@ -329,10 +311,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 
 Content names
 =============
-
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
 
 The content name report is part of `content tracking`_. The widget displays the
 names, impressions and interaction rate of the content the visitors viewed and
@@ -363,10 +341,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Content pieces
 ==============
 
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
-
 The content piece report is part of `content tracking`_. The widget displays the
 pieces, impressions and interaction rate of the content the visitors viewed and
 interacted with.
@@ -396,10 +370,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Countries
 =========
 
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
-
 Shows a list of countries from which the website was visited in the last 28
 days:
 
@@ -427,10 +397,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 
 Custom dimensions
 =================
-
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
 
 With `custom dimensions`_ any custom data can be assigned to visitors or
 actions. Before a custom dimension can be used as a dashboard widget it has to
@@ -530,10 +496,6 @@ Active widgets value in :file:`config.yaml`
 Most viewed pages
 =================
 
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
-
 Show the most viewed pages of a site for the last 28 days:
 
 .. figure:: /Images/WidgetMostViewedPages.png
@@ -564,10 +526,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 
 Operating system families
 =========================
-
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
 
 The operating system families used by the visitors for the last 28 days:
 
@@ -622,10 +580,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 Site search keywords
 ====================
 
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
-
 Overview of the search keywords that visitors searched for on the internal
 search engine:
 
@@ -653,10 +607,6 @@ Default configuration parameters in the :file:`Configuration/Services.yaml` file
 
 Site search keywords with no result
 ===================================
-
-.. versionchanged:: 3.0
-   The numbers for the last 28 days are displayed. In older versions the numbers
-   for the current month have been shown.
 
 List of the site search keywords that did not return any search result:
 
