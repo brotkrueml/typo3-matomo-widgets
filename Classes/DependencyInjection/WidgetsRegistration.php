@@ -37,7 +37,7 @@ final readonly class WidgetsRegistration
 
             // Register the dashboard widgets
             foreach (Widgets::cases() as $widget) {
-                (new ($widget->getAssociatedClassName())($parameters, $services, $configuration, $connectionConfigurationId))->register();
+                (new ($widget->getAssociatedClassNameForRegistration())($parameters, $services, $configuration, $connectionConfigurationId))->register();
             }
 
             // Register the custom dimensions dashboard widgets

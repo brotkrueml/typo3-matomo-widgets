@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Brotkrueml\MatomoWidgets\Tests\Unit\Configuration;
 
 use Brotkrueml\MatomoWidgets\Configuration\Widgets;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\RegistrationInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -34,5 +35,14 @@ final class WidgetsTest extends TestCase
             $actual[0]['value'],
             'The value is in lowerCamelCase',
         );
+    }
+
+    #[Test]
+    public function getAssociatedClassNameForRegistration(): void
+    {
+        foreach (Widgets::cases() as $widget) {
+            $implementedInterfaces = \class_implements($widget->getAssociatedClassNameForRegistration());
+            self::assertContains(RegistrationInterface::class, $implementedInterfaces);
+        }
     }
 }

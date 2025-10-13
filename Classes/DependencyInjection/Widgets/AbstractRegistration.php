@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurat
 /**
  * @internal
  */
-abstract class AbstractRegistration
+abstract class AbstractRegistration implements RegistrationInterface
 {
     protected const PROVIDER_ID_TEMPLATE = 'dashboard.provider.matomo_widgets.%s.%s';
     protected const SERVICE_ID_TEMPLATE = 'dashboard.widget.matomo_widgets.%s.%s';

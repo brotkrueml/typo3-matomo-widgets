@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Brotkrueml\MatomoWidgets\Configuration;
 
-use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\AbstractRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ActionsPerDayRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\ActionsPerMonthRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\AiAssistantsRegistration;
@@ -30,6 +29,7 @@ use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\LinkMatomoRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\MostViewedPagesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\OsFamiliesRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\PagesNotFoundRegistration;
+use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\RegistrationInterface;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\SiteSearchKeywordsRegistration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\SiteSearchNoResultKeywordsRegstration;
 use Brotkrueml\MatomoWidgets\DependencyInjection\Widgets\VisitsPerDayRegistration;
@@ -112,9 +112,9 @@ enum Widgets
     }
 
     /**
-     * @return class-string<AbstractRegistration>
+     * @return class-string<RegistrationInterface>
      */
-    public function getAssociatedClassName(): string
+    public function getAssociatedClassNameForRegistration(): string
     {
         return match ($this) {
             Widgets::ActionsPerDay => ActionsPerDayRegistration::class,
