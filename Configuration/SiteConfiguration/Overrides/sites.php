@@ -7,7 +7,7 @@
  * LICENSE.txt file that was distributed with this source code.
  */
 
-use Brotkrueml\MatomoWidgets\Configuration\WidgetsProvider;
+use Brotkrueml\MatomoWidgets\Configuration\Widgets;
 use Brotkrueml\MatomoWidgets\Extension;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -46,7 +46,7 @@ $GLOBALS['SiteConfiguration']['site']['columns'] += [
         'config' => [
             'type' => 'select',
             'renderType' => 'selectCheckBox',
-            'items' => (new WidgetsProvider())->getItemsForTca(),
+            'items' => Widgets::getItemsForSiteConfiguration(),
         ],
     ],
     'matomoWidgetsPagesNotFoundTemplate' => [
