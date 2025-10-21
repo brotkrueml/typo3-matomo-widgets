@@ -118,7 +118,6 @@ final class PagesNotFoundRegistration extends AbstractRegistration
             ->arg(
                 '$options',
                 [
-                    'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ],
@@ -135,14 +134,5 @@ final class PagesNotFoundRegistration extends AbstractRegistration
                     'width' => 'medium',
                 ],
             );
-    }
-
-    private function buildReportLink(): string
-    {
-        return \sprintf(
-            '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?period=month&date=today&segment=&category=General_Actions&subcategory=Actions_SubmenuPageTitles',
-            $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite,
-        );
     }
 }

@@ -97,7 +97,6 @@ final class ContentPiecesRegistration extends AbstractRegistration
             ->arg(
                 '$options',
                 [
-                    'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ],
@@ -114,14 +113,5 @@ final class ContentPiecesRegistration extends AbstractRegistration
                     'width' => 'small',
                 ],
             );
-    }
-
-    private function buildReportLink(): string
-    {
-        return \sprintf(
-            '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?category=General_Actions&subcategory=Contents_Contents',
-            $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite,
-        );
     }
 }

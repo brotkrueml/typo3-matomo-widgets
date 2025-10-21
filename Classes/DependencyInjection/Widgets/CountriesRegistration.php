@@ -101,7 +101,6 @@ final class CountriesRegistration extends AbstractRegistration
             ->arg(
                 '$options',
                 [
-                    'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ],
@@ -118,14 +117,5 @@ final class CountriesRegistration extends AbstractRegistration
                     'width' => 'small',
                 ],
             );
-    }
-
-    private function buildReportLink(): string
-    {
-        return \sprintf(
-            '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?segment=&category=General_Visitors&subcategory=UserCountry_SubmenuLocations',
-            $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite,
-        );
     }
 }

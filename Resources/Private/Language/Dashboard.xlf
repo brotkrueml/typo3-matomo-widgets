@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2025-10-09T17:06:03Z" product-name="matomo_widgets">
+	<file source-language="en" datatype="plaintext" original="EXT:matomo_widgets/Resources/Private/Language/Dashboard.xlf" date="2025-10-21T17:33:24Z" product-name="matomo_widgets">
 		<body>
 			<trans-unit id="actions">
 				<source><![CDATA[Actions]]></source>
@@ -64,9 +64,6 @@
 			</trans-unit>
 			<trans-unit id="note">
 				<source><![CDATA[Note]]></source>
-			</trans-unit>
-			<trans-unit id="openReport">
-				<source><![CDATA[Open report in Matomo]]></source>
 			</trans-unit>
 			<trans-unit id="other">
 				<source><![CDATA[Other]]></source>

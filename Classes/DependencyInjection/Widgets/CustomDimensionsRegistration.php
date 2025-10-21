@@ -139,7 +139,6 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             ->arg(
                 '$options',
                 [
-                    'reportLink' => $this->buildReportLink(),
                     'siteTitle' => $this->matomoConfiguration->siteTitle,
                     'title' => $localisedTitle,
                 ],
@@ -174,17 +173,6 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             'matomo_widgets.%s.%s.%d',
             $this->matomoConfiguration->siteIdentifier,
             $this->serviceIdSuffix,
-            $this->customDimension->idDimension,
-        );
-    }
-
-    private function buildReportLink(): string
-    {
-        return \sprintf(
-            '%s?module=CoreHome&action=index&idSite=%d&period=month&date=today#?category=%s&subcategory=customdimension%d',
-            $this->matomoConfiguration->url,
-            $this->matomoConfiguration->idSite,
-            $this->customDimension->scope === 'action' ? 'General_Actions' : 'General_Visitors',
             $this->customDimension->idDimension,
         );
     }

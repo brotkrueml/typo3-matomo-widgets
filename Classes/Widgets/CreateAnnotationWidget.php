@@ -52,7 +52,6 @@ final class CreateAnnotationWidget implements WidgetInterface, RequestAwareWidge
         $view = $this->backendViewFactory->create($this->request, ['typo3/cms-dashboard', 'brotkrueml/typo3-matomo-widgets']);
         $view->assignMultiple([
             'configuration' => $this->configuration,
-            'reportLink' => $this->options['reportLink'] ?? '',
             'siteIdentifier' => $this->options['siteIdentifier'] ?? '',
         ]);
 

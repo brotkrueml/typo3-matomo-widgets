@@ -62,7 +62,6 @@ class TableWidget implements WidgetInterface, AdditionalCssInterface, RequestAwa
             ],
             'button' => $this->buttonProvider,
             'configuration' => $this->configuration,
-            'reportLink' => $this->options['reportLink'] ?? '',
             'datePeriod' => $this->dataProvider->getDatePeriod(),
         ]);
 
