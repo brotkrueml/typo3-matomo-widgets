@@ -9,8 +9,8 @@ Installation
 Target group: **Administrators**
 
 .. note::
-   The extension in version |version| supports TYPO3 v13 LTS and requires
-   at least Matomo in version 5.4.
+   The extension in version |version| supports TYPO3 v13 LTS and TYPO3 v14,
+   and requires at least Matomo in version 5.4.
 
 The recommended way to install this extension is by using Composer. In your
 Composer-based TYPO3 project root, just type:
