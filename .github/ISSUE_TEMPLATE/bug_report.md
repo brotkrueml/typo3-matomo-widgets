@@ -22,10 +22,10 @@ If applicable, add screenshots to help explain your problem.
 
 ### Environment
 
-- Matomo Widgets version(s): [e.g. 1.1.2]
-- TYPO3 version(s): [e.g. 10.4.21, 11.5.0]
+- Matomo Widgets version(s): [e.g. 4.0.0]
+- TYPO3 version(s): [e.g. 13.4.20]
 - Is your TYPO3 installation set up with Composer (Composer Mode): [yes, no]
-- OS: [e.g. OSX 10.13.4, Windows 10, Debian 11]
+- OS: [Debian 13]
 
 ### Possible Solution
 
