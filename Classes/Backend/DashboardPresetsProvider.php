@@ -46,7 +46,7 @@ final readonly class DashboardPresetsProvider
         foreach ($this->configurations as $configuration) {
             $enabledWidgets = \array_values(\array_filter(
                 self::DEFAULT_WIDGETS_TEMPLATES,
-                static fn(string $widgetConfigurationKey): bool => $configuration->isWidgetActive($widgetConfigurationKey),
+                $configuration->isWidgetActive(...),
                 \ARRAY_FILTER_USE_KEY,
             ));
 
