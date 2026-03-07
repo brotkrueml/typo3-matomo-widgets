@@ -3,9 +3,8 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Php81\Rector\Array_\FirstClassCallableRector;
+use Rector\Php81\Rector\Array_\ArrayToFirstClassCallableRector;
 use Rector\PHPUnit\CodeQuality\Rector\Class_\PreferPHPUnitThisCallRector;
-use Rector\PHPUnit\CodeQuality\Rector\Class_\RemoveDataProviderParamKeysRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 
 return RectorConfig::configure()
@@ -35,10 +34,9 @@ return RectorConfig::configure()
     ])
     ->withRootFiles()
     ->withSkip([
-        FirstClassCallableRector::class => [
+        ArrayToFirstClassCallableRector::class => [
             __DIR__ . '/Configuration/Services.php',
         ],
         PreferPHPUnitThisCallRector::class,
-        RemoveDataProviderParamKeysRector::class,
         __DIR__ . '/Tests/Unit/Connection/MatomoConnectorTest.php',
     ]);
