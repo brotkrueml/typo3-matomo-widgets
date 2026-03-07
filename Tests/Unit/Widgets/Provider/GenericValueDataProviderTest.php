@@ -47,13 +47,22 @@ final class GenericValueDataProviderTest extends TestCase
     {
         $this->repositoryStub
             ->method('send')
-            ->with($this->connectionConfiguration, 'some.method', new ParameterBag([
-                'foo' => 'bar',
-            ]))
-            ->willReturn([
-                'the_column' => '123',
-                'another_column' => 987,
-            ]);
+            ->willReturnCallback(function (ConnectionConfiguration $connectionConfiguration, string $method, ParameterBag $parameterBag): array {
+                if ($connectionConfiguration !== $this->connectionConfiguration) {
+                    throw new \Exception('Connection configuration is wrong');
+                }
+                if ($method !== 'some.method') {
+                    throw new \Exception('Method is wrong');
+                }
+                if ($parameterBag->buildQuery() !== 'foo=bar') {
+                    throw new \Exception('Parameter bag is wrong');
+                }
+
+                return [
+                    'the_column' => '123',
+                    'another_column' => 987,
+                ];
+            });
 
         $actual = $this->subject->getValue();
 
@@ -65,12 +74,21 @@ final class GenericValueDataProviderTest extends TestCase
     {
         $this->repositoryStub
             ->method('send')
-            ->with($this->connectionConfiguration, 'some.method', new ParameterBag([
-                'foo' => 'bar',
-            ]))
-            ->willReturn([
-                'a_column' => 987,
-            ]);
+            ->willReturnCallback(function (ConnectionConfiguration $connectionConfiguration, string $method, ParameterBag $parameterBag): array {
+                if ($connectionConfiguration !== $this->connectionConfiguration) {
+                    throw new \Exception('Connection configuration is wrong');
+                }
+                if ($method !== 'some.method') {
+                    throw new \Exception('Method is wrong');
+                }
+                if ($parameterBag->buildQuery() !== 'foo=bar') {
+                    throw new \Exception('Parameter bag is wrong');
+                }
+
+                return [
+                    'a_column' => 987,
+                ];
+            });
 
         $actual = $this->subject->getValue();
 

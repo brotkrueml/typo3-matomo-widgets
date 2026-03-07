@@ -59,13 +59,25 @@ final class GenericDoughnutChartDataProviderTest extends TestCase
 
         $this->repositoryStub
             ->method('send')
-            ->with($this->connectionConfiguration, $method, new ParameterBag($parameters))
-            ->willReturn($rows);
+            ->willReturnCallback(function (ConnectionConfiguration $connectionConfiguration, string $method, ParameterBag $parameterBag) use ($rows): array {
+                if ($connectionConfiguration !== $this->connectionConfiguration) {
+                    throw new \Exception('Connection configuration is wrong');
+                }
+                if ($method !== 'some.method') {
+                    throw new \Exception('Method is wrong');
+                }
+                if ($parameterBag->buildQuery() !== 'foo=bar&qux=quu') {
+                    throw new \Exception('Parameter bag is wrong');
+                }
+
+                return $rows;
+            });
 
         $this->languageServiceStub
             ->method('sL')
-            ->with(Extension::LANGUAGE_PATH_DASHBOARD . ':other')
-            ->willReturn('Other values');
+            ->willReturnMap([
+                [Extension::LANGUAGE_PATH_DASHBOARD . ':other', 'Other values'],
+            ]);
 
         $actual = (new GenericDoughnutChartDataProvider(
             $this->repositoryStub,

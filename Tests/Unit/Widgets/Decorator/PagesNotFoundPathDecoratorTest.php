@@ -29,8 +29,9 @@ final class PagesNotFoundPathDecoratorTest extends TestCase
         $languageServiceStub = self::createStub(LanguageService::class);
         $languageServiceStub
             ->method('sL')
-            ->with(Extension::LANGUAGE_PATH_DASHBOARD . ':referrer')
-            ->willReturn('Referrer');
+            ->willReturnMap([
+                [Extension::LANGUAGE_PATH_DASHBOARD . ':referrer', 'Referrer'],
+            ]);
 
         $GLOBALS['LANG'] = $languageServiceStub;
     }

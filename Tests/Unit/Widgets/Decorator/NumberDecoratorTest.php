@@ -30,8 +30,9 @@ final class NumberDecoratorTest extends TestCase
         $languageServiceStub = self::createStub(LanguageService::class);
         $languageServiceStub
             ->method('sL')
-            ->with(Extension::LANGUAGE_PATH_DASHBOARD . ':thousandsSeparator')
-            ->willReturn('.');
+            ->willReturnMap([
+                [Extension::LANGUAGE_PATH_DASHBOARD . ':thousandsSeparator', '.'],
+            ]);
         $GLOBALS['LANG'] = $languageServiceStub;
 
         $this->subject = new NumberDecorator();

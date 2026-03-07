@@ -18,6 +18,7 @@ use Brotkrueml\MatomoWidgets\Controller\CreateAnnotationController;
 use Brotkrueml\MatomoWidgets\Domain\Repository\MatomoRepository;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use GuzzleHttp\Exception\RequestException;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
@@ -89,6 +90,7 @@ final class CreateAnnotationControllerTest extends TestCase
 
     #[Test]
     #[DataProvider('dataProviderForEmptyOrMissingParameterReturnsResponseWithError')]
+    #[AllowMockObjectsWithoutExpectations]
     public function emptyOrMissingParameterReturnsResponseWithError(array $parameters, array $expected): void
     {
         $actual = $this->invokeController($parameters);
@@ -182,6 +184,7 @@ final class CreateAnnotationControllerTest extends TestCase
     }
 
     #[Test]
+    #[AllowMockObjectsWithoutExpectations]
     public function useHasNoPermissionForWidgetReturnsResponseWithError(): void
     {
         $parameters = [
@@ -198,6 +201,7 @@ final class CreateAnnotationControllerTest extends TestCase
     }
 
     #[Test]
+    #[AllowMockObjectsWithoutExpectations]
     public function annotationCannotBeCreatedThenReturnsResponseWithError(): void
     {
         $parameters = [
@@ -279,8 +283,9 @@ final class CreateAnnotationControllerTest extends TestCase
     {
         $this->backendUserStub
             ->method('check')
-            ->with('available_widgets', 'matomo_widgets.' . $identifier . '.annotation.create')
-            ->willReturn($hasPermission);
+            ->willReturnMap([
+                ['available_widgets', 'matomo_widgets.' . $identifier . '.annotation.create', $hasPermission],
+            ]);
     }
 
     private function invokeController(array $parameters): ResponseInterface

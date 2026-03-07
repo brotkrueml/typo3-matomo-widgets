@@ -49,8 +49,9 @@ final class PeriodResolverTest extends TestCase
         if (\is_array($translation)) {
             $this->languageServiceStub
                 ->method('sL')
-                ->with(Extension::LANGUAGE_PATH_DASHBOARD . ':' . $translation['key'])
-                ->willReturn($translation['value']);
+                ->willReturnMap([
+                    [Extension::LANGUAGE_PATH_DASHBOARD . ':' . $translation['key'], $translation['value']],
+                ]);
         }
 
         $actual = $this->subject->resolve($period, $date);

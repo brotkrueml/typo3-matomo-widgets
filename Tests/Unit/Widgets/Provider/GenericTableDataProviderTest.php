@@ -19,7 +19,6 @@ use Brotkrueml\MatomoWidgets\Widgets\Decorator\DecoratorInterface;
 use Brotkrueml\MatomoWidgets\Widgets\Provider\GenericTableDataProvider;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Core\Localization\LanguageService;
@@ -28,14 +27,12 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 final class GenericTableDataProviderTest extends TestCase
 {
     private ConnectionConfiguration $connectionConfiguration;
-    private MatomoRepository&MockObject $repositoryMock;
     private LanguageService&Stub $languageServiceStub;
     private PeriodResolverInterface $periodResolverStub;
 
     protected function setUp(): void
     {
         $this->connectionConfiguration = new ConnectionConfiguration('https://example.org/', 1, '');
-        $this->repositoryMock = $this->createMock(MatomoRepository::class);
         $this->periodResolverStub = new class implements PeriodResolverInterface {
             public function resolve(string $period, string $date): string
             {
@@ -56,7 +53,7 @@ final class GenericTableDataProviderTest extends TestCase
     public function getClasses(): void
     {
         $subject = new GenericTableDataProvider(
-            $this->repositoryMock,
+            self::createStub(MatomoRepository::class),
             $this->connectionConfiguration,
             $this->periodResolverStub,
             'some.method',
@@ -86,7 +83,7 @@ final class GenericTableDataProviderTest extends TestCase
     public function getColumns(): void
     {
         $subject = new GenericTableDataProvider(
-            $this->repositoryMock,
+            self::createStub(MatomoRepository::class),
             $this->connectionConfiguration,
             $this->periodResolverStub,
             'some.method',
@@ -113,7 +110,7 @@ final class GenericTableDataProviderTest extends TestCase
         $decoratorStub = self::createStub(DecoratorInterface::class);
 
         $subject = new GenericTableDataProvider(
-            $this->repositoryMock,
+            self::createStub(MatomoRepository::class),
             $this->connectionConfiguration,
             $this->periodResolverStub,
             'some.method',
@@ -140,11 +137,12 @@ final class GenericTableDataProviderTest extends TestCase
     {
         $this->languageServiceStub
             ->method('sL')
-            ->with('someHeader')
-            ->willReturn('some header');
+            ->willReturnMap([
+                ['someHeader', 'some header'],
+            ]);
 
         $subject = new GenericTableDataProvider(
-            $this->repositoryMock,
+            self::createStub(MatomoRepository::class),
             $this->connectionConfiguration,
             $this->periodResolverStub,
             'some.method',
@@ -185,14 +183,15 @@ final class GenericTableDataProviderTest extends TestCase
             ],
         ];
 
-        $this->repositoryMock
+        $repositoryMock = $this->createMock(MatomoRepository::class);
+        $repositoryMock
             ->expects(self::once())
             ->method('send')
             ->with($this->connectionConfiguration, 'some.method', new ParameterBag($parameters))
             ->willReturn($result);
 
         $subject = new GenericTableDataProvider(
-            $this->repositoryMock,
+            $repositoryMock,
             $this->connectionConfiguration,
             $this->periodResolverStub,
             'some.method',
@@ -224,7 +223,8 @@ final class GenericTableDataProviderTest extends TestCase
             ],
         ];
 
-        $this->repositoryMock
+        $repositoryMock = $this->createMock(MatomoRepository::class);
+        $repositoryMock
             ->expects(self::once())
             ->method('send')
             ->with($this->connectionConfiguration, 'some.method', new ParameterBag([...$parameters, ...[
@@ -233,7 +233,7 @@ final class GenericTableDataProviderTest extends TestCase
             ->willReturn($result);
 
         $subject = new GenericTableDataProvider(
-            $this->repositoryMock,
+            $repositoryMock,
             $this->connectionConfiguration,
             $this->periodResolverStub,
             'some.method',
@@ -261,7 +261,7 @@ final class GenericTableDataProviderTest extends TestCase
         ];
 
         $subject = new GenericTableDataProvider(
-            $this->repositoryMock,
+            self::createStub(MatomoRepository::class),
             $this->connectionConfiguration,
             $this->periodResolverStub,
             'some.method',

@@ -43,8 +43,9 @@ final class LinkMatomoButtonProviderTest extends TestCase
     {
         $this->languageServiceStub
             ->method('sL')
-            ->with(Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.buttonText')
-            ->willReturn('Matomo link');
+            ->willReturnMap([
+                [Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.buttonText', 'Matomo link'],
+            ]);
 
         self::assertSame('Matomo link', $this->subject->getTitle());
     }

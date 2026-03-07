@@ -55,17 +55,29 @@ final class GenericBarChartDataProviderTest extends TestCase
 
         $this->repositoryStub
             ->method('send')
-            ->with($this->connectionConfiguration, $method, new ParameterBag($parameters))
-            ->willReturn([
-                '2020-07-16' => 1234,
-                '2020-07-15' => 543,
-                '2020-07-14' => 6191,
-            ]);
+            ->willReturnCallback(function (ConnectionConfiguration $connectionConfiguration, string $method, ParameterBag $parameterBag): array {
+                if ($connectionConfiguration !== $this->connectionConfiguration) {
+                    throw new \Exception('Connection configuration is wrong');
+                }
+                if ($method !== 'some.method') {
+                    throw new \Exception('Method is wrong');
+                }
+                if ($parameterBag->buildQuery() !== 'foo=bar&qux=quu') {
+                    throw new \Exception('Parameter bag is wrong');
+                }
+
+                return [
+                    '2020-07-16' => 1234,
+                    '2020-07-15' => 543,
+                    '2020-07-14' => 6191,
+                ];
+            });
 
         $this->languageServiceStub
             ->method('sL')
-            ->with($barLabel)
-            ->willReturn('another bar label');
+            ->willReturnMap([
+                [$barLabel, 'another bar label'],
+            ]);
 
         $actual = (new GenericBarChartDataProvider(
             $this->repositoryStub,
