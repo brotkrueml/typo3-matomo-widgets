@@ -15,7 +15,6 @@ use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidResponseException;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
 use Psr\Http\Message\RequestFactoryInterface;
-use TYPO3\CMS\Core\Http\Client\GuzzleClientFactory;
 use TYPO3\CMS\Core\Http\Stream;
 
 /**
