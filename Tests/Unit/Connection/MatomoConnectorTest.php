@@ -24,16 +24,12 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\RequestFactoryInterface;
-use TYPO3\CMS\Core\Http\Client;
 use TYPO3\CMS\Core\Http\Client\GuzzleClientFactory;
-use TYPO3\CMS\Core\Http\RequestFactory;
 
 #[CoversClass(MatomoConnector::class)]
 final class MatomoConnectorTest extends TestCase
 {
     private static MockWebServer $server;
-    private RequestFactoryInterface $requestFactory;
     private GuzzleClientFactory&Stub $guzzleClientFactoryStub;
     private ClientInterface $client;
     private string $url;
@@ -53,7 +49,6 @@ final class MatomoConnectorTest extends TestCase
     {
         $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify'] = false;
 
-        $this->requestFactory = new RequestFactory(new Client\GuzzleClientFactory());
         $this->client = (new GuzzleClientFactory())->getClient();
 
         $this->guzzleClientFactoryStub = self::createStub(GuzzleClientFactory::class);
@@ -96,7 +91,7 @@ final class MatomoConnectorTest extends TestCase
             $parameterBag->set($name, $value);
         }
 
-        $subject = new MatomoConnector($this->requestFactory, new GuzzleClientFactory());
+        $subject = new MatomoConnector($this->guzzleClientFactoryStub);
         $actual = $subject->callApi($connectionConfiguration, $method, $parameterBag);
 
         $lastRequest = self::$server->getLastRequest();
@@ -181,7 +176,7 @@ final class MatomoConnectorTest extends TestCase
             ),
         );
 
-        $subject = new MatomoConnector($this->requestFactory, new GuzzleClientFactory());
+        $subject = new MatomoConnector($this->guzzleClientFactoryStub);
         $subject->callApi($connectionConfiguration, 'some.method', new ParameterBag());
     }
 
@@ -203,7 +198,7 @@ final class MatomoConnectorTest extends TestCase
             ),
         );
 
-        $subject = new MatomoConnector($this->requestFactory, new GuzzleClientFactory());
+        $subject = new MatomoConnector($this->guzzleClientFactoryStub);
         $subject->callApi($connectionConfiguration, 'someMethod', new ParameterBag());
     }
 
@@ -225,7 +220,7 @@ final class MatomoConnectorTest extends TestCase
             ),
         );
 
-        $subject = new MatomoConnector($this->requestFactory, new GuzzleClientFactory());
+        $subject = new MatomoConnector($this->guzzleClientFactoryStub);
         $subject->callApi($connectionConfiguration, 'someMethod', new ParameterBag());
     }
 }

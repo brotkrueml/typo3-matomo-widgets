@@ -14,9 +14,8 @@ namespace Brotkrueml\MatomoWidgets\Connection;
 use Brotkrueml\MatomoWidgets\Exception\ConnectionException;
 use Brotkrueml\MatomoWidgets\Exception\InvalidResponseException;
 use Brotkrueml\MatomoWidgets\Parameter\ParameterBag;
-use Psr\Http\Message\RequestFactoryInterface;
+use GuzzleHttp\Psr7\Request;
 use TYPO3\CMS\Core\Http\Client\GuzzleClientFactory;
-use TYPO3\CMS\Core\Http\Stream;
 
 /**
  * @internal
@@ -24,7 +23,6 @@ use TYPO3\CMS\Core\Http\Stream;
 class MatomoConnector
 {
     public function __construct(
-        private readonly RequestFactoryInterface $requestFactory,
         private readonly GuzzleClientFactory $guzzleClientFactory,
     ) {}
 
@@ -37,12 +35,12 @@ class MatomoConnector
             ->set('token_auth', $configuration->tokenAuth)
             ->set('format', 'json');
 
-        $body = new Stream('php://temp', 'r+');
-        $body->write($parameterBag->buildQuery());
-
-        $request = $this->requestFactory->createRequest('POST', $configuration->url)
-            ->withHeader('content-type', 'application/x-www-form-urlencoded')
-            ->withBody($body);
+        $request = new Request(
+            'POST',
+            $configuration->url,
+            ['content-type' => 'application/x-www-form-urlencoded'],
+            $parameterBag->buildQuery(),
+        );
 
         $response = $this->guzzleClientFactory->getClient()->send($request);
 
