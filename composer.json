@@ -70,7 +70,11 @@
 			"dev-main": "4.0.x-dev"
 		},
 		"typo3/cms": {
+			"Package": {
+				"providesPackages": {}
+			},
 			"extension-key": "matomo_widgets",
+			"version": "4.0.0",
 			"web-dir": ".Build/web"
 		}
 	}
