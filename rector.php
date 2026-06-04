@@ -6,6 +6,7 @@ use Rector\Config\RectorConfig;
 use Rector\Php81\Rector\Array_\ArrayToFirstClassCallableRector;
 use Rector\PHPUnit\CodeQuality\Rector\Class_\PreferPHPUnitThisCallRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
+use Rector\TypeDeclaration\Rector\StmtsAwareInterface\SafeDeclareStrictTypesRector;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -38,5 +39,8 @@ return RectorConfig::configure()
             __DIR__ . '/Configuration/Services.php',
         ],
         PreferPHPUnitThisCallRector::class,
+        SafeDeclareStrictTypesRector::class => [
+            __DIR__ . '/ext_emconf.php',
+        ],
         __DIR__ . '/Tests/Unit/Connection/MatomoConnectorTest.php',
     ]);
