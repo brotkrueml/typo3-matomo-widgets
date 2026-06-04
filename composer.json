@@ -74,7 +74,7 @@
 				"providesPackages": {}
 			},
 			"extension-key": "matomo_widgets",
-			"version": "4.0.0",
+			"version": "4.0.1-dev",
 			"web-dir": ".Build/web"
 		}
 	}
