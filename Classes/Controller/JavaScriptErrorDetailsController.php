@@ -73,7 +73,8 @@ final readonly class JavaScriptErrorDetailsController
             $this->logger->error($t->getMessage());
             $response = $this->responseFactory->createResponse()
                 ->withHeader('Content-Type', 'text/plain; charset=utf-8');
-            $response->getBody()->write('An error occurred, please have a look into the TYPO3 log file for details.');
+            $response->getBody()
+                ->write('An error occurred, please have a look into the TYPO3 log file for details.');
 
             return $response;
         }
@@ -87,7 +88,8 @@ final readonly class JavaScriptErrorDetailsController
 
         $response = $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'text/html; charset=utf-8');
-        $response->getBody()->write($view->render('JavaScriptErrorDetails'));
+        $response->getBody()
+            ->write($view->render('JavaScriptErrorDetails'));
 
         return $response;
     }

@@ -21,7 +21,8 @@ final class CountriesDataProvider extends GenericTableDataProvider
 {
     public function getRows(): array
     {
-        $userLanguage = $this->getBackendUser()->user['lang'] ?? 'en';
+        $userLanguage = $this->getBackendUser()
+            ->user['lang'] ?? 'en';
 
         $parameters = \array_merge(
             $this->parameters,

@@ -101,9 +101,10 @@ final class CreateAnnotationController
 
     private function translate(string $key): string
     {
-        return $this->getLanguageService()->sL(
-            \sprintf('%s:%s', Extension::LANGUAGE_PATH_DASHBOARD, $key),
-        ) ?: $key;
+        return $this->getLanguageService()
+            ->sL(
+                \sprintf('%s:%s', Extension::LANGUAGE_PATH_DASHBOARD, $key),
+            ) ?: $key;
     }
 
     private function buildResponse(bool $isError = false, string $message = ''): ResponseInterface
@@ -117,17 +118,19 @@ final class CreateAnnotationController
 
         $response = $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'application/json; charset=utf-8');
-        $response->getBody()->write(\json_encode($data, \JSON_THROW_ON_ERROR));
+        $response->getBody()
+            ->write(\json_encode($data, \JSON_THROW_ON_ERROR));
 
         return $response;
     }
 
     private function hasUserPermissionForWidget(): bool
     {
-        return $this->getBackendUser()->check(
-            'available_widgets',
-            \sprintf(Extension::WIDGET_IDENTIFIER_TEMPLATE, $this->siteIdentifier, 'annotation.create'),
-        );
+        return $this->getBackendUser()
+            ->check(
+                'available_widgets',
+                \sprintf(Extension::WIDGET_IDENTIFIER_TEMPLATE, $this->siteIdentifier, 'annotation.create'),
+            );
     }
 
     private function createAnnotation(): void
@@ -164,19 +167,20 @@ final class CreateAnnotationController
         // backend module itself, which makes it harder for system maintainers to follow who created
         // a new annotation on the Matomo installation.
         // See: https://docs.typo3.org/m/typo3/reference-coreapi/10.4/en-us/ApiOverview/SystemLog/Index.html
-        $this->getBackendUser()->writelog(
-            4, // EXTENSION
-            0,
-            0,
-            null,
-            'Matomo Widgets: Annotation "%s / %s" (%d) was created on Matomo installation for site "%s"',
-            [
-                $createdAnnotation['date'],
-                $createdAnnotation['note'],
-                $createdAnnotation['idNote'],
-                $this->siteIdentifier,
-            ],
-        );
+        $this->getBackendUser()
+            ->writelog(
+                4, // EXTENSION
+                0,
+                0,
+                null,
+                'Matomo Widgets: Annotation "%s / %s" (%d) was created on Matomo installation for site "%s"',
+                [
+                    $createdAnnotation['date'],
+                    $createdAnnotation['note'],
+                    $createdAnnotation['idNote'],
+                    $this->siteIdentifier,
+                ],
+            );
     }
 
     private function flushCache(ConnectionConfiguration $configuration): void

@@ -25,7 +25,8 @@ trait WidgetTitleAdaptionTrait
      */
     private function prefixWithSiteTitle(WidgetConfigurationInterface $configuration, array $options): WidgetConfigurationInterface
     {
-        $title = $this->getLanguageService()->sL($options['title'] ?? '') ?: $configuration->getTitle();
+        $title = $this->getLanguageService()
+            ->sL($options['title'] ?? '') ?: $configuration->getTitle();
         $siteTitle = $options['siteTitle'] ?? '';
         if ($siteTitle !== '') {
             $title = \sprintf('%s: %s', $siteTitle, $title);

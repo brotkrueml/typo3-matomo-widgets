@@ -45,7 +45,8 @@ final readonly class GenericBarChartDataProvider implements ChartDataProviderInt
             'labels' => \array_keys($data),
             'datasets' => [
                 [
-                    'label' => $this->getLanguageService()->sL($this->barLabel),
+                    'label' => $this->getLanguageService()
+                        ->sL($this->barLabel),
                     'backgroundColor' => $this->backgroundColour,
                     'data' => \array_values($data),
                 ],

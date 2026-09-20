@@ -220,7 +220,8 @@ final class CreateAnnotationControllerTest extends TestCase
 
         self::assertJsonStringEqualsJsonString(
             '{"status":"error","message":"An error occurred, please have a look into the TYPO3 log file for details."}',
-            $actual->getBody()->getContents(),
+            $actual->getBody()
+                ->getContents(),
         );
     }
 
@@ -275,7 +276,8 @@ final class CreateAnnotationControllerTest extends TestCase
 
         self::assertJsonStringEqualsJsonString(
             '{"status":"error","message":"An error occurred, please have a look into the TYPO3 log file for details."}',
-            $actual->getBody()->getContents(),
+            $actual->getBody()
+                ->getContents(),
         );
     }
 
@@ -295,7 +297,8 @@ final class CreateAnnotationControllerTest extends TestCase
             ->willReturn($parameters);
 
         $response = $this->subject->__invoke($this->serverRequestStub);
-        $response->getBody()->rewind();
+        $response->getBody()
+            ->rewind();
 
         return $response;
     }

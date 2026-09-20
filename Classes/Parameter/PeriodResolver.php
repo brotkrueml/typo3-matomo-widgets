@@ -69,7 +69,8 @@ final readonly class PeriodResolver implements PeriodResolverInterface
 
     private function translate(string $key): string
     {
-        return $this->getLanguageService()->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':' . $key);
+        return $this->getLanguageService()
+            ->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':' . $key);
     }
 
     private function getLanguageService(): LanguageService

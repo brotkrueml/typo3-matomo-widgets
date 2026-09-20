@@ -44,7 +44,8 @@ readonly class MatomoConnector
             ->withHeader('authorization', 'Bearer ' . $configuration->tokenAuth)
             ->withBody($body);
 
-        $response = $this->guzzleClientFactory->getClient()->send($request);
+        $response = $this->guzzleClientFactory->getClient()
+            ->send($request);
 
         return $this->checkResponse($response->getBody()->getContents());
     }

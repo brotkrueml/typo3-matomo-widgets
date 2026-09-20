@@ -25,7 +25,8 @@ final class NumberDecorator implements DecoratorInterface
             (int) $value,
             0,
             '',
-            $this->getLanguageService()->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':thousandsSeparator'),
+            $this->getLanguageService()
+                ->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':thousandsSeparator'),
         );
     }
 

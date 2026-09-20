@@ -51,7 +51,8 @@ final readonly class ExtendPolicyForMatomoServers
         }
 
         if ($uriValues !== []) {
-            $event->getCurrentPolicy()->extend(Directive::ImgSrc, ...$uriValues);
+            $event->getCurrentPolicy()
+                ->extend(Directive::ImgSrc, ...$uriValues);
         }
     }
 

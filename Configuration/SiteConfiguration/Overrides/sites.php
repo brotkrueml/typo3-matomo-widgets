@@ -93,12 +93,11 @@ $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',
 $GLOBALS['SiteConfiguration']['site']['palettes'] += [
     'matomoWidgetsInstallation' => [
         'label' => Extension::LANGUAGE_PATH_SITECONF . ':matomoInstallation',
-        'showitem'
-            => (
-                ExtensionManagementUtility::isLoaded('matomo_integration')
+        'showitem' => (
+            ExtensionManagementUtility::isLoaded('matomo_integration')
                     ? 'matomoWidgetsConsiderMatomoIntegration, --linebreak--, '
                     : ''
-            ) . 'matomoWidgetsUrl, matomoWidgetsIdSite, matomoWidgetsTokenAuth',
+        ) . 'matomoWidgetsUrl, matomoWidgetsIdSite, matomoWidgetsTokenAuth',
     ],
     'matomoWidgetsActiveWidgets' => [
         'label' => Extension::LANGUAGE_PATH_SITECONF . ':dashboardWidgets',

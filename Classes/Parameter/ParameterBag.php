@@ -43,9 +43,6 @@ final class ParameterBag
         return $this;
     }
 
-    /**
-     * @return $this
-     */
     public function set(string $name, string|int|ParameterResolverInterface $value): self
     {
         if ($value instanceof ParameterResolverInterface) {

@@ -129,7 +129,8 @@ final class CustomDimensionsRegistration extends AbstractRegistration
             $title = \sprintf(
                 '%s: %s',
                 $this->matomoConfiguration->siteTitle,
-                $this->getLanguageService()->sL($title),
+                $this->getLanguageService()
+                    ->sL($title),
             );
         }
 

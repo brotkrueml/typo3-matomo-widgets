@@ -26,7 +26,8 @@ final readonly class LinkMatomoButtonProvider implements ButtonProviderInterface
 
     public function getTitle(): string
     {
-        return $this->getLanguageService()->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.buttonText');
+        return $this->getLanguageService()
+            ->sL(Extension::LANGUAGE_PATH_DASHBOARD . ':widgets.linkMatomo.buttonText');
     }
 
     public function getLink(): string

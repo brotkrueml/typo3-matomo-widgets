@@ -20,7 +20,8 @@ final readonly class BeforeMatomoApiRequestEventListener
 
     public function __invoke(BeforeMatomoApiRequestEvent $event): void
     {
-        $hostName = $this->getRequest()->getServerParams()['REMOTE_HOST'];
+        $hostName = $this->getRequest()
+            ->getServerParams()['REMOTE_HOST'];
         if ($idSiteFromHostName = $this->matomoSiteMapper->getIdSiteFromHostName($hostName)) {
             $event->setIdSite($idSiteFromHostName);
         }

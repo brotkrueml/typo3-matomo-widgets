@@ -41,25 +41,19 @@ final class JavaScriptErrorDetails
 
     public function incrementBrowserCount(string $name, string $icon, string $version): void
     {
-        if (! isset($this->browsers[$name])) {
-            $this->browsers[$name] = new BrowserCount($name, $icon);
-        }
+        $this->browsers[$name] ??= new BrowserCount($name, $icon);
         $this->browsers[$name]->incrementHit($version);
     }
 
     public function incrementUrlCount(string $url): void
     {
-        if (! isset($this->urls[$url])) {
-            $this->urls[$url] = new UrlCount($url);
-        }
+        $this->urls[$url] ??= new UrlCount($url);
         $this->urls[$url]->incrementHits();
     }
 
     public function incrementScriptCount(string $script): void
     {
-        if (! isset($this->scripts[$script])) {
-            $this->scripts[$script] = new ScriptCount($script);
-        }
+        $this->scripts[$script] ??= new ScriptCount($script);
         $this->scripts[$script]->incrementHits();
     }
 

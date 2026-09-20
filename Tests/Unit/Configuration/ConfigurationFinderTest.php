@@ -150,7 +150,8 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(1, $configurations);
 
         /** @var Configuration $actualConfiguration */
-        $actualConfiguration = $configurations->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()
+            ->current();
         self::assertInstanceOf(Configuration::class, $actualConfiguration);
         self::assertSame('some_site', $actualConfiguration->siteIdentifier);
         self::assertSame(42, $actualConfiguration->idSite);
@@ -214,7 +215,8 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(1, $configurations);
 
         /** @var Configuration $actualConfiguration */
-        $actualConfiguration = $configurations->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()
+            ->current();
         self::assertInstanceOf(Configuration::class, $actualConfiguration);
         self::assertSame('some_site', $actualConfiguration->siteIdentifier);
         self::assertSame(42, $actualConfiguration->idSite);
@@ -241,7 +243,8 @@ final class ConfigurationFinderTest extends TestCase
         $this->createSiteConfiguration('some_site', $configuration);
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, false);
 
-        $actualConfiguration = $configurations->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()
+            ->current();
         self::assertSame(42, $actualConfiguration->idSite);
         self::assertSame('https://example.org/', $actualConfiguration->url);
         self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
@@ -268,7 +271,8 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(1, $configurations);
 
         /** @var Configuration $actualConfiguration */
-        $actualConfiguration = $configurations->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()
+            ->current();
         self::assertSame(1, $actualConfiguration->idSite);
         self::assertSame('https://example.com/', $actualConfiguration->url);
         self::assertSame('matomo integration 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
@@ -306,7 +310,8 @@ final class ConfigurationFinderTest extends TestCase
         $this->createSiteConfiguration('some_site', $configuration);
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
 
-        $actualConfiguration = $configurations->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()
+            ->current();
         self::assertCount(1, $configurations);
         self::assertSame('matomo widgets 404 | {path} | {referrer}', $actualConfiguration->pagesNotFoundTemplate);
     }
@@ -360,7 +365,8 @@ final class ConfigurationFinderTest extends TestCase
         self::assertCount(1, $configurations);
 
         /** @var Configuration $actualConfiguration */
-        $actualConfiguration = $configurations->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()
+            ->current();
         self::assertInstanceOf(Configuration::class, $actualConfiguration);
         self::assertSame('__some_config', $actualConfiguration->siteIdentifier);
         self::assertSame(42, $actualConfiguration->idSite);
@@ -426,7 +432,8 @@ final class ConfigurationFinderTest extends TestCase
         ]);
 
         $configurations = ConfigurationFinder::buildConfigurations(self::$configPath, true);
-        $actualConfiguration = $configurations->getIterator()->current();
+        $actualConfiguration = $configurations->getIterator()
+            ->current();
 
         self::assertSame('https://matomo.example.com/', $actualConfiguration->url);
     }
