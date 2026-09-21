@@ -21,11 +21,11 @@ use TYPO3\CMS\Core\Http\Stream;
 /**
  * @internal
  */
-class MatomoConnector
+readonly class MatomoConnector
 {
     public function __construct(
-        private readonly RequestFactoryInterface $requestFactory,
-        private readonly GuzzleClientFactory $guzzleClientFactory,
+        private RequestFactoryInterface $requestFactory,
+        private GuzzleClientFactory $guzzleClientFactory,
     ) {}
 
     public function callApi(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array
