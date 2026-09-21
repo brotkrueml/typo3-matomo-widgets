@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Deprecation about ext_emconf.php in classic mode with TYPO3 v14
+- Authentication issue introduced with version 4.0.0 (#67)
 
 ## [4.0.0] - 2025-11-26
 

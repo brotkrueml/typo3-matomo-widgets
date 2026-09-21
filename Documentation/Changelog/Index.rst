@@ -16,6 +16,7 @@ Fixed
 
 
 * Deprecation about ext_emconf.php in classic mode with TYPO3 v14
+* Authentication issue introduced with version 4.0.0 (#67)
 
 `4.0.0 <https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.4.0...v4.0.0>`_ - 2025-11-26
 ------------------------------------------------------------------------------------------------------
@@ -25,12 +26,6 @@ Added
 
 
 * Compatibility with TYPO3 v14
-
-Changed
-^^^^^^^
-
-
-* Matomo 5.4+ is required (#60)
 
 Removed
 ^^^^^^^
