@@ -21,11 +21,11 @@ use TYPO3\CMS\Core\Http\Stream;
 /**
  * @internal
  */
-readonly class MatomoConnector
+class MatomoConnector
 {
     public function __construct(
-        private RequestFactoryInterface $requestFactory,
-        private GuzzleClientFactory $guzzleClientFactory,
+        private readonly RequestFactoryInterface $requestFactory,
+        private readonly GuzzleClientFactory $guzzleClientFactory,
     ) {}
 
     public function callApi(ConnectionConfiguration $configuration, string $method, ParameterBag $parameterBag): array
@@ -34,6 +34,7 @@ readonly class MatomoConnector
             ->set('module', 'API')
             ->set('idSite', (string) $configuration->idSite)
             ->set('method', $method)
+            ->set('token_auth', $configuration->tokenAuth)
             ->set('format', 'json');
 
         $body = new Stream('php://temp', 'r+');
@@ -41,7 +42,6 @@ readonly class MatomoConnector
 
         $request = $this->requestFactory->createRequest('POST', $configuration->url)
             ->withHeader('content-type', 'application/x-www-form-urlencoded')
-            ->withHeader('authorization', 'Bearer ' . $configuration->tokenAuth)
             ->withBody($body);
 
         $response = $this->guzzleClientFactory->getClient()

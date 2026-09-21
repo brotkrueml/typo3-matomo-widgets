@@ -14,9 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Compatibility with TYPO3 v14
 
-### Changed
-- Matomo 5.4+ is required (#60)
-
 ### Removed
 - Compatibility with TYPO3 v12 (#53)
 
