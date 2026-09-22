@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.1] - 2026-09-22
+
 ### Fixed
 - Deprecation about ext_emconf.php in classic mode with TYPO3 v14
 - Authentication issue introduced with version 4.0.0 (#67)
@@ -257,7 +259,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial release
 
 
-[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v4.0.0...HEAD
+[Unreleased]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v4.0.1...HEAD
+[4.0.1]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.4.0...v4.0.0
 [3.4.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.3.0...v3.4.0
 [3.3.0]: https://github.com/brotkrueml/typo3-matomo-widgets/compare/v3.2.3...v3.3.0
