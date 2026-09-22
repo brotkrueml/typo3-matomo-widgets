@@ -38,7 +38,7 @@
 		"phpunit/phpunit": "^11.5 || ^12.5 || ^13.3",
 		"rector/rector": "2.6.7",
 		"symfony/yaml": "^7.4",
-		"symplify/phpstan-rules": "^14.13",
+		"symplify/phpstan-rules": "~14.15.3",
 		"tomasvotruba/cognitive-complexity": "^1.2"
 	},
 	"suggest": {
